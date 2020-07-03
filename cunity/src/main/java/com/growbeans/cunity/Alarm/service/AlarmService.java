@@ -2,6 +2,8 @@ package com.growbeans.cunity.Alarm.service;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
 import com.growbeans.cunity.Alarm.domain.Alarm;
 
 public interface AlarmService {
