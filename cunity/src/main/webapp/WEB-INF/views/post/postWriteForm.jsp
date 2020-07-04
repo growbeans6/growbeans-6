@@ -23,7 +23,7 @@
 			</tr>
 			<tr>
 				<td>이미지</td>
-				<td><input type="file" name="upfile"/></td>
+				<td><input type="image" src="imgRoot" name="imgName" value="${imgRoot.imgName }"/></td>
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
