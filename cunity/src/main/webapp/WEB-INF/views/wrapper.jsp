@@ -114,12 +114,20 @@
           </div>
         </div>
       </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fab fa-algolia"></i>
-          <span>스터디 룸</span></a>
+        
+        <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#studycollapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>스터디 룸</span>
+        </a>
+        <div id="studycollapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Login Screens:</h6>
+            <a class="collapse-item" href="#">스터디 보드</a>
+            <a class="collapse-item" href="#">파일 공유</a>
+            <a class="collapse-item" href="#">그룹 채팅</a>
+          </div>
+        </div>
       </li>
 
       <!-- Nav Item - Tables -->
