@@ -24,7 +24,52 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+<style>
+        .profile {
+            width: 80px;
+            height: 80px;
+            border: 5px solid lightgray;
+            border-radius: 100px;
+            float: left;
+        }
 
+        .profile_update {
+            width: 80px;
+            height: 80px;
+
+            border: 5px solid rgb(46, 89, 217);
+            border-radius: 100px;
+            float: left;
+        }
+
+        #profile-area {
+            margin-left: 15px;
+        }
+
+        .writer {
+
+            margin-left: 10px;
+            float: left;
+            padding-top: 10px;
+        }
+
+        a:hover {
+
+            text-decoration: none;
+        }
+
+        .img-area {
+            padding: 20px;
+        }
+
+        .content-img {
+            border: 1px solid lightgray;
+            margin: 10px;
+            width: 250px;
+            height: 250px;
+        }
+
+    </style>
 </head>
 
 <body id="page-top">

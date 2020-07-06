@@ -24,7 +24,39 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+<style>
+        .profile {
+            width: 80px;
+            height: 80px;
+            border: 5px solid lightgray;
+            border-radius: 100px;
+            float: left;
+        }
 
+        .profile_update {
+            width: 80px;
+            height: 80px;
+
+            border: 5px solid rgb(46, 89, 217);
+            border-radius: 100px;
+            float: left;
+        }
+
+        #profile-area {
+            margin-left: 15px;
+        }
+
+        .writer {
+            margin-left: 10px;
+            float: left;
+            padding-top: 10px;
+        }
+
+        a:hover {
+
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -64,15 +96,15 @@
 												class="row h5 font-weight-bold text-gray-800 text-center">
 												<div id="profile-area">
 													<figure> <img class="profile  mb-2"
-														src="img/chipmunk.jpg"> <figcaption>이승원</figcaption>
+														src="/resources/img/chipmunk.jpg"> <figcaption>이승원</figcaption>
 													</figure>
 												</div>
 												<div id="profile-area">
-													<img class="profile_update mb-2" src="img/chipmunk.jpg">
+													<img class="profile_update mb-2" src="/resources/img/chipmunk.jpg">
 													<figcaption>이승원</figcaption>
 												</div>
 												<div id="profile-area">
-													<img class="profile  mb-2" src="img/chipmunk.jpg">
+													<img class="profile  mb-2" src="/resources/img/chipmunk.jpg">
 													<figcaption>이승원</figcaption>
 												</div>
 											</div>
@@ -89,7 +121,7 @@
 							<div class="card mb-4">
 								<div class="card-header">
 									<div class="header">
-										<img class="profile" src="img/chipmunk.jpg">
+										<img class="profile" src="/resources/img/chipmunk.jpg">
 										<div class="writer">
 											<h5>이승원</h5>
 											<span><i class="far fa-calendar-alt"></i> 2020-07-03</span>
@@ -104,15 +136,16 @@
 									are the only things modifying the look and feel of this default
 									card example.</div>
 								<div class="card-footer">
-									<a href="#"><i class="fab fa-readme"></i> 상세보기</a> <a href="#"><i
+								<c:url value="/boardWriteForm" var="boardWriteForm"></c:url>
+									<a href="${boardWriteForm }"><i class="fab fa-readme"></i> 상세보기</a> <a href="#"><i
 										class="fas fa-share"></i> 공유하기</a>
 								</div>
 							</div>
 							<!-- Default Card Example -->
-							<div class="card shadow mb-4">
+							<div class="card shadow mb-4 ">
 								<div class="card-header">
 									<div class="header">
-										<img class="profile" src="img/chipmunk.jpg">
+										<img class="profile" src="/resources/img/chipmunk.jpg">
 										<div class="writer">
 											<h5>이승원</h5>
 											<span><i class="far fa-calendar-alt"></i> 2020-07-03</span>
@@ -134,7 +167,7 @@
 							<div class="card mb-4">
 								<div class="card-header">
 									<div class="header">
-										<img class="profile" src="img/chipmunk.jpg">
+										<img class="profile" src="/resources/img/chipmunk.jpg">
 										<div class="writer">
 											<h5>이승원</h5>
 											<span><i class="far fa-calendar-alt"></i> 2020-07-03</span>
@@ -156,7 +189,7 @@
 							<div class="card mb-4">
 								<div class="card-header">
 									<div class="header">
-										<img class="profile" src="img/chipmunk.jpg">
+										<img class="profile" src="/resources/img/chipmunk.jpg">
 										<div class="writer">
 											<h5>이승원</h5>
 											<span><i class="far fa-calendar-alt"></i> 2020-07-03</span>

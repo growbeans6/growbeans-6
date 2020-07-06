@@ -24,7 +24,140 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+<style>
+        .profile {
+            width: 80px;
+            height: 80px;
+            border: 5px solid lightgray;
+            border-radius: 100px;
+            float: left;
+        }
 
+        .profile_update {
+            width: 80px;
+            height: 80px;
+
+            border: 5px solid rgb(46, 89, 217);
+            border-radius: 100px;
+            float: left;
+        }
+
+        #profile-area {
+            margin-left: 15px;
+        }
+
+        .writer {
+            margin-left: 10px;
+            float: left;
+            padding-top: 10px;
+        }
+
+        a:hover {
+
+            text-decoration: none;
+        }
+
+        * imaged preview */ .filebox .upload-display {
+            /* 이미지가 표시될 지역 */
+            margin-bottom: 5px;
+        }
+
+        @media(min-width: 768px) {
+            .filebox .upload-display {
+                display: inline-block;
+                margin-right: 5px;
+                margin-bottom: 0;
+            }
+        }
+
+        .filebox .upload-thumb-wrap {
+            /* 추가될 이미지를 감싸는 요소 */
+            display: inline-block;
+            width: 54px;
+            padding: 2px;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .filebox .upload-display img {
+            /* 추가될 이미지 */
+            display: block;
+            max-width: 100%;
+            width: 100% \9;
+            height: auto;
+        }
+
+        #input-img {
+            height: 200px;
+            width: 200px;
+            border: 1px solid lightgray;
+        }
+
+        .filebox input[type="file"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .filebox label {
+            display: inline-block;
+            padding: .5em .75em;
+            color: #999;
+            font-size: inherit;
+            line-height: normal;
+            vertical-align: middle;
+            background-color: #fdfdfd;
+            cursor: pointer;
+            border: 1px solid #ebebeb;
+            border-bottom-color: #e2e2e2;
+            border-radius: .25em;
+        }
+
+        /* named upload */
+        .filebox .upload-name {
+            display: inline-block;
+            padding: .5em .75em;
+            /* label의 패딩값과 일치 */
+            font-size: inherit;
+            font-family: inherit;
+            line-height: normal;
+            vertical-align: middle;
+            background-color: #f5f5f5;
+            border: 1px solid #ebebeb;
+            border-bottom-color: #e2e2e2;
+            border-radius: .25em;
+            -webkit-appearance: none;
+            /* 네이티브 외형 감추기 */
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .image-label {
+            margin-top: 10px;
+        }
+
+        #writeTextarea {
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        #close_link {
+            text-decoration: none;
+            color: gray;
+        }
+
+        #close_link:visited {
+            text-decoration: none;
+            color: gray;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -56,10 +189,10 @@
 
 
 								<!-- Default Card Example -->
-								<div class="card mb-4">
+								<div class="card shadow mb-4">
 									<div class="card-header">
 										<div class="header">
-											<img class="profile" src="img/chipmunk.jpg">
+											<img class="profile" src="/resources/img/chipmunk.jpg">
 											<div class="writer">
 												<h5>이승원</h5>
 												<span><i class="far fa-calendar-alt"></i> 2020-07-03</span>
@@ -76,7 +209,7 @@
 											class="far fa-images"></i> 이미지 추가하기</a>
 									</div>
 								</div>
-								<div class="card mb-4">
+								<div class="card shadow mb-4">
 									<div class="card-header">
 										<div id="filebox1" class="filebox" style="display: none;">
 											<input id="upload-name1" class="upload-name" value="파일선택"
@@ -199,7 +332,7 @@
 			$("#image1").attr("disabled", true);
 			$("#image1").val("");
 			$('#upload-name1').val("파일선택");
-			$('#img-box1 img').attr("src", '/img/chipmunk.jpg');
+			$('#img-box1 img').attr("src", '/resources//img/chipmunk.jpg');
 			count--;
 			image = 0;
 		}
@@ -211,7 +344,7 @@
 			$("#image2").attr("disabled", true);
 			$("#image2").val("");
 			$('#upload-name2').val("파일선택");
-			$('#img-box2 img').attr("src", '/img/chipmunk.jpg');
+			$('#img-box2 img').attr("src", '/resources//img/chipmunk.jpg');
 			count--;
 			image = 1;
 		}
@@ -223,7 +356,7 @@
 			$("#image3").attr("disabled", true);
 			$("#image3").val("");
 			$('#upload-name3').val("파일선택");
-			$('#img-box3 img').attr("src", '/img/chipmunk.jpg');
+			$('#img-box3 img').attr("src", '/resources//img/chipmunk.jpg');
 			count--;
 			image = 2;
 			var status = $("#image1").attr("disabled");
@@ -251,7 +384,7 @@
 			e.preventDefault();
 			$("#image1").val("");
 			$('#upload-name1').val("파일선택");
-			$('#img-box1 img').attr('src', '/img/chipmunk.jpg');
+			$('#img-box1 img').attr('src', '/resources//img/chipmunk.jpg');
 		});
 		$('#image2').on('change', function() {
 			var name = $(this).val().split('/').pop().split('\\').pop();
@@ -272,7 +405,7 @@
 			e.preventDefault();
 			$("#image2").val("");
 			$('#upload-name2').val("파일선택");
-			$('#img-box2 img').attr('src', '/img/chipmunk.jpg');
+			$('#img-box2 img').attr('src', '/resources//img/chipmunk.jpg');
 		});
 		$('#image3').on('change', function() {
 			var name = $(this).val().split('/').pop().split('\\').pop();
