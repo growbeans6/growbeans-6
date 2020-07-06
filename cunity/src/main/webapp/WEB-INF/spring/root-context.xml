@@ -1,8 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 1. DataSource 등록
+	- DataSource는 서버 구동시 도시에 연결이되어야 하며 연결 정보 설정시 root-context 제일 위쪽에 작성 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<!-- driverClassName이라는 멤버변수에 oracle..driver라는 value을 자동으로 주입 DI를 넣고 있음. -->
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="cunity"/>
+		<property name="password" value="cunity"/>
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+		<property name="dataSource" ref="dataSource"/>
+		<!-- dataSource에는 우리가 위에서 부여한 dataSource라는 객체를 넣어준다. -->
+	</bean>
+	<!-- property는 setter를 통해, constructor-arg는 생성자를 통해 -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"/>
+	</bean>
+	
+	 <!-- AOP XML 방식 -->
+	 <!-- <bean id="log" class="com.kh.spring.common.LogAdvice"></bean>
+
+		<aop:config>
+			<aop:pointcut expression="execution(* com.kh.spring..*Impl.*(..))" id="allPointcut"/>
+			<aop:pointcut expression="execution(int com.kh.spring..*Imple.*(..))" id="returnIntPointcut"/>
+			<aop:aspect ref="log">
+				<aop:before method="aroundLog" pointcut-ref="allPointcut"/>
+				<aop:before method="printTransactionLog" pointcut-ref="returnIntPointcut"/>
+			</aop:aspect>
+		</aop:config> -->
 		
-</beans>
+	<!-- 1. *(리턴타입) org.kh.member.model.service(패키지).*(클래스).*(메소드)(..(매개변수가 0개 이상)): service 패키지에 있는 모든 클래스 및 모든 메소드(매개변수는 0개 이상)
+	 2. * org.kh.member.model.service..(하위패키지)*.*(..): service패키지 및 하위 패키지에 있는 모든 클래스 및 메소드(매개변수는 0개 이상)
+	 3. * org.kh.member.model.service..*.*(): service 패키지 및 하위 패키지에 있는 모든 클래스 및 모든 메소드(매개변수 없음)
+	 4. * org.kh.member.model.service..*.*(.): service 패키지 및 하위 패키지에 있는 모든 클래스 및 모든 메소드(매개변수 없음)
+	 5. * org.kh.member.model.service..*.*(Integer,..): service 패키지 및 하위 패키지에 있는 모든 클래스 및 메소드(매개변수가 1개 이상이고 첫번째 파라미터는 정수)
+	 6. int org.kh.member.model.service..*.*(Integer,..): service 패키지 및 하위 패키지에 있는 모든 클래스 및 메소드(매개변수가 1개 이상이고 첫번째 파라미터는 정수, 리턴타입은 int)
+	 7. int com.kh.spring..*Impl.*(..): spring 패키지 및 하위 패키지에 Impl로 끝나는 클래스의 모든 메소드(매개변수는 0개 이상)  -->
+	 
+	 <!-- 파일 업로드 관련 Bean 등록 -->
+	 <bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		 <property name="maxUploadSize" value="100000000"/>
+		 <property name="maxInMemorySize" value="100000000"/>
+	</bean>
+	
+	<!-- 1. maxUploadSize: 한 요청당 업로드가 허용되는 최대용량을 바이트 단위로 설정
+	-1은 제한이 없다는 뜻이고 프로퍼티를 지정하지 않을 때 기본 값
+	2. maxInMemorySize: 디스크에 저장하지 않고 메모리에 유지하도록 허용하는 바이트 단위 최대용량을 설정
+	
+	사이즈가 이보다 클 경우 이 사이즈 이상의 데이터를 파일에 저장
+	기본값은 10240 바이트 -->
+	
+</beans> 
+
+
+ 

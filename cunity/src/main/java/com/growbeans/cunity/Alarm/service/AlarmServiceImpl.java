@@ -31,4 +31,10 @@ public class AlarmServiceImpl implements AlarmService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Alarm selectAlarm(int aNo) {
+		
+		return null;
+	}
 }

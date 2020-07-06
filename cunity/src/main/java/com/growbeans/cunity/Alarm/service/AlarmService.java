@@ -28,6 +28,11 @@ public interface AlarmService {
 	 * @return list
 	 */
 	public ArrayList<Alarm> selectAlarmList(int sNo);
-	
+	/**
+	 * 4. 알람 한 개 선택
+	 * @param aNo
+	 * @return alarm
+	 */
+	public Alarm selectAlarm(int aNo);
 	
 }

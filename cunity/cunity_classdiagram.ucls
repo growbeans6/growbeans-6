@@ -1,0 +1,1652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.growbeans.cunity.Alarm.domain.Alarm" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/Alarm/domain/Alarm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="229" y="250"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="2" language="java" name="com.growbeans.cunity.Alarm.mapper.AlarmMapper" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/Alarm/mapper/AlarmMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="433" y="115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" language="java" name="com.growbeans.cunity.Alarm.controller.AlarmController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/Alarm/controller/AlarmController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="640" y="124"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.growbeans.cunity.Alarm.service.AlarmServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/Alarm/service/AlarmServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="869" y="151"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="5" language="java" name="com.growbeans.cunity.Alarm.service.AlarmService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/Alarm/service/AlarmService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="755" y="515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="6" language="java" name="com.growbeans.cunity.Alarm.store.AlarmStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/Alarm/store/AlarmStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1090" y="133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="7" language="java" name="com.growbeans.cunity.Alarm.store.AlarmStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/Alarm/store/AlarmStore.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="976" y="488"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="8" language="java" name="com.growbeans.cunity.chatRoom.domain.ChatRoom" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/chatRoom/domain/ChatRoom.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="238" y="793"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="com.growbeans.cunity.chatRoom.mapper.ChatRoomMapper" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/chatRoom/mapper/ChatRoomMapper.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="473" y="685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="10" language="java" name="com.growbeans.cunity.chatRoom.service.ChatRoomService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/chatRoom/service/ChatRoomService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1198" y="1058"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="11" language="java" name="com.growbeans.cunity.chatRoom.store.ChatRoomStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/chatRoom/store/ChatRoomStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1619" y="1058"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="12" language="java" name="com.growbeans.cunity.chatRoom.handdler.EchoHandler" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/chatRoom/handdler/EchoHandler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="778" y="712"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.growbeans.cunity.chatRoom.handdler.WebSocketConfig" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/chatRoom/handdler/WebSocketConfig.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1619" y="685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.growbeans.cunity.chatRoom.controller.ChatRoomController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/chatRoom/controller/ChatRoomController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1074" y="685"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.growbeans.cunity.chatRoom.store.logic.ChatRoomStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/chatRoom/store/logic/ChatRoomStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1925" y="703"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.growbeans.cunity.chatRoom.service.logic.ChatRoomServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/chatRoom/service/logic/ChatRoomServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1313" y="694"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.growbeans.cunity.consulting.store.logic.ConsultingStoreLogic" 
+    project="cunity" file="/cunity/src/main/java/com/growbeans/cunity/consulting/store/logic/ConsultingStoreLogic.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="522" y="1268"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.growbeans.cunity.consulting.controller.ConsultingController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/consulting/controller/ConsultingController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1053" y="1268"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.growbeans.cunity.consulting.service.logic.ConsultingServiceImpl" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/consulting/service/logic/ConsultingServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="772" y="1259"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="20" language="java" name="com.growbeans.cunity.consulting.service.ConsultingService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/consulting/service/ConsultingService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="897" y="1785"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="21" language="java" name="com.growbeans.cunity.consulting.store.ConsultingStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/consulting/store/ConsultingStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="647" y="1785"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="22" language="java" name="com.growbeans.cunity.consulting.domain.Consulting" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/consulting/domain/Consulting.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="256" y="1412"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="23" language="java" name="com.growbeans.cunity.departmentNotice.service.DepartmentNoticeService" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNotice/service/DepartmentNoticeService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2079" y="485"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="24" language="java" name="com.growbeans.cunity.departmentNotice.domain.DepartmentNotice" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNotice/domain/DepartmentNotice.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1464" y="148"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.growbeans.cunity.departmentNotice.controller.DepartmentNoticeController" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNotice/controller/DepartmentNoticeController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1887" y="22"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="com.growbeans.cunity.departmentNotice.store.logic.DepartmentNoticeStoreLogic" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNotice/store/logic/DepartmentNoticeStoreLogic.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2676" y="22"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="27" language="java" name="com.growbeans.cunity.departmentNotice.store.DepartmentNoticeStore" 
+    project="cunity" file="/cunity/src/main/java/com/growbeans/cunity/departmentNotice/store/DepartmentNoticeStore.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2483" y="485"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="28" language="java" name="com.growbeans.cunity.departmentNotice.service.logic.DepartmentNoticeImpl" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNotice/service/logic/DepartmentNoticeImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2351" y="13"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" 
+    name="com.growbeans.cunity.departmentNoticeFile.store.logic.DepartmentNoticeFileStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNoticeFile/store/logic/DepartmentNoticeFileStoreLogic.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3044" y="103"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" 
+    name="com.growbeans.cunity.departmentNoticeFile.controller.DepartmentNoticeFileController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNoticeFile/controller/DepartmentNoticeFileController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3323" y="103"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="31" language="java" 
+    name="com.growbeans.cunity.departmentNoticeFile.service.DepartmentNoticeFileService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNoticeFile/service/DepartmentNoticeFileService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3595" y="94"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="32" language="java" 
+    name="com.growbeans.cunity.departmentNoticeFile.service.logic.DepartmentNoticeFileServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNoticeFile/service/logic/DepartmentNoticeFileServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3875" y="103"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="33" language="java" name="com.growbeans.cunity.departmentNoticeFile.store.DepartmentNoticeFileStore" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNoticeFile/store/DepartmentNoticeFileStore.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4150" y="94"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="34" language="java" name="com.growbeans.cunity.departmentNoticeFile.domain.DepartmentNoticeFile" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/departmentNoticeFile/domain/DepartmentNoticeFile.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4423" y="256"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="com.growbeans.cunity.foreignActivities.controller.ForeignActivitiesController" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/foreignActivities/controller/ForeignActivitiesController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2578" y="658"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="36" language="java" name="com.growbeans.cunity.foreignActivities.store.ForeignActivitiesStore" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/foreignActivities/store/ForeignActivitiesStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2842" y="1112"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="37" language="java" name="com.growbeans.cunity.foreignActivities.domain.ForeignActivities" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/foreignActivities/domain/ForeignActivities.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2276" y="820"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" 
+    name="com.growbeans.cunity.foreignActivities.service.logic.ForeignActivitiesServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/foreignActivities/service/logic/ForeignActivitiesServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2858" y="658"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="39" language="java" name="com.growbeans.cunity.foreignActivities.service.ForeignActivitiesService" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/foreignActivities/service/ForeignActivitiesService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2599" y="1130"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="40" language="java" name="com.growbeans.cunity.foreignActivities.mapper.ForeignActivitiesMapper" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/foreignActivities/mapper/ForeignActivitiesMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3117" y="649"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="41" language="java" name="com.growbeans.cunity.foreignActivities.store.logic.ForeignActivitiesStoreLogic" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/foreignActivities/store/logic/ForeignActivitiesStoreLogic.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3371" y="640"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="com.growbeans.cunity.friends.domain.Friends" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/friends/domain/Friends.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="168" x="1372" y="1189"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="com.growbeans.cunity.friends.service.FriendsServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/friends/service/FriendsServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="240" x="1988" y="1189"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="44" language="java" name="com.growbeans.cunity.friends.mapper.FriendsMapper" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/friends/mapper/FriendsMapper.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="63" width="169" x="1779" y="1189"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="45" language="java" name="com.growbeans.cunity.friends.store.FriendsStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/friends/store/FriendsStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="63" width="159" x="1784" y="1508"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="46" language="java" name="com.growbeans.cunity.friends.store.FriendsStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/friends/store/FriendsStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="159" x="1580" y="1189"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="com.growbeans.cunity.friends.controller.FriendsController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/friends/controller/FriendsController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="176" x="2268" y="1189"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="48" language="java" name="com.growbeans.cunity.friends.service.FriendsService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/friends/service/FriendsService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="240" x="2128" y="1508"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="49" language="java" name="com.growbeans.cunity.grade.store.GradeStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/grade/store/GradeStore.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4072" y="1452"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="50" language="java" name="com.growbeans.cunity.grade.controller.GradeController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/grade/controller/GradeController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3707" y="872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="com.growbeans.cunity.grade.domain.Grade" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/grade/domain/Grade.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3424" y="1088"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="com.growbeans.cunity.grade.service.logic.GradeServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/grade/service/logic/GradeServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3961" y="872"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="53" language="java" name="com.growbeans.cunity.grade.service.GradeService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/grade/service/GradeService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3818" y="1452"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="54" language="java" name="com.growbeans.cunity.grade.store.Logic.GradeStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/grade/store/Logic/GradeStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4185" y="881"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="55" language="java" name="com.growbeans.cunity.lecture.controller.LectureController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecture/controller/LectureController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="596" y="2031"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="56" language="java" name="com.growbeans.cunity.lecture.service.logic.LectureServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecture/service/logic/LectureServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="849" y="2031"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="57" language="java" name="com.growbeans.cunity.lecture.service.LectureService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecture/service/LectureService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="713" y="2719"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="58" language="java" name="com.growbeans.cunity.lecture.store.LectureStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecture/store/LectureStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="966" y="2719"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="59" language="java" name="com.growbeans.cunity.lecture.store.logic.LectureStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecture/store/logic/LectureStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1084" y="2040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="60" language="java" name="com.growbeans.cunity.lecture.domain.Lecture" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecture/domain/Lecture.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="288" y="2292"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="61" language="java" name="com.growbeans.cunity.lectureEnrollment.store.logic.LectureEnrollmentStoreLogic" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEnrollment/store/logic/LectureEnrollmentStoreLogic.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1694" y="1847"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="62" language="java" name="com.growbeans.cunity.lectureEnrollment.controller.LectureEnrollmentController" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEnrollment/controller/LectureEnrollmentController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2495" y="1838"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="63" language="java" name="com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEnrollment/domain/LectureEnrollment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1436" y="1892"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="64" language="java" 
+    name="com.growbeans.cunity.lectureEnrollment.service.logic.LectureEnrollmentServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEnrollment/service/logic/LectureEnrollmentServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2215" y="1838"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="65" language="java" name="com.growbeans.cunity.lectureEnrollment.service.LectureEnrollmentService" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEnrollment/service/LectureEnrollmentService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2341" y="2094"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="66" language="java" name="com.growbeans.cunity.lectureEnrollment.store.LectureEnrollmentStore" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEnrollment/store/LectureEnrollmentStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1941" y="2094"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="67" language="java" name="com.growbeans.cunity.lectureEnrollment.mapper.LectureEnrollmentMapper" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEnrollment/mapper/LectureEnrollmentMapper.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1952" y="1811"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="68" language="java" name="com.growbeans.cunity.lectureEvaluation.service.LectureEvaluationService" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEvaluation/service/LectureEvaluationService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="212" x="3669" y="2106"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="69" language="java" name="com.growbeans.cunity.lectureEvaluation.store.logic.LectureEvaluationStoreLogic" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEvaluation/store/logic/LectureEvaluationStoreLogic.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="224" x="3268" y="1679"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="70" language="java" name="com.growbeans.cunity.lectureEvaluation.store.LectureEvaluationStore" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEvaluation/store/LectureEvaluationStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="202" x="3400" y="2106"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="71" language="java" name="com.growbeans.cunity.lectureEvaluation.controller.LectureEvaluationController" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEvaluation/controller/LectureEvaluationController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="219" x="3806" y="1679"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="72" language="java" 
+    name="com.growbeans.cunity.lectureEvaluation.service.logic.LectureEvaluationServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEvaluation/service/logic/LectureEvaluationServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="234" x="3532" y="1679"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="73" language="java" name="com.growbeans.cunity.lectureEvaluation.domain.LectureEvaluation" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lectureEvaluation/domain/LectureEvaluation.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="387" width="232" x="2996" y="1679"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="74" language="java" name="com.growbeans.cunity.lecturesyllabus.controller.LectureSyllabusController" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecturesyllabus/controller/LectureSyllabusController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1745" y="2328"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="75" language="java" name="com.growbeans.cunity.lecturesyllabus.store.LectureSyllabusStore" 
+    project="cunity" file="/cunity/src/main/java/com/growbeans/cunity/lecturesyllabus/store/LectureSyllabusStore.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2126" y="2746"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="76" language="java" name="com.growbeans.cunity.lecturesyllabus.store.logic.LectureSyllabusStoreLogic" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecturesyllabus/store/logic/LectureSyllabusStoreLogic.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2262" y="2337"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="77" language="java" name="com.growbeans.cunity.lecturesyllabus.service.logic.LectureSyllabusServiceImpl" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecturesyllabus/service/logic/LectureSyllabusServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2002" y="2328"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="78" language="java" name="com.growbeans.cunity.lecturesyllabus.domain.LectureSyllabus" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecturesyllabus/domain/LectureSyllabus.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1476" y="2472"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="79" language="java" name="com.growbeans.cunity.lecturesyllabus.service.LectureSyllabusService" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/lecturesyllabus/service/LectureSyllabusService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1869" y="2746"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="80" language="java" name="com.growbeans.cunity.post.store.PostStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/store/PostStore.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4477" y="2957"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="81" language="java" name="com.growbeans.cunity.post.service.PostServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/service/PostServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4174" y="2413"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="82" language="java" name="com.growbeans.cunity.post.domain.Pagination" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/domain/Pagination.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2544" y="2332"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="83" language="java" name="com.growbeans.cunity.post.domain.PostImage" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/domain/PostImage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2762" y="2476"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="84" language="java" name="com.growbeans.cunity.post.controller.PostController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/controller/PostController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3377" y="2359"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="85" language="java" name="com.growbeans.cunity.post.domain.Post" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/domain/Post.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3048" y="2584"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="86" language="java" name="com.growbeans.cunity.post.domain.PageInfo" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/domain/PageInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3643" y="2530"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="87" language="java" name="com.growbeans.cunity.post.domain.PostComment" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/domain/PostComment.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3881" y="2503"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="88" language="java" name="com.growbeans.cunity.post.mapper.PostMapper" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/mapper/PostMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4434" y="2314"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="89" language="java" name="com.growbeans.cunity.post.domain.Search" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/domain/Search.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4642" y="2422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="90" language="java" name="com.growbeans.cunity.post.store.PostStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/store/PostStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4846" y="2332"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="91" language="java" name="com.growbeans.cunity.post.service.PostService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/post/service/PostService.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3776" y="3047"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="92" language="java" name="com.growbeans.cunity.postComment.domain.PostComment" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/postComment/domain/PostComment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3376" y="2988"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="93" language="java" name="com.growbeans.cunity.postImage.domain.PostImage" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/postImage/domain/PostImage.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3084" y="3120"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="94" language="java" name="com.growbeans.cunity.professor.service.ProfessorService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/professor/service/ProfessorService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="912" y="3430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="95" language="java" name="com.growbeans.cunity.professor.service.logic.ProfessorServiceImpl" 
+    project="cunity" file="/cunity/src/main/java/com/growbeans/cunity/professor/service/logic/ProfessorServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="788" y="2904"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="96" language="java" name="com.growbeans.cunity.professor.store.logic.ProfessorStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/professor/store/logic/ProfessorStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="540" y="2913"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="97" language="java" name="com.growbeans.cunity.professor.domain.Professor" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/professor/domain/Professor.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="256" y="3084"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="98" language="java" name="com.growbeans.cunity.professor.store.ProfessorStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/professor/store/ProfessorStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="664" y="3430"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="99" language="java" name="com.growbeans.cunity.professor.controller.ProfessorController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/professor/controller/ProfessorController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1074" y="2904"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="100" language="java" name="com.growbeans.cunity.student.store.logic.StudentStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/student/store/logic/StudentStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="183" x="1377" y="2944"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="101" language="java" name="com.growbeans.cunity.student.domain.Student" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/student/domain/Student.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="657" width="310" x="1600" y="2944"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="102" language="java" name="com.growbeans.cunity.student.service.logic.StudentServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/student/service/logic/StudentServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="193" x="1950" y="2944"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="103" language="java" name="com.growbeans.cunity.student.store.StudentStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/student/store/StudentStore.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="176" x="1377" y="3641"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="104" language="java" name="com.growbeans.cunity.student.controller.StudentController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/student/controller/StudentController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="287" x="2183" y="2944"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="105" language="java" name="com.growbeans.cunity.student.mapper.StudentMapper" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/student/mapper/StudentMapper.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="63" width="171" x="2510" y="2944"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="106" language="java" name="com.growbeans.cunity.student.service.StudentService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/student/service/StudentService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="171" x="2067" y="3641"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="107" language="java" name="com.growbeans.cunity.study.mapper.StudyMapper" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/study/mapper/StudyMapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="253" x="2614" y="3613"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="108" language="java" name="com.growbeans.cunity.study.store.StudyStore" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/study/store/StudyStore.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="253" x="3123" y="3932"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="109" language="java" name="com.growbeans.cunity.study.store.logic.StudyStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/study/store/logic/StudyStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="176" x="2907" y="3613"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="110" language="java" name="com.growbeans.cunity.study.service.logic.StudyServiceImpl" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/study/service/logic/StudyServiceImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="253" x="3123" y="3613"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="111" language="java" name="com.growbeans.cunity.study.service.StudyService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/study/service/StudyService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="207" width="253" x="3416" y="3932"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="112" language="java" name="com.growbeans.cunity.study.domain.Study" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/study/domain/Study.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="170" x="3416" y="3613"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="113" language="java" name="com.growbeans.cunity.study.controller.StudyController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/study/controller/StudyController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="225" width="170" x="3626" y="3613"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="114" language="java" name="com.growbeans.cunity.studyFile.service.logic.StudyFileServiceImpl" 
+    project="cunity" file="/cunity/src/main/java/com/growbeans/cunity/studyFile/service/logic/StudyFileServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="788" y="3687"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="115" language="java" name="com.growbeans.cunity.studyFile.service.StudyFileService" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/studyFile/service/StudyFileService.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="986" y="4159"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="116" language="java" name="com.growbeans.cunity.studyFile.domain.StudyFile" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/studyFile/domain/StudyFile.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="288" y="3840"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="117" language="java" name="com.growbeans.cunity.studyFile.mapper.StudyFileMapper" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/studyFile/mapper/StudyFileMapper.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="539" y="3687"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="118" language="java" name="com.growbeans.cunity.studyFile.controller.StudyFileController" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/studyFile/controller/StudyFileController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1068" y="3669"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="119" language="java" name="com.growbeans.cunity.studyFile.store.StudyFileStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/studyFile/store/StudyFileStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="772" y="4177"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="120" language="java" name="com.growbeans.cunity.studyFolder.store.StudyFolderStoreLogic" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/studyFolder/store/StudyFolderStoreLogic.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="191" x="4220" y="3667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="121" language="java" name="com.growbeans.cunity.studyFolder.domain.StudyFolder" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/studyFolder/domain/StudyFolder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="333" width="189" x="4106" y="3294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="122" language="java" name="com.growbeans.cunity.studyFolder.service.logic.StudyFolderServiceImpl" 
+    project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/studyFolder/service/logic/StudyFolderServiceImpl.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="212" x="4335" y="3294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="123" language="java" name="com.growbeans.cunity.studyFolder.controller.StudyFolderController" 
+    project="cunity" file="/cunity/src/main/java/com/growbeans/cunity/studyFolder/controller/StudyFolderController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="197" x="4587" y="3294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="124" language="java" name="com.growbeans.cunity.studyFolder.mapper.StudyFolderMapper" project="cunity" 
+    file="/cunity/src/main/java/com/growbeans/cunity/studyFolder/mapper/StudyFolderMapper.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="260" x="4824" y="3294"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="125" language="java" name="com.growbeans.cunity.studyFolder.service.StudyFolderService" 
+    project="cunity" file="/cunity/src/main/java/com/growbeans/cunity/studyFolder/service/StudyFolderService.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="191" x="4451" y="3667"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <realization id="126">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="58"/>  
+  </realization>  
+  <association id="127">    
+    <end type="SOURCE" refId="81" navigable="false">      
+      <attribute id="128" name="postStore"/>      
+      <multiplicity id="129" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="80" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="130">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <realization id="131">    
+    <end type="SOURCE" refId="61"/>    
+    <end type="TARGET" refId="66"/>  
+  </realization>  
+  <association id="132">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="133" name="chatRoomService"/>      
+      <multiplicity id="134" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="135">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="136" name="ForeignService"/>      
+      <multiplicity id="137" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="138">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="139" name="gService"/>      
+      <multiplicity id="140" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="141">    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="142" name="lecStore"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="58" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <end type="SOURCE" refId="84" navigable="false">      
+      <attribute id="145" name="pService"/>      
+      <multiplicity id="146" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="91" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="147">    
+    <end type="SOURCE" refId="55" navigable="false">      
+      <attribute id="148" name="lecService"/>      
+      <multiplicity id="149" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="57" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="150">    
+    <end type="SOURCE" refId="118" navigable="false">      
+      <attribute id="151" name="studyFileService"/>      
+      <multiplicity id="152" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="115" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="153">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="154" name="consultService"/>      
+      <multiplicity id="155" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="156">    
+    <end type="SOURCE" refId="71" navigable="false">      
+      <attribute id="157" name="lecEvaService"/>      
+      <multiplicity id="158" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="68" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="159">    
+    <end type="SOURCE" refId="77" navigable="false">      
+      <attribute id="160" name="lecSylStore"/>      
+      <multiplicity id="161" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="75" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="162">    
+    <end type="SOURCE" refId="99" navigable="false">      
+      <attribute id="163" name="pService"/>      
+      <multiplicity id="164" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="94" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="165">    
+    <end type="SOURCE" refId="110" navigable="false">      
+      <attribute id="166" name="studyStore"/>      
+      <multiplicity id="167" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="108" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="168">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="169" name="fActStore"/>      
+      <multiplicity id="170" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="171">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="39"/>  
+  </realization>  
+  <realization id="172">    
+    <end type="SOURCE" refId="56"/>    
+    <end type="TARGET" refId="57"/>  
+  </realization>  
+  <association id="173">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="174" name="alarmService"/>      
+      <multiplicity id="175" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="176">    
+    <end type="SOURCE" refId="72"/>    
+    <end type="TARGET" refId="68"/>  
+  </realization>  
+  <association id="177">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="178" name="alarmStore"/>      
+      <multiplicity id="179" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="180">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="181" name="friendsStore"/>      
+      <multiplicity id="182" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="45" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="183">    
+    <end type="SOURCE" refId="109"/>    
+    <end type="TARGET" refId="103"/>  
+  </realization>  
+  <realization id="184">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="45"/>  
+  </realization>  
+  <realization id="185">    
+    <end type="SOURCE" refId="96"/>    
+    <end type="TARGET" refId="98"/>  
+  </realization>  
+  <association id="186">    
+    <end type="SOURCE" refId="47" navigable="false">      
+      <attribute id="187" name="friendsService"/>      
+      <multiplicity id="188" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="189">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="190" name="nService"/>      
+      <multiplicity id="191" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="192">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="193" name="dStore"/>      
+      <multiplicity id="194" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="195">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <realization id="196">    
+    <end type="SOURCE" refId="76"/>    
+    <end type="TARGET" refId="75"/>  
+  </realization>  
+  <realization id="197">    
+    <end type="SOURCE" refId="110"/>    
+    <end type="TARGET" refId="111"/>  
+  </realization>  
+  <realization id="198">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <realization id="199">    
+    <end type="SOURCE" refId="54"/>    
+    <end type="TARGET" refId="49"/>  
+  </realization>  
+  <association id="200">    
+    <end type="SOURCE" refId="72" navigable="false">      
+      <attribute id="201" name="lecEvaStore"/>      
+      <multiplicity id="202" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="70" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="203">    
+    <end type="SOURCE" refId="81"/>    
+    <end type="TARGET" refId="91"/>  
+  </realization>  
+  <association id="204">    
+    <end type="SOURCE" refId="113" navigable="false">      
+      <attribute id="205" name="studyService"/>      
+      <multiplicity id="206" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="111" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="207">    
+    <end type="SOURCE" refId="122" navigable="false">      
+      <attribute id="208" name="studyFolderStore"/>      
+      <multiplicity id="209" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="120" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="210">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="211" name="chatroomStore"/>      
+      <multiplicity id="212" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="213">    
+    <end type="SOURCE" refId="43"/>    
+    <end type="TARGET" refId="48"/>  
+  </realization>  
+  <association id="214">    
+    <end type="SOURCE" refId="114" navigable="false">      
+      <attribute id="215" name="studyFileStore"/>      
+      <multiplicity id="216" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="119" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="217">    
+    <end type="SOURCE" refId="64" navigable="false">      
+      <attribute id="218" name="lecEnStore"/>      
+      <multiplicity id="219" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="66" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="220">    
+    <end type="SOURCE" refId="104" navigable="false">      
+      <attribute id="221" name="studentService"/>      
+      <multiplicity id="222" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="106" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="223">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="23"/>  
+  </realization>  
+  <realization id="224">    
+    <end type="SOURCE" refId="64"/>    
+    <end type="TARGET" refId="65"/>  
+  </realization>  
+  <realization id="225">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="53"/>  
+  </realization>  
+  <realization id="226">    
+    <end type="SOURCE" refId="69"/>    
+    <end type="TARGET" refId="70"/>  
+  </realization>  
+  <realization id="227">    
+    <end type="SOURCE" refId="95"/>    
+    <end type="TARGET" refId="94"/>  
+  </realization>  
+  <realization id="228">    
+    <end type="SOURCE" refId="77"/>    
+    <end type="TARGET" refId="79"/>  
+  </realization>  
+  <realization id="229">    
+    <end type="SOURCE" refId="100"/>    
+    <end type="TARGET" refId="103"/>  
+  </realization>  
+  <association id="230">    
+    <end type="SOURCE" refId="62" navigable="false">      
+      <attribute id="231" name="lecEnService"/>      
+      <multiplicity id="232" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="65" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="233">    
+    <end type="SOURCE" refId="102"/>    
+    <end type="TARGET" refId="106"/>  
+  </realization>  
+  <association id="234">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="235" name="gStore"/>      
+      <multiplicity id="236" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="49" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="237">    
+    <end type="SOURCE" refId="95" navigable="false">      
+      <attribute id="238" name="proStore"/>      
+      <multiplicity id="239" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="98" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="240">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="241" name="conStore"/>      
+      <multiplicity id="242" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="243">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="27"/>  
+  </realization>  
+  <realization id="244">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <realization id="245">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <association id="246">    
+    <end type="SOURCE" refId="74" navigable="false">      
+      <attribute id="247" name="lecSylService"/>      
+      <multiplicity id="248" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="79" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="249">    
+    <end type="SOURCE" refId="114"/>    
+    <end type="TARGET" refId="115"/>  
+  </realization>  
+  <realization id="250">    
+    <end type="SOURCE" refId="122"/>    
+    <end type="TARGET" refId="125"/>  
+  </realization>  
+  <realization id="251">    
+    <end type="SOURCE" refId="90"/>    
+    <end type="TARGET" refId="80"/>  
+  </realization>  
+  <realization id="252">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="7"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

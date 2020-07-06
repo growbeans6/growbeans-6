@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+
+        hr {
+            border: solid 1px lightgray;
+        }
+
+        .container {
+            padding: 10px;
+        }
+
+        .container>h3 {
+            color: darkturquoise;
+        }
+
+        #test {
+            height: 200px;
+        }
+        
+        #content_category{
+            width: 10%;
+        }
+
+        #content_no {
+            width: 12%;
+        }
+        
+        #content_view{
+            width: 13%;
+        }
+
+        #content_sub {
+            width: 35%;
+        }
+
+        #content_writer {
+            width: 15%;
+        }
+        
+        #content_regDate {
+            width: 15%;
+        }
+
+        input {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: 5px;
+        }
+  
+    </style>
+</head>
+
+<body>
+    <header>
+    </header>
+    <section>
+        <div class="container">
+            <h3>게시판</h3>
+            <hr>
+
+        <div class="container">
+            <h4>자유 게시판</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th id="content_category">말머리</th>
+                        <th id="content_no">글 번호</th>
+                        <th id="content_view">조회수</th>
+                        <th id="content_sub">글 제목</th>
+                        <th id="content_writer">작성자</th>
+                        <th id="content_regDate">작성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="content_category">말머리</td>
+                        <td id="content_no">글 번호</td>
+                        <td id="content_view">조회수</td>
+                        <td id="content_sub">글 제목</td>
+                        <td id="content_writer">작성자</td>
+                        <td id="content_regDate">작성일</td>
+                    </tr>
+                    <tr>
+                        <td id="content_category">말머리</td>
+                        <td id="content_no">글 번호</td>
+                        <td id="content_view">조회수</td>
+                        <td id="content_sub">글 제목</td>
+                        <td id="content_writer">작성자</td>
+                        <td id="content_regDate">작성일</td>
+                    </tr>
+                    <tr>
+                        <td id="content_category">말머리</td>
+                        <td id="content_no">글 번호</td>
+                        <td id="content_view">조회수</td>
+                        <td id="content_sub">글 제목</td>
+                        <td id="content_writer">작성자</td>
+                        <td id="content_regDate">작성일</td>
+                    </tr>
+                    <tr>
+                        <td id="content_category">말머리</td>
+                        <td id="content_no">글 번호</td>
+                        <td id="content_view">조회수</td>
+                        <td id="content_sub">글 제목</td>
+                        <td id="content_writer">작성자</td>
+                        <td id="content_regDate">작성일</td>
+                    </tr>
+                    <tr>
+                        <td id="content_category">말머리</td>
+                        <td id="content_no">글 번호</td>
+                        <td id="content_view">조회수</td>
+                        <td id="content_sub">글 제목</td>
+                        <td id="content_writer">작성자</td>
+                        <td id="content_regDate">작성일</td>
+                    </tr>
+                    <tr>
+                        <td id="content_category">말머리</td>
+                        <td id="content_no">글 번호</td>
+                        <td id="content_view">조회수</td>
+                        <td id="content_sub">글 제목</td>
+                        <td id="content_writer">작성자</td>
+                        <td id="content_regDate">작성일</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="searchArea">
+                <form style="display:block; width : 70%; float:left;">
+                    <select>
+                        <option>제목</option>
+                        <option>제목+내용</option>
+                        <option>작성자</option>
+                    </select>
+                    <input type="text">
+                    <input type="submit" value="검색">
+                    
+                </form>
+                <button class=""style="margin-left:auto; margin-right:150; display:block;">글쓰기</button>
+            </div>
+            <div class="justify-content-center">
+                <ul class="pagination justify-content-center" style="clear:both;">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer>
+    </footer>
+</body>
+
+</html>
