@@ -283,6 +283,9 @@ main footer select {
 main footer div {
 	padding-left: 20px;
 }
+.entry{
+	text-align: center;
+}
 </style>
 </head>
 
@@ -468,13 +471,16 @@ main footer div {
 								consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
 							</div>
 						</li>
+						<li class="entry">
+							<p>입장하셨습니다.</p>
+						</li>
 					</ul>
-					<footer> <textarea placeholder="Type your message"></textarea>
+					<footer> <textarea id="message" placeholder="Type your message"></textarea>
 					<div class="row">
 						<select>
 							<option value="전체">전체</option>
 							<option value="이승원">이승원</option>
-						</select> <a href="#">Send</a>
+						</select> <a href="javascript:void(0);" onclick="sendMessage(this);">Send</a>
 					</div>
 
 					</footer> </main>
@@ -494,7 +500,89 @@ main footer div {
 
 	<!-- Custom scripts for all pages-->
 	<script src="/resources/js/sb-admin-2.min.js"></script>
-
+	<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
+	<script type="text/javascript">
+		// 웹소켓 연결 (매핑된 url의 핸들러와 연결된다.)
+		let sock = new SockJS("http://127.0.0.1:8083/echo");
+		sock.onmessage = onMessage;
+		sock.onclose = onClose;
+		function sendMessage(obj) {
+			sock.send($("#message").val());
+			$("#message").val("");
+		}
+		function onMessage(msg) {
+			console.log(msg);
+			var data=msg.data;
+		    var userName='${loginUser.sName}';
+	        var regM1 = /^({{[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+}})/; // {{한글/영어}} 추출 정규식
+	        var regM2 = /([a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+)/; // {{}} 에서 한글/영어 추출 정규식
+	        var key = regM1.exec(data); // msg에서 {{한글/영어}} 추출
+	        key = key[0];
+	        var sysMsg = regM2.exec(key); // key의 {{}}에서 한글/영어 추출
+	        sysMsg = sysMsg[0];
+	        data = data.replace(regM1,""); // {{한글/영어}}를 제거한 메시지로 변환
+	        console.log(sysMsg);
+	        if(sysMsg==userName){
+	        	var $me = $("<li>");
+	        	$me.addClass("me");
+	        	var $entete = $("<div>");
+	        	$entete.addClass("entete");
+	        	var $h2 = $("<h2>");
+	        	var $span = $("<span>");
+	        	$span.addClass("status blue");
+	        	var $triangle = $("<div>");
+	        	$triangle.addClass("triangle");
+	        	var $message = $("<div>");
+	        	$message.addClass("message");
+	        	var $p = $("<p>");
+	        	
+	        	$("#chat").append($me);
+	        	$me.append($entete);
+	        	$entete.append($h2);
+	        	$h2.text(sysMsg);
+	        	$entete.append($span);
+	        	$me.append($triangle);
+	        	$me.append($message);
+	        	$message.append($p);
+	        	$p.text(data);
+	        	
+	        }else if(sysMsg=="entry"){
+	        	var $entry = $("<li>");
+	        	$entry.addClass("entry");
+	        	var $p = $("<p>");
+	        	$("#chat").append($entry);
+	        	$entry.append($p);
+	        	$p.text(data);
+	        }else{
+	        	var $you = $("<li>");
+	        	$you.addClass("you");
+	        	var $entete = $("<div>");
+	        	$entete.addClass("entete");
+	        	var $h2 = $("<h2>");
+	        	var $span = $("<span>");
+	        	$span.addClass("status green");
+	        	var $triangle = $("<div>");
+	        	$triangle.addClass("triangle");
+	        	var $message = $("<div>");
+	        	$message.addClass("message");
+	        	var $p = $("<p>");
+	        	
+	        	$("#chat").append($you);
+	        	$you.append($entete);
+	        	$entete.append($span);
+	        	$entete.append($h2);
+	        	$h2.text(sysMsg);
+	        	$you.append($triangle);
+	        	$you.append($message);
+	        	$message.append($p);
+	        	$p.text(data);
+	        }
+		}
+		function onClose() {
+			console.log("연결끊김");
+		}
+	</script>
 </body>
 
 </html>

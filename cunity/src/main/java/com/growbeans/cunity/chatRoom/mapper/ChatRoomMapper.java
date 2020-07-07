@@ -1,6 +1,7 @@
 package com.growbeans.cunity.chatRoom.mapper;
 
 import com.growbeans.cunity.chatRoom.domain.ChatRoom;
+import com.growbeans.cunity.student.domain.Student;
 
 public interface ChatRoomMapper {
 	
@@ -24,4 +25,6 @@ public interface ChatRoomMapper {
 	 * @return chatRoom
 	 */
 	public ChatRoom selectRoomMemberList(int studyNo);
+	// 테스트
+	public Student loginTest(String id);
 }

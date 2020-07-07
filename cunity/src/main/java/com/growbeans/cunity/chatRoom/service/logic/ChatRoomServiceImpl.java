@@ -6,12 +6,17 @@ import org.springframework.stereotype.Service;
 import com.growbeans.cunity.chatRoom.domain.ChatRoom;
 import com.growbeans.cunity.chatRoom.service.ChatRoomService;
 import com.growbeans.cunity.chatRoom.store.ChatRoomStore;
+import com.growbeans.cunity.student.domain.Student;
 
 @Service("chatRoomService")
 public class ChatRoomServiceImpl implements ChatRoomService{
 
 	@Autowired
 	private ChatRoomStore chatroomStore;
+	
+	public Student loginTest(String id) {
+		return chatroomStore.loginTest(id);
+	}
 	
 	@Override
 	public int entranceRoom(ChatRoom chatRoom) {

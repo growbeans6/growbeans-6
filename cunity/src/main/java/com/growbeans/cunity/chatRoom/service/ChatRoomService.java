@@ -1,6 +1,7 @@
 package com.growbeans.cunity.chatRoom.service;
 
 import com.growbeans.cunity.chatRoom.domain.ChatRoom;
+import com.growbeans.cunity.student.domain.Student;
 
 public interface ChatRoomService {
 	/**
@@ -23,4 +24,6 @@ public interface ChatRoomService {
 	 * @return chatRoom
 	 */
 	public ChatRoom selectRoomMemberList(int studyNo);
+	// 테스트
+	public Student loginTest(String id);
 }
