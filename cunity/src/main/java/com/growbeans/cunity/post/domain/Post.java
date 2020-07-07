@@ -8,14 +8,14 @@ public class Post {
 	private String postWriter;
 	private String postSubject;
 	private String postContent;
-	private String postView;
 	private String postRegDate;
 	private int studyNo;
+	private String postWriterSName;
 	
 	public Post() {}
 
 	public Post(int postNo, String postKinds, String postCategory, String postWriter, String postSubject,
-			String postContent, String postView, String postRegDate, int studyNo) {
+			String postContent, String postRegDate, int studyNo, String postWriterSName) {
 		super();
 		this.postNo = postNo;
 		this.postKinds = postKinds;
@@ -23,9 +23,9 @@ public class Post {
 		this.postWriter = postWriter;
 		this.postSubject = postSubject;
 		this.postContent = postContent;
-		this.postView = postView;
 		this.postRegDate = postRegDate;
 		this.studyNo = studyNo;
+		this.postWriterSName = postWriterSName;
 	}
 
 	public int getPostNo() {
@@ -76,14 +76,6 @@ public class Post {
 		this.postContent = postContent;
 	}
 
-	public String getPostView() {
-		return postView;
-	}
-
-	public void setPostView(String postView) {
-		this.postView = postView;
-	}
-
 	public String getPostRegDate() {
 		return postRegDate;
 	}
@@ -100,12 +92,22 @@ public class Post {
 		this.studyNo = studyNo;
 	}
 
+	public String getPostWriterSName() {
+		return postWriterSName;
+	}
+
+	public void setPostWriterSName(String postWriterSName) {
+		this.postWriterSName = postWriterSName;
+	}
+
 	@Override
 	public String toString() {
-		return "post [postNo=" + postNo + ", postKinds=" + postKinds + ", postCategory=" + postCategory
+		return "Post [postNo=" + postNo + ", postKinds=" + postKinds + ", postCategory=" + postCategory
 				+ ", postWriter=" + postWriter + ", postSubject=" + postSubject + ", postContent=" + postContent
-				+ ", postView=" + postView + ", postRegDate=" + postRegDate + ", studyNo=" + studyNo + "]";
+				+ ", postRegDate=" + postRegDate + ", studyNo=" + studyNo + ", postWriterSName=" + postWriterSName
+				+ "]";
 	}
+
 	
 	
 }

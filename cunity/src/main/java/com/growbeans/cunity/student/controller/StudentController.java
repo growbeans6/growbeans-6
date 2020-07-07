@@ -22,7 +22,7 @@ public class StudentController {
 	
 	// 학생로그인
 	@RequestMapping(value="/studentLogin",method=RequestMethod.POST)
-	public ModelAndView studentLogin(Student student,ModelAndView mv) {
+	public ModelAndView studentLogin(Student student, ModelAndView mv) {
 		mv.addObject(studentService.loginStudent(student));
 		// 세션에 추가하는작업 아직
 		return null;

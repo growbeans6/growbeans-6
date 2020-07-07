@@ -38,7 +38,7 @@ public class AlarmController {
 	// 알람 삭제
 	   // 1. DB 데이터 삭제
 	   // 2. 삭제 후 alert 창 후 목록으로 redirect
-	   @RequestMapping("ndelete.kh")
+	   @RequestMapping("deleteAlarm")
 	   public String alarmDelete(int aNo, Model model, HttpServletRequest request, RedirectAttributes rd) {
 		   Alarm alarm = alarmService.selectAlarm(aNo);
 		   int result = alarmService.deleteAlarm(aNo);
