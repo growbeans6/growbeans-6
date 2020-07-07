@@ -107,7 +107,7 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="#">자유 게시판</a>
+            <a class="collapse-item" href="postList?postKinds=자유">자유 게시판</a>
             <a class="collapse-item" href="#">스터디 게시판</a>
             <a class="collapse-item" href="#">장터 게시판</a>
             <a class="collapse-item" href="#">강의 평가</a>
@@ -123,7 +123,7 @@
         <div id="studycollapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="#">스터디 보드</a>
+            <a class="collapse-item" href="friends">스터디 보드</a>
             <a class="collapse-item" href="#">파일 공유</a>
             <a class="collapse-item" href="#">그룹 채팅</a>
           </div>
@@ -132,7 +132,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="friends">
           <i class="fas fa-child"></i>
           <span>친구 목록</span></a>
       </li>

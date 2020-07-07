@@ -38,8 +38,7 @@ public class PostStoreLogic implements PostStore{
 
 	@Override
 	public Post selectPost(int postNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("postMapper.selectPost", postNo);
 	}
 
 	@Override

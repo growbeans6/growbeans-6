@@ -44,8 +44,7 @@ public class PostServiceImpl implements PostService{
 
 	@Override
 	public Post selectPost(int postNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return postStore.selectPost(postNo);
 	}
 
 	@Override

@@ -43,10 +43,8 @@
 				<!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
 				<div class="container-fluid">
 					<!-- Page Heading -->
-					
-					<h1 class="h3 mb-2 text-gray-800">
-						게시판
-					</h1>
+
+					<h1 class="h3 mb-2 text-gray-800">게시판</h1>
 					<p class="mb-4">자유 게시판은 다양한 목소리를 내는 곳입니다. 특히 말머리를 이용하여 폭넓게 이용할
 						수 있습니다.</p>
 
@@ -58,7 +56,7 @@
 						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-bordered" id="dataTable" width="100%"
-									cellspacing="0">
+									style="overflow-x:hidden" cellspacing="0">
 									<thead>
 										<tr>
 											<th>글 번호</th>
@@ -70,16 +68,20 @@
 										</tr>
 									</thead>
 									<tbody>
-									<c:forEach var="list" items="${list }">
-										<tr>
-											<td>${list.postNo }</td>
-											<td>${list.postCategory }</td>
-											<td>${list.postWriter}</td>
-											<td>${list.postSubject}</td>
-											<td>${list.postContent}</td>
-											<td>${list.postRegDate}</td>
-										</tr>
-									</c:forEach>
+										<c:forEach var="list" items="${list }">
+											<tr>
+												<c:url var="postDetail" value="postDetail">
+													<c:param name="postNo" value="${list.postNo}" />
+												</c:url>
+												<td>${list.postNo }</td>
+												<td>${list.postCategory }</td>
+												<td>${list.postWriter}</td>
+												<td><a href="${postDetail}">${list.postSubject}</a></td>
+												<td>${list.postContent}</td>
+												<td>${list.postRegDate}</td>
+											</tr>
+										</c:forEach>
+										<button class="btn btn-primary">글 쓰기</button>
 									</tbody>
 								</table>
 							</div>
@@ -93,21 +95,21 @@
 		<!-- End of Content Wrapper -->
 	</div>
 	<!-- End of Page Wrapper -->
-		  <script src="/resources/vendor/jquery/jquery.min.js"></script>
-		  <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		
-		  <!-- Core plugin JavaScript-->
-		  <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-		
-		  <!-- Custom scripts for all pages-->
-		  <script src="/resources/js/sb-admin-2.min.js"></script>
-		
-		  <!-- Page level plugins -->
-		  <script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
-		  <script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-		
-		  <!-- Page level custom scripts -->
-		  <script src="/resources/js/demo/datatables-demo.js"></script>
+	<script src="/resources/vendor/jquery/jquery.min.js"></script>
+	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/resources/js/sb-admin-2.min.js"></script>
+
+	<!-- Page level plugins -->
+	<script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+	<!-- Page level custom scripts -->
+	<script src="/resources/js/demo/datatables-demo.js"></script>
 </body>
 
 </html>

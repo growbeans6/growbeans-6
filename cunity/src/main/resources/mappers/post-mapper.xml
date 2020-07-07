@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="postMapper">
+
+	<resultMap type="Post" id="PostResultSet">
+		<id property="postNo" column="POST_NO"/>
+		<result property="postKinds" column="POST_KINDS"/>
+		<result property="postCategory" column="POST_CATEGORY"/>
+		<result property="postWriter" column="POST_WRITER"/>
+		<result property="postSubject" column="POST_SUBJECT"/>
+		<result property="postContent" column="POST_CONTENT"/>
+		<result property="postRegDate" column="POST_REGDATE"/>
+		<result property="studyNo" column="STUDY_NO"/>
+		<result property="postWriterSName" column="POST_WRITER_S_NAME"/>
+	</resultMap>
+	
+	<resultMap type="PostComment" id="PostCommentResultSet">
+		<id property="mentNo" column="MENT_NO"/>
+		<result property="postNo" column="POST_NO"/>
+		<result property="mentWriter" column="MENT_WRITER"/>
+		<result property="mentRegDate" column="MENT_CONTENT"/>
+		<result property="mentDepth" column="MENT_DEPTH"/>
+	</resultMap>
+	
+	<select id="selectList" resultMap="PostResultSet">
+		SELECT * FROM POST WHERE POST_KINDS = #{postKinds} ORDER BY POST_REGDATE DESC
+	</select>
+	
+	<select id="selectPost" resultMap="PostResultSet">
+		SELECT * FROM POST WHERE POST_NO = #{postNo}
+	</select>
+</mapper>
+
+	
+
+
+
