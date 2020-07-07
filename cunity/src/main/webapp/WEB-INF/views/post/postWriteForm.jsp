@@ -46,5 +46,6 @@
 			<c:url var="nlist" value="nlist.kh" />
 			<a href="#">목록보기</a>
 		</p>
+		
 </body>
 </html>
