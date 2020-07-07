@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.growbeans.cunity.post.domain.PageInfo;
 import com.growbeans.cunity.post.domain.Post;
 import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.domain.Search;
@@ -27,9 +26,8 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public ArrayList<Post> selectList(PageInfo pi) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Post> selectList(String postKinds) {
+		return postStore.selectList(postKinds);
 	}
 
 	@Override
@@ -63,7 +61,7 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public ArrayList<PostComment> selectPostCommentList(int postId) {
+	public ArrayList<PostComment> selectPostCommentList(int postNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

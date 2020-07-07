@@ -2,13 +2,13 @@ package com.growbeans.cunity.friends.domain;
 
 public class Friends {
 
-	int fNo;
-	String sNo;
-	String sessionSNo;
+	private int fNo;
+	private int sNo;
+	private String sessionSNo;
 	
 	public Friends() {}
 
-	public Friends(int fNo, String sNo, String sessionSNo) {
+	public Friends(int fNo, int sNo, String sessionSNo) {
 		super();
 		this.fNo = fNo;
 		this.sNo = sNo;
@@ -23,11 +23,11 @@ public class Friends {
 		this.fNo = fNo;
 	}
 
-	public String getsNo() {
+	public int getsNo() {
 		return sNo;
 	}
 
-	public void setsNo(String sNo) {
+	public void setsNo(int sNo) {
 		this.sNo = sNo;
 	}
 
@@ -43,6 +43,5 @@ public class Friends {
 	public String toString() {
 		return "Friends [fNo=" + fNo + ", sNo=" + sNo + ", sessionSNo=" + sessionSNo + "]";
 	}
-	
 	
 }

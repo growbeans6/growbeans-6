@@ -18,8 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
-import com.growbeans.cunity.post.domain.PageInfo;
-import com.growbeans.cunity.post.domain.Pagination;
 import com.growbeans.cunity.post.domain.Post;
 import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.service.PostService;
@@ -32,19 +30,14 @@ public class PostController {
 	@Autowired
 	private PostService pService;
 	
-	@RequestMapping("post")
-	public ModelAndView postList(ModelAndView mv, @RequestParam(value="page", required=false)Integer page) {
-		
-		int currentPage = (page != null) ? page : 1;
-		int listCount = pService.getListCount();
-		PageInfo pi = Pagination.getPageInfo(currentPage, listCount);
-		
-		ArrayList<Post> list = pService.selectList(pi);
+	@RequestMapping("postList")
+	public ModelAndView postList(ModelAndView mv, String postKinds) {
+
+		ArrayList<Post> list = pService.selectList(postKinds);
 		
 		if(!list.isEmpty()) {
 			mv.addObject("list", list);
-			mv.addObject("pi", pi);
-			mv.setViewName("community/communityMain");
+			mv.setViewName("community/postList");
 		} else {
 			mv.addObject("msg", "게시글 전체 조회 실패");
 			mv.setViewName("home");
@@ -66,8 +59,7 @@ public class PostController {
 			mv.addObject("post", post);
 			mv.addObject("currentPage", currentPage);
 			mv.setViewName("community/postDetail");
-		} else {
-			mv.addObject("msg", "게시글 상세조회 실패");
+		} else {			mv.addObject("msg", "게시글 상세조회 실패");
 			mv.setViewName("home");
 		}
 		return mv;
