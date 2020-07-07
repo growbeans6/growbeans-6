@@ -2,6 +2,7 @@ package com.growbeans.cunity.lectureEnrollment.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment;
@@ -24,6 +25,17 @@ public class LectureEnrollmentController {
 	public ModelAndView lectureEnList(ModelAndView mv) {
 		return mv;
 	}
+	
+	@RequestMapping("/lectureEnrollList")
+	public String showEnrollList() {
+		return "lecture/lectureEnrollList";
+	}
+	
+	@RequestMapping("/schedule")
+	public String showSchedule() {
+		return "lecture/lectureSchedule";
+	}
+	
 	
 
 }

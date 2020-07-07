@@ -37,12 +37,19 @@ public class StudentController {
     
     //학생정보 조회
     // Student 담아서 보냄
+//    @RequestMapping("/studentInfo")
+//    public ModelAndView studentInfo(ModelAndView mv , int sNo) {
+//    	mv.addObject(studentService.studentInfo(sNo));
+//    	mv.setViewName("");
+//		return mv;
+//    }
+    
     @RequestMapping("/studentInfo")
-    public ModelAndView studentInfo(ModelAndView mv , int sNo) {
-    	mv.addObject(studentService.studentInfo(sNo));
-    	mv.setViewName("");
-		return mv;
+    public String studentinfo() {
+    	return "student/studentInfo";
     }
+    
+    
     
     // 학생정보 업데이트 
     @RequestMapping(value ="/updateStudentInfo",method=RequestMethod.POST)

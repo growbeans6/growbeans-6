@@ -3,6 +3,7 @@ package com.growbeans.cunity.grade.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.grade.service.GradeService;
@@ -23,4 +24,9 @@ public class GradeController {
 			return null;
 		}
 
+		@RequestMapping("/stuGrade")
+		public String showGrade() {
+			return "student/stuGrade";
+		}
+		
 }
