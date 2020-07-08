@@ -109,7 +109,7 @@
             <h6 class="collapse-header">Login Screens:</h6>
             <a class="collapse-item" href="postList?postKinds=자유">자유 게시판</a>
             <a class="collapse-item" href="#">스터디 게시판</a>
-            <a class="collapse-item" href="#">장터 게시판</a>
+            <a class="collapse-item" href="postList2">장터 게시판</a>
             <a class="collapse-item" href="#">강의 평가</a>
           </div>
         </div>

@@ -6,12 +6,13 @@
 		<id property="postNo" column="POST_NO"/>
 		<result property="postKinds" column="POST_KINDS"/>
 		<result property="postCategory" column="POST_CATEGORY"/>
-		<result property="postWriter" column="POST_WRITER"/>
+		<result property="postWriterSNo" column="POST_WRITER_S_NO"/>
 		<result property="postSubject" column="POST_SUBJECT"/>
 		<result property="postContent" column="POST_CONTENT"/>
 		<result property="postRegDate" column="POST_REGDATE"/>
 		<result property="studyNo" column="STUDY_NO"/>
 		<result property="postWriterSName" column="POST_WRITER_S_NAME"/>
+		<result property="filePath" column="FILEPATH"/>
 	</resultMap>
 	
 	<resultMap type="PostComment" id="PostCommentResultSet">
@@ -26,9 +27,22 @@
 		SELECT * FROM POST WHERE POST_KINDS = #{postKinds} ORDER BY POST_REGDATE DESC
 	</select>
 	
+	<select id="selectList2" resultMap="PostResultSet">
+		SELECT * FROM POST WHERE POST_KINDS = '장터' ORDER BY POST_REGDATE DESC
+	</select>
+	
+	<select id="getListCount" resultType="_int">
+		SELECT COUNT(*) FROM POST WHERE POST_KINDS = '장터'
+	</select>
+	
 	<select id="selectPost" resultMap="PostResultSet">
 		SELECT * FROM POST WHERE POST_NO = #{postNo}
 	</select>
+	
+	<!-- 게시글 등록 쿼리 -->
+	<insert id="insertPost" parameterType="Post">
+		INSERT INTO POST VALUES(POST_NO_SEQ.NEXTVAL, #{postKinds}, #{postCategory}, 1, #{postSubject}, #{postContent}, SYSDATE, #{studyNo}, #{postWriterSName}, #{filePath})
+	</insert>
 </mapper>
 
 	

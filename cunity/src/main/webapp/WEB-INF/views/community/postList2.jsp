@@ -47,46 +47,65 @@
 					<h1 class="h3 mb-2 text-gray-800">게시판</h1>
 					<p class="mb-4">자유 게시판은 다양한 목소리를 내는 곳입니다. 특히 말머리를 이용하여 폭넓게 이용할
 						수 있습니다.</p>
-
-					<!-- DataTales Example -->
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">post</h6>
-						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%"
-									style="overflow-x:hidden" cellspacing="0">
-									<thead>
-										<tr>
-											<th>글 번호</th>
-											<th>카테고리</th>
-											<th>작성자</th>
-											<th>글 제목</th>
-											<th>글 내용</th>
-											<th>작성일</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="list" items="${list }">
-											<tr>
-												<c:url var="postDetail" value="postDetail">
-													<c:param name="postNo" value="${list.postNo}" />
-												</c:url>
-												<td>${list.postNo }</td>
-												<td>${list.postCategory }</td>
-												<td>${list.postWriterSNo}</td>
-												<td><a href="${postDetail}">${list.postSubject}</a></td>
-												<td>${list.postContent}</td>
-												<td>${list.postRegDate}</td>
-											</tr>
-										</c:forEach>
-										<button class="btn btn-primary" onclick="location.href='postWrite'">글 쓰기</button>
-									</tbody>
-								</table>
+					<c:if test="${ !empty loginUser }">
+						<button onclick="location.href='postWrite';">글쓰기</button>
+					</c:if>
+					<!-- 상품 목록 -->
+					<c:forEach var="post" items="${list }">
+						<div
+							class="card shadow mt-5 mb-5 ml-5 mr-5 col-sm-3 col-md-3 col-lg-3 col-xl-3"
+							style="height: 300px; width: 100%; float: left;">
+							<div class="card-body">
+								<div class="table-responsive">
+									<h5>상품이 들어가는 곳</h5>
+								</div>
+							</div>
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold text-primary">${post.postSubject }</h6>
 							</div>
 						</div>
-					</div>
+					</c:forEach>
+					<!-- 페이징 처리 -->
+					<table>
+						<tr align="center" height="20">
+							<td colspan="6">
+								<!-- [이전] -->
+								<c:if test="${pi.currentPage <= 1 }">
+									[이전] &nbsp;
+								</c:if>
+								<c:if test="${pi.currentPage > 1 }">
+									<c:url var="before" value="postList2">
+										<c:param name="page" value="${pi.currentPage - 1 }"/>
+									</c:url>
+									<a href="${before }">[이전]</a> &nbsp;
+								</c:if>
+								<!-- 페이지 -->
+								
+								<c:forEach var="p" begin="${pi.startPage }" end="${pi.endPage }">
+									<c:if test="${p eq pi.currentPage }">
+										<font color="red" size="4"><b>[${p }]</b></font>
+									</c:if>
+									<c:if test="${p ne pi.currentPage }">
+										<c:url var="pagination" value="postList2">
+											<c:param name="page" value="${p }"/>
+										</c:url>
+										<a href="${pagination }">${p }</a> &nbsp;
+									</c:if>
+								</c:forEach>
+								
+								<!-- [다음] -->
+								<c:if test="${pi.currentPage >= pi.maxPage }">
+									[다음] &nbsp;
+								</c:if>
+								<c:if test="${pi.currentPage < pi.maxPage }">
+									<c:url var="after" value="postList2">
+										<c:param name="page" value="${pi.currentPage + 1 }"/>
+									</c:url>
+									<a href="${after }">[다음]</a> &nbsp;
+								</c:if>
+							</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 			<!-- End of Main Content -->
@@ -103,13 +122,6 @@
 
 	<!-- Custom scripts for all pages-->
 	<script src="/resources/js/sb-admin-2.min.js"></script>
-
-	<!-- Page level plugins -->
-	<script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-	<!-- Page level custom scripts -->
-	<script src="/resources/js/demo/datatables-demo.js"></script>
 </body>
 
 </html>
