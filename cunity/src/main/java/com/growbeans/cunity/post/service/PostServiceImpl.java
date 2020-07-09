@@ -66,13 +66,12 @@ public class PostServiceImpl implements PostService{
 	@Override
 	public ArrayList<PostComment> selectPostCommentList(int postNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return postStore.selectPostCommentList(postNo);
 	}
 
 	@Override
 	public int insertPostComment(PostComment postComment) {
-		// TODO Auto-generated method stub
-		return 0;
+		return postStore.insertPostComment(postComment);
 	}
 
 	@Override

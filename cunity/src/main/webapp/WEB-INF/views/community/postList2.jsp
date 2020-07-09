@@ -57,7 +57,8 @@
 							style="height: 300px; width: 100%; float: left;">
 							<div class="card-body">
 								<div class="table-responsive">
-									<h5>상품이 들어가는 곳</h5>
+									<h6>${post.postRegDate }</h6>
+									<h5>${post.postContent }</h5>
 								</div>
 							</div>
 							<div class="card-header py-3">

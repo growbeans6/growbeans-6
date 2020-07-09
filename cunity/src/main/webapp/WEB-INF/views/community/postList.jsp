@@ -55,7 +55,7 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%"
+								<table class="table table-hover" id="dataTable" width="100%"
 									style="overflow-x:hidden" cellspacing="0">
 									<thead>
 										<tr>
@@ -69,16 +69,16 @@
 									</thead>
 									<tbody>
 										<c:forEach var="list" items="${list }">
-											<tr>
-												<c:url var="postDetail" value="postDetail">
-													<c:param name="postNo" value="${list.postNo}" />
-												</c:url>
-												<td>${list.postNo }</td>
-												<td>${list.postCategory }</td>
-												<td>${list.postWriterSNo}</td>
-												<td><a href="${postDetail}">${list.postSubject}</a></td>
-												<td>${list.postContent}</td>
-												<td>${list.postRegDate}</td>
+											<c:url var="postDetail" value="postDetail">
+												<c:param name="postNo" value="${list.postNo}" />
+											</c:url>
+										<tr onclick="location.href='${postDetail}'">
+													<td>${list.postNo }</td>
+													<td>${list.postCategory }</td>
+													<td>${list.postWriterSNo}</td>
+													<td>${list.postSubject}</td>
+													<td>${list.postContent}</td>
+													<td>${list.postRegDate}</td>
 											</tr>
 										</c:forEach>
 										<button class="btn btn-primary" onclick="location.href='postWrite'">글 쓰기</button>
@@ -110,6 +110,14 @@
 
 	<!-- Page level custom scripts -->
 	<script src="/resources/js/demo/datatables-demo.js"></script>
+	
+	<script type="text/javascript">
+	$('#dataTable').DataTable({
+		  order: [[0, 'desc']], // asc 또는 desc
+		  ordering: true,
+		  serverSide: false
+		});
+	</script>
 </body>
 
 </html>

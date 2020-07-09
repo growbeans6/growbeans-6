@@ -73,13 +73,12 @@ public class PostStoreLogic implements PostStore{
 	@Override
 	public ArrayList<PostComment> selectPostCommentList(int postNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return (ArrayList)sqlSession.selectList("postMapper.selectPostCommentList", postNo);
 	}
 
 	@Override
 	public int insertPostComment(PostComment postComment) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert("postMapper.insertPostComment", postComment);
 	}
 
 	@Override

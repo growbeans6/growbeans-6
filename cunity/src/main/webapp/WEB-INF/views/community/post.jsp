@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,7 +24,7 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -48,7 +48,7 @@
 						<hr>
 						<h2>제목 : ${post.postSubject }</h2>
 						<h6>글번호 : ${post.postNo} &nbsp;&nbsp; 작성자 :
-							${post.postWriter} &nbsp;&nbsp; 작성일: ${post.postRegDate }</h6>
+							${post.postWriterSNo} &nbsp;&nbsp; 작성일: ${post.postRegDate }</h6>
 						<hr>
 						<article>
 						<h3>갤러리</h3>
@@ -77,20 +77,18 @@
 						</div>
 						<hr>
 						<div class="comment" style="margin-top: 10px;">
-							<form>
-								<textarea rows="3" id="rContent"
-									style="float: left; width: 80%; margin-left: 80px;">
-								</textarea>
-								<button id="rSubmit" class="btn-lg" type="submit"
-									style="margin: 5px;">등록하기</button>
-							</form>
+							<textarea rows="3" id="mentContent"
+								style="float: left; width: 80%; margin-left: 80px;">
+							</textarea>
+							<button id="mentSubmit" class="btn-lg" onclick="addMent()"
+								style="margin: 5px;">등록하기</button>
 						</div>
 						<br>
 						<hr>
 						<table id="commenttb" class="table">
 							<thead>
 								<tr>
-									<td colspan="2"><b id="rCount"></b></td>
+									<td colspan="2"><b id="mentCount"></b></td>
 								</tr>
 							</thead>
 							<tbody></tbody>
@@ -107,51 +105,48 @@
 	</div>
 	<!-- End of Page Wrapper -->
 	<script>
-		$(function() {
+		$(function(){
 			// 초기 페이지 로딩 시 댓글 불러오기
 			getPostCommentList();
 			// ajax polling
 			//타 회원이 댓글들을 작성했을 수 있으니 지속적으로 댓글 불러오기
-			setInterval(function() {
-				getReplyList();
-			}, 100);
+			/* setInterval(function() {
+				getpostCommentList();
+			}, 100); */
 
 			// 댓글 등록 ajax
-			$("#rSubmit").on("click", function() {
-				var rContent = $("#rContent").val(); // 댓글의 내용
-				var refpNo = $
-				{
-					post.postNo
-				}
-				; // 어느 게시글의 댓글인지 알려줌
-
-				$.ajax({
-					url : "addPostComment",
-					data : {
-						rContent : rContent,
-						refpNo : refpNo
-					},
-					type : "post",
-					success : function(data) {
-						if (data == "success") { //data를 String으로 받아와서 성공, 실패만 가림
-							getPostCommentList();
-							$("#rContent").val("");
-						}
-					}
-				})
-			});
+			/* $("#mentSubmit").on("click", function() {
+				
+			}); */
 		});
+		
+		function addMent() {
+			var mentContent = $("#mentContent").val(); // 댓글의 내용
+			var postNum = ${post.postNo}; // 어느 게시글의 댓글인지 알려줌
+			$.ajax({
+				url : "addPostComment",
+				data : {
+					mentContent : mentContent,
+					postNo : postNum
+				},
+				type : "post",
+				success : function(data) {
+					if (data == "success") { //data를 String으로 받아와서 성공, 실패만 가림
+						getPostCommentList();
+						$("#mentContent").val("");
+					}
+				}
+			});
+		}
 
 		// 댓글 리스트 불러오는 ajax 함수
-		function getpostCommentList() {
-			var pNo = ${
-				post.postNo
-			};
+		function getPostCommentList() {
+			var postNo = ${post.postNo };
 			
 			$.ajax({
 						url : "postCommentList",
 						data : {
-							pNo : pNo
+							postNo : postNo
 						},
 						dataType : "json", // json형태로 응답이 옴
 						success : function(data) {
@@ -159,25 +154,25 @@
 							$tableBody.html("");
 
 							var $tr;
-							var $rWriter;
+							/* var $rWriter; */
 							var $rContent;
-							var $rCreateDate;
+							/* var $rCreateDate; */
 							
-							$("#rCount").text("댓글 (" + data.length + ")");
+							$("#mentCount").text("댓글 (" + data.length + ")");
 							if (data.length > 0) {
 								for ( var i in data) {
 									$tr = $("<tr>");
-									$rWriter = $("<td width='100'>").text(
-											data[i].mentWriter);
+									/* $rWriter = $("<td width='100'>").text(
+											data[i].mentWriter); */
 									$rContent = $("<td>").text(
 											decodeURIComponent(data[i].mentContent
 													.replace(/\+/g, " ")));
-									$rCreateDate = $("<td width='100'>").text(
-											data[i].mentRegDate);
+									/* $rCreateDate = $("<td width='100'>").text(
+											data[i].mentRegDate); */
 
-									$tr.append($rWriter);
+									/* $tr.append($rWriter); */
 									$tr.append($rContent);
-									$tr.append($rCreateDate);
+									/* $tr.append($rCreateDate); */
 									$tableBody.append($tr);
 								}
 							} else {

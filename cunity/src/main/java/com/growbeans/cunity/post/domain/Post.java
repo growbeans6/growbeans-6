@@ -1,5 +1,7 @@
 package com.growbeans.cunity.post.domain;
 
+import java.sql.Date;
+
 public class Post {
 
 	private int postNo;
@@ -8,7 +10,7 @@ public class Post {
 	private int postWriterSNo;
 	private String postSubject;
 	private String postContent;
-	private String postRegDate;
+	private Date postRegDate;
 	private int studyNo;
 	private String postWriterSName;
 	private String filePath;
@@ -16,7 +18,7 @@ public class Post {
 	public Post() {}
 
 	public Post(int postNo, String postKinds, String postCategory, int postWriterSNo, String postSubject,
-			String postContent, String postRegDate, int studyNo, String postWriterSName, String filePath) {
+			String postContent, Date postRegDate, int studyNo, String postWriterSName, String filePath) {
 		super();
 		this.postNo = postNo;
 		this.postKinds = postKinds;
@@ -78,11 +80,11 @@ public class Post {
 		this.postContent = postContent;
 	}
 
-	public String getPostRegDate() {
+	public Date getPostRegDate() {
 		return postRegDate;
 	}
 
-	public void setPostRegDate(String postRegDate) {
+	public void setPostRegDate(Date postRegDate) {
 		this.postRegDate = postRegDate;
 	}
 
@@ -117,8 +119,5 @@ public class Post {
 				+ ", postRegDate=" + postRegDate + ", studyNo=" + studyNo + ", postWriterSName=" + postWriterSName
 				+ ", filePath=" + filePath + "]";
 	}
-
-	
-	
 	
 }

@@ -1,29 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
 <meta charset="utf-8">
         <title>커뮤니티 글 작성</title>
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../../css/allCss.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">  
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
 
 <title>SB Admin 2 - Dashboard</title>
 
@@ -36,6 +28,9 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -61,26 +56,8 @@
 						<hr>
 						<div class="col-sm-12 col-md-12">
 						
-						<%-- <tr>
-							<td>제목</td>
-							<td><input type="text" size="50" name="nTitle"></td>
-						</tr>
-						<tr>
-							<td>작성자</td>
-							<td><input type="text" name="nWriter" value="${loginUser.userId }" readonly></td>
-						</tr>
-						<tr>
-							<td>내용</td>
-							<td><textarea rows="7" cols="50" name="nContent"></textarea></td>
-						</tr>
-						<tr>
-							<td>첨부파일</td>
-							<td><input type="file" name="uploadFile"></td>
-						</tr> --%>
 						
-						
-							<form action="insertPost" method="post"
-								enctype="multipart/form-data">
+							<form action="insertPost" method="post" enctype="multipart/form-data">
 								<label for="subject">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</label>
 								<input type="text" id="subject" name="postSubject" size="20px;"
 									placeholder="제목을 입력해주세요">
@@ -88,7 +65,7 @@
 								<!-- 로그인 되어 있지 않기에 그냥 넣는.. -->
 								<input type="hidden" name="postWriterSNo" value="3">
 								<input type="hidden" name="postWriterSName" value="송">
-								<input type="hidden" name="studyNo" value=null>
+								
 									<label for="postKinds">게시판종류</label> 
 									<select
 										id="postKinds" name="postKinds">
@@ -114,7 +91,8 @@
 											style="width: 70%; height: 70%; margin: 30px auto; float: right;">
 											<img src="" alt="이미지 넣는 곳" /> <br>
 										</div>
-										<br> <input style="display: block;" type="file"
+										<br> 
+										<input style="display: block;" type="file"
 											accept="image/png, image/jpeg" name="uploadFile" id="image">
 										<button style="margin-top: 5px;" id="remove">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 									</div>
@@ -122,8 +100,7 @@
 								<br>
 								<hr>
 								<label for="content">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</label><br>
-								<!--<textarea id="content" name="content" rows="20" cols=90%; placeholder="내용을 입력해주세요"></textarea>-->
-								<textarea id="summernote" name="postContent" class="summernote"></textarea>
+								<textarea id="summernote" name="postContent" class="summernote"></textarea> 
 								<br> <input id="reset" class="button" type="reset">
 								<span class="buttonspan">
 								<input id="submit"
@@ -179,58 +156,14 @@
 					              $(this).slideUp(); //파일 양식 감춤
 					          }
 					      });
-					      $('#image2').on('change', function() {
-					
-					          ext = $(this).val().split('.').pop().toLowerCase(); //확장자
-					
-					          //배열에 추출한 확장자가 존재하는지 체크
-					          if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-					              resetFormElement($(this)); //폼 초기화
-					              window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
-					          } else {
-					              file = $('#image2').prop("files")[0];
-					              blobURL = window.URL.createObjectURL(file);
-					              $('#img-box img').eq(1).attr('src', blobURL);
-					              $('#img-box img').eq(1).attr('style', "width:100px;");
-					              $('#img-box img').eq(1).attr('style', "height:100px;");
-					              $('#img-box').eq(1).slideDown(); //업로드한 이미지 미리보기 
-					              $(this).slideUp(); //파일 양식 감춤
-					          }
-					      });
-					      $('#image3').on('change', function() {
-					
-					          ext = $(this).val().split('.').pop().toLowerCase(); //확장자
-					
-					          //배열에 추출한 확장자가 존재하는지 체크
-					          if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-					              resetFormElement($(this)); //폼 초기화
-					              window.alert('이미지 파일이 아닙니다! (gif, png, jpg, jpeg 만 업로드 가능)');
-					          } else {
-					              file = $('#image3').prop("files")[0];
-					              blobURL = window.URL.createObjectURL(file);
-					              $('#img-box img').eq(2).attr('src', blobURL);
-					              $('#img-box img').eq(2).attr('style', "width:100px;");
-					              $('#img-box img').eq(2).attr('style', "height:100px;");
-					              $('#img-box').eq(2).slideDown(); //업로드한 이미지 미리보기 
-					              $(this).slideUp(); //파일 양식 감춤
-					          }
-					      });
+		
 					      
 					      $('#remove').click(function(e) {
 					          e.preventDefault();
 					          $("#image").val("");
 					          $('#img-box img').attr('src', '/img/logo.png');
 					      });
-					      $('#remove2').click(function(e) {
-					          e.preventDefault();
-					          $("#image").val("");
-					          $('#img-box img').attr('src', '/img/logo.png');
-					      });
-					      $('#remove3').click(function(e) {
-					          e.preventDefault();
-					          $("#image").val("");
-					          $('#img-box img').attr('src', '/img/logo.png');
-					      });
+					     
     </script>
 				</div>
 			</div>

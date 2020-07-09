@@ -50,4 +50,8 @@ public class AlarmController {
 			   return "common/errorPage";
 		   }
 	   }
+	   
+	   public void insertAlarm(Alarm alarm) {
+		   alarmService.insertAlarm(alarm);
+	   }
 }
