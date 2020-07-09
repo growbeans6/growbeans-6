@@ -372,7 +372,7 @@ main footer div {
 		src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
 	<script type="text/javascript">
 		// 웹소켓 연결 (매핑된 url의 핸들러와 연결된다.)
-		let sock = new SockJS("http://127.0.0.1:8084/echo");
+		let sock = new SockJS("http://127.0.0.1:8877/echo");
 		sock.onmessage = onMessage;
 		sock.onclose = onClose;
 		$(document).ready(function() {

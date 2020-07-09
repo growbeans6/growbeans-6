@@ -48,7 +48,7 @@ public class ChatRoomController {
 	// 채팅방 입장
 	@RequestMapping("/chatRoom")
 	public ModelAndView chatRoom(ModelAndView mv,HttpSession session) {
-		Student student = (Student)session.getAttribute("loginUser");
+		Student student = (Student)session.getAttribute("loginStudent");
 		ArrayList<Student> sList = studyService.selectStudyStudentList(student.getStudyNo());
 
 		mv.addObject("studyMemberList", sList);

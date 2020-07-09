@@ -127,7 +127,7 @@
             <h6 class="collapse-header">Login Screens:</h6>
             <a class="collapse-item" href="#">스터디 보드</a>
             <a class="collapse-item" href="#">파일 공유</a>
-            <a class="collapse-item" href="/lgForm">그룹 채팅</a>
+            <a class="collapse-item" href="/chatRoom">그룹 채팅</a>
           </div>
         </div>
       </li>
