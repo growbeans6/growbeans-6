@@ -9,8 +9,9 @@ import com.growbeans.cunity.student.domain.Student;
 public interface ProfessorStore {
 	
 	public Professor professorInfo(int pNo);
-	   public int updateProfessorInfo(Professor pro, int pNo);
+	   public int updateProfessorInfo(Professor prof);
 	   public ArrayList<Student> guidanceList();
+	   public Professor selectProfessor(Professor prof); 
 
 
 }

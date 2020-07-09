@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="professorMapper">
+
+	<resultMap type="Professor" id="professorResultSet">
+		<id property="pNo" column="P_NO"/>
+		<result property="pPwd" column="P_PASSWORD"/>
+		<result property="pDept" column="P_DEPT"/>
+		<result property="pName" column="P_NAME"/>	
+		<result property="pPhone" column="P_PHONE"/>
+		<result property="pAddress" column="P_ADDRESS"/>
+		<result property="pEmail" column="P_EMAIL"/>		
+		<result property="pFile" column="P_FILE"/>			
+	</resultMap>
+	
+	<!-- 교수 로그인 쿼리 -->
+	<select id="selectOne" parameterType="Professor" resultMap="professorResultSet">
+		SELECT * FROM PROFESSOR WHERE P_NO = #{pNo} AND P_PASSWORD = #{pPwd}
+	</select>
+	
+	
+	<update id="updateProfessor" parameterType="Professor">
+		UPDATE PROFESSOR
+      SET P_PHONE=#{pPhone}, 
+      P_ADDRESS=#{pAddress}, P_EMAIL=#{pEmail},
+      WHERE P_NO=#{pNo}
+	</update>
+</mapper>

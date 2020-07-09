@@ -11,7 +11,7 @@ import com.growbeans.cunity.professor.domain.Professor;
 import com.growbeans.cunity.professor.store.ProfessorStore;
 import com.growbeans.cunity.student.domain.Student;
 
-@Repository("proStore")
+@Repository("pStore")
 public class ProfessorStoreLogic implements ProfessorStore{
 	
 	@Autowired
@@ -24,15 +24,23 @@ public class ProfessorStoreLogic implements ProfessorStore{
 	}
 
 	@Override
-	public int updateProfessorInfo(Professor pro, int pNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateProfessorInfo(Professor prof) {
+		int result = sqlSession.update("professorMapper.updateProfessor", prof);
+		return result;
 	}
 
 	@Override
 	public ArrayList<Student> guidanceList() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	
+	// 교수 로그인
+	@Override
+	public Professor selectProfessor(Professor prof) {
+		Professor profLogin = sqlSession.selectOne("professorMapper.selectOne", prof);
+		return profLogin;
 	}
 
 

@@ -10,8 +10,9 @@ import com.growbeans.cunity.student.domain.Student;
 public interface ProfessorService {
 	
 	   public Professor professorInfo(int pNo);
-	   public int updateProfessorInfo(Professor pro, int pNo);
+	   public int updateProfessorInfo(Professor prof);
 	   public ArrayList<Student> guidanceList();
+	   public Professor professorLogin(Professor prof);
 
 
 }

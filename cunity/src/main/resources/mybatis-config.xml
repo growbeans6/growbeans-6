@@ -15,13 +15,13 @@
 		<typeAlias type="com.growbeans.cunity.lectureEvaluation.domain.LectureEvaluation" alias="LectureEvaluation"/>
 		<typeAlias type="com.growbeans.cunity.lecturesyllabus.domain.LectureSyllabus" alias="LectureSyllabus"/>
 		<typeAlias type="com.growbeans.cunity.post.domain.PostImage" alias="PostImage"/>
-		<typeAlias type="com.growbeans.cunity.professor.domain.Professor" alias="Professor"/>
 		<typeAlias type="com.growbeans.cunity.student.domain.Student" alias="Student"/>
 		<typeAlias type="com.growbeans.cunity.study.domain.Study" alias="Study"/>
 		<typeAlias type="com.growbeans.cunity.studyFile.domain.StudyFile" alias="StudyFile"/>
 		<typeAlias type="com.growbeans.cunity.studyFolder.domain.StudyFolder" alias="StudyFolder"/> -->
 		<typeAlias type="com.growbeans.cunity.post.domain.PostComment" alias="PostComment"/>
 		<typeAlias type="com.growbeans.cunity.post.domain.Post" alias="Post"/>
+		<typeAlias type="com.growbeans.cunity.professor.domain.Professor" alias="Professor"/>
 	</typeAliases>
 
 	<mappers>
@@ -37,11 +37,11 @@
 		<mapper resource="mappers/lectureEnrollment-mapper.xml"/>
 		<mapper resource="mappers/lectureEvaluation-mapper.xml"/>
 		<mapper resource="mappers/lectureSyllabus-mapper.xml"/>
-		<mapper resource="mappers/professor-mapper.xml"/>
 		<mapper resource="mappers/student-mapper.xml"/>
 		<mapper resource="mappers/study-mapper.xml"/>
 		<mapper resource="mappers/studyFile-mapper.xml"/>
 		<mapper resource="mappers/studyFolder-mapper.xml"/> -->
+		<mapper resource="mappers/professor-mapper.xml"/>
 		<mapper resource="mappers/post-mapper.xml"/>
 	</mappers>
 </configuration>
