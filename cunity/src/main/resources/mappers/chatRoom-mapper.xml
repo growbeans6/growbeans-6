@@ -13,8 +13,26 @@
 		<result  property="studyNo" column="study_no"/>
 		<result  property="pNo" column="p_no"/>
 	</resultMap>
+	<resultMap type="ChatRoom" id="chatRoomResultSet">
+		<id property="studentNo" column="CROOM_S_NO"/>
+		<result  property="studyNo" column="CROOM_NO"/>
+		<result  property="studentName" column="CROOM_S_NAME"/>
+		<result  property="studentImage" column="CROOM_S_IMAGE"/>
+	</resultMap>
 	<select id="loginTest" resultMap="studentResultSet" parameterType="string">
 		select * from STUDENT
 		where s_no = #{id}
+	</select>
+	<insert id="entranceRoom" parameterType="ChatRoom">
+		insert into chatroom
+		values(#{studentNo}, #{studyNo}, #{studentName}, #{studentImage} )
+	</insert>
+	<delete id="exitRoom" parameterType="_int">
+		delete from chatroom
+		where CROOM_S_NO = #{studentNo}
+	</delete>
+	<select id="selectRoomMemberList" parameterType="_int" resultMap="chatRoomResultSet">
+		select * from chatroom
+		where CROOM_NO = #{studyNo}
 	</select>
 </mapper>

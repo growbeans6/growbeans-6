@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.student.domain.Student;
+import com.growbeans.cunity.student.mapper.StudentMapper;
 import com.growbeans.cunity.student.store.StudentStore;
 import com.growbeans.cunity.study.domain.Study;
+import com.growbeans.cunity.study.mapper.StudyMapper;
 import com.growbeans.cunity.study.store.StudyStore;
 
 @Repository("studyStore")
@@ -61,21 +63,22 @@ public class StudyStoreLogic implements StudyStore{
 	}
 
 	@Override
-	public int withdrawStudy(int StudentNo) {
+	public int withdrawStudy(int studentNo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public Study selectStudy(int StudentNo) {
+	public Study selectStudy(int studentNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Student> selectStudyStudentList(int Study) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Student> selectStudyStudentList(int studyNo) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		
+		return mapper.selectStudyStudentList(studyNo);
 	}
 	
 

@@ -1,5 +1,7 @@
 package com.growbeans.cunity.chatRoom.store.logic;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,19 +24,19 @@ public class ChatRoomStoreLogic implements ChatRoomStore{
 	}
 	@Override
 	public int entranceRoom(ChatRoom chatRoom) {
-		// TODO Auto-generated method stub
-		return 0;
+		ChatRoomMapper chatRoomMapper = session.getMapper(ChatRoomMapper.class);
+		return chatRoomMapper.entranceRoom(chatRoom);
 	}
 
 	@Override
 	public int exitRoom(int studentNo) {
-		// TODO Auto-generated method stub
-		return 0;
+		ChatRoomMapper chatRoomMapper = session.getMapper(ChatRoomMapper.class);
+		return chatRoomMapper.exitRoom(studentNo);
 	}
 
 	@Override
-	public ChatRoom selectRoomMemberList(int studyNo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<ChatRoom> selectRoomMemberList(int studyNo) {
+		ChatRoomMapper chatRoomMapper = session.getMapper(ChatRoomMapper.class);
+		return chatRoomMapper.selectRoomMemberList(studyNo);
 	}
 }

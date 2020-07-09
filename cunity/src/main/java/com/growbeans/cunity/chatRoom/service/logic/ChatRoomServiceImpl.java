@@ -1,5 +1,7 @@
 package com.growbeans.cunity.chatRoom.service.logic;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,19 +23,19 @@ public class ChatRoomServiceImpl implements ChatRoomService{
 	@Override
 	public int entranceRoom(ChatRoom chatRoom) {
 		// TODO Auto-generated method stub
-		return 0;
+		return chatroomStore.entranceRoom(chatRoom);
 	}
 
 	@Override
 	public int exitRoom(int studentNo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return chatroomStore.exitRoom(studentNo);
 	}
 
 	@Override
-	public ChatRoom selectRoomMemberList(int studyNo) {
+	public ArrayList<ChatRoom> selectRoomMemberList(int studyNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return chatroomStore.selectRoomMemberList(studyNo);
 	}
 
 }

@@ -45,7 +45,7 @@ body {
 
 aside {
 	width: 260px;
-	height: 800px;
+	height: 850px;
 	background-color: #3b3e49;
 	display: inline-block;
 	font-size: 15px;
@@ -55,7 +55,7 @@ aside {
 main {
 	border: 1px solid lightgray;
 	width: 1200px;
-	height: 800px;
+	height: 850px;
 	display: inline-block;
 	font-size: 15px;
 	vertical-align: top;
@@ -91,12 +91,12 @@ h2, h3 {
 }
 
 aside li img {
-	width:80px;
-	height:80px;
+	width: 80px;
+	height: 80px;
 	border-radius: 100%;
 	margin-left: 20px;
 	margin-right: 8px;
-	border:4px solid gray;
+	border: 4px solid gray;
 }
 
 aside li div {
@@ -274,12 +274,15 @@ main footer a {
 	font-weight: bold;
 	color: #6fbced;
 	vertical-align: top;
-	margin-left: 333px;
+	margin-left: 30px;
 	margin-top: 5px;
 	display: inline-block;
 }
 
 main footer select {
+	margin-top : 10px;
+	margin-left : 900px;
+	float:right;
 	height: 25px;
 }
 
@@ -311,118 +314,41 @@ main footer div {
 					<aside> <header>
 					<h3>스터디 멤버 목록</h3>
 					</header>
-					<ul>
-						<li><img
-							src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_09.jpg"
-							alt="">
-							<div>
-								<h2>Prénom Nom</h2>
-								<h3>
-									<span class="status green"></span> online
-								</h3>
-							</div></li>
-						<li><img
-							src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_10.jpg"
-							alt="">
-							<div>
-								<h2>Prénom Nom</h2>
-								<h3>
-									<span class="status orange"></span> offline
-								</h3>
-							</div></li>
-						<li><img
-							src="/resources/img/chipmunk.jpg"
-							alt="">
-							<div>
-								<h2>Prénom Nom</h2>
-								<h3>
-									<span class="status orange"></span> offline
-								</h3>
-							</div></li>
+					<ul id="chatMember">
+						<c:forEach var="studentMember" items="${studyMemberList }"
+							varStatus="status">
+							<li><img src="/resources/img/${studentMember.sFile }" alt="">
+								<div>
+									<h2>${studentMember.sName }</h2>
+									<h3 class="row" id="sNo${studentMember.sNo }">
+										&nbsp&nbsp&nbsp <span class="status orange"></span>
+										<p>offline</p>
+									</h3>
+								</div></li>
+						</c:forEach>
 					</ul>
 					</aside>
 					<main> <header>
 					<h1>ChatRoom</h1>
 					</header>
 					<ul id="chat">
-						<li class="you">
-							<div class="entete">
-								<span class="status green"></span>
-								<h2>Vincent</h2>
-								<h3>10:12AM, Today</h3>
-							</div>
-							<div class="triangle"></div>
-							<div class="message">Lorem ipsum dolor sit amet,
-								consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-							</div>
-						</li>
-						<li class="me">
-							<div class="entete">
-								<h3>10:12AM, Today</h3>
-								<h2>Vincent</h2>
-								<span class="status blue"></span>
-							</div>
-							<div class="triangle"></div>
-							<div class="message">Lorem ipsum dolor sit amet,
-								consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-							</div>
-						</li>
-						<li class="me">
-							<div class="entete">
-								<h3>10:12AM, Today</h3>
-								<h2>Vincent</h2>
-								<span class="status blue"></span>
-							</div>
-							<div class="triangle"></div>
-							<div class="message">OK</div>
-						</li>
-						<li class="you">
-							<div class="entete">
-								<span class="status green"></span>
-								<h2>Vincent</h2>
-								<h3>10:12AM, Today</h3>
-							</div>
-							<div class="triangle"></div>
-							<div class="message">Lorem ipsum dolor sit amet,
-								consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-							</div>
-						</li>
-						<li class="me">
-							<div class="entete">
-								<h3>10:12AM, Today</h3>
-								<h2>Vincent</h2>
-								<span class="status blue"></span>
-							</div>
-							<div class="triangle"></div>
-							<div class="message">Lorem ipsum dolor sit amet,
-								consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-							</div>
-						</li>
-						<li class="me">
-							<div class="entete">
-								<h3>10:12AM, Today</h3>
-								<h2>Vincent</h2>
-								<span class="status blue"></span>
-							</div>
-							<div class="triangle"></div>
-							<div class="message">Lorem ipsum dolor sit amet,
-								consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-								commodo ligula eget dolor. Lorem ipsum dolor sit amet,
-								consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-							</div>
-						</li>
-						<li class="entry">
-							<p>입장하셨습니다.</p>
-						</li>
+						
 					</ul>
-					<footer> <textarea id="message"
-						placeholder="Type your message"></textarea>
+					<footer> 
+						 
 					<div class="row">
-						<select>
-							<option value="전체">전체</option>
-							<option value="이승원">이승원</option>
-						</select> <a href="javascript:void(0);" onclick="sendMessage(this);">Send</a>
+					<textarea id="message"
+						placeholder="Type your message"></textarea>
+						<select id="selectUser">
+							<option value="all">전체</option>
+							<c:forEach var="studyMember"  items="${studyMemberList }" varStatus="index">
+								<c:if test="${studyMember.sNo ne loginUser.sNo }">
+									<option value="${studyMember.sNo }">${studyMember.sName }</option>
+								</c:if>
+							</c:forEach>
+						
+						</select>
+						<a href="javascript:void(0);" onclick="sendMessage(this);" class="btn btn-primary btn-lg">Send</a>
 					</div>
 
 					</footer> </main>
@@ -446,11 +372,21 @@ main footer div {
 		src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
 	<script type="text/javascript">
 		// 웹소켓 연결 (매핑된 url의 핸들러와 연결된다.)
-		let sock = new SockJS("http://127.0.0.1:8083/echo");
+		let sock = new SockJS("http://127.0.0.1:8084/echo");
 		sock.onmessage = onMessage;
 		sock.onclose = onClose;
+		$(document).ready(function() {
+			$("#chat").scrollTop($("#chat").scrollHeight);
+		});
 		function sendMessage(obj) {
-			sock.send($("#message").val());
+			var text = $("#message").val();
+			var user = $("#selectUser option:selected").val();
+			if(user == "all"){
+				sock.send($("#message").val());
+			} else{
+				sock.send("{{whisper}}"+"<<<"+user+">>>"+text);
+			}
+			
 			$("#message").val("");
 		}
 		function onMessage(msg) {
@@ -458,14 +394,33 @@ main footer div {
 			var data = msg.data;
 			var userName = '${loginUser.sName}';
 			var regM1 = /^({{[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+}})/; // {{한글/영어}} 추출 정규식
-			var regM2 = /([a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+)/; // {{}} 에서 한글/영어 추출 정규식
+			var regM2 = /([a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+)/; // 한글/영어 추출 정규식
+			var regM3 = /^(<<<[0-9]+>>>)/; // <<<숫자>>> 추출 정규식
+			var regM4 = /([0-9]+)/; // <<<숫자>>> 추출 정규식
+			
 			var key = regM1.exec(data); // msg에서 {{한글/영어}} 추출
 			key = key[0];
 			var sysMsg = regM2.exec(key); // key의 {{}}에서 한글/영어 추출
 			sysMsg = sysMsg[0];
 			data = data.replace(regM1, ""); // {{한글/영어}}를 제거한 메시지로 변환
 			console.log(sysMsg);
+			
 			if (sysMsg == userName) {
+				var whisMsg = regM1.exec(data);
+				if(whisMsg!=null){
+					whisMsg = whisMsg[0];
+				}
+				if(whisMsg=="{{whisper}}"){
+					data = data.replace(regM1, "");
+					var wUser = regM3.exec(data);
+					wUser = wUser[0];
+					wUser = regM4.exec(wUser);
+					wUser = wUser[0];
+					var loginNo = ${loginUser.sNo};
+					var whisName = $("#selectUser option:selected").text();
+					data = data.replace(regM3, "");
+					data = "<p>[귓속말 : "+whisName+"]</p>" + data;
+				}
 				var $me = $("<li>");
 				$me.addClass("me");
 				var $entete = $("<div>");
@@ -477,7 +432,6 @@ main footer div {
 				$triangle.addClass("triangle");
 				var $message = $("<div>");
 				$message.addClass("message");
-				var $p = $("<p>");
 
 				$("#chat").append($me);
 				$me.append($entete);
@@ -486,17 +440,96 @@ main footer div {
 				$entete.append($span);
 				$me.append($triangle);
 				$me.append($message);
-				$message.append($p);
-				$p.text(data);
+				$message.html(data);
 
-			} else if (sysMsg == "entry") {
+			} else if (sysMsg == "entryIn") {
+				var studyNo = ${loginUser.studyNo};
 				var $entry = $("<li>");
 				$entry.addClass("entry");
 				var $p = $("<p>");
 				$("#chat").append($entry);
 				$entry.append($p);
 				$p.text(data);
+				$.ajax({
+					url : "/rMember",
+					data : {
+						studyNo : studyNo
+					},
+					dataType : "json",
+					cache : false,
+					success : function(data) {
+						console.log(data.length);
+						if (data.length > 0) {
+							for (i in data) {
+								console.log(data[i].studentNo);
+								var $h3 = $("#sNo" + data[i].studentNo);
+								$h3.children("span").attr("class",
+										"status green");
+								$h3.children("p").text("online");
+							}
+
+						}
+
+					}
+				});
+
+			} else if (sysMsg == "entryOut") {
+				
+				var studyNo = ${loginUser.studyNo};
+				var $entry = $("<li>");
+				$entry.addClass("entry");
+				var $p = $("<p>");
+				$("#chat").append($entry);
+				$entry.append($p);
+				$p.text(data);
+				$.ajax({
+					url : "/rMember",
+					data : {
+						studyNo : studyNo
+					},
+					dataType : "json",
+					cache : false,
+					success : function(data) {
+						console.log(data.length);
+						var $h3;
+						if (data.length > 0) {
+							$("#chatMember").find("h3").each(function(index, item) {
+								console.log(index);
+								$h3= $(this);
+								var text = $h3.text();
+								console.log(text);
+								$h3.children("span").attr("class","status orange");
+								$h3.children("p").text("offline");
+							});
+							for (i in data) {		
+								console.log(data[i].studentNo);
+							    $h3 = $("#sNo" + data[i].studentNo);
+								$h3.children("span").attr("class","status green");
+								$h3.children("p").text("online");								
+							}
+						}
+
+					}
+				});
+
 			} else {
+				var whisMsg = regM1.exec(data);
+				if(whisMsg!=null){
+					whisMsg = whisMsg[0];
+				}
+				if(whisMsg=="{{whisper}}"){
+					data = data.replace(regM1, "");
+					var wUser = regM3.exec(data);
+					wUser = wUser[0];
+					wUser = regM4.exec(wUser);
+					wUser = wUser[0];
+					var loginNo = ${loginUser.sNo};
+					data = data.replace(regM3, "");
+					data = "<p>[귓속말]</p>" + data;
+					if(wUser!=loginNo){
+						return;
+					}
+				}
 				var $you = $("<li>");
 				$you.addClass("you");
 				var $entete = $("<div>");
@@ -508,8 +541,6 @@ main footer div {
 				$triangle.addClass("triangle");
 				var $message = $("<div>");
 				$message.addClass("message");
-				var $p = $("<p>");
-
 				$("#chat").append($you);
 				$you.append($entete);
 				$entete.append($span);
@@ -517,9 +548,9 @@ main footer div {
 				$h2.text(sysMsg);
 				$you.append($triangle);
 				$you.append($message);
-				$message.append($p);
-				$p.text(data);
+				$message.html(data);
 			}
+			$("#chat").scrollTop($("#chat")[0].scrollHeight);
 		}
 		function onClose() {
 			console.log("연결끊김");
