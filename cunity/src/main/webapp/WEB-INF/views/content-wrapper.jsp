@@ -89,7 +89,8 @@
                     Spending Alert: We've noticed unusually high spending for your account.
                   </div>
                 </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                <!-- 알람 리스트로 가게 함 -->
+                <a class="dropdown-item text-center small text-gray-500" onclick="location.href='alarmList'">Show All Alerts</a>
               </div>
             </li>
 

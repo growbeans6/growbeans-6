@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.growbeans.cunity.post.domain.PageInfo;
 import com.growbeans.cunity.post.domain.Post;
 import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.domain.Search;
@@ -19,8 +20,21 @@ public interface PostService {
 	 * @return list
 	 */
 	public int getListCount();
-
+	
+	/**
+	 * 1. 자유, 강의평가 게시판 조회
+	 * @param postKinds
+	 * @return
+	 */
 	public ArrayList<Post> selectList(String postKinds);
+	
+	/**
+	 * 1.1 장터 게시판 조회
+	 * @param postKinds
+	 * @param pi
+	 * @return
+	 */
+	public ArrayList<Post> selectList(String postKinds, PageInfo pi);
 
 	/**
 	 * 2. 게시판 등록
