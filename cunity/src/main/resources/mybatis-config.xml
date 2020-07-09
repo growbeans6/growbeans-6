@@ -13,7 +13,7 @@
 	</settings>
 
 	<typeAliases>
-		<!-- <typeAlias type="com.growbeans.cunity.Alarm.domain.Alarm" alias="Alarm"/>
+		<typeAlias type="com.growbeans.cunity.Alarm.domain.Alarm" alias="Alarm"/>
 		<typeAlias type="com.growbeans.cunity.chatRoom.domain.ChatRoom" alias="ChatRoom"/>
 		<typeAlias type="com.growbeans.cunity.consulting.domain.Consulting" alias="Consulting"/>
 		<typeAlias type="com.growbeans.cunity.departmentNotice.domain.DepartmentNotice" alias="DepartmentNotice"/>
@@ -29,7 +29,7 @@
 		<typeAlias type="com.growbeans.cunity.professor.domain.Professor" alias="Professor"/>
 		<typeAlias type="com.growbeans.cunity.study.domain.Study" alias="Study"/>
 		<typeAlias type="com.growbeans.cunity.studyFile.domain.StudyFile" alias="StudyFile"/>
-		<typeAlias type="com.growbeans.cunity.studyFolder.domain.StudyFolder" alias="StudyFolder"/> -->
+		<typeAlias type="com.growbeans.cunity.studyFolder.domain.StudyFolder" alias="StudyFolder"/>
 		<typeAlias type="com.growbeans.cunity.post.domain.PostComment" alias="PostComment"/>
 		<typeAlias type="com.growbeans.cunity.post.domain.Post" alias="Post"/>
 		<typeAlias type="com.growbeans.cunity.student.domain.Student" alias="Student"/>
@@ -37,8 +37,7 @@
 	</typeAliases>
 
 	<mappers>
-		<!-- <mapper resource="mappers/alarm-mapper.xml"/>
-		<mapper resource="mappers/chatRoom-mapper.xml"/>
+		<!-- 
 		<mapper resource="mappers/consulting-mapper.xml"/>
 		<mapper resource="mappers/departmentNotice-mapper.xml"/>
 		<mapper resource="mappers/departmentNoticeFile-mapper.xml"/>
@@ -49,12 +48,14 @@
 		<mapper resource="mappers/lectureEnrollment-mapper.xml"/>
 		<mapper resource="mappers/lectureEvaluation-mapper.xml"/>
 		<mapper resource="mappers/lectureSyllabus-mapper.xml"/>
-		<mapper resource="mappers/professor-mapper.xml"/>
-		<mapper resource="mappers/student-mapper.xml"/>
-		<mapper resource="mappers/study-mapper.xml"/>
+		<mapper resource="mappers/professor-mapper.xml"/>-->
 		<mapper resource="mappers/studyFile-mapper.xml"/>
-		<mapper resource="mappers/studyFolder-mapper.xml"/> -->
+		<mapper resource="mappers/studyFolder-mapper.xml"/> 
+		<mapper resource="mappers/chatRoom-mapper.xml"/>
+		<mapper resource="mappers/study-mapper.xml"/>
+		<mapper resource="mappers/student-mapper.xml"/>
 		<mapper resource="mappers/professor-mapper.xml"/>
+		<mapper resource="mappers/alarm-mapper.xml"/>
 		<mapper resource="mappers/post-mapper.xml"/>
 		<mapper resource="mappers/student-mapper.xml"/>
 	</mappers>
