@@ -18,7 +18,7 @@ public class ProfessorController {
    // 교수 정보 //세션에서 교번을 가져온다.
    @RequestMapping("/profInfo")
    public ModelAndView professorInfo(ModelAndView mv) {
-	   mv.setViewName("professor/profInfo");
+	   mv.setViewName("common/loginPage");
       return mv;
    }
    

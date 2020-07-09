@@ -54,52 +54,55 @@
          <div class="col-md-4"></div>
          <div class="col-md-5">
             <h2 class="text-center">학생정보</h2>
-            <form action="/#" method="post"
+            <br><br>
+            <form action="/updateStudentInfo" method="post"
                name="productWrite" enctype="multipart/form-data">
+               
+               <img src="/resources/img/${loginStudent.sFile }">  
                <table class="table table-striped">
-                 
-                  <tr>
-                     <td><img src="#" alt="사진"></td>
-                  </tr>
-                  <tr>
-                     <th>학번</th>
-                     <th><input type="text" class="form-control" name="title" value="14615029" readonly></th>
-                 </tr>
                         
                   <tr>
+                     <th>학번</th>
+                     <th><input type="text" class="form-control" name="sNo" value="${loginStudent.sNo }" readonly></th>
+                     <input type="hidden" name="sFile" value="${loginStudent.sFile }">
+                 </tr>
+                 
+
+                  <tr>
                      <th>학과</th>
-                     <th><input type="text" class="form-control" name="findplace" value="컴퓨터 공학과"readonly></th>
+                     <th><input type="text" class="form-control" name="sDept" value="${loginStudent.sDept }"readonly></th>
                   </tr>
                   
-                 <tr>
+                  <tr>
                      <th>이름</th>
-                     <th><input type="text" class="form-control" name="color" value="오주현"readonly></th>
+                     <th><input type="text" class="form-control" name="sName" value="${loginStudent.sName }"readonly></th>
                   </tr>
 
                   <tr>
                      <th>전화번호</th>
-                     <th><input type="text" class="form-control" name="findplace" value="010-3546-9420"></th>
+                     <th><input type="text" class="form-control" name="sPhone" value="${loginStudent.sPhone }"></th>
                   </tr>
 
                   <tr>
                      <th>주소</th>
-                     <th><input type="text" class="form-control" name="findplace" value="인천광역시 서구"></th>
+                     <th><input type="text" class="form-control" name="sAddress" value="${loginStudent.sAddress }"></th>
                      <td><button class="btn btn-primary">주소검색</button></td>
                   </tr>
 
                   <tr>
                      <th>이메일</th>
-                     <th><input type="text" class="form-control" name="findplace" value="dhwngus32@naver.com"></th>
+                     <th><input type="text" class="form-control" name="sEmail" value="${loginStudent.sEmail }"></th>
                   </tr>
                   
                   <tr>
                      <th>학년</th>
-                     <th><input type="text" class="form-control" name="findplace" value="3" readonly></th>
+                     <th><input type="text" class="form-control" name="sGrade" value="${loginStudent.sGrade }" readonly></th>
                   </tr>
 
 
                   <tr>
-                     <td colspan="2" class="text-center"><input type="submit" value="정보수정" class="btn btn-primary"> 
+                     <td colspan="2" class="text-center">
+                     	<input type="submit" value="정보수정" class="btn btn-primary"> 
                         <button type="button" class="btn btn-primary" onclick="back()">홈으로</button>
                      </td>
                   </tr>

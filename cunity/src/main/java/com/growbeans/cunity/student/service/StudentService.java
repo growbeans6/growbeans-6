@@ -20,12 +20,5 @@ public interface StudentService {
 	    */
 	   public int updateStudent(Student student);
 	   
-	   /**
-	    * 학생정보 조회
-	    * @param  sNo
-	    * @return 
-	    */
-	   public Student studentInfo(int sNo);
-	   
 	   
 }

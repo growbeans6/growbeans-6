@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -39,8 +41,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <a class="collapse-item" href="#">학생 정보</a>
-            <a class="collapse-item" href="#">대외 활동</a>
+            <a class="collapse-item" href="/studentInfo">학생 정보</a>
+            <a class="collapse-item" href="">대외 활동</a>
           </div>
         </div>
       </li>
@@ -54,8 +56,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <a class="collapse-item" href="#">상담 신청</a>
-            <a class="collapse-item" href="#">상담 내역</a>
+            <a class="collapse-item" href="/stuWriteConsulting">상담 신청</a>
+            <a class="collapse-item" href="/stuConsultingList">상담 내역</a>
           </div>
         </div>
       </li>
@@ -68,10 +70,10 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <a class="collapse-item" href="#">수강 신청</a>
-            <a class="collapse-item" href="#">수강 신청 내역</a>
-            <a class="collapse-item" href="#">수업 시간표</a>
-            <a class="collapse-item" href="#">수업 정보</a>
+            <a class="collapse-item" href="/lectureList">수강 신청</a>
+            <a class="collapse-item" href="/lectureEnrollList">수강 신청 내역</a>
+            <a class="collapse-item" href="/schedule">수업 시간표</a>
+            <a class="collapse-item" href="/lectureInfo">수업 정보</a>
           </div>
         </div>
       </li>
@@ -84,8 +86,8 @@
         <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <a class="collapse-item" href="#">성적 조회</a>
-            <a class="collapse-item" href="#">강의 평가</a>
+            <a class="collapse-item" href="/stuGrade">성적 조회</a>
+            <a class="collapse-item" href="/lectureEvaluation">강의 평가</a>
           </div>
         </div>
       </li>
@@ -107,9 +109,9 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="postList?postKinds=자유">자유 게시판</a>
+            <a class="collapse-item" href="#">자유 게시판</a>
             <a class="collapse-item" href="#">스터디 게시판</a>
-            <a class="collapse-item" href="postList2">장터 게시판</a>
+            <a class="collapse-item" href="#">장터 게시판</a>
             <a class="collapse-item" href="#">강의 평가</a>
           </div>
         </div>
@@ -123,7 +125,7 @@
         <div id="studycollapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="friends">스터디 보드</a>
+            <a class="collapse-item" href="#">스터디 보드</a>
             <a class="collapse-item" href="#">파일 공유</a>
             <a class="collapse-item" href="#">그룹 채팅</a>
           </div>
@@ -132,7 +134,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="friends">
+        <a class="nav-link" href="tables.html">
           <i class="fas fa-child"></i>
           <span>친구 목록</span></a>
       </li>

@@ -12,13 +12,13 @@ public class Student {
 	private String sFile;
 	private int studyNo;
 	private int pNo;
+	private String sPassword;
 	
 	
 	public Student() {}
-	
-	
+
 	public Student(int sNo, String sDept, String sName, String sPhone, String sAddress, String sEmail, int sGrade,
-			String sFile, int studyNo, int pNo) {
+			String sFile, int studyNo, int pNo, String sPassword) {
 		super();
 		this.sNo = sNo;
 		this.sDept = sDept;
@@ -30,8 +30,19 @@ public class Student {
 		this.sFile = sFile;
 		this.studyNo = studyNo;
 		this.pNo = pNo;
+		this.sPassword = sPassword;
 	}
 
+
+
+
+	public String getsPassword() {
+		return sPassword;
+	}
+
+	public void setsPassword(String sPassword) {
+		this.sPassword = sPassword;
+	}
 
 	public int getsNo() {
 		return sNo;
@@ -132,11 +143,12 @@ public class Student {
 		this.pNo = pNo;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Student [sNo=" + sNo + ", sDept=" + sDept + ", sName=" + sName + ", sPhone=" + sPhone + ", sAddress="
 				+ sAddress + ", sEmail=" + sEmail + ", sGrade=" + sGrade + ", sFile=" + sFile + ", studyNo=" + studyNo
-				+ ", pNo=" + pNo + "]";
+				+ ", pNo=" + pNo + ", sPassword=" + sPassword + "]";
 	}
+
+
 }
