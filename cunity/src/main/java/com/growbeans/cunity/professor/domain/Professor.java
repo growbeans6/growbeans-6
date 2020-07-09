@@ -3,6 +3,7 @@ package com.growbeans.cunity.professor.domain;
 public class Professor {
 
 	private int pNo;
+	private String pPwd;
 	private String pDept;
 	private String pName;
 	private String pPhone;
@@ -14,9 +15,10 @@ public class Professor {
 	public Professor() {}
 	
 	
-	public Professor(int pNo, String pDept, String pName, String pPhone, String pAddress, String pEmail, String pFile) {
+	public Professor(int pNo, String pPwd, String pDept, String pName, String pPhone, String pAddress, String pEmail, String pFile) {
 		super();
 		this.pNo = pNo;
+		this.pPwd = pPwd;
 		this.pDept = pDept;
 		this.pName = pName;
 		this.pPhone = pPhone;
@@ -33,6 +35,16 @@ public class Professor {
 
 	public void setpNo(int pNo) {
 		this.pNo = pNo;
+	}
+	
+	
+	public String getpPwd() {
+		return pPwd;
+	}
+
+
+	public void setpPwd(String pPwd) {
+		this.pPwd = pPwd;
 	}
 
 
@@ -98,7 +110,7 @@ public class Professor {
 
 	@Override
 	public String toString() {
-		return "Professor [pNo=" + pNo + ", pDept=" + pDept + ", pName=" + pName + ", pPhone=" + pPhone + ", pAddress="
+		return "Professor [pNo=" + pNo + ", pPwd=" + pPwd + ", pDept=" + pDept + ", pName=" + pName + ", pPhone=" + pPhone + ", pAddress="
 				+ pAddress + ", pEmail=" + pEmail + ", pFile=" + pFile + "]";
 	}
 	

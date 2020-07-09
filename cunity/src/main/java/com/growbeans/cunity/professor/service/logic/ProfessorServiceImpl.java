@@ -9,14 +9,15 @@ import org.springframework.stereotype.Service;
 import com.growbeans.cunity.professor.domain.Professor;
 import com.growbeans.cunity.professor.service.ProfessorService;
 import com.growbeans.cunity.professor.store.ProfessorStore;
+import com.growbeans.cunity.professor.store.logic.ProfessorStoreLogic;
 import com.growbeans.cunity.student.domain.Student;
 
 
-@Service("proService")
+@Service("pService")
 public class ProfessorServiceImpl implements ProfessorService{
 	
 	@Autowired
-	private ProfessorStore proStore;
+	private ProfessorStoreLogic pStore;
 
 	@Override
 	public Professor professorInfo(int pNo) {
@@ -25,15 +26,19 @@ public class ProfessorServiceImpl implements ProfessorService{
 	}
 
 	@Override
-	public int updateProfessorInfo(Professor pro, int pNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateProfessorInfo(Professor prof) {
+		return pStore.updateProfessorInfo(prof);
 	}
 
 	@Override
 	public ArrayList<Student> guidanceList() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Professor professorLogin(Professor prof) {
+		return pStore.selectProfessor(prof);
 	}
 
 }

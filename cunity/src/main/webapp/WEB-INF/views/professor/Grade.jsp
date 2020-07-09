@@ -37,7 +37,7 @@
       <!-- Main Content -->
       <div id="content">
 
-       <jsp:include page="../content-wrapper.jsp"></jsp:include>
+       <jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
 
         <!-- Begin Page Content -->
         <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->

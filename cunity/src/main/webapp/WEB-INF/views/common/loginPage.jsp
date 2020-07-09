@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -77,12 +78,12 @@
                   </div>
                   </form> 
                   
-                <form class="professor" id="professor1" action="/professorLogin" style="display:none">
+                <form class="professor" id="professor1" action="/profLogin" style="display:none" method="POST">
                   <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="professorId" placeholder="professor Id" name="professorId">
+                      <input type="text" class="form-control form-control-user" id="professorId" placeholder="professor Id" name="pNo">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="professorPassword" placeholder="Password" name="professorPassword">
+                      <input type="password" class="form-control form-control-user" id="professorPassword" placeholder="Password" name="pPwd">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -93,8 +94,10 @@
                     <input type="submit" class="btn btn-primary" value="Login" style="width:350px">
                     <hr>
                  <div class="text-center">
+                 	
                     <a class="small" href="forgot-password.html">교번/비밀번호 찾기</a>
                   </div>
+                  
                   </form>
                 <hr>            
 
@@ -143,3 +146,4 @@ function setDisplay(){
 </script>
 
 </html>
+

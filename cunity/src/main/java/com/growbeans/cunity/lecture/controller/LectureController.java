@@ -43,6 +43,7 @@ public class LectureController {
 		return mv;
 	}
 	
+	// 강의 시간표
 	@RequestMapping("/lectureTime")
 	public ModelAndView lectureTime(ModelAndView mv) {
 		mv.setViewName("professor/lectureTime");

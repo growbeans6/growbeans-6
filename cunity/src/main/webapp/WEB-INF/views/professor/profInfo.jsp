@@ -37,7 +37,7 @@
       <!-- Main Content -->
       <div id="content">
 
-       <jsp:include page="../content-wrapper.jsp"></jsp:include>
+       <jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
 
         <!-- Begin Page Content -->
         <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
@@ -53,40 +53,40 @@
          <div class="col-md-4"></div>
          <div class="col-md-5">
             <h2 class="text-center">교수정보</h2>
-            <form action="/#" method="post"
+            <form action="#" method="post"
                name="productWrite" enctype="multipart/form-data">
                <table class="table table-striped">
                    <tr>
                     <td class="img" >
-                       <img src="img/250px-Albert_Einstein_Head.jpg" width="140" height="140"  title="아인슈타인">
+                       <img src="/resources/img/${loginprof.pFile }" width="140" height="140" >
                        </td>
                    </tr>
                   <tr>
                      <td>교번</td>
-                     <td><input type="text" class="form-control" name="lName"
-                        placeholder="1829182" required readonly></td>
+                     <td><input type="text" class="form-control" name="pNo"
+                        placeholder="${loginprof.pNo }" required readonly></td>
                         </tr>
                         
                         <tr>
                      <td>학과</td>
-                     <td><input type="text" class="form-control" name="findplace" value="컴퓨터 공학과" readonly></td>
+                     <td><input type="text" class="form-control" name="pDept" value="${loginprof.pDept }" readonly></td>
                   </tr>
                   
                     <tr>
                      <td>교수명</td>
-                     <td><input type="text" class="form-control" name="color" value="민봉식" readonly></td>
+                     <td><input type="text" class="form-control" name="pName" value="${loginprof.pName }" readonly></td>
                   </tr>
 
                   <tr>
                      <td>전화번호</td>
-                     <td><input type="text" class="form-control" name="findplace" value="010-3052-1120"></td>
+                     <td><input type="text" class="form-control" name="pPhone" value="${loginprof.pPhone }"></td>
                   </tr>
 
                   <tr>
                      <td>주소</td>
                      <td>
                          <div class="input-group mb-3" >
-                            <input type="text" class="form-control" placeholder="주소 입력" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="pAddress" placeholder="${loginprof.pAddress }" aria-label="Username" aria-describedby="basic-addon1">
                              <a class="btn btn-secondary btn-sm" href="#">주소찾기</a>
                          </div>
                      </td>
@@ -95,7 +95,7 @@
                   <tr>
                      <td>이메일</td>
                      <td>
-                         <input type="text" class="form-control" name="findplace" value="example@gmail.com">
+                         <input type="text" class="form-control" name="pEmail" value="${loginprof.pEmail }">
                      </td>
                   </tr>
                    
