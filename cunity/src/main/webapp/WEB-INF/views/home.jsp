@@ -31,17 +31,29 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-	<jsp:include page="professorwrapper.jsp"></jsp:include>
+  
+  	<c:if test="${judge eq 1}">
+    <jsp:include page="wrapper.jsp"></jsp:include>
+	</c:if>
+	
+	
+  
+	
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
       <!-- Main Content -->
       <div id="content">
+      
+      
 
        <jsp:include page="content-wrapper.jsp"></jsp:include>
 
         <!-- Begin Page Content -->
         <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
         <div class="container-fluid">
+        
+        <p>${loginStudent.sAddress }</p>
+        <p>${judge }</p>
 
          </div>
       </div>

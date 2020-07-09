@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="studentMapper">
+
+	<resultMap type="Student" id="StudentResultSet">
+		<id property="sNo" column="s_no"/>
+		<result property="sDept" column="s_Dept"/>
+		<result property="sName" column="s_Name"/>
+		<result property="sPhone" column="s_Phone"/>
+		<result property="sAddress" column="s_Address"/>
+		<result property="sEmail" column="s_Email"/>
+		<result property="sGrade" column="s_Grade"/>
+		<result property="sFile" column="S_File"/>
+		<result property="studyNo" column="study_No"/>
+		<result property="pNo" column="p_No"/>
+		<result property="sPassword" column="s_Password"/>
+	</resultMap>
+		
+	<select id="loginStudent" resultMap="StudentResultSet">
+		SELECT *
+		FROM STUDENT
+		WHERE s_No=#{sNo} and s_password = #{sPassword}		
+	</select>
+	
+	<update id="modifyStudent">
+	    UPDATE STUDENT SET S_PHONE = #{sPhone}, S_ADDRESS = #{sAddress}, 
+	S_EMAIL = #{sEmail} 
+	WHERE s_No = #{sNo}
+	</update>	
+</mapper>
+
+	
+
+
+
