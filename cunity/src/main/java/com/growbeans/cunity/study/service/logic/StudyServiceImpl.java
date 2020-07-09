@@ -47,21 +47,21 @@ public class StudyServiceImpl implements StudyService{
 	}
 
 	@Override
-	public int withdrawStudy(int StudentNo) {
+	public int withdrawStudy(int studentNo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public Study selectStudy(int StudentNo) {
+	public Study selectStudy(int studentNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Student> selectStudyStudentList(int Study) {
+	public ArrayList<Student> selectStudyStudentList(int studyNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return studyStore.selectStudyStudentList(studyNo);
 	}
 	
 }

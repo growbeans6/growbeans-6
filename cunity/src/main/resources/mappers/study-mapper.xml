@@ -13,6 +13,13 @@
 		<result  property="studyNo" column="study_no"/>
 		<result  property="pNo" column="p_no"/>
 	</resultMap>
- 	<select id="selectStudyStudentList">
+	<resultMap type="Study" id="studyResultSet">
+		<id property="studyNo" column="study_number"/>
+		<result property="studyName" column="study_name"/>
+		<result property="studyManager" column="study_manager"/>
+	</resultMap>
+ 	<select id="selectStudyStudentList" resultMap="studentResultSet" parameterType="_int">
+ 		select * from student 
+ 		where study_no = #{studyNo}
  	</select>
 </mapper>

@@ -61,19 +61,19 @@ public interface StudyStore {
 	 * @param StudentNo
 	 * @return result
 	 */
-	public int withdrawStudy(int StudentNo); 
+	public int withdrawStudy(int studentNo); 
 	
 	/**
 	 * 7. 스터디 정보 불러오기
 	 * @param StudentNo
 	 * @return study
 	 */
-	public Study selectStudy(int StudentNo);
+	public Study selectStudy(int studentNo);
 	
 	/**
 	 * 8. 스터디 가입자 명단 불러오기
 	 * @param Study
 	 * @return studentList
 	 */
-	public ArrayList<Student> selectStudyStudentList(int Study);
+	public ArrayList<Student> selectStudyStudentList(int studyNo);
 }
