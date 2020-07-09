@@ -17,13 +17,17 @@ public class LectureController {
 	private LectureService lecService;
 	
 	//전체리스트 띄워서 수강신청 리스트에서 사용
+	@RequestMapping("/lectureList")
 	public ModelAndView allLecture(ModelAndView mv) {
+		mv.setViewName("professor/lectureList");
 		return mv;
 	}
 	
 	//강의 등록
-	public String insertLecture(Lecture lecture) {
-		return null;
+	@RequestMapping("/lectureInsert")
+	public ModelAndView insertLecture(ModelAndView mv) {
+		mv.setViewName("professor/lectureInsert");
+		return mv;
 	}
 	
 	//강의 삭제
@@ -31,10 +35,18 @@ public class LectureController {
 		return null;
 	}
 	
-	@RequestMapping("/lectureList")
-	public String viewLectureList() {
-		return "/lecture/lectureList";
-	}
 
+	// 강의 내 수강생 목록 조회
+	@RequestMapping("/lStudentList")
+	public ModelAndView studentList(ModelAndView mv) {
+		mv.setViewName("professor/studentList1");
+		return mv;
+	}
+	
+	@RequestMapping("/lectureTime")
+	public ModelAndView lectureTime(ModelAndView mv) {
+		mv.setViewName("professor/lectureTime");
+		return mv;
+	}
 
 }

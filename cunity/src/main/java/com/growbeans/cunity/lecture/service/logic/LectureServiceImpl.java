@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.growbeans.cunity.lecture.domain.Lecture;
 import com.growbeans.cunity.lecture.service.LectureService;
 import com.growbeans.cunity.lecture.store.LectureStore;
+import com.growbeans.cunity.student.domain.Student;
 
 @Service("lecService")
 public class LectureServiceImpl implements LectureService {
@@ -30,6 +31,16 @@ public class LectureServiceImpl implements LectureService {
 	@Override
 	public int deleteLecture(int lCode) {
 		return 0;
+	}
+	
+	@Override
+	public ArrayList<Student> allStudentList() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<Lecture> lectureTime() {
+		return null;
 	}
 
 

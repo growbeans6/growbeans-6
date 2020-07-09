@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.growbeans.cunity.lecture.domain.Lecture;
 import com.growbeans.cunity.lecture.store.LectureStore;
+import com.growbeans.cunity.student.domain.Student;
 
 @Repository("lecStore")
 public class LectureStoreLogic implements LectureStore {
@@ -28,5 +29,15 @@ public class LectureStoreLogic implements LectureStore {
 	@Override
 	public int deleteLecture(int lCode) {
 		return 0;
+	}
+	
+	@Override
+	public ArrayList<Student> StudentList() {
+		return null;
+	}
+
+	@Override
+	public ArrayList<Lecture> lectureTime() {
+		return null;
 	}
 }

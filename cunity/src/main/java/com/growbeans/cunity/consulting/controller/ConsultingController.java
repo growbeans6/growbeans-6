@@ -16,8 +16,9 @@ public class ConsultingController {
 	
 	
 	// 상담 내역 조회 교수,교수번호 같이보내서 조회
+		@RequestMapping("/consultList")
 	   public ModelAndView consultingList(ModelAndView mv) {
-		   //세션으로 학번 or 교번을 받아서 조회
+		   mv.setViewName("professor/profConsultingList");
 	      return mv;
 	   }
 	   

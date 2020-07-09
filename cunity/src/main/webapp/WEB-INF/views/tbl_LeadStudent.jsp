@@ -31,7 +31,7 @@
 
 	<!-- Page Wrapper -->
 	<div id="wrapper">
-		<jsp:include page="wrapper.jsp"></jsp:include>
+		<jsp:include page="professorwrapper.jsp"></jsp:include>
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 			<!-- Main Content -->

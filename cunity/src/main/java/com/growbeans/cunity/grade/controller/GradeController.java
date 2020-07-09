@@ -15,8 +15,10 @@ public class GradeController {
 	private GradeService gService;
 	
 		//성적 조회
+		@RequestMapping("/profGrade")
 		public ModelAndView selectGrade(ModelAndView mv){
-			return null;
+			mv.setViewName("professor/Grade");
+			return mv;
 		}
 		
 		//성적 삽입

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,7 +23,9 @@ public class DepartmentNoticeController {
 	   private DepartmentNoticeService nService;
 	   
 	   // 학과공지 조회
+	@RequestMapping("/dNotice")
 	   public ModelAndView noticeList(ModelAndView mv) {
+		   mv.setViewName("professor/dNoticeList");
 	      return mv;
 	   }
 	   
@@ -32,8 +35,10 @@ public class DepartmentNoticeController {
 	   }
 	   
 	   // 학과공지 작성 (작성할 때 파일생각)
+	   @RequestMapping("/dNoticeInsert")
 	   public ModelAndView noticeInsert(DepartmentNotice notice, ModelAndView mv, @RequestParam(name="uploadFile",required=false)MultipartFile uploadFile, HttpServletRequest request) {
-	      return null;
+		   mv.setViewName("professor/dNoticeInsert");
+	      return mv;
 	   }
 
 	   

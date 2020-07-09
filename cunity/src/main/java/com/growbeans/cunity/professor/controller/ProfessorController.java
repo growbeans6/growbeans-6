@@ -16,21 +16,24 @@ public class ProfessorController {
    private ProfessorService pService; 
    
    // 교수 정보 //세션에서 교번을 가져온다.
-   @RequestMapping(value="profInfo")
+   @RequestMapping("/profInfo")
    public ModelAndView professorInfo(ModelAndView mv) {
-      return null;
+	   mv.setViewName("professor/profInfo");
+      return mv;
    }
    
    // 교수 정보 수정
-   @RequestMapping(value="profInfoUpdate")
+   @RequestMapping("/profInfoUpdate")
    public ModelAndView updateprofessorInfo(ModelAndView mv) {
-      return null;
+	   mv.setViewName("professor/profInfoUpdate");
+      return mv;
    }
    
    // 지도학생 리스트조회
-   @RequestMapping(value="studentList")
+   @RequestMapping("/studentList")
    public ModelAndView guidanceList(ModelAndView mv) {
-      return null;
+	   mv.setViewName("tbl_LeadStudent");
+      return mv;
    }
 }
 
