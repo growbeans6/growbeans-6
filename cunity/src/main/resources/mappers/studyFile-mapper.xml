@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.growbeans.cunity.studyFile.mapper.StudyFileMapper">
+	<resultMap type="studyFile" id="studyFileResultSet">
+		<id property="fileNo" column="FILE_NO"/>
+		<result property="studyNo" column="STUDY_NO"/>
+		<result property="fileName" column="FILE_NAME"/>
+		<result property="filePath" column="FILE_PATH"/>
+		<result property="fileUploadTime" column="FILE_UPLOAD_TIME"/>
+		<result property="folderNo" column="FOLDER_NO"/>
+	</resultMap>
+	
+	<select id="selectOneStudyFile" parameterType="StudyFile" resultMap="studyFileResultSet">
+		select * from studyFile
+		where fileNo = #{fileNo}
+		and studyNo = #{studyNo}
+		and folderNo = #{folderNo}
+	</select>
+	<delete id="deleteStudyFile" parameterType="String">
+		delete studyFile 
+		where fileNo = #{fileNo}
+	</delete>
+	
+</mapper>
