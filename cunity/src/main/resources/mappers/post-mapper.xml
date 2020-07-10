@@ -27,10 +27,7 @@
 	<select id="selectList" resultMap="PostResultSet">
 		SELECT * FROM POST WHERE POST_KINDS = #{postKinds} ORDER BY POST_NO DESC
 	</select>
-	
-	<select id="selectList2" resultMap="PostResultSet">
-		SELECT * FROM POST WHERE POST_KINDS = #{postKinds} ORDER BY POST_NO DESC
-	</select>
+
 	
 	<select id="getListCount" resultType="_int">
 		SELECT COUNT(*) FROM POST WHERE POST_KINDS = '장터'
