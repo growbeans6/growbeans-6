@@ -44,21 +44,29 @@ public class PostController {
 	private PostService postService;
 	
 	@RequestMapping("postList")
-	public ModelAndView postList(ModelAndView mv, String postKinds) {
-
-		ArrayList<Post> list = postService.selectList(postKinds);
+	public ModelAndView postList(ModelAndView mv, String postKinds, @RequestParam(value="page", required=false) Integer page) {
 		
-		if(!list.isEmpty()) {
-			mv.addObject("list", list);
-			mv.setViewName("community/postList");
-		} else {
-			mv.addObject("msg", "게시글 전체 조회 실패");
-			mv.setViewName("home");
-		}
+			if(postKinds.equals("자유")) {
+				
+				ArrayList<Post> list = postService.selectList(postKinds);
+				
+				mv.addObject("list", list);
+				mv.setViewName("community/freePostList");
+			} else if(postKinds.equals("장터")) {
+				
+				int currentPage = (page != null) ? page : 1;
+				int listCount = postService.getListCount();
+				PageInfo pi = Pagination.getPageInfo(currentPage, listCount);
+				
+				ArrayList<Post> list = postService.selectList(postKinds, pi);
+				
+				mv.addObject("list", list);
+				mv.setViewName("community/marketPostList");
+			}
 		return mv;
 	}
 	
-	@RequestMapping("postList2")
+	/*@RequestMapping("marketPostList")
 	public ModelAndView postList(ModelAndView mv, @RequestParam(value="page", required=false) Integer page) {
 
 		int currentPage = (page != null) ? page : 1;
@@ -72,12 +80,12 @@ public class PostController {
 		if(!list.isEmpty()) {
 			mv.addObject("list", list);
 			mv.addObject("pi", pi);
-			mv.setViewName("community/postList2");
+			mv.setViewName("community/marketPostList");
 		} else {
 			System.out.println("실패");
 		}
 		return mv;
-	}
+	}*/
 	
 	//게시글 작성 화면
 	@RequestMapping("postWrite")
