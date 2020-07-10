@@ -53,7 +53,7 @@
          <div class="col-md-4"></div>
          <div class="col-md-5">
             <h2 class="text-center">교수정보</h2>
-            <form action="/#" method="post"
+            <form action="/profInfoUpdate" method="post"
                name="productWrite" enctype="multipart/form-data">
                <table class="table table-striped">
                    

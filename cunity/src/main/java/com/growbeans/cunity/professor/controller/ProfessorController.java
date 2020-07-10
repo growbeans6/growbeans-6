@@ -3,11 +3,14 @@ package com.growbeans.cunity.professor.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.growbeans.cunity.professor.domain.Professor;
 import com.growbeans.cunity.professor.service.ProfessorService;
@@ -28,16 +31,17 @@ public class ProfessorController {
    }
    
    // 교수 정보 수정
-   @RequestMapping("/profInfoUpdate")
-   public ModelAndView updateprofessorInfo(ModelAndView mv, Professor prof) {
+   @RequestMapping(value="/profInfoUpdate", method=RequestMethod.POST)
+   public String updateprofessorInfo(Model model, Professor prof, RedirectAttributes rd) {
 	   int result = pService.updateProfessorInfo(prof);
 	   if(result > 0 ) {
-		   mv.addObject("loginprof", prof);
-		   mv.setViewName("professor/profInfoUpdate");
+		   model.addAttribute("loginprof", prof);
+		   rd.addFlashAttribute("msg", "정보수정 성공");
+		   return "home";
 	   } else {
-		   mv.setViewName("common/loginPage");
+		   model.addAttribute("msg", "정보 수정 실패");
+		   return "home";
 	   }
-      return mv;
    }
    
    // 지도학생 리스트조회
@@ -62,7 +66,7 @@ public class ProfessorController {
 		   mv.setViewName("home");
 	   } else {
 		   mv.setViewName("common/loginPage");
-	   }
+	   } 
 	   return mv;
    }
    
@@ -72,8 +76,6 @@ public class ProfessorController {
 	   status.setComplete();
 	   return "common/loginPage";
    }
-   
-   
 }
 
 
