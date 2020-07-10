@@ -69,8 +69,8 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <c:url value="/dNotice" var="dNotice"/>
-            <a class="collapse-item" href="${dNotice }">학과공지 게시판</a>
+            <c:url value="/dNoticeList" var="dNoticeList"/>
+            <a class="collapse-item" href="${dNoticeList }">학과공지 게시판</a>
           </div>
         </div>
       </li>

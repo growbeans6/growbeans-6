@@ -53,7 +53,7 @@
          <div class="col-md-4"></div>
          <div class="col-md-5">
             <h2 class="text-center">교수정보</h2>
-            <form action="#" method="post"
+            <form action="/profInfoUpdate" method="post"
                name="productWrite" enctype="multipart/form-data">
                <table class="table table-striped">
                    <tr>
@@ -64,7 +64,7 @@
                   <tr>
                      <td>교번</td>
                      <td><input type="text" class="form-control" name="pNo"
-                        placeholder="${loginprof.pNo }" required readonly></td>
+                        value="${loginprof.pNo }" required readonly></td>
                         </tr>
                         
                         <tr>
@@ -86,7 +86,7 @@
                      <td>주소</td>
                      <td>
                          <div class="input-group mb-3" >
-                            <input type="text" class="form-control" name="pAddress" placeholder="${loginprof.pAddress }" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="pAddress" value="${loginprof.pAddress }" aria-label="Username" aria-describedby="basic-addon1">
                              <a class="btn btn-secondary btn-sm" href="#">주소찾기</a>
                          </div>
                      </td>
@@ -101,8 +101,8 @@
                    
                    <tr>
                       <td>
-                      <c:url value="/profInfoUpdate" var="profInfoUpdate"></c:url>
-                     <a class="btn btn-secondary btn-sm" href="${profInfoUpdate }">수정하기</a>
+                      <input type="submit" value="정보수정" class="btn btn-secondary btn-sm">
+                     <%-- <a class="btn btn-secondary btn-sm" href="${profInfoUpdate }">수정하기</a> --%>
                       <a class="btn btn-secondary btn-sm" href="#">취소</a>
                      </td>
                    </tr>

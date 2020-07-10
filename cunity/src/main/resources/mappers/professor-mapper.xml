@@ -18,11 +18,10 @@
 		SELECT * FROM PROFESSOR WHERE P_NO = #{pNo} AND P_PASSWORD = #{pPwd}
 	</select>
 	
-	
+	<!-- 교수 정보수정 쿼리 -->
 	<update id="updateProfessor" parameterType="Professor">
-		UPDATE PROFESSOR
-      SET P_PHONE=#{pPhone}, 
-      P_ADDRESS=#{pAddress}, P_EMAIL=#{pEmail},
+	  UPDATE PROFESSOR
+      SET P_PHONE=#{pPhone}, P_ADDRESS=#{pAddress}, P_EMAIL=#{pEmail}
       WHERE P_NO=#{pNo}
 	</update>
 </mapper>
