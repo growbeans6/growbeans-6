@@ -2,6 +2,8 @@ package com.growbeans.cunity.lecture.controller;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +21,12 @@ public class LectureController {
 	//전체리스트 띄워서 수강신청 리스트에서 사용
 	@RequestMapping("/lectureList")
 	public ModelAndView allLecture(ModelAndView mv) {
-		mv.setViewName("professor/lectureList");
+		List<Lecture> lectureList = lecService.allLectureList();
+		mv.addObject("lectureList",lectureList);
+		mv.setViewName("lecture/lectureList");
 		return mv;
 	}
+
 	
 	//강의 등록
 	@RequestMapping("/lectureInsert")

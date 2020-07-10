@@ -77,116 +77,20 @@ overflow : hidden;
                     </tr>
                   </thead>
                   <tbody>
+                  
+                  <c:forEach items="${lectureList }" var="list" varStatus="status">
                     <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
+                      <td>${list.lClassify }</td>
+                      <td>${list.lName }</td>
+                      <td>${list.lpName }</td>
+                      <td>${list.lPoint }</td>
+                      <td>${list.lcode }</td>
+                      <td>${list.lTime}</td>
                       <td><button  class="btn btn-secondary">수업계획서</button></td>
                       <td><button  class="btn btn-primary">수강신청</button></td>
                     </tr>
-                    <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
-                    </tr>
-                    <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
-                    </tr>
-                    <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
-                    </tr>
-                    <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
-                    </tr>
-                    <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
-                    </tr>
-                    <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
-                    </tr>
-                    <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
-                    </tr>
-                    <tr>
-                     <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td> 
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
-                    </tr>
-                    <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
-                    </tr>
-                    <tr>
-                      <td>교양필수</td>
-                      <td>Javascript</td>
-                      <td>오주현</td>
-                      <td>3</td>
-                      <td>123123</td>
-                      <td>월(1,2)</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary" >수강신청</button></td>
-                    </tr>
+                   </c:forEach>
+                    
                   </tbody>
                 </table>
               </div>

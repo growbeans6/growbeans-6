@@ -1,12 +1,18 @@
 package com.growbeans.cunity.consulting.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.consulting.domain.Consulting;
 import com.growbeans.cunity.consulting.service.ConsultingService;
+import com.growbeans.cunity.student.domain.Student;
 
 @Controller
 public class ConsultingController {
@@ -23,13 +29,24 @@ public class ConsultingController {
 	   }
 	   
 	   // 상담글 상세 보기
-	   public ModelAndView consultingDetail(ModelAndView mv, int cNo) {
-	      return mv;
+		@RequestMapping("/consultDetail")
+	   public ModelAndView consultingDetail(ModelAndView mv,HttpSession session,int sNo, int cNo) {
+		   Student student = (Student)session.getAttribute("loginStudent");
+		   mv.addObject("loginStudent", student);
+		   mv.addObject("consultDetail",consultService.consultingDetail(cNo));
+		   mv.setViewName("student/stuConsultingDetail");
+		   return mv;
 	   }
 	   
 	   // 상담글 작성
-	   public String insertConsulting(Consulting cons) {
-	      return null;
+	   @RequestMapping(value="/insertConsulting", method=RequestMethod.POST)
+	   public String insertConsulting(Consulting cons,HttpSession session) {
+		   Student student = (Student)session.getAttribute("loginStudent");
+		   cons.setpNo(student.getpNo());
+		   cons.setsNo(student.getsNo());
+		  int result = consultService.insertConsulting(cons);
+		  if (result>0) {return "home";}
+		  else {return "home";}
 	   }
 	   
 	   // 상담글 수정
@@ -52,13 +69,23 @@ public class ConsultingController {
 	   }
 	   
 	   @RequestMapping("/stuConsultingList")
-	   public String changConsultingList(){
-		   return "student/stuConsultingList";
+	   public ModelAndView changConsultingList(ModelAndView mv, HttpSession session){
+		   Student student = (Student)session.getAttribute("loginStudent");
+		   int studentNo = student.getsNo();
+		   List<Consulting> consultList = consultService.consultingList(studentNo);
+		   mv.addObject("consultingList",consultList);
+		   mv.addObject("loginStudent", student);
+		   mv.setViewName("student/stuConsultingList");
+		   return mv;
+		   
 	   }
 	   
 		@RequestMapping("stuWriteConsulting")
-		public String writeConsulting() {
-			return "/student/stuWriteConsulting";
+		public ModelAndView writeConsulting(ModelAndView mv, HttpSession session) {
+			Student student = (Student)session.getAttribute("loginStudent");
+			 mv.addObject("loginStudent", student);
+			 mv.setViewName("student/stuWriteConsulting");
+			return mv;
 		}
 
 }

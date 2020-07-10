@@ -2,13 +2,14 @@ package com.growbeans.cunity.consulting.service;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.growbeans.cunity.consulting.domain.Consulting;
 
 public interface ConsultingService {
 	
 	
-	public ArrayList<Consulting> consultingList ();
+	public List<Consulting> consultingList (int sNo);
 	public Consulting consultingDetail (int cNo);
 	public int insertConsulting(Consulting cons);
 	public int updateConsulting(Consulting cons, int cNo);
