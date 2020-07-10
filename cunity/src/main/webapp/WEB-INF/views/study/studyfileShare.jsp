@@ -28,7 +28,79 @@
 </head>
 
 <body id="page-top">
+	<style>
+/* Fixed sidenav, full height */
+.sidenav {
+	margin: 80px 20px 10px 20px;
+	height: 50%;
+	width: 250px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	background-color: #4E73DF;
+	overflow-x: hidden;
+	padding-top: 50px;
+}
 
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 20px;
+	color: #FFFFFF;
+	display: block;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+	color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+	margin-left: 250px;
+	/* Same as the width of the sidenav */
+	font-size: 20px;
+	/* Increased text to enable scrolling */
+	padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+/*.active {
+            background-color: green;
+            color: white;
+        }*/
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+	display: default;
+	background-color: #0431B4;
+	padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+	float: right;
+	padding-right: 8px;
+}
+
+#left-sidemenu {
+	font-size: 20px;
+	font-family: '나눔고딕';
+}
+
+#left-sidemenu1 {
+	font-size: 18px;
+	font-family: '나눔고딕';
+}
+</style>
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 		<jsp:include page="../wrapper.jsp"></jsp:include>
@@ -45,6 +117,11 @@
 					<!-- Page Heading -->
 					<br>
 					<!-- Content Row -->
+					<c:if test="${!empty msg }">
+						<script>
+							alert("${msg}")
+						</script>
+					</c:if>
 					<div class="content">
 						<div class="row">
 							<!-- content -->
@@ -128,12 +205,12 @@
 														id="exampleFormControlTextarea1" rows="3"></textarea>
 												</div>
 											</form>
-											<a href="javascript:void(0);" onclick="addFile();"><i class="btn btn-primary"></i>등록하기</a>
+											<a href="javascript:void(0);" onclick="addFile();"><i
+												class="btn btn-primary"></i>등록하기</a>
 										</div>
 									</div>
 								</div>
-								<br>
-								<br>
+								<br> <br>
 
 								<div class="col-lg-8">
 
@@ -142,11 +219,13 @@
 										<div class="card-body">
 											<h5 class="card-title">제목1</h5>
 											<p class="card-text">
-												<a href="openfile" href="javascript:void(0);" onclick="download();" class="card-link">업로드 된 파일.jpg</a><br>
+												<a href="openfile" href="javascript:void(0);"
+													onclick="download();" class="card-link">업로드 된 파일.jpg</a><br>
 											<p class="text-left">세부내용이 작성되는 공간입니다.</p>
 											<p class="text-right">작성자 : 작성자, 올린 시간 : 20xx.xx.xx</p>
 											</p>
-											<a href="javascript:void(0)" onclick="deleteFile();"><i class="btn btn-primary"></i>파일 삭제</a>
+											<a href="javascript:void(0)" onclick="deleteFile();"><i
+												class="btn btn-primary"></i>파일 삭제</a>
 										</div>
 									</div>
 								</div>
@@ -159,11 +238,13 @@
 										<div class="card-body">
 											<h5 class="card-title">제목2</h5>
 											<p class="card-text">
-												<a href="openfile" href="javascript:void(0);" onclick="download();" class="card-link">업로드 된 파일.jpg</a><br>
+												<a href="openfile" href="javascript:void(0);"
+													onclick="download();" class="card-link">업로드 된 파일.jpg</a><br>
 											<p class="text-left">세부내용이 작성되는 공간입니다.</p>
 											<p class="text-right">작성자 : 홍길동, 올린 시간 : 20xx.xx.xx</p>
 											</p>
-											<a href="javascript:void(0)" onclick="downloadFile();"><i class="btn btn-primary"></i>파일 다운로드</a>
+											<a href="javascript:void(0)" onclick="downloadFile();"><i
+												class="btn btn-primary"></i>파일 다운로드</a>
 										</div>
 									</div>
 								</div>
@@ -212,26 +293,26 @@
 	<!-- Page level custom scripts -->
 	<script src="/resources/js/demo/chart-area-demo.js"></script>
 	<script src="/resources/js/demo/chart-pie-demo.js"></script>
-	
-	
+
+
 	<script>
-	var count = 0;
-	/* 파일을 업로드 할 때 동작하는 메소드 */
-	function addFile() {
-		
-	}
-	/* 파일을 삭제할 때 동작하는 메소드 */
-	function deleteFile() {
-		
-	}
-	/* 파일을 다운로드 할 때 동작하는 메소드 */
-	function downloadFile() {
-		
-	}
-	/* 업로드한 파일을 선택할 때 동작하는 메소드 */
-	function download() {
-		
-	}
+		var count = 0;
+		/* 파일을 업로드 할 때 동작하는 메소드 */
+		function addFile() {
+
+		}
+		/* 파일을 삭제할 때 동작하는 메소드 */
+		function deleteFile() {
+
+		}
+		/* 파일을 다운로드 할 때 동작하는 메소드 */
+		function downloadFile() {
+
+		}
+		/* 업로드한 파일을 선택할 때 동작하는 메소드 */
+		function download() {
+
+		}
 	</script>
 </body>
 

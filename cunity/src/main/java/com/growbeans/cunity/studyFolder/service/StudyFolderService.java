@@ -1,5 +1,7 @@
 package com.growbeans.cunity.studyFolder.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.growbeans.cunity.studyFolder.domain.StudyFolder;
 
 public interface StudyFolderService {
@@ -10,7 +12,7 @@ public interface StudyFolderService {
 	 * @param studyFolder
 	 * @return result
 	 */
-	public int insertStudyFolder(StudyFolder studyFolder);
+	public int insertStudyFolder(StudyFolder studyFolder, HttpServletRequest request);
 	
 	/**
 	 * studyFolder를 삭제하기 위한 메소드
