@@ -27,10 +27,7 @@
 	<select id="selectList" resultMap="PostResultSet">
 		SELECT * FROM POST WHERE POST_KINDS = #{postKinds} ORDER BY POST_NO DESC
 	</select>
-	
-	<select id="selectList2" resultMap="PostResultSet">
-		SELECT * FROM POST WHERE POST_KINDS = '장터' ORDER BY POST_NO DESC
-	</select>
+
 	
 	<select id="getListCount" resultType="_int">
 		SELECT COUNT(*) FROM POST WHERE POST_KINDS = '장터'
@@ -47,7 +44,7 @@
 	
 	<!-- 댓글 등록 쿼리 -->
 	<insert id="insertPostComment" parameterType="PostComment">
-		INSERT INTO POST_COMMENT VALUES(MENT_NO_SEQ.NEXTVAL, #{postNo}, '송범진', #{mentContent}, SYSDATE, 1)
+		INSERT INTO POST_COMMENT VALUES(MENT_NO_SEQ.NEXTVAL, #{postNo}, MENT_DEPTH_SEQ.NEXTVAL, '송범진', #{mentContent}, SYSDATE)
 	</insert>
 	
 	<select id="selectPostCommentList" resultMap="PostCommentResultSet">
