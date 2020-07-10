@@ -1,5 +1,7 @@
 package com.growbeans.cunity.studyFolder.store;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -20,7 +22,7 @@ public class StudyFolderStoreLogic {
 		return null;
 	}
 	// studyFolder 생성
-	public int insertStudyFolder(StudyFolder studyFolder, HttpServletRequest request) {
+	public int insertStudyFolder(StudyFolder studyFolder) {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
 		int result = studyfolderMapper.insertStudyFolder(studyFolder);
 		return result;
@@ -30,5 +32,11 @@ public class StudyFolderStoreLogic {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
 		int result = studyfolderMapper.deleteStudyFolder(folderNo);
 		return result;
+	}
+	// studyFolder 리스트 조회
+	public ArrayList<StudyFolder> selectlist(int studyNo) {
+		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
+		ArrayList<StudyFolder> list = studyfolderMapper.selectlistStudyFolder(studyNo);
+		return list;
 	}
 }

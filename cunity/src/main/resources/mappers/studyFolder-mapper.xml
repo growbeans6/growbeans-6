@@ -8,6 +8,9 @@
 		<result property="folderName" column="FOLDER_NAME" />
 		<result property="parentFolderNo" column="PARENT_FOLDER_NO" />
 	</resultMap>
+	<select id="selectlistStudyFolder" parameterType="_int" resultMap="studyFolderResultSet">
+		select * from studyFolder where studyNo = #{studyNo}
+	</select>
 	<select id="selectOneStudyFolder"
 		resultMap="studyFolderResultSet" parameterType="StudyFolder"> select * from
 		studyFolder where folderNo = #{folderNo} and studyNo = #{studyNo} and

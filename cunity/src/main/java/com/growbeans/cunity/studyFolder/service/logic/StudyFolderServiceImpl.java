@@ -1,5 +1,7 @@
 package com.growbeans.cunity.studyFolder.service.logic;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +17,18 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 	@Autowired
 	private StudyFolderStoreLogic studyFolderStore;
 
-	// studyFolder 하나 선택해서 studyfile list 출력
-	/*@Override
-	public StudyFolder selectOneFolder(StudyFolder studyFolder) {
-
-		return null;
-	}*/
+	
+	// studyFolder list 조회
+	@Override
+	public ArrayList<StudyFolder> selectlistFolder(int studyNo) {
+		return studyFolderStore.selectlist(studyNo);
+	}
 
 	// studyFolder 생성
 	@Override
-	public int insertStudyFolder(StudyFolder studyFolder, HttpServletRequest request) {
+	public int insertStudyFolder(StudyFolder studyFolder) {
 
-		return studyFolderStore.insertStudyFolder(studyFolder, request);
+		return studyFolderStore.insertStudyFolder(studyFolder);
 	}
 
 	// studyFolder 삭제
