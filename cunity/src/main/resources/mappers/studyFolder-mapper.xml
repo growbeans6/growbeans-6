@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.growbeans.cunity.studyFolder.mapper.StudyFolderMapper">
+<mapper
+	namespace="com.growbeans.cunity.studyFolder.mapper.StudyFolderMapper">
 	<resultMap type="StudyFolder" id="studyFolderResultSet">
-		<id property="folderNo" column="FOLDER_NO"/>
-		<result property="studyNo" column="STUDY_NO"/>
-		<result property="folderName" column="FOLDER_NAME"/>
-		<result property="parentFolderNo" column="PARENT_FOLDER_NO"/>
+		<id property="folderNo" column="FOLDER_NO" />
+		<result property="studyNo" column="STUDY_NO" />
+		<result property="folderName" column="FOLDER_NAME" />
+		<result property="parentFolderNo" column="PARENT_FOLDER_NO" />
 	</resultMap>
-	<insert id="insertStudyfolder" parameterType="StudyFolder">
-		insert into studyFolder
-		values ( #{folderNo}, #{studyNo})
-	</insert>
+	<select id="selectlistStudyFolder" parameterType="_int" resultMap="studyFolderResultSet">
+		select * from studyFolder where studyNo = #{studyNo}
+	</select>
+	<select id="selectOneStudyFolder"
+		resultMap="studyFolderResultSet" parameterType="StudyFolder"> select * from
+		studyFolder where folderNo = #{folderNo} and studyNo = #{studyNo} and
+		parentFolderNo = #{parentFolderNo} </select>
+
+	<insert id="insertStudyFolder" parameterType="StudyFolder"> insert into
+		studyFolder values (FOLDER_NO_SEQ.NEXTVAL, #{studyNo}, #{folderName},
+		#{parentFolderNo} ) </insert>
+
+	<delete id="deleteStudyFolder" parameterType="StudyFolder"> delete studyFolder
+		where folderNo = #{folderNo} </delete>
 </mapper>
