@@ -61,7 +61,7 @@ text-align:center;
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">오주현님 상담내역</h6>
+              <h6 class="m-0 font-weight-bold text-primary">${loginStudent.sName }님 상담내역</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -78,42 +78,41 @@ text-align:center;
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>일용자</td>
-                      <td>14615029</td>
-                      <td>4</td>
-                      <td>2020-07-20</td>
-                      <td>머리가아파요</td>
-                      <td><button  class="btn btn-primary">조회</button></td>
+                  
+                  <c:choose>
+                  	<c:when test="${empty consultingList}">
+						<tr>
+							<td colspan="8" align="center">등록된 상담이 없습니다.</td>
+						</tr>				
+					</c:when>
+					<c:otherwise>
+					<c:forEach items="${consultingList }" var="list" varStatus="status">
+					<tr>
+                      <td>${loginStudent.sName }</td>
+                      <td>${loginStudent.sNo }</td>
+                      <td>${loginStudent.sGrade }</td>
+                      <td>${list.cDate }</td>
+                      <td>${list.cTitle }</td>
+                      
+                      <c:url var="consultDetail" value="/consultDetail">
+						<c:param name="sNo" value="${loginStudent.sNo }"/>
+						<c:param name="cNo" value="${list.cNo }" />
+					</c:url>
+							
+                      <td><a href="${consultDetail }">조회</a></td>
+                      
+                      <c:if test="${list.flag eq 0 }">
+                      <td><button  class="btn btn-secondary" disabled>상담 대기</button></td>
+                      </c:if>
+                        
+                      <c:if test="${list.flag eq 1 }">
                       <td><button  class="btn btn-primary" disabled>상담 완료</button></td>
-                    </tr>
-                    <tr>
-                      <td>일용자</td>
-                      <td>14615029</td>
-                      <td>4</td>
-                      <td>2020-07-20</td>
-                      <td>머리가아파요</td>
-                      <td><button  class="btn btn-primary">조회</button></td>
-                      <td><button  class="btn btn-primary" disabled>상담 완료</button></td>
-                    </tr>
-                    <tr>
-                      <td>일용자</td>
-                      <td>14615029</td>
-                      <td>4</td>
-                      <td>2020-07-20</td>
-                      <td>머리가아파요</td>
-                      <td><button  class="btn btn-primary">조회</button></td>
-                      <td><button  class="btn btn-primary" disabled>상담 완료</button></td>
-                    </tr>
-                    <tr>
-                      <td>일용자</td>
-                      <td>14615029</td>
-                      <td>4</td>
-                      <td>2020-07-20</td>
-                      <td>머리가아파요</td>
-                      <td><button  class="btn btn-primary">조회</button></td>
-                      <td><button  class="btn btn-secondary" disabled>상담 미완료</button></td>
-                    </tr>
+                      </c:if>
+                    </tr>	
+					</c:forEach>
+						</c:otherwise>
+					</c:choose>
+         
                   </tbody>
                 </table>
               </div>
@@ -147,6 +146,9 @@ text-align:center;
 
     <!-- Page level custom scripts -->
     <script src="/resources/js/demo/datatables-demo.js"></script>
+    
+    
+   
 </body>
 
 </html>

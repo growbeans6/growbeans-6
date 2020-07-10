@@ -58,9 +58,11 @@
             <form action="/updateStudentInfo" method="post"
                name="productWrite" enctype="multipart/form-data">
                
-               <img src="/resources/img/${loginStudent.sFile }">  
+               <div style="text-align: center">
+               <img src="/resources/img/${loginStudent.sFile }" width="300" height="300">  
+               </div>
+               
                <table class="table table-striped">
-                        
                   <tr>
                      <th>학번</th>
                      <th><input type="text" class="form-control" name="sNo" value="${loginStudent.sNo }" readonly></th>
@@ -86,7 +88,6 @@
                   <tr>
                      <th>주소</th>
                      <th><input type="text" class="form-control" name="sAddress" value="${loginStudent.sAddress }"></th>
-                     <td><button class="btn btn-primary">주소검색</button></td>
                   </tr>
 
                   <tr>

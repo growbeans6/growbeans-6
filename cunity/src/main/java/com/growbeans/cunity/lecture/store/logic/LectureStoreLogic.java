@@ -1,6 +1,7 @@
 package com.growbeans.cunity.lecture.store.logic;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class LectureStoreLogic implements LectureStore {
 	private SqlSessionTemplate sqlSession;
 
 	@Override
-	public ArrayList<Lecture> allLectureList() {
-		return null;
+	public List<Lecture> allLectureList() {
+		return sqlSession.selectList("lectureMapper.allLecture");
 	}
 
 	@Override

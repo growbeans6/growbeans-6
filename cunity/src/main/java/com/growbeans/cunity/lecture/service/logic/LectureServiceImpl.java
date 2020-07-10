@@ -3,6 +3,7 @@ package com.growbeans.cunity.lecture.service.logic;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,8 @@ public class LectureServiceImpl implements LectureService {
 	private LectureStore lecStore;
 
 	@Override
-	public ArrayList<Lecture> allLectureList() {
-		return null;
+	public List<Lecture> allLectureList() {
+		return lecStore.allLectureList();
 	}
 
 	@Override

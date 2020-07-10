@@ -2,6 +2,7 @@ package com.growbeans.cunity.consulting.store.logic;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,24 +16,21 @@ import com.growbeans.cunity.consulting.store.ConsultingStore;
 public class ConsultingStoreLogic implements ConsultingStore {
 	
 	@Autowired
-	private SqlSessionTemplate sqlsession;
+	private SqlSessionTemplate sqlSession;
 
 	@Override
-	public ArrayList<Consulting> consultingList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Consulting> consultingList(int sNo) {
+		return sqlSession.selectList("consultingMapper.consultingList", sNo);
 	}
 
 	@Override
 	public Consulting consultingDetail(int cNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("consultingMapper.consultingDetail", cNo);
 	}
 
 	@Override
 	public int insertConsulting(Consulting cons) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert("consultingMapper.insertConsult", cons);
 	}
 
 	@Override

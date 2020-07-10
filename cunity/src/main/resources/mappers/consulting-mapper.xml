@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="consultingMapper">
+
+	<resultMap type="Consulting" id="ConsultingResultSet">
+		<id property="cNo" column="c_No"/>
+		<result property="pNo" column="p_No"/>
+		<result property="sNo" column="s_No"/>
+		<result property="cTitle" column="c_Title"/>
+		<result property="cContent" column="c_Content"/>
+		<result property="cAnswer" column="c_Answer"/>
+		<result property="cDate" column="c_Date"/>
+		<result property="flag" column="FLAG"/>
+	</resultMap>
+		
+	<select id="consultingList" resultMap="ConsultingResultSet">
+		SELECT *
+		FROM CONSULTING
+		WHERE s_No=#{sNo}		
+	</select>
+	
+	<insert id="insertConsult">
+		insert into consulting values(C_NO_SEQ.NEXTVAL, #{pNo}, #{sNo}, #{cTitle}, #{cContent}, null, SYSDATE, default)
+	</insert>
+	
+	<select id="consultingDetail" resultMap="ConsultingResultSet">
+	SELECT *
+	FROM CONSULTING
+	WHERE c_No=#{cNo}
+	</select>
+	
+</mapper>
+
+	
+
+
+

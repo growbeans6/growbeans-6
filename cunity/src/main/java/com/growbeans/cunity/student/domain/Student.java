@@ -13,12 +13,12 @@ public class Student {
 	private int studyNo;
 	private int pNo;
 	private String sPassword;
-	
+	private String pName;
 	
 	public Student() {}
 
 	public Student(int sNo, String sDept, String sName, String sPhone, String sAddress, String sEmail, int sGrade,
-			String sFile, int studyNo, int pNo, String sPassword) {
+			String sFile, int studyNo, int pNo, String sPassword, String pName) {
 		super();
 		this.sNo = sNo;
 		this.sDept = sDept;
@@ -31,10 +31,19 @@ public class Student {
 		this.studyNo = studyNo;
 		this.pNo = pNo;
 		this.sPassword = sPassword;
+		this.pName = pName;
 	}
 
 
 
+
+	public String getpName() {
+		return pName;
+	}
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
 
 	public String getsPassword() {
 		return sPassword;

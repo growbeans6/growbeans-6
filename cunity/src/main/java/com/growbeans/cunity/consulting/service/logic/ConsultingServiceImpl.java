@@ -2,6 +2,7 @@ package com.growbeans.cunity.consulting.service.logic;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,21 +19,18 @@ public class ConsultingServiceImpl implements ConsultingService {
 	private ConsultingStore conStore;
 
 	@Override
-	public ArrayList<Consulting> consultingList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Consulting> consultingList(int sNo) {
+		return conStore.consultingList(sNo);
 	}
 
 	@Override
 	public Consulting consultingDetail(int cNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return conStore.consultingDetail(cNo);
 	}
 
 	@Override
 	public int insertConsulting(Consulting cons) {
-		// TODO Auto-generated method stub
-		return 0;
+		return conStore.insertConsulting(cons);
 	}
 
 	@Override
