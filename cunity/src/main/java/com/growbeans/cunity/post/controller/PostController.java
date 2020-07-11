@@ -44,7 +44,7 @@ public class PostController {
 	private PostService postService;
 	
 	@RequestMapping("postList")
-	public ModelAndView postList(ModelAndView mv, String postKinds, @RequestParam(value="page", required=false) Integer page) {
+	public ModelAndView postList(ModelAndView mv, String postKinds, @RequestParam(value="page", required=false) Integer page) throws UnsupportedEncodingException {
 		
 			if(postKinds.equals("자유")) {
 				
@@ -61,6 +61,7 @@ public class PostController {
 				ArrayList<Post> list = postService.selectList(postKinds, pi);
 				
 				mv.addObject("list", list);
+				mv.addObject("pi", pi);
 				mv.setViewName("community/marketPostList");
 			}
 		return mv;

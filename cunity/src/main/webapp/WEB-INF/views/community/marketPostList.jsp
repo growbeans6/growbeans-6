@@ -59,6 +59,7 @@
 							<div class="card-body">
 								<div class="table-responsive">
 									<h6>${post.postRegDate }</h6>
+									<img alt="이미지" src="${contextPath }/resources/nuploadFiles/${post.filePath}">
 									<h5>${post.postContent }</h5>
 								</div>
 							</div>
@@ -79,8 +80,8 @@
 									</c:if>
 									<c:if test="${pi.currentPage > 1 }">
 										<c:url var="before" value="postList">
+											<c:param name="postKinds" value="장터"/>
 											<c:param name="page" value="${pi.currentPage - 1 }"/>
-											<c:param name="postKinds" value="${post.postKinds }"/>
 										</c:url>
 										<a href="${before }">[이전]</a> &nbsp;
 									</c:if>
@@ -92,8 +93,8 @@
 										</c:if>
 										<c:if test="${p ne pi.currentPage }">
 											<c:url var="pagination" value="postList">
+												<c:param name="postKinds" value="장터"/>
 												<c:param name="page" value="${p }"/>
-												<c:param name="postKinds" value="${post.postKinds }"/>
 											</c:url>
 											<a href="${pagination }">${p }</a> &nbsp;
 										</c:if>
@@ -105,8 +106,8 @@
 									</c:if>
 									<c:if test="${pi.currentPage < pi.maxPage }">
 										<c:url var="after" value="postList">
+											<c:param name="postKinds" value="장터"/>
 											<c:param name="page" value="${pi.currentPage + 1 }"/>
-											<c:param name="postKinds" value="${post.postKinds }"/>
 										</c:url>
 										<a href="${after }">[다음]</a> &nbsp;
 									</c:if>

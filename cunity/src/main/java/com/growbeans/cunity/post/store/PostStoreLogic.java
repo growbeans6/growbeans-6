@@ -39,7 +39,7 @@ public class PostStoreLogic implements PostStore{
 		
 		int offset = (pi.getCurrentPage() - 1) * pi.getBoardLimit();
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
-		return (ArrayList)sqlSession.selectList("postMapper.selectList", null, rowBounds);
+		return (ArrayList)sqlSession.selectList("postMapper.selectList2", null, rowBounds);
 	}
 
 	@Override
