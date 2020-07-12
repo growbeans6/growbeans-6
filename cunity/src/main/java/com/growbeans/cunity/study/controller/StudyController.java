@@ -1,10 +1,25 @@
 package com.growbeans.cunity.study.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.growbeans.cunity.post.domain.Post;
+import com.growbeans.cunity.post.domain.PostImage;
+import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.study.service.StudyService;
 
 @Controller
@@ -20,7 +35,14 @@ public class StudyController {
 
 	// 스터디 타임라인 리스트
 	@RequestMapping("/boardList")
-	public ModelAndView studyBoardList(ModelAndView mv) {
+	public ModelAndView studyBoardList(ModelAndView mv, HttpSession session) {
+		Student student = (Student) session.getAttribute("loginStudent");
+		ArrayList<Student> sList = studyService.selectStudyStudentList(student.getStudyNo());
+		ArrayList<Post> pList = studyService.selectTimeLineList(student.getStudyNo(), "타임라인");
+		// 스터디 학생 리스트
+		mv.addObject("sList", sList);
+		mv.addObject("pList", pList);
+		// 글목록
 		mv.setViewName("study/boardList");
 		return mv;
 	}
@@ -29,6 +51,101 @@ public class StudyController {
 	@RequestMapping("/boardWriteForm")
 	public ModelAndView studyBoardWriteForm(ModelAndView mv) {
 		mv.setViewName("study/boardWrite");
+		return mv;
+	}
+
+	// 스터디 타임라인 상세페이지
+	@RequestMapping("/boardDetail")
+	public ModelAndView studyBoardDetail(ModelAndView mv, int postNo) {
+		Post post = studyService.selectTimeLineDetail(postNo);
+		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
+		mv.addObject("timeLine", post);
+		mv.addObject("imgList", postImages);
+		
+
+		mv.setViewName("study/boardDetail");
+		return mv;
+	}
+
+	// 스터디 타임라인 수정폼
+	@RequestMapping("/boardModifyForm")
+	public ModelAndView studyBoardModifyForm(ModelAndView mv, int postNo) {
+		Post post = studyService.selectTimeLineDetail(postNo);
+		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
+		mv.addObject("timeLine", post);
+		mv.addObject("imgList", postImages);
+		if (postImages != null) {
+			mv.addObject("imgListSize", postImages.size());
+		} else {
+			mv.addObject("imgListSize", 0);
+		}
+		mv.setViewName("study/boardModify");
+		return mv;
+	}
+
+	// 스터디 타임라인 수정
+	@RequestMapping("/ModifyTimeLine")
+	public ModelAndView studyBoardModify(ModelAndView mv, Post post,
+			@RequestParam(name = "fileImage", required = false) MultipartFile[] file, HttpServletRequest request,
+			String upload_name1, String upload_name2, String upload_name3) {
+		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(post.getPostNo());
+		int size = postImages.size();
+		if (postImages != null) {
+			for (int i = 0; i < size; i++) {
+				if (!postImages.get(i).getImgName().equals(upload_name1)
+						&& !postImages.get(i).getImgName().equals(upload_name2)
+						&& !postImages.get(i).getImgName().equals(upload_name3)) {
+					// 파일삭제
+					deleteFile(postImages.get(i).getImgName(), request);
+					studyService.deleteTimeLineImg(postImages.get(i).getImgNo());
+				}
+			}
+		}
+		// 파일이 있는지 검사
+		if (file != null) {
+			for (int i = 0; i < file.length; i++) {
+				if(!file[i].getOriginalFilename().equals("")) {
+					PostImage pImage = saveFile(i, file[i], request);
+					studyService.insertTimeLineImg(pImage);
+				}
+			}
+		}
+		studyService.updateTimeLine(post);
+		mv.setViewName("redirect:/boardList");
+		return mv;
+	}
+
+	// 스터디 타임라인 작성
+	@RequestMapping("/writeTimeline")
+	public ModelAndView studyBoardWrite(ModelAndView mv, Post post,
+			@RequestParam(name = "fileImage", required = false) MultipartFile[] file, HttpServletRequest request) {
+
+		studyService.insertTimeLine(post);
+
+		// 파일이 있는지 검사
+		if (file != null) {
+			for (int i = 0; i < file.length; i++) {
+				if(!file[i].getOriginalFilename().equals("")) {
+					PostImage pImage = saveFile(i, file[i], request);
+					studyService.insertTimeLineImg(pImage);
+				}
+			}
+		}
+
+		mv.setViewName("redirect:/boardList");
+		return mv;
+	}
+	@RequestMapping("/deleteTimeLine")
+	public ModelAndView studyBoardDelete(ModelAndView mv, int postNo, HttpServletRequest request) {
+		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
+		if(postImages!=null) {
+			for(int i=0; i<postImages.size();i++) {
+				deleteFile(postImages.get(i).getImgName(), request);
+			}
+		}
+		studyService.deleteTimeLineImgAll(postNo);
+		studyService.deleteTimeLine(postNo);
+		mv.setViewName("redirect:/boardList");
 		return mv;
 	}
 
@@ -65,5 +182,56 @@ public class StudyController {
 	// 스터디 가입자 명단 불러오기 ajax
 	public void studyMemberList() {
 
+	}
+
+	// 파일 저장 메소드
+	public PostImage saveFile(int i, MultipartFile file, HttpServletRequest request) {
+
+		// 파일 저장 경로 설정
+		String root = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = root + "\\studyFiles";
+
+		// 저장 폴더 선택
+		File folder = new File(savePath);
+
+		// 만약 폴더가 없을 경우 자동 생성
+		if (!folder.exists()) {
+			folder.mkdir();
+		}
+		SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_");
+
+		Date time = new Date();
+		String index = i + "_";
+		String upTime = format.format(time);
+		// 파일명 중복을 방지하기위해 '파일을 넣는 순서_파일을 업로드한 시간_파일이름' 으로 파일을 저장
+		String fileName = index + upTime + file.getOriginalFilename();
+		String filePath = folder + "\\" + fileName;
+
+		try {
+			file.transferTo(new File(filePath));
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		PostImage pImage = new PostImage();
+		pImage.setImgRoot(filePath);
+		pImage.setImgName(fileName);
+
+		return pImage;
+	}
+
+	public void deleteFile(String fileName, HttpServletRequest request) {
+		// 파일 저장 경로 설정
+		String root = request.getSession().getServletContext().getRealPath("resources");
+		String savePath = root + "\\\\studyFiles";
+		// 삭제할 파일 경로 + 파일명
+		File deleteFile = new File(savePath + "\\" + fileName);
+		// 해당 파일이 존재할 경우 삭제
+		if (deleteFile.exists()) {
+			deleteFile.delete();
+		}
 	}
 }

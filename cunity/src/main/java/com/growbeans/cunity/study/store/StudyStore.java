@@ -2,6 +2,8 @@ package com.growbeans.cunity.study.store;
 
 import java.util.ArrayList;
 
+import com.growbeans.cunity.post.domain.Post;
+import com.growbeans.cunity.post.domain.PostImage;
 import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.study.domain.Study;
 
@@ -76,4 +78,60 @@ public interface StudyStore {
 	 * @return studentList
 	 */
 	public ArrayList<Student> selectStudyStudentList(int studyNo);
+	/**
+	 * 9. 타임라인 작성
+	 * @param post
+	 * @return result
+	 */
+	public int insertTimeLine(Post post);
+	/**
+	 * 9-1. 타임라인 이미지 작성
+	 * @param postImage
+	 * @return result
+	 */
+	public int insertTimeLineImg(PostImage postImage);
+	/**
+	 * 10. 타임라인 리스트 불러오기
+	 * @param studyNo
+	 * @param postKinds
+	 * @return
+	 */
+	public ArrayList<Post> selectTimeLineList(int studyNo, String postKinds);
+	/**
+	 * 11. 타임라인 상세페이지 불러오기
+	 * @param postNo
+	 * @return
+	 */
+	public Post selectTimeLineDetail(int postNo);
+	/**
+	 * 11-1. 타임라인 이미지 불러오기
+	 * @param postNo
+	 * @return
+	 */
+	public ArrayList<PostImage> selectTimeLineImage(int postNo);
+	/**
+	 * 12. 타임라인 수정하기
+	 * @param post
+	 * @return
+	 */
+	public int updateTimeLine(Post post);
+	/**
+	 * 13. 타임라인 삭제하기
+	 * @param postNo
+	 * @return
+	 */
+	public int deleteTimeLine(int postNo);
+	/**
+	 * 14. 타임라인 이미지 개별 삭제하기
+	 * @param imgNo
+	 * @return
+	 */
+	public int deleteTimeLineImg(int imgNo);
+	
+	/**
+	 * 15. 타임라인 이미지 전체 삭제하기
+	 * @param postNo
+	 * @return
+	 */
+	public int deleteTimeLineImgAll(int postNo);
 }

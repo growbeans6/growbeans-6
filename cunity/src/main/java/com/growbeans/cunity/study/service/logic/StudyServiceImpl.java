@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.growbeans.cunity.post.domain.Post;
+import com.growbeans.cunity.post.domain.PostImage;
 import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.study.domain.Study;
 import com.growbeans.cunity.study.service.StudyService;
@@ -62,6 +64,72 @@ public class StudyServiceImpl implements StudyService{
 	public ArrayList<Student> selectStudyStudentList(int studyNo) {
 		// TODO Auto-generated method stub
 		return studyStore.selectStudyStudentList(studyNo);
+	}
+	/**
+	 * 9. 타임라인 작성
+	 * @param post
+	 * @return result
+	 */
+	public int insertTimeLine(Post post) {
+		post.setPostContent(post.getPostContent().replace("\n", "<br>"));
+		return studyStore.insertTimeLine(post);
+	}
+	/**
+	 * 9-1. 타임라인 이미지 작성
+	 * @param postImage
+	 * @return result
+	 */
+	public int insertTimeLineImg(PostImage postImage) {
+		return studyStore.insertTimeLineImg(postImage);
+		
+	}
+
+	@Override
+	public ArrayList<Post> selectTimeLineList(int studyNo, String postKinds) {
+		// TODO Auto-generated method stub
+		return studyStore.selectTimeLineList(studyNo, postKinds);
+	}
+
+	@Override
+	public Post selectTimeLineDetail(int postNo) {
+		// TODO Auto-generated method stub
+		return studyStore.selectTimeLineDetail(postNo);
+	}
+	/**
+	 * 11-1. 타임라인 이미지 불러오기
+	 * @param postNo
+	 * @return
+	 */
+	public ArrayList<PostImage> selectTimeLineImage(int postNo){
+		return studyStore.selectTimeLineImage(postNo);
+	}
+	@Override
+	public int updateTimeLine(Post post) {
+		// TODO Auto-generated method stub
+		return studyStore.updateTimeLine(post);
+	}
+
+	@Override
+	public int deleteTimeLine(int postNo) {
+		// TODO Auto-generated method stub
+		return studyStore.deleteTimeLine(postNo);
+	}
+	/**
+	 * 14. 타임라인 이미지 개별 삭제하기
+	 * @param imgNo
+	 * @return
+	 */
+	public int deleteTimeLineImg(int imgNo) {
+		return studyStore.deleteTimeLineImg(imgNo);
+	}
+	
+	/**
+	 * 15. 타임라인 이미지 전체 삭제하기
+	 * @param postNo
+	 * @return
+	 */
+	public int deleteTimeLineImgAll(int postNo) {
+		return studyStore.deleteTimeLineImgAll(postNo);
 	}
 	
 }

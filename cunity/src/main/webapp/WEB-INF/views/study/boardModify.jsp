@@ -203,15 +203,15 @@
 								<div class="card shadow mb-4">
 									<div class="card-header">
 										<div class="header">
-											<img class="profile" src="/resources/img/${loginStudent.sFile }">
+											<img class="profile" src="/resources/img/${timeLine.filePath }">
 											<div class="writer">
-												<h5>${loginStudent.sNo }${loginStudent.sName }</h5>
-												<!-- <span><i class="far fa-calendar-alt"></i> 2020-07-03</span> -->
+												<h5>${timeLine.postWriterSNo }${timeLine.postWriterSName }</h5>
+												<span><i class="far fa-calendar-alt"></i> ${timeLine.postRegDate}</span>
 											</div>
 										</div>
 									</div>
 									<div class="card-body">
-										<textarea name = "postContent" placeholder="글을 입력해주세요"></textarea>
+										<textarea name = "postContent" placeholder="글을 입력해주세요">${timeLine.postContent }</textarea>
 
 									</div>
 									<div class="card-footer">
@@ -223,8 +223,15 @@
 								<div class="card shadow mb-4">
 									<div class="card-header">
 										<div id="filebox1" class="filebox" style="display: none;">
-											<input id="upload-name1" class="upload-name" value="파일선택"
-												disabled="disabled"> <label for="image1"
+											<c:choose>
+												<c:when test="${imgListSize>0 }">
+													<input type="text" name="upload_name1" id="upload-name1" class="upload-name" value="${imgList[0].imgName }"> 
+												</c:when>
+												<c:otherwise>
+													<input type="text" name="upload_name1" id="upload-name1" class="upload-name" value="파일선택"> 
+												</c:otherwise>
+											</c:choose>
+												<label for="image1"
 												class="image-label">업로드</label> <input type="file"
 												id="image1" name="fileImage" class="upload-hidden" disabled="disabled">
 											<button class="btn btn-success" id="remove1">취소</button>
@@ -234,8 +241,15 @@
 
 										</div>
 										<div id="filebox2" class="filebox" style="display: none">
-											<input id="upload-name2" class="upload-name" value="파일선택"
-												disabled="disabled"> <label for="image2"
+											<c:choose>
+												<c:when test="${imgListSize>1 }">
+													<input type="text" name="upload_name2" id="upload-name2" class="upload-name" value="${imgList[1].imgName }"> 
+												</c:when>
+												<c:otherwise>
+													<input type="text" name="upload_name2" id="upload-name2" class="upload-name" value="파일선택"> 
+												</c:otherwise>
+											</c:choose>
+											<label for="image2"
 												class="image-label">업로드</label> <input type="file"
 												id="image2" name="fileImage" class="upload-hidden" disabled="disabled">
 											<button class="btn btn-success" id="remove2">취소</button>
@@ -244,8 +258,15 @@
 												class="far fa-2x fa-times-circle"></i></a>
 										</div>
 										<div id="filebox3" class="filebox" style="display: none">
-											<input id="upload-name3" class="upload-name" value="파일선택"
-												disabled="disabled"> <label for="image3"
+											<c:choose>
+												<c:when test="${imgListSize>2 }">
+													<input type="text" name="upload_name3" id="upload-name3" class="upload-name" value="${imgList[2].imgName }"> 
+												</c:when>
+												<c:otherwise>
+													<input type="text" name="upload_name3" id="upload-name3" class="upload-name" value="파일선택"> 
+												</c:otherwise>
+											</c:choose>
+											 <label for="image3"
 												class="image-label">업로드</label> <input type="file"
 												id="image3" name="fileImage" class="upload-hidden" disabled="disabled">
 											<button class="btn btn-success" id="remove3">취소</button>
@@ -257,20 +278,43 @@
 									<div class="card-body row">
 										<div id="img-box1" class="img-box"
 											style="height: 70%; margin: 30px auto; visibility:hidden ">
-											<img src="/resources/img/chipmunk.jpg" id="input-img" />
+											<c:choose>
+												<c:when test="${imgListSize>0 }">
+													<img src="/resources/studyFiles/${imgList[0].imgName }" id="input-img" />
+												</c:when>
+												<c:otherwise>
+													<img src="/resources/img/chipmunk.jpg" id="input-img" />
+												</c:otherwise>
+											</c:choose>
+											
 										</div>
 										<div id="img-box2" class="img-box"
 											style="height: 70%; margin: 30px auto; visibility:hidden ">
-											<img src="/resources/img/chipmunk.jpg" id="input-img" />
+											<c:choose>
+												<c:when test="${imgListSize>1 }">
+													<img src="/resources/studyFiles/${imgList[1].imgName }" id="input-img" />
+												</c:when>
+												<c:otherwise>
+													<img src="/resources/img/chipmunk.jpg" id="input-img" />
+												</c:otherwise>
+											</c:choose>
 										</div>
 										<div id="img-box3" class="img-box"
 											style="height: 70%; margin: 30px auto; visibility:hidden ">
-											<img src="/resources/img/chipmunk.jpg" id="input-img" />
+											<c:choose>
+												<c:when test="${imgListSize>2 }">
+													<img src="/resources/studyFiles/${imgList[2].imgName }" id="input-img" />
+												</c:when>
+												<c:otherwise>
+													<img src="/resources/img/chipmunk.jpg" id="input-img" />
+												</c:otherwise>
+											</c:choose>
 										</div>
 									</div>
 								</div>
 
 							</div>
+							<input type="hidden" name="postNo" value="${timeLine.postNo }">
 							<input type="hidden" name="postWriterSNo" value="${loginStudent.sNo }">
 							<input type="hidden" name="studyNo" value="${loginStudent.studyNo }">
 							<input type="hidden" name="postWriterSName" value="${loginStudent.sName }">
@@ -299,11 +343,14 @@
 	<script>
 		var count = 0;
 		var image = 0;
-		$(document).ready(function() {
-
+		var imageListSize=${imgListSize};
+		$(function(){
+			for(var i = 0; i < imageListSize; i++){
+				addImage();
+			}
 		});
 		function submitForm(){
-			$("#writeForm").attr("action","/writeTimeline");
+			$("#writeForm").attr("action","/ModifyTimeLine");
 			$("#writeForm").submit();
 			
 		}

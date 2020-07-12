@@ -18,8 +18,78 @@
 		<result property="studyName" column="study_name"/>
 		<result property="studyManager" column="study_manager"/>
 	</resultMap>
+	<resultMap type="Post" id="PostResultSet">
+		<id property="postNo" column="POST_NO"/>
+		<result property="postKinds" column="POST_KINDS"/>
+		<result property="postCategory" column="POST_CATEGORY"/>
+		<result property="postWriterSNo" column="POST_WRITER_S_NO"/>
+		<result property="postSubject" column="POST_SUBJECT"/>
+		<result property="postContent" column="POST_CONTENT"/>
+		<result property="postRegDate" column="POST_REGDATE"/>
+		<result property="studyNo" column="STUDY_NO"/>
+		<result property="postWriterSName" column="POST_WRITER_S_NAME"/>
+		<result property="filePath" column="FILEPATH"/>
+	</resultMap>
+	
+	<resultMap type="PostComment" id="PostCommentResultSet">
+		<id property="mentNo" column="MENT_NO"/>
+		<result property="postNo" column="POST_NO"/>
+		<result property="mentWriter" column="MENT_WRITER"/>
+		<result property="mentContent" column="MENT_CONTENT"/>
+		<result property="mentRegDate" column="MENT_REGDATE"/>
+		<result property="mentDepth" column="MENT_DEPTH"/>
+	</resultMap>
+	<resultMap type="PostImage" id="PostImageResultSet">
+		<id property="imgNo" column="post_img_no"/>
+		<result property="imgName" column="post_img_name"/>
+		<result property="imgRoot" column="post_img_root"/>
+		<result property="imgUploadTime" column="post_img_upload_time"/>
+		<result property="postNo" column="post_no"/>
+	</resultMap>
  	<select id="selectStudyStudentList" resultMap="studentResultSet" parameterType="_int">
  		select * from student 
  		where study_no = #{studyNo}
  	</select>
+ 	<insert id="insertTimeLine" parameterType="Post">
+ 		insert into post 
+ 		values (post_no_seq.nextval, #{postKinds},null,#{postWriterSNo},#{postSubject},#{postContent},sysdate,#{studyNo},#{postWriterSName},#{filePath})
+ 	</insert>
+ 	<insert id="insertTimeLineImg" parameterType="PostImage">
+ 		insert into post_image 
+ 		values (post_img_no_seq.nextval, #{imgName}, #{imgRoot}, sysdate, (select max(post_no) from post))
+ 	</insert>
+ 	<select id="selectTimeLineList" resultMap="PostResultSet">
+ 		select *
+ 		from post
+ 		where study_no = #{studyNo} and post_Kinds = #{postKinds}
+ 		order by post_no desc
+ 	</select>
+ 	<select id="selectTimeLineDetail" resultMap="PostResultSet" parameterType="_int">
+ 		select *
+ 		from post
+ 		where post_no = #{post_no}
+ 	</select>
+ 	<select id="selectTimeLineImage" resultMap="PostImageResultSet" parameterType="_int">
+ 		select *
+ 		from post_image
+ 		where post_no = #{post_no}
+ 		order by post_img_no
+ 	</select>
+ 	<update id="updateTimeLine" parameterType="Post">
+ 		update post set
+ 		post_content=#{postContent}, post_regdate=sysdate
+ 		where post_no=#{postNo}
+ 	</update>
+ 	<delete id="deleteTimeLineImg" parameterType="_int">
+ 		delete from post_image 
+ 		where post_img_no = #{imgNo}
+ 	</delete>
+ 	<delete id="deleteTimeLine">
+ 		delete from post
+ 		where post_no = #{post_no}
+ 	</delete>
+ 	<delete id="deleteTimeLineImgAll">
+ 		delete from post_image
+ 		where post_no = #{post_no}
+ 	</delete>
 </mapper>

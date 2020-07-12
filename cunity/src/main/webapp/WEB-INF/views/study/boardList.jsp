@@ -78,6 +78,8 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">스터디 보드</h1>
+						<c:url value="/boardWriteForm" var="boardWriteForm"></c:url>
+						<h4 style="position:fixed;top:150px;"><a href="${boardWriteForm }"><i class="fas fa-pencil-alt"></i>작성하러가기</a></h4>
 					</div>
 
 					<div class="row"></div>
@@ -94,6 +96,13 @@
 												멤버</div>
 											<div
 												class="row h5 font-weight-bold text-gray-800 text-center">
+												<c:forEach var="studyMember" items="${sList }" varStatus="index">
+													<div id="profile-area">
+														<figure> <img class="profile  mb-2"
+															src="/resources/img/${studyMember.sFile }"> <figcaption>${studyMember.sName }</figcaption>
+														</figure>
+													</div>
+												</c:forEach>
 												<div id="profile-area">
 													<figure> <img class="profile  mb-2"
 														src="/resources/img/chipmunk.jpg"> <figcaption>이승원</figcaption>
@@ -116,7 +125,27 @@
 						</div>
 						<div class="col-lg-12">
 
-
+							<c:forEach var="timeLine" items="${pList }" varStatus="index">
+								<div class="card mb-4">
+									<div class="card-header">
+										<div class="header">
+											<img class="profile" src="/resources/img/${timeLine.filePath }">
+											<div class="writer">
+												<h5>${timeLine.postWriterSNo }${timeLine.postWriterSName }</h5>
+												<span><i class="far fa-calendar-alt"></i> ${timeLine.postRegDate }</span>
+											</div>
+										</div>
+									</div>
+									<div class="card-body" id="card-body">${timeLine.postContent }</div>
+									<div class="card-footer">
+										<c:url value="/boardDetail" var="boardDetail">
+											<c:param name="postNo" value="${timeLine.postNo }"/>
+										</c:url>
+										<a href="${boardDetail }"><i class="fab fa-readme"></i> 상세보기</a> <a href="#"><i
+											class="fas fa-share"></i> 공유하기</a>
+									</div>
+								</div>
+							</c:forEach>
 							<!-- Default Card Example -->
 							<div class="card mb-4">
 								<div class="card-header">
@@ -136,7 +165,7 @@
 									are the only things modifying the look and feel of this default
 									card example.</div>
 								<div class="card-footer">
-								<c:url value="/boardWriteForm" var="boardWriteForm"></c:url>
+								
 									<a href="${boardWriteForm }"><i class="fab fa-readme"></i> 상세보기</a> <a href="#"><i
 										class="fas fa-share"></i> 공유하기</a>
 								</div>

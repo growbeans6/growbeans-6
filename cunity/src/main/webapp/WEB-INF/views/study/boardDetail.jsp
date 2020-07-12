@@ -109,27 +109,35 @@
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <div class="header">
-                                        <img class="profile" src="img/chipmunk.jpg">
+                                        <img class="profile" src="/resources/img/${timeLine.filePath }">
                                         <div class="writer">
-                                            <h5>이승원</h5>
-                                            <span><i class="far fa-calendar-alt"></i> 2020-07-03</span>
+                                            <h5>${timeLine.postWriterSNo }${timeLine.postWriterSName }</h5>
+                                            <span><i class="far fa-calendar-alt"></i> ${timeLine.postRegDate }</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.
-                                    This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.
+                                    ${timeLine.postContent}
                                     <div class="img-area row justify-content-center">
+                                    	<c:forEach var="img" items="${imgList }" varStatus="index">
+                                    		<div class="img-box"><img class="content-img" src="/resources/studyFiles/${img.imgName }"></div>
+                                    	</c:forEach>
+                                        <!-- <div class="img-box"><img class="content-img" src="img/chipmunk.jpg"></div>
                                         <div class="img-box"><img class="content-img" src="img/chipmunk.jpg"></div>
-                                        <div class="img-box"><img class="content-img" src="img/chipmunk.jpg"></div>
-                                        <div class="img-box"><img class="content-img" src="img/chipmunk.jpg"></div>
+                                        <div class="img-box"><img class="content-img" src="img/chipmunk.jpg"></div> -->
                                     </div>
                                 </div>
                                 <div class="card-footer">
                                     <a href="#" data-toggle="modal" data-target="#rWriteModal"><i class="fas fa-comment-dots"></i> 댓글달기</a>
                                     <a href="#"><i class="fas fa-share"></i> 공유하기</a>
-                                    <a href="#"><i class="fas fa-pencil-alt"></i> 수정하기</a>
-                                    <a href="#"><i class="fas fa-trash-alt"></i> 삭제하기</a>
+                                    <c:url value="/boardModifyForm" var="boardModifyForm">
+                                    	<c:param name="postNo" value="${timeLine.postNo}"/>
+                                    </c:url>
+                                    <a href="${boardModifyForm }"><i class="fas fa-pencil-alt"></i> 수정하기</a>
+                                    <c:url value="/deleteTimeLine" var="deleteTimeLine">
+                                    	<c:param name="postNo" value="${timeLine.postNo}"/>
+                                    </c:url>
+                                    <a href="${deleteTimeLine}"><i class="fas fa-trash-alt"></i> 삭제하기</a>
                                 </div>
                                 <div class="modal fade" id="rWriteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
