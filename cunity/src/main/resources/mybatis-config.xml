@@ -63,5 +63,6 @@
 		<mapper resource="mappers/student-mapper.xml"/>
 		<mapper resource="mappers/consulting-mapper.xml"/>
 		<mapper resource="mappers/lecture-mapper.xml"/>
+		<mapper resource="mappers/lectureEnrollment-mapper.xml"/>
 	</mappers>
 </configuration>

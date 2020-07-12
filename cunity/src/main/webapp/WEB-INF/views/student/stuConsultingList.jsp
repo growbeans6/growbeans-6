@@ -71,7 +71,7 @@ text-align:center;
                       <th>이름</th>
                       <th>학번</th>
                       <th>학년</th>
-                      <th>상담일자</th>
+                      <th>상담 작성 일자</th>
                       <th>상담내용</th>
                       <th>상세보기</th>
                       <th>상태</th>
@@ -97,7 +97,7 @@ text-align:center;
                       <c:url var="consultDetail" value="/consultDetail">
 						<c:param name="sNo" value="${loginStudent.sNo }"/>
 						<c:param name="cNo" value="${list.cNo }" />
-					</c:url>
+					 </c:url>
 							
                       <td><a href="${consultDetail }">조회</a></td>
                       
