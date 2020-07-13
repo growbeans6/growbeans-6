@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.studyFolder.domain.StudyFolder;
@@ -31,12 +32,12 @@ public class StudyFolderController {
 		return "study/studyRoom";
 	}
 
-	@RequestMapping("/insertFolder")
+	@RequestMapping("insertfolder.cunity")
 	public String insertStudyFolder(StudyFolder studyFolder, Model model) {
 		int result = 0;
 		result = studyFolderService.insertStudyFolder(studyFolder);
 		if (result > 0) {
-			return "study/studyfileShare";
+			return "success";
 		} else {
 			model.addAttribute("msg", "폴더 생성 실패");
 			return "study/studyfileShare";
@@ -44,7 +45,7 @@ public class StudyFolderController {
 
 	}
 
-	@RequestMapping("/selectfolderList")
+	@RequestMapping(value="selectfolderList", method = RequestMethod.POST)
 	public ModelAndView selectlistFolder(ModelAndView mv, int studyNo) {
 		ArrayList<StudyFolder> list = studyFolderService.selectlistFolder(studyNo);
 

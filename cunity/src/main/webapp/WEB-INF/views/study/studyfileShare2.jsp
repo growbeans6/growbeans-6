@@ -138,8 +138,11 @@
 					</c:if>
 					<!-- 로그인 한 사람 중 스터디 멤버일 때에만 보이도록 한다. -->
 					<%-- <c:if test="${(not empty sessionScope.study }" --%>
-					<div class="content">
 
+					<div class="content">
+						<input type="hidden" name="studyNo"> <input type="hidden"
+							name="folderNo"> <input type="hidden"
+							name="parentFolderNo">
 						<!-- content -->
 						<div class="row"></div>
 						<div id="content-layer1" class="col-lg-8">
@@ -252,21 +255,20 @@
 								<div class="folder-insert" style="height: 100px">
 									<div class="input-group mb-3">
 										<!-- 전송하기 위한 폼 input -->
-										<form action="/studyFolderInsert" method="post"
+										<form action="studyFolderInsert" method="post"
 											id="insertFolder">
-											<input type="hidden" id="folderlist" href="javascript:void(0);"
-												value="${folderList}"> <input type="hidden" id="parentfolderlist"
-												value="${parentFolder.folderNo}"> <input type="text"
-												class="form-control" placeholder="추가할 폴더 이름"
-												id="input-folder" aria-label="Recipient's username"
+
+											<input type="text" class="form-control"
+												placeholder="추가할 폴더 이름" name="folderName" id="folderName"
+												aria-label="Recipient's username"
 												aria-describedby="button-addon2">
+
 											<button class="btn btn-outline-secondary" type="button"
 												id="button-addon2" style="width: 75px">
 												<a id="childFolder" href="javascript:void(0)"
 													onclick="input_folder(this)">추가</a>
 											</button>
 										</form>
-
 									</div>
 								</div>
 								<div class="folder-menu-list" style="height: 700px">
@@ -283,22 +285,48 @@
 										</button>
 										<div class="dropdown-menu" id="left-sidemenu1"
 											aria-labelledby="dropdownMenuReference" style="width: 280px">
-										
+
 											<!-- 폴더 리스트 출력 -->
 											<div class="folder-list">
-												<Form action="/selectfolderList" id="modifyfolderList" method="post">
-													<li class="parent-folder" id="parentfolder"><a
-														class="dropdown-item" href="${parentFolderNo.folderName}">${parentFolderNo.folderName}&nbsp;&nbsp;&nbsp;<i
-															href="#" class="fas fa-times"></i></a>
-														<c:forEach items="${folderNo}" var="folderNo" varStatus="status">
-															<ul class="child-folder" id="childfolder">
-															<a class="dropdown-item" href="${status.index}">${folderName}</a>
-															<i href="#" class="fas fa-times"></i>
-														</ul>
-														</c:forEach>
-														</li>
-												</form>
+												<li class="parent-folder" id="parentfolder"><input
+													type="hidden" name="studyNo" id="studyNo"
+													value="${loginStudent.studyNo }">
+													<tr>
+														<td><input type="text" class="form-control"
+															id="parentfolderName" value="${folderName }"></td>
 
+													</tr>
+													<ul class="child-folder" id="childfolder">
+
+														<i href="#" class="fas fa-times"></i>
+													</ul> &nbsp;&nbsp;&nbsp;<i href="#" class="fas fa-times"></i></a> <%-- <c:forEach
+															items="${folderNo}" var="folderNo" varStatus="status">
+															<ul class="child-folder" id="childfolder">
+																<a class="dropdown-item" href="${status.index}">${folderName}</a>
+																<i href="#" class="fas fa-times"></i>
+															</ul>
+														</c:forEach> --%> <%-- <form action="/selectfolderList" id="modifyfolderList"
+													method="post">
+													<!-- <li class="parent-folder" id="parentfolder"> -->
+													<input type="hidden" name="studyNo" id="studyNo"
+														value="${loginStudent.studyNo }"> 
+														
+														<input type="text" name="parentfolderName" id="parentfolderName" value="${folderName }"
+														href="javascript:void(0)" onclick="selectfolderlist(this)">
+													<ul class="child-folder" id="childfolder">
+														
+														<i href="#" class="fas fa-times"></i>
+													</ul>
+													&nbsp;&nbsp;&nbsp;<i href="#" class="fas fa-times"></i></a>
+													<c:forEach
+															items="${folderNo}" var="folderNo" varStatus="status">
+															<ul class="child-folder" id="childfolder">
+																<a class="dropdown-item" href="${status.index}">${folderName}</a>
+																<i href="#" class="fas fa-times"></i>
+															</ul>
+														</c:forEach>
+													<!-- </li> -->
+												</form> --%>
 											</div>
 										</div>
 									</div>
@@ -342,16 +370,33 @@
 		function input_folder(obj) {
 
 			// 1. 부모 폴더의 번호 및 값을 가져와서 넣어준다.
-			var folder = $(obj).parent().val();
-			
+			var folderName = $(obj).parent().siblings(1).val();
+			console.log("folderName : " + folderName)
 			// 2. 자식 폴더 id 값에 변수 입력 
-			$("#childFolder").val(folder);
-			// 3. 지정한 action url로 서비스 요청
-			$("#childFolder").val();
-			// 4. 전송
-			$("#modifyfolderList").submit();
+			$("#parentfolderName").val(folderName);
+
+			/* var action = $("#insertform").attr("action");
+			console.log(action); */
+
+			$("#parentfolderName").submit();
 		}
-		
+		// 폴더를 DB에 저장
+		$("#childFolder").on("click", function() {
+			var folderName = $("#folderName").val(); // 폴더명 전송
+			// 전송할 타이틀이 있는 요소
+			$.ajax({
+				url : "insertfolder.cunity", // 서버에 전달할 파일명
+				data : {folderName : folderName, folderNo:folderNo }, // 전송할 파라미터 값
+				type : "post",
+				success : function(data) {
+					if (data == "success") {
+						$("#parentfolderName").val("");
+					}
+				}
+
+			})
+		});
+
 		/* 파일을 업로드 할 때 동작하는 메소드 */
 		function addFile() {
 
