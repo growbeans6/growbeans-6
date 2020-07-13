@@ -342,7 +342,7 @@ main footer div {
 						<select id="selectUser">
 							<option value="all">전체</option>
 							<c:forEach var="studyMember"  items="${studyMemberList }" varStatus="index">
-								<c:if test="${studyMember.sNo ne loginUser.sNo }">
+								<c:if test="${studyMember.sNo ne loginStudent.sNo }">
 									<option value="${studyMember.sNo }">${studyMember.sName }</option>
 								</c:if>
 							</c:forEach>
@@ -392,7 +392,7 @@ main footer div {
 		function onMessage(msg) {
 			console.log(msg);
 			var data = msg.data;
-			var userName = '${loginUser.sName}';
+			var userName = '${loginStudent.sName}';
 			var regM1 = /^({{[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+}})/; // {{한글/영어}} 추출 정규식
 			var regM2 = /([a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+)/; // 한글/영어 추출 정규식
 			var regM3 = /^(<<<[0-9]+>>>)/; // <<<숫자>>> 추출 정규식
@@ -416,7 +416,7 @@ main footer div {
 					wUser = wUser[0];
 					wUser = regM4.exec(wUser);
 					wUser = wUser[0];
-					var loginNo = ${loginUser.sNo};
+					var loginNo = ${loginStudent.sNo};
 					var whisName = $("#selectUser option:selected").text();
 					data = data.replace(regM3, "");
 					data = "<p>[귓속말 : "+whisName+"]</p>" + data;
@@ -443,7 +443,7 @@ main footer div {
 				$message.html(data);
 
 			} else if (sysMsg == "entryIn") {
-				var studyNo = ${loginUser.studyNo};
+				var studyNo = ${loginStudent.studyNo};
 				var $entry = $("<li>");
 				$entry.addClass("entry");
 				var $p = $("<p>");
@@ -475,7 +475,7 @@ main footer div {
 
 			} else if (sysMsg == "entryOut") {
 				
-				var studyNo = ${loginUser.studyNo};
+				var studyNo = ${loginStudent.studyNo};
 				var $entry = $("<li>");
 				$entry.addClass("entry");
 				var $p = $("<p>");
@@ -523,7 +523,7 @@ main footer div {
 					wUser = wUser[0];
 					wUser = regM4.exec(wUser);
 					wUser = wUser[0];
-					var loginNo = ${loginUser.sNo};
+					var loginNo = ${loginStudent.sNo};
 					data = data.replace(regM3, "");
 					data = "<p>[귓속말]</p>" + data;
 					if(wUser!=loginNo){

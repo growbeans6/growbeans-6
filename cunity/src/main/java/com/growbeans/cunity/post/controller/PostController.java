@@ -236,8 +236,8 @@ public class PostController {
 		return "redirect:postDetail?postNo=" + post.getPostNo();
 	}
 	
-	// 파일 삭제 메소드
-		// 공지글 등록 실패 또는 글 수정으로 업로드 파일이 변한 경우
+		// 파일 삭제 메소드
+		// 게시글 등록 실패 또는 글 수정으로 업로드 파일이 변한 경우
 		// 저장되어 있는 기존 파일 삭제
 		public void deleteFile(String fileName, HttpServletRequest request) {
 			// 파일 저장 경로 설정
@@ -255,6 +255,6 @@ public class PostController {
 	@RequestMapping("deletePost")
 	public String deletePostView(int postNo, String postKinds) {
 		int result = postService.deletePost(postNo);
-	return "redirect:postList?postKinds=" + postKinds;
+	return "redirect:/";
 	}
 }

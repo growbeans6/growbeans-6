@@ -90,7 +90,7 @@
                   </div>
                 </a>
                 <!-- 알람 리스트로 가게 함 -->
-                <a class="dropdown-item text-center small text-gray-500" onclick="location.href='alarmList'">Show All Alerts</a>
+                <a class="dropdown-item text-center small text-gray-500" onclick="location.href='alarmList?sNo='+${loginStudent.sNo}">Show All Alerts</a>
               </div>
             </li>
 

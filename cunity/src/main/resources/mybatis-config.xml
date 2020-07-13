@@ -41,7 +41,6 @@
 	<mappers>
 		<!-- 
 		<mapper resource="mappers/consulting-mapper.xml"/>
-		<mapper resource="mappers/alarm-mapper.xml"/>
 		<mapper resource="mappers/chatRoom-mapper.xml"/>
 		<mapper resource="mappers/departmentNotice-mapper.xml"/>
 		<mapper resource="mappers/departmentNoticeFile-mapper.xml"/>
@@ -52,6 +51,7 @@
 		<mapper resource="mappers/lectureEvaluation-mapper.xml"/>
 		<mapper resource="mappers/lectureSyllabus-mapper.xml"/>
 		<mapper resource="mappers/professor-mapper.xml"/>-->
+		<mapper resource="mappers/alarm-mapper.xml"/>
 		<mapper resource="mappers/studyFile-mapper.xml"/>
 		<mapper resource="mappers/studyFolder-mapper.xml"/> 
 		<mapper resource="mappers/chatRoom-mapper.xml"/>

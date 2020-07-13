@@ -29,8 +29,8 @@ public class AlarmController {
 	         mv.addObject("alarm", alarm);
 	         mv.setViewName("community/alarm");
 	      } else {
-	         mv.addObject("msg", "알람 목록 조회 실패");
-	         mv.setViewName("common/errorPage");
+	         mv.addObject("msg", "알람이 없습니다.");
+	         mv.setViewName("community/alarm");
 	      }
 	      return mv;
 	   }
@@ -39,12 +39,11 @@ public class AlarmController {
 	   // 1. DB 데이터 삭제
 	   // 2. 삭제 후 alert 창 후 목록으로 redirect
 	   @RequestMapping("deleteAlarm")
-	   public String alarmDelete(int aNo, Model model, HttpServletRequest request, RedirectAttributes rd) {
+	   public String alarmDelete(int aNo, int sNo, Model model, HttpServletRequest request, RedirectAttributes rd) {
 		   Alarm alarm = alarmService.selectAlarm(aNo);
 		   int result = alarmService.deleteAlarm(aNo);
 		   if(result > 0) {
-			   rd.addFlashAttribute("msg", "알람 삭제 성공");
-			   return "alarmlist";
+			   return "redirect:alarmList?sNo="+sNo;
 		   } else {
 			   model.addAttribute("msg", "알람 삭제 실패");
 			   return "common/errorPage";

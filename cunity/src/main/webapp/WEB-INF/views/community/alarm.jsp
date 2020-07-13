@@ -51,27 +51,21 @@
 					</header>
 					<section class="page-section bg-light" id="portfolio"> <article
 						style="margin:30px";>
-					<div class="container"
-						style="height: 150px; border-style: groove; padding: 55px; margin-top: 10px;">
-						<div style="float: left">내가 작성한 글에 누군가가 댓글을 달았습니다.</div>
-						<span style="float: right">
-							<button class="btn btn-danger">삭제</button>
-						</span>
-					</div>
-					<div class="container"
-						style="height: 150px; border-style: groove; padding: 55px; margin-top: 10px;">
-						<div style="float: left">내가 작성한 댓글에 누군가가 대댓글을 달았습니다.</div>
-						<span style="float: right">
-							<button class="btn btn-danger">삭제</button>
-						</span>
-					</div>
-					<div class="container"
-						style="height: 150px; border-style: groove; padding: 55px; margin-top: 10px;">
-						<div style="float: left">홍길동님과 친구가 되셨습니다.</div>
-						<span style="float: right">
-							<button class="btn btn-danger">삭제</button>
-						</span>
-					</div>
+					<c:if test="${!empty alarm }">
+						<c:forEach var="alarm" items="${alarm }">
+							<div class="container"
+								style="height: 150px; border-style: groove; padding: 55px; margin-top: 10px;">
+								<div style="float: left">${alarm.aContent }</div>
+								<span>${alarm.aTime }</span>
+								<span style="float: right">
+									<button class="btn btn-danger" onclick="location.href='deleteAlarm?aNo=${alarm.aNo}&sNo=${alarm.sNo}">삭제</button>
+								</span>
+							</div>
+						</c:forEach>
+					</c:if>
+					<c:if test="${empty alarm }">
+						<h2>알람이 없습니다.</h2>	
+					</c:if>
 					</article> </section>
 				</div>
 			</div>

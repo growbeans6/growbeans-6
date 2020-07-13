@@ -56,11 +56,11 @@
 	</select>
 	
 	<delete id="deletePost">
-		DELETE * FROM POST WHERE POST_NO = #{postNo}
+		DELETE FROM POST WHERE POST_NO = #{postNo}
 	</delete>
 	
 	<update id="updatePost">
-		UPDATE POST SET  WHERE POST_NO = #{postNo}
+		UPDATE POST SET POST_CATEGORY = #{postCategory}, POST_SUBJECT = #{postSubject}, FILEPATH = #{filePath} WHERE POST_NO = #{postNo}
 	</update>
 </mapper>
 

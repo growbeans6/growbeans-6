@@ -65,7 +65,7 @@
 								<!-- 로그인 되어 있지 않기에 그냥 넣는.. -->
 								<input type="hidden" name="postWriterSNo" value="${post.postWriterSNo }">
 								<input type="hidden" name="postWriterSName" value="${post.postWriterSName }">
-								
+								<input type="hidden" name="postNo" value="${post.postNo }">
 									<label for="postKinds">게시판종류</label> 
 									<div>
 										<p>${post.postKinds }</p>

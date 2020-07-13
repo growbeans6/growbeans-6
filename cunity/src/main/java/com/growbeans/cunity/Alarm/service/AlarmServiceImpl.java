@@ -22,14 +22,12 @@ public class AlarmServiceImpl implements AlarmService{
 
 	@Override
 	public int deleteAlarm(int aNo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return alarmStore.deleteAlarm(aNo);
 	}
 
 	@Override
 	public ArrayList<Alarm> selectAlarmList(int sNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return alarmStore.selectAlarmList(sNo);
 	}
 
 	@Override
