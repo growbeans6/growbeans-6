@@ -27,6 +27,10 @@
 	<select id="selectList" resultMap="PostResultSet">
 		SELECT * FROM POST WHERE POST_KINDS = #{postKinds} ORDER BY POST_NO DESC
 	</select>
+	
+	<select id="selectList2" resultMap="PostResultSet">
+		SELECT * FROM POST WHERE POST_KINDS = '장터' ORDER BY POST_NO DESC
+	</select>
 
 	
 	<select id="getListCount" resultType="_int">
@@ -50,6 +54,14 @@
 	<select id="selectPostCommentList" resultMap="PostCommentResultSet">
 		SELECT * FROM POST_COMMENT WHERE POST_NO = #{postNo}
 	</select>
+	
+	<delete id="deletePost">
+		DELETE * FROM POST WHERE POST_NO = #{postNo}
+	</delete>
+	
+	<update id="updatePost">
+		UPDATE POST SET  WHERE POST_NO = #{postNo}
+	</update>
 </mapper>
 
 	

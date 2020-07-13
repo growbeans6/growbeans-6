@@ -57,50 +57,52 @@
 						<div class="col-sm-12 col-md-12">
 						
 						
-							<form action="insertPost" method="post" enctype="multipart/form-data">
+							<form action="updatePostSubmit" method="post" enctype="multipart/form-data">
 								<label for="subject">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</label>
-								<input type="text" id="subject" name="postSubject" size="20px;"
+								<input type="text" id="subject" name="postSubject" size="20px;" value="${post.postSubject }"
 									placeholder="제목을 입력해주세요">
 								<fieldset>
 								<!-- 로그인 되어 있지 않기에 그냥 넣는.. -->
-								<input type="hidden" name="postWriterSNo" value="${loginStudent.sNo }">
-								<input type="hidden" name="postWriterSName" value="${loginStudent.sName }">
+								<input type="hidden" name="postWriterSNo" value="${post.postWriterSNo }">
+								<input type="hidden" name="postWriterSName" value="${post.postWriterSName }">
 								
 									<label for="postKinds">게시판종류</label> 
-									<select
-										id="postKinds" name="postKinds">
-										<option value="자유">자유</option>
-										<option value="장터">장터</option>
-									</select>
+									<div>
+										<p>${post.postKinds }</p>
+									</div>
 								</fieldset>
 								
-								<fieldset id="postCategory">
-									<label for="postCategory">자유게시판 말머리</label> 
-									<select
-										id="postCategory" name="postCategory">
-										<option value="잡담">잡담</option>
-										<option value="학교정보">학교정보</option>
-										<option value="맛집">맛집</option>
-									</select>
-									
-								</fieldset>
+								<c:if test="${!empty post.postCategory }">
+									<fieldset id="postCategory">
+										<label for="postCategory">자유게시판 말머리</label> 
+										<select
+											id="postCategory" name="postCategory">
+											<option value="잡담">잡담</option>
+											<option value="학교정보">학교정보</option>
+											<option value="맛집">맛집</option>
+										</select>
+									</fieldset>
+								</c:if>
 								<div class="row">
 									<div class="col-1"
 										style="text-align: center; padding-bottom: 20px;">
 										<div id="img-box"
 											style="width: 70%; height: 70%; margin: 30px auto; float: right;">
-											<img src="" alt="이미지 넣는 곳" /> <br>
+											<input type="file" name="reloadFile"> 
+												<c:if test="${ !empty post.filePath }">
+														<a href="${contextPath }/resources/nuploadFiles/${post.filePath }">
+															${post.filePath } </a>
+												</c:if>
+											
 										</div>
 										<br> 
-										<input style="display: block;" type="file"
-											accept="image/png, image/jpeg" name="uploadFile" id="image">
 										<button style="margin-top: 5px;" id="remove">&nbsp;&nbsp;취소&nbsp;&nbsp;</button>
 									</div>
 								</div>
 								<br>
 								<hr>
 								<label for="content">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</label><br>
-								<textarea id="summernote" name="postContent" class="summernote"></textarea> 
+								<textarea id="summernote" name="postContent" class="summernote">${post.postContent }</textarea> 
 								<br> <input id="reset" class="button" type="reset">
 								<span class="buttonspan">
 								<input id="submit"

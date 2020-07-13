@@ -5,7 +5,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -16,16 +15,12 @@
 <title>SB Admin 2 - Dashboard</title>
 
 <!-- Custom fonts for this template-->
-<link href="/resources/vendor/fontawesome-free/css/all.min.css"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
+<link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -52,14 +47,11 @@
 								${post.postWriterSNo} &nbsp;&nbsp; 작성일: ${post.postRegDate }</h6>
 							<hr>
 							<article>
-								<h3>갤러리</h3>
 								<div style="justify-content: center;">
 									<ul>
-										<li>
-											<div style="width: 200px; height: 200px;">
-												<img src="" alt="이미지 단">
+											<div style="width: 100px; height: 100px;">
+												<img src="${contextPath }/resources/nuploadFiles/${post.filePath}" style="width:100%; height:100%;" alt="">
 											</div>
-										</li>
 									</ul>
 								</div>
 								<p>${post.postContent }
@@ -73,8 +65,17 @@
 
 							<hr>
 							<div class="button_wrapper">
-								<button>글수정</button>
-								<button>글삭제</button>
+							
+							<c:if test="${loginStudent.sNo eq post.postWriterSNo }">
+							<c:url var="updatePost" value="updatePost">
+                  				<c:param name="postNo" value="${post.postNo }"/>
+                  			</c:url>  
+                  			<c:url var="deletePost" value="deletePost">
+                  				<c:param name="postNo" value="${post.postNo }"/>
+                  			</c:url> 
+								<button onclick="location.href='${updatePost}'">글수정</button>
+								<button onclick="location.href='${deletePost }'">글삭제</button>
+							</c:if>
 							</div>
 							<hr>
 							<div class="comment" style="margin-top: 10px;">
