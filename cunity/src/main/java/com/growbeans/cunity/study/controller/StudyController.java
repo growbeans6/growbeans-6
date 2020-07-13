@@ -14,10 +14,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.post.domain.Post;
+import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.domain.PostImage;
 import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.study.service.StudyService;
@@ -37,6 +39,7 @@ public class StudyController {
 	@RequestMapping("/boardList")
 	public ModelAndView studyBoardList(ModelAndView mv, HttpSession session) {
 		Student student = (Student) session.getAttribute("loginStudent");
+		
 		ArrayList<Student> sList = studyService.selectStudyStudentList(student.getStudyNo());
 		ArrayList<Post> pList = studyService.selectTimeLineList(student.getStudyNo(), "타임라인");
 		// 스터디 학생 리스트
@@ -59,9 +62,10 @@ public class StudyController {
 	public ModelAndView studyBoardDetail(ModelAndView mv, int postNo) {
 		Post post = studyService.selectTimeLineDetail(postNo);
 		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
+		ArrayList<PostComment> comments = studyService.selectPostCommentList(postNo);
 		mv.addObject("timeLine", post);
 		mv.addObject("imgList", postImages);
-		
+		mv.addObject("mentList", comments);
 
 		mv.setViewName("study/boardDetail");
 		return mv;
@@ -104,7 +108,7 @@ public class StudyController {
 		// 파일이 있는지 검사
 		if (file != null) {
 			for (int i = 0; i < file.length; i++) {
-				if(!file[i].getOriginalFilename().equals("")) {
+				if (!file[i].getOriginalFilename().equals("")) {
 					PostImage pImage = saveFile(i, file[i], request);
 					studyService.insertTimeLineImg(pImage);
 				}
@@ -125,7 +129,7 @@ public class StudyController {
 		// 파일이 있는지 검사
 		if (file != null) {
 			for (int i = 0; i < file.length; i++) {
-				if(!file[i].getOriginalFilename().equals("")) {
+				if (!file[i].getOriginalFilename().equals("")) {
 					PostImage pImage = saveFile(i, file[i], request);
 					studyService.insertTimeLineImg(pImage);
 				}
@@ -135,11 +139,12 @@ public class StudyController {
 		mv.setViewName("redirect:/boardList");
 		return mv;
 	}
+
 	@RequestMapping("/deleteTimeLine")
 	public ModelAndView studyBoardDelete(ModelAndView mv, int postNo, HttpServletRequest request) {
 		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
-		if(postImages!=null) {
-			for(int i=0; i<postImages.size();i++) {
+		if (postImages != null) {
+			for (int i = 0; i < postImages.size(); i++) {
 				deleteFile(postImages.get(i).getImgName(), request);
 			}
 		}
@@ -147,6 +152,38 @@ public class StudyController {
 		studyService.deleteTimeLine(postNo);
 		mv.setViewName("redirect:/boardList");
 		return mv;
+	}
+
+	// 댓글 작성
+	@RequestMapping("/mentWrite")
+	public ModelAndView studyBoardMentInsert(ModelAndView mv, PostComment postComment) {
+		studyService.insertMent(postComment);
+		mv.setViewName("redirect:/boardDetail?postNo=" + postComment.getPostNo());
+		return mv;
+	}
+
+	// 댓글 수정
+	@RequestMapping("/mentUpdate")
+	@ResponseBody
+	public String studyBoardMentUpdate(ModelAndView mv, String mentContent, int mentNo) {
+		int result = studyService.updateMent(mentContent,mentNo);
+		if(result > 0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
+
+	// 댓글 삭제
+	@RequestMapping("/mentDelete")
+	@ResponseBody
+	public String studyBoardMentDelete(ModelAndView mv,@RequestParam("mentNo") int mentNo) {
+		int result = studyService.deleteMent(mentNo);
+		if(result > 0) {
+			return "success";
+		}else {
+			return "fail";
+		}
 	}
 
 	// 스터디 생성

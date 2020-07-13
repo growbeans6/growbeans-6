@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.growbeans.cunity.post.domain.Post;
+import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.domain.PostImage;
 import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.study.domain.Study;
@@ -105,7 +106,7 @@ public class StudyServiceImpl implements StudyService{
 	}
 	@Override
 	public int updateTimeLine(Post post) {
-		// TODO Auto-generated method stub
+		post.setPostContent(post.getPostContent().replace("\n", "<br>"));
 		return studyStore.updateTimeLine(post);
 	}
 
@@ -130,6 +131,32 @@ public class StudyServiceImpl implements StudyService{
 	 */
 	public int deleteTimeLineImgAll(int postNo) {
 		return studyStore.deleteTimeLineImgAll(postNo);
+	}
+
+	@Override
+	public ArrayList<PostComment> selectPostCommentList(int postNo) {
+		// TODO Auto-generated method stub
+		return studyStore.selectPostCommentList(postNo);
+	}
+
+	@Override
+	public int insertMent(PostComment postComment) {
+		// TODO Auto-generated method stub
+		postComment.setMentContent(postComment.getMentContent().replace("\n", "<br>"));
+		return studyStore.insertMent(postComment);
+	}
+
+	@Override
+	public int updateMent(String mentContent, int mentNo) {
+		// TODO Auto-generated method stub
+		mentContent = mentContent.replace("\n", "<br>");
+		return studyStore.updateMent(mentContent, mentNo);
+	}
+
+	@Override
+	public int deleteMent(int mentNo) {
+		// TODO Auto-generated method stub
+		return studyStore.deleteMent(mentNo);
 	}
 	
 }

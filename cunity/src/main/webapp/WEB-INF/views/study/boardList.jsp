@@ -141,7 +141,7 @@
 										<c:url value="/boardDetail" var="boardDetail">
 											<c:param name="postNo" value="${timeLine.postNo }"/>
 										</c:url>
-										<a href="${boardDetail }"><i class="fab fa-readme"></i> 상세보기</a> <a href="#"><i
+										<a href="${boardDetail }"><i class="fab fa-readme"></i> 상세보기</a> <a href="javascript:void(0);" onclick="copy('127.0.0.1:8084/boardDetail?postNo=${timeLine.postNo}');"><i
 											class="fas fa-share"></i> 공유하기</a>
 									</div>
 								</div>
@@ -268,7 +268,16 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
-	
+	<script type="text/javascript">
+	function copy(val) {
+		  var dummy = document.createElement("textarea");
+		  document.body.appendChild(dummy);
+		  dummy.value = val;
+		  dummy.select();
+		  document.execCommand("copy");
+		  document.body.removeChild(dummy);
+		}
+	</script>
 </body>
 
 </html>

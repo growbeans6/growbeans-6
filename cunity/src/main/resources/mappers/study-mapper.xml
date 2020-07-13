@@ -38,6 +38,7 @@
 		<result property="mentContent" column="MENT_CONTENT"/>
 		<result property="mentRegDate" column="MENT_REGDATE"/>
 		<result property="mentDepth" column="MENT_DEPTH"/>
+		<result property="mentFilePath" column="MENT_FILE_PATH"/>
 	</resultMap>
 	<resultMap type="PostImage" id="PostImageResultSet">
 		<id property="imgNo" column="post_img_no"/>
@@ -92,4 +93,17 @@
  		delete from post_image
  		where post_no = #{post_no}
  	</delete>
+ 	<select id="selectPostCommentList" resultMap="PostCommentResultSet">
+		SELECT * FROM POST_COMMENT WHERE POST_NO = #{postNo}
+	</select>
+	<insert id="insertMent">
+		INSERT INTO POST_COMMENT VALUES(MENT_NO_SEQ.NEXTVAL, #{postNo},  #{mentWriter}, #{mentContent}, SYSDATE ,#{mentDepth},#{mentFilePath})
+	</insert>
+	<update id="updateMent">
+		update POST_COMMENT set MENT_CONTENT = '${mentContent}' where ment_no = ${mentNo}
+	</update>
+	<delete id="deleteMent">
+		delete from POST_COMMENT
+		where ment_no = ${mentNo}
+	</delete>
 </mapper>

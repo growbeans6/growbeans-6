@@ -35,16 +35,16 @@ public class EchoHandler extends TextWebSocketHandler {
         // 
         // HttpSession의 값을 사용하기 위해서는 map을 사용해 데이터를 추출한다.
         Map<String, Object> map = session.getAttributes();
-        Student loginUser = (Student)map.get("loginUser");
-        ChatRoom chatRoom = new ChatRoom(loginUser.getsNo(),loginUser.getStudyNo(),loginUser.getsName(),loginUser.getsFile());
+        Student loginStudent = (Student)map.get("loginStudent");
+        ChatRoom chatRoom = new ChatRoom(loginStudent.getsNo(),loginStudent.getStudyNo(),loginStudent.getsName(),loginStudent.getsFile());
         chatRoomService.entranceRoom(chatRoom);
         for(WebSocketSession sess : sessionList){
         	map = sess.getAttributes();
-        	Student sessionUser = (Student)map.get("loginUser");
+        	Student sessionUser = (Student)map.get("loginStudent");
         	// 로그인 유저의 나이와 세션리스트에서 forEach로 뽑아낸 WebSocketSession sess 접속자의
-        	// loginUser세션값을 가져와 '나'의 스터디넘버와 비교해 같은사람에게만 메시지가 전송되도록 한다.
-        	if(loginUser.getStudyNo()==sessionUser.getStudyNo()) {
-        		sess.sendMessage(new TextMessage("{{entryIn}}"+loginUser.getsName()+"님이 입장하셨습니다."));
+        	// loginStudent세션값을 가져와 '나'의 스터디넘버와 비교해 같은사람에게만 메시지가 전송되도록 한다.
+        	if(loginStudent.getStudyNo()==sessionUser.getStudyNo()) {
+        		sess.sendMessage(new TextMessage("{{entryIn}}"+loginStudent.getsName()+"님이 입장하셨습니다."));
         	}
         }
         
@@ -58,12 +58,12 @@ public class EchoHandler extends TextWebSocketHandler {
     	logger.info("{}로 부터 {} 받음", session.getId(), message.getPayload());
         //모든 유저에게 메세지 출력
         Map<String, Object> map = session.getAttributes();
-        Student loginUser = (Student)map.get("loginUser");
+        Student loginStudent = (Student)map.get("loginStudent");
         for(WebSocketSession sess : sessionList){
         	map = sess.getAttributes();
-        	Student sessionUser = (Student)map.get("loginUser");
-        	if(loginUser.getStudyNo()==sessionUser.getStudyNo()) {
-        		sess.sendMessage(new TextMessage("{{"+loginUser.getsName()+"}}"+ message.getPayload()));
+        	Student sessionUser = (Student)map.get("loginStudent");
+        	if(loginStudent.getStudyNo()==sessionUser.getStudyNo()) {
+        		sess.sendMessage(new TextMessage("{{"+loginStudent.getsName()+"}}"+ message.getPayload()));
         	}
         }
     }
@@ -72,13 +72,13 @@ public class EchoHandler extends TextWebSocketHandler {
     @Async
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
     	Map<String, Object> map = session.getAttributes();
-    	Student loginUser = (Student)map.get("loginUser");
-    	chatRoomService.exitRoom(loginUser.getsNo());
+    	Student loginStudent = (Student)map.get("loginStudent");
+    	chatRoomService.exitRoom(loginStudent.getsNo());
         for(WebSocketSession sess : sessionList){
         	map = sess.getAttributes();
-        	Student sessionUser = (Student)map.get("loginUser");
-        	if((sessionUser.getsNo()!=loginUser.getsNo()) && sessionUser.getStudyNo() == loginUser.getStudyNo()) {
-        		sess.sendMessage(new TextMessage("{{entryOut}}"+loginUser.getsName()+"님이 퇴장하셨습니다."));
+        	Student sessionUser = (Student)map.get("loginStudent");
+        	if((sessionUser.getsNo()!=loginStudent.getsNo()) && sessionUser.getStudyNo() == loginStudent.getStudyNo()) {
+        		sess.sendMessage(new TextMessage("{{entryOut}}"+loginStudent.getsName()+"님이 퇴장하셨습니다."));
         	}
         }
         logger.info("{} 연결 끊김.", session.getId());
