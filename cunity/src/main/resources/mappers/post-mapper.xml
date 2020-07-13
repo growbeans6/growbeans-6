@@ -60,7 +60,7 @@
 	</delete>
 	
 	<update id="updatePost">
-		UPDATE * FROM POST WHERE POST_NO = #{postNo}
+		UPDATE POST SET  WHERE POST_NO = #{postNo}
 	</update>
 </mapper>
 
