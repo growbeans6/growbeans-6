@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="LectureEnrollmentMapper">
+
+	<resultMap type="LectureEnrollment" id="LectureEnrollmentResultSet">
+		<id property="lCode" column="l_code"/>
+		<result property="sNo" column="s_No"/>
+	</resultMap>
+		
+	<insert id="insertLectureEnroll">
+		INSERT INTO LECTUREENROLL values( #{lCode},#{sNo} )
+	</insert>
+	
+ 	<delete id="deleteLectureEnroll" >
+ 		DELETE FROM LECTUREENROLL
+ 		WHERE L_CODE = #{lCode}	
+	</delete> 
+	
+	
+</mapper>
+
+	
+
+
+

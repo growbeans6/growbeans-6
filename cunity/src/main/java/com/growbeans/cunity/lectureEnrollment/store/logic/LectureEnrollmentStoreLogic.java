@@ -2,6 +2,7 @@ package com.growbeans.cunity.lectureEnrollment.store.logic;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,17 @@ public class LectureEnrollmentStoreLogic implements LectureEnrollmentStore{
 	
 	@Override
 	public int insertEnList(LectureEnrollment lecEn) {
-		return 0;
+		return sqlSession.insert("LectureEnrollmentMapper.insertLectureEnroll", lecEn);
 	}
 
 	@Override
-	public ArrayList<Lecture> lectureEnList() {
-		return null;
+	public List<Lecture> lectureEnList(int sNo) {
+		return sqlSession.selectList("lectureMapper.enrollLecture",sNo);
+	}
+
+	@Override
+	public int deleteEnList(int lCode) {
+		return sqlSession.delete("LectureEnrollmentMapper.deleteLectureEnroll", lCode);
 	}
 
 }

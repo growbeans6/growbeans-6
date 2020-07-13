@@ -2,6 +2,7 @@ package com.growbeans.cunity.lectureEnrollment.service.logic;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,14 +21,17 @@ public class LectureEnrollmentServiceImpl implements LectureEnrollmentService {
 	
 	@Override
 	public int insertEnList(LectureEnrollment lecEn) {
-		// TODO Auto-generated method stub
-		return 0;
+		return lecEnStore.insertEnList(lecEn);
 	}
 
 	@Override
-	public ArrayList<Lecture> lectureEnList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Lecture> lectureEnList(int sNo) {
+		return lecEnStore.lectureEnList(sNo);
+	}
+
+	@Override
+	public int deleteEnList(int lCode) {
+		return lecEnStore.deleteEnList(lCode);
 	}
 
 }

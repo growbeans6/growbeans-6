@@ -45,7 +45,7 @@ public class ConsultingController {
 		   cons.setpNo(student.getpNo());
 		   cons.setsNo(student.getsNo());
 		  int result = consultService.insertConsulting(cons);
-		  if (result>0) {return "home";}
+		  if (result>0) {return "redirect:/stuConsultingList";}
 		  else {return "home";}
 	   }
 	   

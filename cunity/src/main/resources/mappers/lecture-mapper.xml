@@ -20,6 +20,15 @@
 		FROM LECTURE		
 	</select>
 	
+	<select id="enrollLecture" resultMap="LectureResultSet">
+		select *
+		from lectureenroll join lecture
+		using (l_code)
+		where s_no = #{sNo}
+	</select>
+	
+	
+	
 	
 </mapper>
 

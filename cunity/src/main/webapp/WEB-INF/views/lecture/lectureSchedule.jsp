@@ -74,22 +74,25 @@ overflow : hidden;
                     </tr>
                   </thead>
                   <tbody>
+                  
                     <tr>
                       <td>1</td>
-                      <td style="background-color : blue">Java</td>
-                      <td style="background-color : green">Java</td>
+                      <td style="background-color : blue">Java</td> <!-- 월1 -->
+                      <td style="background-color : green">Java</td> <!-- 화1 -->
                       <td></td>
                       <td></td>
                       <td></td>
                     </tr>
+                    
                     <tr>
                       <td>2</td>
-                      <td style="background-color : blue">Java</td>
+                      <td style="background-color : blue">Java</td> <!-- 월2 -->
                       <td style="background-color : green">Java</td>
                       <td></td>
                       <td></td>
                       <td></td>
                     </tr>
+                    
                     <tr>
                       <td>3</td>
                       <td></td>
@@ -98,6 +101,7 @@ overflow : hidden;
                       <td></td>
                       <td></td>
                     </tr>
+                    
                     <tr>
                       <td>4</td>
                       <td></td>
@@ -106,6 +110,7 @@ overflow : hidden;
                       <td></td>
                       <td></td>
                     </tr>
+                    
                      <tr>
                       <td>5</td>
                       <td></td>
@@ -114,6 +119,7 @@ overflow : hidden;
                       <td></td>
                       <td></td>
                     </tr>
+                    
                     <tr>
                       <td>6</td>
                       <td></td>
@@ -122,6 +128,7 @@ overflow : hidden;
                       <td></td>
                       <td></td>
                     </tr>
+                    
                     <tr>
                       <td>7</td>
                       <td></td>

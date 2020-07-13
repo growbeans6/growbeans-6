@@ -86,8 +86,21 @@ overflow : hidden;
                       <td>${list.lPoint }</td>
                       <td>${list.lcode }</td>
                       <td>${list.lTime}</td>
-                      <td><button  class="btn btn-secondary">수업계획서</button></td>
-                      <td><button  class="btn btn-primary">수강신청</button></td>
+                      
+                      <c:url var="consultDetail" value="/consultDetail">
+                      <c:param name="lcode" value="${list.lcode }"/>
+                      </c:url>
+                      
+                      <td><a href="${consultDetail }">수업계획서</a></td>
+                      
+                      <c:url var="insertEnList" value="/insertEnList">
+                      <c:param name="lcode" value="${list.lcode }"/>
+                      <c:param name="lTime" value="${list.lTime}"/>
+                      </c:url>
+                      
+                      <td><a href="${insertEnList }">수강신청</a></td>
+
+                      
                     </tr>
                    </c:forEach>
                     
