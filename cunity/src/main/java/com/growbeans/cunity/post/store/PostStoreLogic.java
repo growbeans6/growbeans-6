@@ -60,14 +60,12 @@ public class PostStoreLogic implements PostStore{
 
 	@Override
 	public int updatePost(Post post) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update("postMapper.updatePost", post);
 	}
 
 	@Override
 	public int deletePost(int postNo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete("postMapper.deletePost", postNo);
 	}
 
 	@Override

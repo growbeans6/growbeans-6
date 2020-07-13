@@ -54,6 +54,14 @@
 	<select id="selectPostCommentList" resultMap="PostCommentResultSet">
 		SELECT * FROM POST_COMMENT WHERE POST_NO = #{postNo}
 	</select>
+	
+	<delete id="deletePost">
+		DELETE * FROM POST WHERE POST_NO = #{postNo}
+	</delete>
+	
+	<update id="updatePost">
+		UPDATE * FROM POST WHERE POST_NO = #{postNo}
+	</update>
 </mapper>
 
 	

@@ -212,4 +212,49 @@ public class PostController {
 		model.addAttribute("post", postService.selectPost(postNo));
 		return "community/postUpdate";
 	}
+	
+	@RequestMapping("updatePostSubmit")
+	public String noticeUpdate(Post post, Model model, HttpServletRequest request, MultipartFile reloadFile) {
+		// 새로 업로드된 파일이 있을 경우
+		if (reloadFile != null && !reloadFile.isEmpty()) {
+			
+			// 기존 업로드된 파일이 있을 경우
+			if (post.getFilePath() != null) {
+				// 기존 파일 삭제
+				deleteFile(post.getFilePath(),request);
+			}
+
+			// 새로 업로드된 파일 저장
+			String savePath = saveFile(reloadFile, request);
+
+			// 새로 업로드된 파일이 잘 저장이 되었다면 디비 저장
+			if (savePath != null) {
+				post.setFilePath(reloadFile.getOriginalFilename());
+			}
+		}
+		int result = postService.updatePost(post);
+		return "redirect:postDetail?postNo=" + post.getPostNo();
+	}
+	
+	// 파일 삭제 메소드
+		// 공지글 등록 실패 또는 글 수정으로 업로드 파일이 변한 경우
+		// 저장되어 있는 기존 파일 삭제
+		public void deleteFile(String fileName, HttpServletRequest request) {
+			// 파일 저장 경로 설정
+			String root = request.getSession().getServletContext().getRealPath("resources");
+			String savePath = root + "\\nuploadFiles";
+			// 삭제할 파일 경로 + 파일명
+			File deleteFile = new File(savePath + "\\" + fileName);
+			// 해당 파일이 존재할 경우 삭제
+			if (deleteFile.exists()) {
+				deleteFile.delete();
+			}
+		}
+
+	
+	@RequestMapping("deletePost")
+	public String deletePostView(int postNo, String postKinds) {
+		int result = postService.deletePost(postNo);
+	return "redirect:postList?postKinds=" + postKinds;
+	}
 }

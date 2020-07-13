@@ -57,9 +57,9 @@
 						<div class="col-sm-12 col-md-12">
 						
 						
-							<form action="insertPost" method="post" enctype="multipart/form-data">
+							<form action="updatePostSubmit" method="post" enctype="multipart/form-data">
 								<label for="subject">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</label>
-								<input type="text" id="subject" name="postSubject" size="20px;"
+								<input type="text" id="subject" name="postSubject" size="20px;" value="${post.postSubject }"
 									placeholder="제목을 입력해주세요">
 								<fieldset>
 								<!-- 로그인 되어 있지 않기에 그냥 넣는.. -->

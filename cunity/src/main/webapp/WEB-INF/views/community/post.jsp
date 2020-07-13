@@ -67,11 +67,14 @@
 							<div class="button_wrapper">
 							
 							<c:if test="${loginStudent.sNo eq post.postWriterSNo }">
-							 <c:url var="updatePost" value="updatePost">
-                  				<c:param name="postNo" value="${post.postNo}"/>
+							<c:url var="updatePost" value="updatePost">
+                  				<c:param name="postNo" value="${post.postNo }"/>
                   			</c:url>  
-								<button onclick="location.href='updatePost'">글수정</button>
-								<button onclick="location.href=#">글삭제</button>
+                  			<c:url var="deletePost" value="deletePost">
+                  				<c:param name="postNo" value="${post.postNo }"/>
+                  			</c:url> 
+								<button onclick="location.href='${updatePost}'">글수정</button>
+								<button onclick="location.href='${deletePost }'">글삭제</button>
 							</c:if>
 							</div>
 							<hr>
