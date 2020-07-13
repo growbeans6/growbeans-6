@@ -206,4 +206,10 @@ public class PostController {
 			return "fail";
 		}
 	}
+	
+	@RequestMapping("updatePost")
+	public String updatePostView(int postNo, Model model) {
+		model.addAttribute("post", postService.selectPost(postNo));
+		return "community/postUpdate";
+	}
 }

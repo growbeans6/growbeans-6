@@ -49,11 +49,9 @@
 							<article>
 								<div style="justify-content: center;">
 									<ul>
-										<li>
 											<div style="width: 100px; height: 100px;">
-												<img src="${contextPath }/resources/nuploadFiles/${post.filePath}" style="width:100%; height:100%;">
+												<img src="${contextPath }/resources/nuploadFiles/${post.filePath}" style="width:100%; height:100%;" alt="">
 											</div>
-										</li>
 									</ul>
 								</div>
 								<p>${post.postContent }
@@ -67,8 +65,14 @@
 
 							<hr>
 							<div class="button_wrapper">
-								<button>글수정</button>
-								<button>글삭제</button>
+							
+							<c:if test="${loginStudent.sNo eq post.postWriterSNo }">
+							 <c:url var="updatePost" value="updatePost">
+                  				<c:param name="postNo" value="${post.postNo}"/>
+                  			</c:url>  
+								<button onclick="location.href='updatePost'">글수정</button>
+								<button onclick="location.href=#">글삭제</button>
+							</c:if>
 							</div>
 							<hr>
 							<div class="comment" style="margin-top: 10px;">

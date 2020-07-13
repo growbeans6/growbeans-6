@@ -57,7 +57,10 @@
 							class="card shadow mt-5 mb-5 ml-5 mr-5 col-sm-3 col-md-3 col-lg-3 col-xl-3"
 							style="height: 300px; width: 100%; float: left;">
 							<div class="card-body">
-								<div class="table-responsive">
+							<c:url var="postDetail" value="postDetail">
+								<c:param name="postNo" value="${post.postNo}" />
+							</c:url>
+								<div class="table-responsive" onclick="location.href='${postDetail}'">
 									<h6>${post.postRegDate }</h6>
 									<img alt="이미지" src="${contextPath }/resources/nuploadFiles/${post.filePath}">
 									<h5>${post.postContent }</h5>
