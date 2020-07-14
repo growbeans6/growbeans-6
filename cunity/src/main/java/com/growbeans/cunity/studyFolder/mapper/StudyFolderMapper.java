@@ -7,11 +7,14 @@ import com.growbeans.cunity.studyFolder.domain.StudyFolder;
 
 public interface StudyFolderMapper {
 	// 스터디 폴더 하나 선택
-	StudyFolder selectOneStudyFolder(StudyFolder studyFolder); 
+	public StudyFolder selectOneStudyFolder(int studyNo); 
 	// 스터디 폴더 리스트 조회
-	ArrayList<StudyFolder> selectlistStudyFolder(int studyNo);
+	public ArrayList<StudyFolder> selectlistStudyFolder(int studyNo);
 	// 스터디 폴더 하나 생성
-	int insertStudyFolder(StudyFolder studyFolder);
+	public int insertStudyFolder(String folderName);
+	// 스터디 폴더 하나 선택해서 내용 가져오기
+	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo);
+
 	// 스터디 폴더 하나 삭제
-	int deleteStudyFolder(int folderNo);
+	public int deleteStudyFolder(int folderNo);
 }

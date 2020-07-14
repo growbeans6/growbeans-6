@@ -14,7 +14,7 @@ public interface StudyFolderService {
 	 * @param studyFolder
 	 * @return result
 	 */
-	public int insertStudyFolder(StudyFolder studyFolder);
+	public int insertStudyFolder(String folderName);
 	
 	/**
 	 * studyFolder를 삭제하기 위한 메소드
@@ -29,6 +29,18 @@ public interface StudyFolderService {
 	 * @return list
 	 */
 	public ArrayList<StudyFolder> selectlistFolder(int studyNo);
+	/**
+	 * studyFolder 하나를 조회하는 메소드
+	 * @param studyNo
+	 * @return
+	 */
+	public StudyFolder selectOneFolder(int studyNo);
+	/**
+	 * studyFolder 하나의 내용을 가져오는 메소드
+	 * @param studyNo
+	 * @return
+	 */
+	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo);
 		
 	
 }
