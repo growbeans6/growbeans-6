@@ -7,6 +7,12 @@
 		<result property="pNo" column="p_No"/>
 		<result property="lName" column="l_Name"/>
 		<result property="lpName" column="l_pName"/>
+		<result property="lDay1" column="l_Day1"/>
+		<result property="lStartTime1" column="l_StartTime1"/>
+		<result property="lEndTime1" column="l_EndTime1"/>
+		<result property="lDay2" column="l_Day2"/>
+		<result property="lStartTime2" column="l_StartTime2"/>
+		<result property="lEndTime2" column="l_EndTime2"/>
 		<result property="lNumberStudent" column="l_NumberStudent"/>
 		<result property="lroom" column="l_room"/>
 		<result property="lClassify" column="l_Classify"/>
@@ -25,6 +31,13 @@
 		from lectureenroll join lecture
 		using (l_code)
 		where s_no = #{sNo}
+	</select>
+	
+	<select id="lectureOne" resultMap="LectureResultSet">
+	select *
+	from lecture
+	where l_code = #{lCode}
+	
 	</select>
 	
 	
