@@ -3,6 +3,7 @@ package com.growbeans.cunity.study.service;
 import java.util.ArrayList;
 
 import com.growbeans.cunity.post.domain.Post;
+import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.domain.PostImage;
 import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.study.domain.Study;
@@ -120,4 +121,14 @@ public interface StudyService {
 	 * @return
 	 */
 	public int deleteTimeLineImgAll(int postNo);
+	
+	/**
+	 * 16. 타임라인 댓글 가져오기
+	 * @param postNo
+	 * @return
+	 */
+	public ArrayList<PostComment> selectPostCommentList(int postNo);
+	public int insertMent(PostComment postComment);
+	public int updateMent(String mentContent, int mentNo);
+	public int deleteMent(int mentNo);
 }

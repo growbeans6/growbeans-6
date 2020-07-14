@@ -27,5 +27,10 @@ public class HomeController {
 		
 		return "common/loginPage";
 	}
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home(Model model) {
+		
+		return "home";
+	}
 	
 }

@@ -11,13 +11,17 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.growbeans.cunity.post.domain.Post;
+import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.domain.PostImage;
 import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.study.service.StudyService;
@@ -35,59 +39,78 @@ public class StudyController {
 
 	// 스터디 타임라인 리스트
 	@RequestMapping("/boardList")
-	public ModelAndView studyBoardList(ModelAndView mv, HttpSession session) {
+	public String studyBoardList(Model mo, HttpSession session, RedirectAttributes ra) {
 		Student student = (Student) session.getAttribute("loginStudent");
+		if(student.getStudyNo()==0) {
+			ra.addFlashAttribute("msg", "스터디에 가입한 사용자만 이용할 수 있는 기능입니다.");
+			return "redirect:/home";
+		}
 		ArrayList<Student> sList = studyService.selectStudyStudentList(student.getStudyNo());
 		ArrayList<Post> pList = studyService.selectTimeLineList(student.getStudyNo(), "타임라인");
 		// 스터디 학생 리스트
-		mv.addObject("sList", sList);
-		mv.addObject("pList", pList);
+		mo.addAttribute("sList", sList);
+		mo.addAttribute("pList", pList);
 		// 글목록
-		mv.setViewName("study/boardList");
-		return mv;
+	
+		return "study/boardList";
 	}
 
 	// 스터디 타임라인 작성폼
 	@RequestMapping("/boardWriteForm")
-	public ModelAndView studyBoardWriteForm(ModelAndView mv) {
-		mv.setViewName("study/boardWrite");
-		return mv;
+	public String studyBoardWriteForm(Model mo, HttpSession session, RedirectAttributes ra) {
+		Student student = (Student) session.getAttribute("loginStudent");
+		if(student.getStudyNo()==0) {
+			ra.addFlashAttribute("msg", "스터디에 가입한 사용자만 이용할 수 있는 기능입니다.");
+			return "redirect:/home";
+		}
+		return "study/boardWrite";
 	}
 
 	// 스터디 타임라인 상세페이지
 	@RequestMapping("/boardDetail")
-	public ModelAndView studyBoardDetail(ModelAndView mv, int postNo) {
-		Post post = studyService.selectTimeLineDetail(postNo);
-		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
-		mv.addObject("timeLine", post);
-		mv.addObject("imgList", postImages);
+	public String studyBoardDetail(Model mo, int postNo, HttpSession session, RedirectAttributes ra) {
 		
+		Post post = studyService.selectTimeLineDetail(postNo);
+		Student student = (Student) session.getAttribute("loginStudent");
+		if(student.getStudyNo()!=post.getStudyNo()) {
+			ra.addFlashAttribute("msg", "스터디에 가입한 사용자만 이용할 수 있는 기능입니다.");
+			return "redirect:/home";
+		}
+		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
+		ArrayList<PostComment> comments = studyService.selectPostCommentList(postNo);
+		mo.addAttribute("timeLine", post);
+		mo.addAttribute("imgList", postImages);
+		mo.addAttribute("mentList", comments);
 
-		mv.setViewName("study/boardDetail");
-		return mv;
+
+		return "study/boardDetail";
 	}
 
 	// 스터디 타임라인 수정폼
 	@RequestMapping("/boardModifyForm")
-	public ModelAndView studyBoardModifyForm(ModelAndView mv, int postNo) {
+	public String studyBoardModifyForm(Model mo, int postNo, HttpSession session, RedirectAttributes ra) {
 		Post post = studyService.selectTimeLineDetail(postNo);
-		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
-		mv.addObject("timeLine", post);
-		mv.addObject("imgList", postImages);
-		if (postImages != null) {
-			mv.addObject("imgListSize", postImages.size());
-		} else {
-			mv.addObject("imgListSize", 0);
+		Student student = (Student) session.getAttribute("loginStudent");
+		if(student.getStudyNo()!=post.getStudyNo()) {
+			ra.addFlashAttribute("msg", "스터디에 가입한 사용자만 이용할 수 있는 기능입니다.");
+			return "redirect:/home";
 		}
-		mv.setViewName("study/boardModify");
-		return mv;
+		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
+		mo.addAttribute("timeLine", post);
+		mo.addAttribute("imgList", postImages);
+		if (postImages != null) {
+			mo.addAttribute("imgListSize", postImages.size());
+		} else {
+			mo.addAttribute("imgListSize", 0);
+		}
+		return "study/boardModify";
 	}
 
 	// 스터디 타임라인 수정
 	@RequestMapping("/ModifyTimeLine")
-	public ModelAndView studyBoardModify(ModelAndView mv, Post post,
+	public String studyBoardModify(Model mo, Post post,
 			@RequestParam(name = "fileImage", required = false) MultipartFile[] file, HttpServletRequest request,
-			String upload_name1, String upload_name2, String upload_name3) {
+			String upload_name1, String upload_name2, String upload_name3, HttpSession session, RedirectAttributes ra) {
 		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(post.getPostNo());
 		int size = postImages.size();
 		if (postImages != null) {
@@ -104,49 +127,81 @@ public class StudyController {
 		// 파일이 있는지 검사
 		if (file != null) {
 			for (int i = 0; i < file.length; i++) {
-				if(!file[i].getOriginalFilename().equals("")) {
+				if (!file[i].getOriginalFilename().equals("")) {
 					PostImage pImage = saveFile(i, file[i], request);
 					studyService.insertTimeLineImg(pImage);
 				}
 			}
 		}
 		studyService.updateTimeLine(post);
-		mv.setViewName("redirect:/boardList");
-		return mv;
+		return "redirect:/boardList";
 	}
 
 	// 스터디 타임라인 작성
 	@RequestMapping("/writeTimeline")
-	public ModelAndView studyBoardWrite(ModelAndView mv, Post post,
-			@RequestParam(name = "fileImage", required = false) MultipartFile[] file, HttpServletRequest request) {
+	public String studyBoardWrite(Model mo, Post post,
+			@RequestParam(name = "fileImage", required = false) MultipartFile[] file, HttpServletRequest request
+			, HttpSession session, RedirectAttributes ra) {
 
 		studyService.insertTimeLine(post);
 
 		// 파일이 있는지 검사
 		if (file != null) {
 			for (int i = 0; i < file.length; i++) {
-				if(!file[i].getOriginalFilename().equals("")) {
+				if (!file[i].getOriginalFilename().equals("")) {
 					PostImage pImage = saveFile(i, file[i], request);
 					studyService.insertTimeLineImg(pImage);
 				}
 			}
 		}
 
-		mv.setViewName("redirect:/boardList");
-		return mv;
+	
+		return "redirect:/boardList";
 	}
+
 	@RequestMapping("/deleteTimeLine")
-	public ModelAndView studyBoardDelete(ModelAndView mv, int postNo, HttpServletRequest request) {
+	public String studyBoardDelete(Model mo, int postNo, HttpServletRequest request, HttpSession session, RedirectAttributes ra) {
 		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
-		if(postImages!=null) {
-			for(int i=0; i<postImages.size();i++) {
+		if (postImages != null) {
+			for (int i = 0; i < postImages.size(); i++) {
 				deleteFile(postImages.get(i).getImgName(), request);
 			}
 		}
 		studyService.deleteTimeLineImgAll(postNo);
 		studyService.deleteTimeLine(postNo);
-		mv.setViewName("redirect:/boardList");
-		return mv;
+
+		return "redirect:/boardList";
+	}
+
+	// 댓글 작성
+	@RequestMapping("/mentWrite")
+	public String studyBoardMentInsert(Model mo, PostComment postComment, HttpSession session, RedirectAttributes ra) {
+		studyService.insertMent(postComment);
+		return "redirect:/boardDetail?postNo=" + postComment.getPostNo();
+	}
+
+	// 댓글 수정
+	@RequestMapping("/mentUpdate")
+	@ResponseBody
+	public String studyBoardMentUpdate(Model mo, String mentContent, int mentNo, HttpSession session, RedirectAttributes ra) {
+		int result = studyService.updateMent(mentContent,mentNo);
+		if(result > 0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
+
+	// 댓글 삭제
+	@RequestMapping("/mentDelete")
+	@ResponseBody
+	public String studyBoardMentDelete(Model mo,@RequestParam("mentNo") int mentNo, HttpSession session, RedirectAttributes ra) {
+		int result = studyService.deleteMent(mentNo);
+		if(result > 0) {
+			return "success";
+		}else {
+			return "fail";
+		}
 	}
 
 	// 스터디 생성

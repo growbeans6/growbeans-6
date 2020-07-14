@@ -10,10 +10,11 @@ public class PostComment {
 	private String mentContent;
 	private Date mentRegDate;
 	private int mentDepth;
-	
+	private String mentFilePath;
 	public PostComment() {}
 
-	public PostComment(int mentNo, int postNo, String mentWriter, String mentContent, Date mentRegDate, int mentDepth) {
+	public PostComment(int mentNo, int postNo, String mentWriter, String mentContent, Date mentRegDate, int mentDepth,
+			String mentFilePath) {
 		super();
 		this.mentNo = mentNo;
 		this.postNo = postNo;
@@ -21,7 +22,10 @@ public class PostComment {
 		this.mentContent = mentContent;
 		this.mentRegDate = mentRegDate;
 		this.mentDepth = mentDepth;
+		this.mentFilePath = mentFilePath;
 	}
+
+
 
 	public int getMentNo() {
 		return mentNo;
@@ -71,11 +75,19 @@ public class PostComment {
 		this.mentDepth = mentDepth;
 	}
 
+	public String getMentFilePath() {
+		return mentFilePath;
+	}
+
+	public void setMentFilePath(String mentFilePath) {
+		this.mentFilePath = mentFilePath;
+	}
+
 	@Override
 	public String toString() {
-		return "postComment [mentNo=" + mentNo + ", postNo=" + postNo + ", mentWriter=" + mentWriter + ", mentContent="
-				+ mentContent + ", mentRegDate=" + mentRegDate + ", mentDepth=" + mentDepth + "]";
+		return "PostComment [mentNo=" + mentNo + ", postNo=" + postNo + ", mentWriter=" + mentWriter + ", mentContent="
+				+ mentContent + ", mentRegDate=" + mentRegDate + ", mentDepth=" + mentDepth + ", mentFilePath="
+				+ mentFilePath + "]";
 	}
-	
-	
+
 }

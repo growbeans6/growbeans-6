@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.post.domain.Post;
+import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.domain.PostImage;
 import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.student.mapper.StudentMapper;
@@ -151,6 +152,30 @@ public class StudyStoreLogic implements StudyStore{
 	public int deleteTimeLineImgAll(int postNo) {
 		StudyMapper mapper = session.getMapper(StudyMapper.class);
 		return mapper.deleteTimeLineImgAll(postNo);
+	}
+
+	@Override
+	public ArrayList<PostComment> selectPostCommentList(int postNo) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.selectPostCommentList(postNo);
+	}
+
+	@Override
+	public int insertMent(PostComment postComment) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.insertMent(postComment);
+	}
+
+	@Override
+	public int updateMent(String mentContent, int mentNo) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.updateMent(mentContent, mentNo);
+	}
+
+	@Override
+	public int deleteMent(int mentNo) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.deleteMent(mentNo);
 	}
 
 }
