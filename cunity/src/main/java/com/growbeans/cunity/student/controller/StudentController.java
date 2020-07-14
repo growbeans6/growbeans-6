@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.student.service.StudentService;
 
-@SessionAttributes({"loginStudent"})
+@SessionAttributes({"loginStudent","judge"})
 @Controller
 public class StudentController {
 	

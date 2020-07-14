@@ -45,7 +45,13 @@
       <!-- Main Content -->
       <div id="content">
       
-      
+      		
+      		<c:if test="${msg ne null}">
+      			<script>
+      				alert("${msg}");
+      			</script>
+      		
+      		</c:if>
 			<c:if test="${judge eq 1}">
        			<jsp:include page="content-wrapper.jsp"></jsp:include>
 			</c:if>
