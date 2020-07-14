@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.growbeans.cunity.lecture.domain.Lecture;
 import com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment;
+import com.growbeans.cunity.lectureEnrollment.domain.Timetable;
 import com.growbeans.cunity.lectureEnrollment.service.LectureEnrollmentService;
 import com.growbeans.cunity.lectureEnrollment.store.LectureEnrollmentStore;
 
@@ -33,5 +34,29 @@ public class LectureEnrollmentServiceImpl implements LectureEnrollmentService {
 	public int deleteEnList(int lCode) {
 		return lecEnStore.deleteEnList(lCode);
 	}
+
+	@Override
+	public Lecture lectureOne(int lCode) {
+		return lecEnStore.lectureOne(lCode);
+	}
+
+	@Override
+	public int updateSchedule(Timetable table) {
+		return lecEnStore.updateSchedule(table);
+	}
+
+	@Override
+	public Timetable showList(int sNo) {
+		return lecEnStore.showList(sNo);
+	}
+
+	@Override
+	public LectureEnrollment find(LectureEnrollment lecture) {
+		return lecEnStore.find(lecture);
+	}
+	
+	
+	
+	
 
 }

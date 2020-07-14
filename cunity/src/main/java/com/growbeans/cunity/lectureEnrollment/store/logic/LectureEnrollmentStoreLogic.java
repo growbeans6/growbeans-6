@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.growbeans.cunity.lecture.domain.Lecture;
 import com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment;
+import com.growbeans.cunity.lectureEnrollment.domain.Timetable;
 import com.growbeans.cunity.lectureEnrollment.store.LectureEnrollmentStore;
 
 
@@ -33,5 +34,26 @@ public class LectureEnrollmentStoreLogic implements LectureEnrollmentStore{
 	public int deleteEnList(int lCode) {
 		return sqlSession.delete("LectureEnrollmentMapper.deleteLectureEnroll", lCode);
 	}
+
+	@Override
+	public Lecture lectureOne(int lCode) {
+		return sqlSession.selectOne("lectureMapper.lectureOne", lCode);
+	}
+
+	@Override
+	public int updateSchedule(Timetable table) {
+		return sqlSession.update("timetableMapper.updateTime", table);
+	}
+
+	@Override
+	public Timetable showList(int sNo) {
+		return sqlSession.selectOne("timetableMapper.showTime", sNo);
+	}
+
+	@Override
+	public LectureEnrollment find(LectureEnrollment lecture) {
+		return sqlSession.selectOne("LectureEnrollmentMapper.findLecture", lecture);
+	}
+	
 
 }

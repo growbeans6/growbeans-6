@@ -77,66 +77,66 @@ overflow : hidden;
                   
                     <tr>
                       <td>1</td>
-                      <td style="background-color : blue">Java</td> <!-- 월1 -->
-                      <td style="background-color : green">Java</td> <!-- 화1 -->
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon1 }</td> 
+                      <td>${timetable.tue1 }</td>
+                      <td>${timetable.wed1 }</td>
+                      <td>${timetable.tur1 }</td>
+                      <td>${timetable.fri1 }</td>
                     </tr>
                     
                     <tr>
                       <td>2</td>
-                      <td style="background-color : blue">Java</td> <!-- 월2 -->
-                      <td style="background-color : green">Java</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon2 }</td>
+                      <td>${timetable.tue2 }</td>
+                      <td>${timetable.wed2 }</td>
+                      <td>${timetable.tur2 }</td>
+                      <td>${timetable.fri2 }</td>
                     </tr>
                     
                     <tr>
                       <td>3</td>
-                      <td></td>
-                      <td></td>
-                      <td style="background-color : yellow">Java</td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon3 }</td> <!-- 월1 -->
+                      <td>${timetable.tue3 }</td> <!-- 화1 -->
+                      <td>${timetable.wed3 }</td>
+                      <td>${timetable.tur3 }</td>
+                      <td>${timetable.fri3 }</td>
                     </tr>
                     
                     <tr>
                       <td>4</td>
-                      <td></td>
-                      <td></td>
-                      <td style="background-color : yellow">Java</td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon4 }</td> <!-- 월1 -->
+                      <td>${timetable.tue4 }</td> <!-- 화1 -->
+                      <td>${timetable.wed4 }</td>
+                      <td>${timetable.tur4 }</td>
+                      <td>${timetable.fri4 }</td>
                     </tr>
                     
                      <tr>
                       <td>5</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon5 }</td> <!-- 월1 -->
+                      <td>${timetable.tue5 }</td> <!-- 화1 -->
+                      <td>${timetable.wed5 }</td>
+                      <td>${timetable.tur5 }</td>
+                      <td>${timetable.fri5 }</td>
                     </tr>
                     
                     <tr>
                       <td>6</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon6 }</td> <!-- 월1 -->
+                      <td>${timetable.tue6 }</td> <!-- 화1 -->
+                      <td>${timetable.wed6 }</td>
+                      <td>${timetable.tur6 }</td>
+                      <td>${timetable.fri6 }</td>
                     </tr>
                     
                     <tr>
                       <td>7</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>                    
+                      <td>${timetable.mon7 }</td> <!-- 월1 -->
+                      <td>${timetable.tue7 }</td> <!-- 화1 -->
+                      <td>${timetable.wed7 }</td>
+                      <td>${timetable.tur7 }</td>
+                      <td>${timetable.fri7 }</td>
+                    </tr>                 
 
                   </tbody>
                 </table>

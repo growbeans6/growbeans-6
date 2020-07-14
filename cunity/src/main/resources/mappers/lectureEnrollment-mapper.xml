@@ -16,6 +16,11 @@
  		WHERE L_CODE = #{lCode}	
 	</delete> 
 	
+	<select id="findLecture" resultMap="LectureEnrollmentResultSet">
+	SELECT *
+	FROM LECTUREENROLL
+	WHERE l_code = #{lCode} and s_No = #{sNo}
+	</select>
 	
 </mapper>
 

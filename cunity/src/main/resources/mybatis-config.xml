@@ -23,6 +23,7 @@
 		<typeAlias type="com.growbeans.cunity.grade.domain.Grade" alias="Grade"/>
 
 		<typeAlias type="com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment" alias="LectureEnrollment"/>
+		<typeAlias type="com.growbeans.cunity.lectureEnrollment.domain.Timetable" alias="Timetable"/>
 		<typeAlias type="com.growbeans.cunity.lectureEvaluation.domain.LectureEvaluation" alias="LectureEvaluation"/>
 		<typeAlias type="com.growbeans.cunity.lecturesyllabus.domain.LectureSyllabus" alias="LectureSyllabus"/>
 		<typeAlias type="com.growbeans.cunity.post.domain.PostImage" alias="PostImage"/>
@@ -36,6 +37,7 @@
 		<typeAlias type="com.growbeans.cunity.professor.domain.Professor" alias="Professor"/>
 		<typeAlias type="com.growbeans.cunity.consulting.domain.Consulting" alias="Consulting"/>
 		<typeAlias type="com.growbeans.cunity.lecture.domain.Lecture" alias="Lecture"/>
+		
 	</typeAliases>
 
 	<mappers>
@@ -64,5 +66,6 @@
 		<mapper resource="mappers/consulting-mapper.xml"/>
 		<mapper resource="mappers/lecture-mapper.xml"/>
 		<mapper resource="mappers/lectureEnrollment-mapper.xml"/>
+		<mapper resource="mappers/timetable-mapper.xml"/>
 	</mappers>
 </configuration>

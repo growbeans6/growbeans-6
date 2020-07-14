@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="timetableMapper">
+
+	<resultMap type="Timetable" id="TimetableResultSet">
+		<id property="sNo" column="s_no"/>
+		<result property="pNo" column="p_No"/>
+		<result property="lCode" column="l_Name"/>
+		
+		<result property="mon1" column="mon1"/>
+		<result property="mon2" column="mon2"/>
+		<result property="mon3" column="mon3"/>
+		<result property="mon4" column="mon4"/>
+		<result property="mon5" column="mon5"/>
+		<result property="mon6" column="mon6"/>
+		<result property="mon7" column="mon7"/>
+		<result property="tue1" column="tue1"/>
+		<result property="tue2" column="tue2"/>
+		<result property="tue3" column="tue3"/>
+		<result property="tue4" column="tue4"/>
+		<result property="tue5" column="tue5"/>
+		<result property="tue6" column="tue6"/>
+		<result property="tue7" column="tue7"/>
+		<result property="wed1" column="wed1"/>
+		<result property="wed2" column="wed2"/>
+		<result property="wed3" column="wed3"/>
+		<result property="wed4" column="wed4"/>
+		<result property="wed5" column="wed5"/>
+		<result property="wed6" column="wed6"/>
+		<result property="wed7" column="wed7"/>
+		<result property="tur1" column="tur1"/>
+		<result property="tur2" column="tur2"/>
+		<result property="tur3" column="tur3"/>
+		<result property="tur4" column="tur4"/>
+		<result property="tur5" column="tur5"/>
+		<result property="tur6" column="tur6"/>
+		<result property="tur7" column="tur7"/>
+		<result property="fri1" column="fri1"/>
+		<result property="fri2" column="fri2"/>
+		<result property="fri3" column="fri3"/>
+		<result property="fri4" column="fri4"/>
+		<result property="fri5" column="fri5"/>
+		<result property="fri6" column="fri6"/>
+		<result property="fri7" column="fri7"/>
+
+	</resultMap>
+		
+<!-- 	<select id="Alltimetable" resultMap="TimetableResultSet">
+		SELECT *
+		FROM LECTURE		
+	</select> -->
+	
+	<update id="updateTime">
+	UPDATE TIMETABLE SET mon1 = #{mon1}, mon2= #{mon2}, mon3= #{mon3} , mon4 = #{mon4} , mon5 = #{mon5}, mon6 = #{mon6}, mon7 = #{mon7} ,
+	tue1 = #{tue1}, tue2= #{tue2}, tue3= #{tue3} , tue4 = #{tue4} , tue5 = #{tue5}, tue6 = #{tue6}, tue7 = #{tue7}, 
+	wed1 = #{wed1}, wed2= #{wed2}, wed3= #{wed3} , wed4 = #{wed4} , wed5 = #{wed5}, wed6 = #{wed6}, wed7 = #{wed7},
+	tur1 = #{tur1}, tur2= #{tur2}, tur3= #{tur3} , tur4 = #{tur4} , tur5 = #{tur5}, tur6 = #{tur6}, tur7 = #{tur7},
+	fri1 = #{fri1}, fri2= #{fri2}, fri3= #{fri3} , fri4 = #{fri4} , fri5 = #{fri5}, fri6 = #{fri6}, fri7 = #{fri7}
+	WHERE S_NO = #{sNo}
+	</update>
+	
+	<select id="showTime" resultMap="TimetableResultSet">
+	SELECT *
+	FROM TIMETABLE
+	WHERE S_NO = #{sNo}
+	</select>
+	
+	
+	
+</mapper>
+
+	
+
+
+
