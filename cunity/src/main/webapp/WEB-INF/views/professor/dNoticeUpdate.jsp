@@ -45,8 +45,7 @@
        <div class="container-fluid">
 
           <!-- Page Heading -->
-          <form action="/dNoticeList" method="post" enctype="multipart/form-data">
-          <h1 class="h3 mb-2 text-gray-800">학과공지</h1>
+          <h1 class="h3 mb-2 text-gray-800">학과공지 수정페이지</h1>
           
 
           <!-- DataTales Example -->
@@ -54,40 +53,28 @@
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">학과공지 게시판</h6>
             </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>글 번호</th>
-                      <th>제목</th>
-                      <th>교수</th>
-                      <th>작성일</th>
-                    </tr>
-                  </thead>
-                  <c:forEach var="dnlist" items="${dnlist }">
-                  <tbody style="text-align=center">
-                    <tr>
-                      <td>${dnlist.dnNo }</td>
-                      <c:url var="dnDetail" value="/dNoticeDetail">
-                      	<c:param name="dnNo" value="${dnlist.dnNo}"></c:param>
-                      </c:url>
-                      <td><a href="${dnDetail }">${dnlist.dnTitle }</a></td>
-                      <td>${dnlist.pName }</td>
-                      <td><fmt:formatDate pattern="yyyy-MM-dd" value="${dnlist.dnDate }"/></td>
-                    </tr>
-                  </tbody>
-                  </c:forEach>
-                </table>
-                <div>
-                <c:url value="/dNoticeInsertView" var="dNoticeInsert"></c:url>
-                    <a class="btn btn-secondary btn-sm" href="${dNoticeInsert }">글쓰기</a>
+              <div class="input-group mb-3" style="width:65%">
+                <div class="input-group-prepend">
+                <form action="/dNoticeUpdateView" method="post" enctype="Multipart/form-data">
+                    <span class="input-group-text" id="basic-addon1">제목</span>
                 </div>
+                <span class="input-group-text" id="basic-addon1">${dnDetail.dnTitle}</span>
+                
+              </div>
+              <div class="input-group" style="width:65%">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">내용</span>
+                  </div>
+                <textarea class="form-control" aria-label="With textarea">5월 학과공지 내용</textarea>
+              </div>
+                <div>
+                    <a class="btn btn-secondary btn-sm" href="#">글수정</a>
+                    <a class="btn btn-secondary btn-sm" href="학과공지(교수).html">취소</a>
+                </div>
+                </form>
               </div>
             </div>
-            </form>
           </div>
-
         </div>
         <!-- /.container-fluid -->
 

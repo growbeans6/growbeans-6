@@ -52,22 +52,25 @@
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">학과공지 게시판</h6>
             </div>
+            <form action="/dNoticeInsert" method="post" enctype="multipart/form-data">
               <div class="input-group mb-3" style="width:65%">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">제목</span>
                 </div>
-                <input type="text" class="form-control" placeholder="제목입력" aria-label="Title" aria-describedby="basic-addon1">
+                <input class="input-group-text" id="basic-addon1" name="dnTitle">
               </div>
               <div class="input-group" style="width:65%">
                   <div class="input-group-prepend">
                     <span class="input-group-text">내용</span>
                   </div>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea class="form-control" aria-label="With textarea" name="dnContent"></textarea>
               </div>
                 <div>
-                    <a class="btn btn-secondary btn-sm" href="#">글쓰기</a>
-                    <a class="btn btn-secondary btn-sm" href="학과공지(교수).html">취소</a>
+                
+                    <button type="submit">등록하기</button>
+                    <button class="btn btn-secondary btn-sm" href="학과공지(교수).html">취소</button>
                 </div>
+            </form>
               </div>
             </div>
           </div>

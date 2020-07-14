@@ -21,26 +21,24 @@ public class DepartmentNoticeImpl implements DepartmentNoticeService{
 
 	@Override
 	public ArrayList<DepartmentNotice> noticeList() {
-		// TODO Auto-generated method stub
-		return null;
+		return dStore.noticeList();
 	}
 
 	@Override
 	public DepartmentNotice noticeDetail(int dnNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return dStore.noticeDetail(dnNo);
 	}
 
 	@Override
-	public int noticeInsert(DepartmentNotice notice, MultipartFile file, HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int noticeInsert(DepartmentNotice notice) {
+		notice.setDnContent(notice.getDnContent().replace("\n", "<br>"));
+		return dStore.noticeInsert(notice);
 	}
 
 	@Override
-	public int noticeUpdate(DepartmentNotice notice, int dnNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int noticeUpdate(DepartmentNotice notice) {
+		notice.setDnContent(notice.getDnContent().replace("\n", "<br>"));
+		return dStore.noticeUpdate(notice);
 	}
 
 	@Override
