@@ -18,22 +18,22 @@ public class DepartmentNoticeStoreLogic implements DepartmentNoticeStore {
 
 	@Override
 	public ArrayList<DepartmentNotice> noticeList() {
-		return null;
+		return (ArrayList)sqlsession.selectList("dNoticeMapper.selectList");
 	}
 
 	@Override
 	public DepartmentNotice noticeDetail(int dnNo) {
-		return null;
+		return sqlsession.selectOne("dNoticeMapper.selectOne", dnNo);
 	}
 
 	@Override
 	public int noticeInsert(DepartmentNotice notice) {
-		return 0;
+		return sqlsession.insert("dNoticeMapper.insertdNotice", notice);
 	}
 
 	@Override
-	public int noticeUpdate(DepartmentNotice notice, int dnNo) {
-		return 0;
+	public int noticeUpdate(DepartmentNotice notice) {
+		return sqlsession.update("dNoticeMapper.updatedNotice");
 	}
 
 	@Override

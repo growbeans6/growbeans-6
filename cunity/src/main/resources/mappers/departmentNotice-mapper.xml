@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dNoticeMapper">
+	<resultMap type="DepartmentNotice" id="dNoticeResultSet">
+		<id property="dnNo" column="DN_NO"/>
+		<result property = "pNo" column="P_NO" />
+		<result property = "dnTitle" column="DN_TITLE"/>
+		<result property = "dnDate" column="DN_DATE"/>
+		<result property = "dnContent" column="DN_CONTENT"/>
+		<result property = "pName" column="P_NAME"/>
+	</resultMap>
+	<!-- 학과공지 리스트 조회 -->
+	<select id="selectList" parameterType="DepartmentNotice" resultMap="dNoticeResultSet">
+		SELECT * FROM DNOTICE ORDER BY DN_DATE DESC
+	</select>
+	
+	<!-- 학과공지 상세조회 쿼리 -->
+	<select id="selectOne" parameterType="_int" resultMap="dNoticeResultSet">
+		SELECT * FROM DNOTICE WHERE DN_NO = #{dnNo}
+	</select>
+
+	<!-- 학과공지 작성 쿼리 -->
+	<insert id="insertdNotice" parameterType="DepartmentNotice">
+		INSERT INTO DNOTICE
+		VALUES(DN_NO_SEQ.NEXTVAL, #{pNo},#{pName}, #{dnTitle}, SYSDATE, #{dnContent})
+		
+	</insert>
+	
+	<!-- 학과공지 수정 쿼리 -->
+	<update id="updatedNotice" parameterType="_int">
+		UPDATE DNOTICE 
+		SET DN_TITLE = #{dnTitle}, DN_CONTENT = #{dnContent}, DN_DATE = #{dnDate}
+		WHERE DN_NO = #{dnNo}
+	</update>
+</mapper>
