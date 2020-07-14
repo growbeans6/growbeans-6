@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +30,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.growbeans.cunity.Alarm.controller.AlarmController;
 import com.growbeans.cunity.Alarm.domain.Alarm;
+import com.growbeans.cunity.Alarm.service.AlarmService;
 import com.growbeans.cunity.post.domain.PageInfo;
 import com.growbeans.cunity.post.domain.Pagination;
 import com.growbeans.cunity.post.domain.Post;
@@ -43,6 +46,10 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 	
+	@Autowired
+	private AlarmService alarmService;
+	
+	// postList 출력하는
 	@RequestMapping("postList")
 	public ModelAndView postList(ModelAndView mv, String postKinds, @RequestParam(value="page", required=false) Integer page) throws UnsupportedEncodingException {
 		
@@ -116,8 +123,21 @@ public class PostController {
 		   //데이터를 DB에 저장하는 작업
 		   int result = 0;
 		   result = postService.insertPost(post, uploadFile, request);
+		   int resultAlarm = 0;
 		   
-			String postKinds = null;
+		   SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
+		   Date date = new Date();
+		   
+		   String sysdate = format.format(date);
+		   
+		   Alarm alarm = new Alarm();
+		   alarm.setaContent(post.getPostSubject()+"게시글이 등록되었습니다.");
+		   alarm.setsNo(post.getPostWriterSNo());
+		   alarm.setaTime(sysdate);
+		   
+		   resultAlarm = alarmService.insertAlarmPost(alarm);
+		   
+		   String postKinds = null;
 			
 			try {
 				postKinds = URLEncoder.encode(post.getPostKinds(), "UTF-8");
@@ -200,6 +220,7 @@ public class PostController {
 		postComment.setMentWriter(mentWriter);*/
 		System.out.println(postComment.toString());
 		int result = postService.insertPostComment(postComment);
+		
 		if(result > 0) {
 			return "success";
 		} else {

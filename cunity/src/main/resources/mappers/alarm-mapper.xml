@@ -10,11 +10,14 @@
 	</resultMap>
 
 	<select id="selectAlarmList" resultMap="AlarmResultSet">
-		SELECT * FROM ALARM WHERE S_NO = #{sNo}
+		SELECT A_NO, A_CONTENT, A_UPLOAD_TIME, S_NO FROM ALARM WHERE S_NO = #{sNo} ORDER BY A_UPLOAD_TIME DESC
 	</select>
 	
 	<delete id="deleteAlarm">
 		DELETE FROM ALARM WHERE A_NO = #{aNo}
 	</delete>
 
+	<insert id="insertAlarmPost">
+		INSERT INTO ALARM VALUES(A_NO_SEQ.NEXTVAL, #{aContent}, #{aTime}, #{sNo})
+	</insert>
 </mapper>

@@ -35,7 +35,7 @@ public class AlarmController {
 	      return mv;
 	   }
 	  
-	// 알람 삭제
+	   // 알람 삭제
 	   // 1. DB 데이터 삭제
 	   // 2. 삭제 후 alert 창 후 목록으로 redirect
 	   @RequestMapping("deleteAlarm")
@@ -48,9 +48,5 @@ public class AlarmController {
 			   model.addAttribute("msg", "알람 삭제 실패");
 			   return "common/errorPage";
 		   }
-	   }
-	   
-	   public void insertAlarm(Alarm alarm) {
-		   alarmService.insertAlarm(alarm);
 	   }
 }

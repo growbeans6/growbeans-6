@@ -56,7 +56,7 @@
 							<div class="container"
 								style="height: 150px; border-style: groove; padding: 55px; margin-top: 10px;">
 								<div style="float: left">${alarm.aContent }</div>
-								<span>${alarm.aTime }</span>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>일시: ${alarm.aTime }</span>
 								<span style="float: right">
 									<button class="btn btn-danger" onclick="location.href='deleteAlarm?aNo=${alarm.aNo}&sNo=${alarm.sNo}">삭제</button>
 								</span>

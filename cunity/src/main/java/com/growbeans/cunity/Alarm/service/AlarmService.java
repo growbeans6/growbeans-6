@@ -5,15 +5,24 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import com.growbeans.cunity.Alarm.domain.Alarm;
+import com.growbeans.cunity.friends.domain.Friends;
+import com.growbeans.cunity.post.domain.Post;
 
 public interface AlarmService {
 
 	/**
-	 * 1. 알람 추가
+	 * 1. 게시글 관련 알람 추가
 	 * @param alarm
 	 * @return result
 	 */
-	public int insertAlarm(Alarm alarm);
+	public int insertAlarmPost(Alarm alarm);
+	
+	/**
+	 * 1-1 친구 관련 알람 추가
+	 * @param alarm
+	 * @return
+	 */
+	public int insertAlarmFriends(Alarm alarm);
 	
 	/**
 	 * 2. 알람 제거

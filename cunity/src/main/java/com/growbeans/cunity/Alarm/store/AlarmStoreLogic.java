@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.growbeans.cunity.Alarm.domain.Alarm;
+import com.growbeans.cunity.friends.domain.Friends;
+import com.growbeans.cunity.post.domain.Post;
 
 @Repository("alarmStore")
 public class AlarmStoreLogic implements AlarmStore{
@@ -15,11 +17,15 @@ public class AlarmStoreLogic implements AlarmStore{
 	private SqlSession sqlSession;
 
 	@Override
-	public int insertAlarm(Alarm alarm) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insertAlarmPost(Alarm alarm) {
+		return sqlSession.insert("alarmMapper.insertAlarmPost", alarm);
 	}
-
+	
+	@Override
+	public int insertAlarmFriends(Alarm alarm) {
+		return sqlSession.insert("alarmMapper.insertAlarmFriends", alarm);
+	}
+	
 	@Override
 	public int deleteAlarm(int aNo) {
 		return sqlSession.delete("alarmMapper.deleteAlarm", aNo);
@@ -35,5 +41,4 @@ public class AlarmStoreLogic implements AlarmStore{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 }
