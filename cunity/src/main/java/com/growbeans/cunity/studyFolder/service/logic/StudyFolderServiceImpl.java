@@ -26,9 +26,9 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 
 	// studyFolder 생성
 	@Override
-	public int insertStudyFolder(StudyFolder studyFolder) {
+	public int insertStudyFolder(String folderName) {
 
-		return studyFolderStore.insertStudyFolder(studyFolder);
+		return studyFolderStore.insertStudyFolder(folderName);
 	}
 
 	// studyFolder 삭제
@@ -37,5 +37,17 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 		int result = studyFolderStore.deleteStudyFolder(folderNo);
 		return result;
 	}
+	// studyFolder 하나 조회
+	@Override
+	public StudyFolder selectOneFolder(int studyNo) {
+		return studyFolderStore.selectOneFolder(studyNo);
+	}
+    // studyFolder 하나의 내용 조회
+	@Override
+	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }

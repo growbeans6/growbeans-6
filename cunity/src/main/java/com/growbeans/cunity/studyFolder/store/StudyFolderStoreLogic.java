@@ -18,13 +18,14 @@ public class StudyFolderStoreLogic {
 	@Autowired
 	private SqlSession sqlsession;
 	// studyFolder 하나 선택
-	public StudyFolder selectOneFolder(StudyFolder studyFolder) {
-		return null;
+	public StudyFolder selectOneFolder(int studyNo) {
+		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
+		return studyfolderMapper.selectOneStudyFolder(studyNo);
 	}
 	// studyFolder 생성
-	public int insertStudyFolder(StudyFolder studyFolder) {
+	public int insertStudyFolder(String folderName) {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
-		int result = studyfolderMapper.insertStudyFolder(studyFolder);
+		int result = studyfolderMapper.insertStudyFolder(folderName);
 		return result;
 	}
 	// studyFolder 삭제
@@ -33,6 +34,7 @@ public class StudyFolderStoreLogic {
 		int result = studyfolderMapper.deleteStudyFolder(folderNo);
 		return result;
 	}
+	
 	// studyFolder 리스트 조회
 	public ArrayList<StudyFolder> selectlist(int studyNo) {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);

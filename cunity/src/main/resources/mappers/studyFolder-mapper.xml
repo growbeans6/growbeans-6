@@ -7,19 +7,30 @@
 		<result property="studyNo" column="STUDY_NO" />
 		<result property="folderName" column="FOLDER_NAME" />
 		<result property="parentFolderNo" column="PARENT_FOLDER_NO" />
+
 	</resultMap>
-	<select id="selectlistStudyFolder" parameterType="_int" resultMap="studyFolderResultSet">
-		select * from studyFolder where studyNo = #{studyNo}
+	<select id="selectlistStudyFolder" parameterType="_int"
+		resultMap="studyFolderResultSet">
+		select * from study_Folder where STUDY_NO = #{studyNo}
 	</select>
 	<select id="selectOneStudyFolder"
-		resultMap="studyFolderResultSet" parameterType="StudyFolder"> select * from
-		studyFolder where folderNo = #{folderNo} and studyNo = #{studyNo} and
-		parentFolderNo = #{parentFolderNo} </select>
+		resultMap="studyFolderResultSet" parameterType="StudyFolder"> 
+		select * from study_Folder where study_No = #{studyNo} and
+		parent_Folder_No = null
+	</select>
+	<select id="selectlistOneStudyFolder" parameterType="_int" resultMap="studyFolderResultSet">
+		select * from study_Folder where study_No = #{studyNo} and 
+		parent_Folder_No = null
+	</select>
 
-	<insert id="insertStudyFolder" parameterType="StudyFolder"> insert into
-		studyFolder values (FOLDER_NO_SEQ.NEXTVAL, #{studyNo}, #{folderName},
-		#{parentFolderNo} ) </insert>
+	<insert id="insertStudyFolder" parameterType="StudyFolder">
+		insert into study_Folder values (FOLDER_NO_SEQ.NEXTVAL, #{studyNo},
+		#{folderName},
+		#{parentFolderNo})
+	</insert>
 
-	<delete id="deleteStudyFolder" parameterType="StudyFolder"> delete studyFolder
-		where folderNo = #{folderNo} </delete>
+	<delete id="deleteStudyFolder" parameterType="StudyFolder"> delete
+		study_Folder
+		where folderNo = #{folderNo}
+	</delete>
 </mapper>
