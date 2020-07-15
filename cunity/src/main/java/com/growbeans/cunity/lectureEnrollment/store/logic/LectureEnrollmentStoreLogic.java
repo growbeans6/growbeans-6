@@ -54,6 +54,11 @@ public class LectureEnrollmentStoreLogic implements LectureEnrollmentStore{
 	public LectureEnrollment find(LectureEnrollment lecture) {
 		return sqlSession.selectOne("LectureEnrollmentMapper.findLecture", lecture);
 	}
+
+	@Override
+	public Lecture alreadyLecture(Lecture lecture) {
+		return sqlSession.selectOne("lectureMapper.alreadyLecture", lecture);
+	}
 	
 
 }

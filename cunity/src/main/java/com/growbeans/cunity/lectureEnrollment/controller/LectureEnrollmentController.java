@@ -23,8 +23,11 @@ import com.growbeans.cunity.student.domain.Student;
 public class LectureEnrollmentController {
 	
 	private Timetable table;
+	
 	public LectureEnrollmentController() {
 		table = new Timetable();
+		
+		
 	}
 	
 	@Autowired
@@ -51,6 +54,27 @@ public class LectureEnrollmentController {
 			model.addAttribute("url", "/lectureList");
 			return "common/msg";
 		}
+		
+		Lecture compareLec = new Lecture();
+		compareLec =lecEnService.lectureOne(lcode);
+		Lecture a = new Lecture();
+		a.setsNo(student.getsNo());
+		a.setlDay1(compareLec.getlDay1());
+		a.setlDay2(compareLec.getlDay2());
+		a.setlStartTime1(compareLec.getlStartTime1());
+		a.setlStartTime2(compareLec.getlStartTime2());
+		a.setlEndTime1(compareLec.getlEndTime1());
+		a.setlEndTime2(compareLec.getlEndTime2());
+		Lecture b = new Lecture(); 
+				b = lecEnService.alreadyLecture(a);
+		System.out.println(b);
+		
+		if( b != null) {
+			model.addAttribute("msg", " 다른과목이 있습니다.");
+			model.addAttribute("url", "/lectureList");
+			return "common/msg";
+		}
+		
 		
 		// 스케쥴에 넣을과목
 		if(table.getsNo() != student.getsNo() ) {

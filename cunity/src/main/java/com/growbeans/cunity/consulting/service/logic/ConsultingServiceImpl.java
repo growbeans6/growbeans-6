@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.growbeans.cunity.consulting.domain.Consulting;
 import com.growbeans.cunity.consulting.service.ConsultingService;
 import com.growbeans.cunity.consulting.store.ConsultingStore;
+import com.growbeans.cunity.professor.domain.Professor;
 
 
 @Service("conService")
@@ -21,6 +22,11 @@ public class ConsultingServiceImpl implements ConsultingService {
 	@Override
 	public List<Consulting> consultingList(int sNo) {
 		return conStore.consultingList(sNo);
+	}
+	
+	@Override
+	public List<Consulting> proconsultingList(int pNo) {
+		return conStore.proconsultingList(pNo);
 	}
 
 	@Override
@@ -34,6 +40,12 @@ public class ConsultingServiceImpl implements ConsultingService {
 	}
 
 	@Override
+	public Professor findPName(int sNo) {
+		return conStore.findPName(sNo);
+	}
+	
+
+	@Override
 	public int updateConsulting(Consulting cons, int cNo) {
 		// TODO Auto-generated method stub
 		return 0;
@@ -41,8 +53,7 @@ public class ConsultingServiceImpl implements ConsultingService {
 
 	@Override
 	public int insertAnswer(Consulting cons) {
-		// TODO Auto-generated method stub
-		return 0;
+		return conStore.insertAnswer(cons);
 	}
 
 	@Override
@@ -50,6 +61,9 @@ public class ConsultingServiceImpl implements ConsultingService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	
+
 
 
 }

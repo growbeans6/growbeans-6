@@ -84,7 +84,7 @@ overflow : hidden;
                       <td>${list.lpName }</td>
                       <td>${list.lPoint }</td>
                       <td>${list.lcode }</td>
-                      <td>${list.lTime}</td>
+                      <td>${list.lDay1 }(${list.lStartTime1},${list.lEndTime1}),${list.lDay2 }(${list.lStartTime2},${list.lEndTime2})</td>
                       
                       <c:url var="consultDetail" value="/consultDetail">
                       <c:param name="lcode" value="${list.lcode }"/>

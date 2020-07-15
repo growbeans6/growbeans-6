@@ -16,7 +16,7 @@ import com.growbeans.cunity.professor.domain.Professor;
 import com.growbeans.cunity.professor.service.ProfessorService;
 import com.growbeans.cunity.student.domain.Student;
 
-@SessionAttributes({"loginprof"})
+@SessionAttributes({"loginprof","judge"})
 @Controller
 public class ProfessorController {
    

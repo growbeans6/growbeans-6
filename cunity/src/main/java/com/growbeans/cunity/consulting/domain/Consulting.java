@@ -15,9 +15,8 @@ public class Consulting {
 	private Date cDate;
 	private int sGrade;
 	private int flag;
+	private String pName;
 
-	
-	
 	public Consulting() {}
 
 	public Consulting(int cNo, int pNo, int sNo, String sName, String cTitle, String cContent, String cAnswer,
@@ -36,6 +35,14 @@ public class Consulting {
 	}
 
 	
+	public String getpName() {
+		return pName;
+	}
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+
 	public int getFlag() {
 		return flag;
 	}

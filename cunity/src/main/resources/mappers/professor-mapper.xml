@@ -24,4 +24,12 @@
       SET P_PHONE=#{pPhone}, P_ADDRESS=#{pAddress}, P_EMAIL=#{pEmail}
       WHERE P_NO=#{pNo}
 	</update>
+	
+	<select id="findPName" resultMap="professorResultSet">
+	SELECT P_NAME
+	FROM STUDENT JOIN PROFESSOR
+	USING (P_NO)
+	WHERE S_NO = #{sNo}
+	</select>
+	
 </mapper>

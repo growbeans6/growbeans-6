@@ -17,5 +17,6 @@ public interface LectureEnrollmentStore {
 	public int updateSchedule(Timetable table);
 	public Timetable showList(int sNo);
 	public LectureEnrollment find(LectureEnrollment lecture);
+	public Lecture alreadyLecture(Lecture lecture);
 
 }
