@@ -44,10 +44,11 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 	}
     // studyFolder 하나의 내용 조회
 	@Override
-	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo) {
+	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo, int folderNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return studyFolderStore.selectlistOneStudyFolder(studyNo, folderNo);
 	}
+
 	
 
 }

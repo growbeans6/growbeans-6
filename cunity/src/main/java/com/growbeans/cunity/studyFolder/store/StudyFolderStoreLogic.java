@@ -22,6 +22,12 @@ public class StudyFolderStoreLogic {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
 		return studyfolderMapper.selectOneStudyFolder(studyNo);
 	}
+	// studyFolder 하나 선택하여 내용 조회
+	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo, int folderNo) {
+		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
+		ArrayList<StudyFolder> list = studyfolderMapper.selectlistOneStudyFolder(studyNo, folderNo);
+		return list;
+	}
 	// studyFolder 생성
 	public int insertStudyFolder(String folderName) {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);

@@ -40,7 +40,17 @@ public interface StudyFolderService {
 	 * @param studyNo
 	 * @return
 	 */
-	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo);
+	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo, int folderNo);
+	
+	/**
+	 * 
+	 * studyFolder 하나의 파일들을 가져오는 메소드
+	 * 
+	 * @param folderNo
+	 * @return
+	 */
+	
 		
+	
 	
 }

@@ -1,7 +1,10 @@
 package com.growbeans.cunity.studyFile.service.logic;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.growbeans.cunity.studyFile.domain.StudyFile;
 import com.growbeans.cunity.studyFile.service.StudyFileService;

@@ -1,6 +1,10 @@
 
 package com.growbeans.cunity.studyFile.service;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import com.growbeans.cunity.studyFile.domain.StudyFile;
 
 public interface StudyFileService {

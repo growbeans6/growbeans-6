@@ -24,16 +24,17 @@ public class StudyFolderController {
 
 	// 스터디 파일공유페이지
 	@RequestMapping("/studyfileShare")
-	public ModelAndView studyfileShareMain(ModelAndView mv, HttpSession session, String folderName ) {
+	public ModelAndView studyfileShareMain(ModelAndView mv, HttpSession session) {
 		Student student = (Student)session.getAttribute("loginStudent");
 		int studyNo = student.getStudyNo();
 		// parentfolder 
 		StudyFolder folder = studyFolderService.selectOneFolder(studyNo); 
 		// parentfolder의 자식들을 배열로 만들어서 가져옴
-		ArrayList<StudyFolder> list = studyFolderService.selectlistOneStudyFolder(studyNo);
+		ArrayList<StudyFolder> list = studyFolderService.selectlistOneStudyFolder(studyNo, folder.getFolderNo());
+		
 		mv.addObject("folder", folder);
 		mv.addObject("childerenFolderList", list);
-		mv.setViewName("study/studyfileShare2");
+		mv.setViewName("study/studyfileShare");
 		return mv;
 	}
 
@@ -57,7 +58,7 @@ public class StudyFolderController {
 
 	}
 
-	@RequestMapping(value="selectfolderList", method = RequestMethod.POST)
+	@RequestMapping("sfdetail.cunity")
 	public ModelAndView selectlistFolder(ModelAndView mv, int studyNo) {
 		ArrayList<StudyFolder> list = studyFolderService.selectlistFolder(studyNo);
 

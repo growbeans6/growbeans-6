@@ -18,7 +18,7 @@
 		select * from study_Folder where study_No = #{studyNo} and
 		parent_Folder_No = null
 	</select>
-	<select id="selectlistOneStudyFolder" parameterType="_int" resultMap="studyFolderResultSet">
+	<select id="selectlistOneStudyFolder" resultMap="studyFolderResultSet">
 		select * from study_Folder where study_No = #{studyNo} and 
 		parent_Folder_No = null
 	</select>

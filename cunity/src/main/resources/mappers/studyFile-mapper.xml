@@ -10,13 +10,13 @@
 		<result property="fileUploadTime" column="FILE_UPLOAD_TIME" />
 		<result property="folderNo" column="FOLDER_NO" />
 	</resultMap>
-
-	<select id="selectOneStudyFile" resultMap="studyFileResultSet"
-		parameterType="StudyFile"> select * from studyFile where fileNo = #{fileNo} and
-		studyNo = #{studyNo} and folderNo = #{folderNo} </select>
+	<insert id="uploadStudyFile" parameterType="StudyFile">
+		insert into study_File values(FILE_NO_SEQ, #{studyNo}, #{fileName}, #{filePath}, SYSDATE, #{folderNo})
+	</insert>
+	
 
 	<insert id="insertStudyFile" parameterType="StudyFile"> insert into
-		studyFile values (FILE_NO_SEQ, #{studyNo}, #{fileName}, #{filePath},
+		study_File values (FILE_NO_SEQ, #{studyNo}, #{fileName}, #{filePath},
 		SYSDATE, #{folderNo}) </insert>
 
 	<delete id="deleteStudyFile" parameterType="String"> delete studyFile

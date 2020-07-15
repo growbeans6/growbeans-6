@@ -13,6 +13,8 @@ public class StudyFileStoreLogic {
 	@Autowired
 	private SqlSession sqlSession;
 
+	
+	
 	/**
 	 * study 파일 업로드를 위한 메소드
 	 * 
