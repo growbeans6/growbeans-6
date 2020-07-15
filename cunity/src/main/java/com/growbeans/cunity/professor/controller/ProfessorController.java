@@ -26,7 +26,7 @@ public class ProfessorController {
    // 교수 정보 //세션에서 교번을 가져온다.
    @RequestMapping("/profInfo")
    public ModelAndView professorInfo(ModelAndView mv) {
-	   mv.setViewName("common/loginPage");
+	   mv.setViewName("professor/profInfo");
       return mv;
    }
    
@@ -37,7 +37,7 @@ public class ProfessorController {
 	   if(result > 0 ) {
 		   model.addAttribute("loginprof", prof);
 		   rd.addFlashAttribute("msg", "정보수정 성공");
-		   return "home";
+		   return "redirect:/profInfo";
 	   } else {
 		   model.addAttribute("msg", "정보 수정 실패");
 		   return "home";

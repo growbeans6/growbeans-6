@@ -15,37 +15,36 @@ import com.growbeans.cunity.departmentNotice.store.DepartmentNoticeStore;
 
 @Service("dService")
 public class DepartmentNoticeImpl implements DepartmentNoticeService{
-	
-	@Autowired
-	private DepartmentNoticeStore dStore;
+   
+   @Autowired
+   private DepartmentNoticeStore dStore;
 
-	@Override
-	public ArrayList<DepartmentNotice> noticeList() {
-		return dStore.noticeList();
-	}
+   @Override
+   public ArrayList<DepartmentNotice> noticeList() {
+      return dStore.noticeList();
+   }
 
-	@Override
-	public DepartmentNotice noticeDetail(int dnNo) {
-		return dStore.noticeDetail(dnNo);
-	}
+   @Override
+   public DepartmentNotice noticeDetail(int dnNo) {
+      return dStore.noticeDetail(dnNo);
+   }
 
-	@Override
-	public int noticeInsert(DepartmentNotice notice) {
-		notice.setDnContent(notice.getDnContent().replace("\n", "<br>"));
-		return dStore.noticeInsert(notice);
-	}
+   @Override
+   public int noticeInsert(DepartmentNotice notice) {
+      notice.setDnContent(notice.getDnContent().replace("\n", "<br>"));
+      return dStore.noticeInsert(notice);
+   }
 
-	@Override
-	public int noticeUpdate(DepartmentNotice notice) {
-		notice.setDnContent(notice.getDnContent().replace("\n", "<br>"));
-		return dStore.noticeUpdate(notice);
-	}
+   @Override
+   public int noticeUpdate(DepartmentNotice notice) {
+      notice.setDnContent(notice.getDnContent().replace("\n", "<br>"));
+      return dStore.noticeUpdate(notice);
+   }
 
-	@Override
-	public int noticeDelete(int dnNo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+   @Override
+   public int noticeDelete(int dnNo) {
+      return dStore.noticeDelete(dnNo);
+   }
 
 
 }
