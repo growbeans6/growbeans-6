@@ -15,8 +15,7 @@ public class LectureSyllabusStoreLogic implements LectureSyllabusStore {
 	
 	@Override
 	public LectureSyllabus selectOneLecSyl(int lCode) {
-		sqlSession.selectOne("", lCode);
-		return null;
+		return sqlSession.selectOne("LectureSyllabusMapper.findOneLecture", lCode);
 	}
 
 

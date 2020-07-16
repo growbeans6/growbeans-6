@@ -27,6 +27,14 @@
 	S_EMAIL = #{sEmail} 
 	WHERE s_No = #{sNo}
 	</update>	
+	
+	<select id="lecStudentList" resultMap="StudentResultSet">
+	
+	select *
+	from student join lectureenroll
+	using (s_no)
+	where l_code = #{lCode}
+	</select>
 </mapper>
 
 	

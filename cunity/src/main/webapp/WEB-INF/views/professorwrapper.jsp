@@ -55,8 +55,8 @@
         <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
-            <c:url value="/lectureList" var="lectureList"></c:url>
-            <a class="collapse-item" href="${lectureList }">강의 정보</a>
+            <c:url value="/prolectureList" var="prolectureList"></c:url>
+            <a class="collapse-item" href="${prolectureList }">강의 정보</a>
           </div>
         </div>
       </li>

@@ -87,15 +87,15 @@ overflow : hidden;
                       <td>${list.lcode }</td>
                        <td>${list.lDay1 }(${list.lStartTime1},${list.lEndTime1}),${list.lDay2 }(${list.lStartTime2},${list.lEndTime2})</td>
                       
-                      <c:url var="consultDetail" value="/consultDetail">
-                      <c:param name="lcode" value="${list.lcode }"/>
+                      <c:url var="lectureDetail" value="/lectureDetail">
+                      <c:param name="lCode" value="${list.lcode }"/>
+                      <c:param name="lName" value="${list.lName }"/>
+                      <c:param name="lpName" value="${list.lpName }"/>
                       </c:url>
-                      
-                      <td><a href="${consultDetail }">수업계획서</a></td>
+                      <td><a href="${lectureDetail }">수업계획서</a></td>
                       
                       <c:url var="insertEnList" value="/insertEnList">
                       <c:param name="lcode" value="${list.lcode }"/>
-                      <c:param name="lTime" value="${list.lTime}"/>
                       </c:url>
                       
                       <td><a href="${insertEnList }">수강신청</a></td>

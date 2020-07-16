@@ -54,46 +54,44 @@
       <div class="row">
          <div class="col-md-12"></div>
          <div class="col-md-12">
-            <h2 class="text-center">JAVA 강의계획서</h2>
-            <form action="/#" method="post"
-               name="productWrite" enctype="multipart/form-data">
+            <h2 class="text-center">${lName } 강의계획서</h2>
                <table class="table table-striped">
                   <tr>
                      <td>강의명</td>
-                     <td><input type="text" class="form-control" name="title" value="JAVA" readonly></td>
+                     <td><input type="text" class="form-control" name="lName" value="${lName }" readonly></td>
                         </tr>
                         
                         <tr>
                      <td>교수명</td>
-                     <td><input type="text" class="form-control" name="findplace" value="민봉식교수"readonly></td>
+                     <td><input type="text" class="form-control" name="pName" value="${lpName }"readonly></td>
                   </tr>
                   
                     <tr>
                      <td>연락처</td>
-                     <td><input type="text" class="form-control" name="color" value="010 - 3546 - 9420"readonly></td>
+                     <td><input type="text" class="form-control" name="pPhone" value="010 - 3546 - 9420" readonly></td>
                   </tr>
 
                   <tr>
                      <td>강의 코드</td>
-                     <td><input type="text" class="form-control" name="findplace" value="14615029"readonly></td>
+                     <td><input type="text" class="form-control" name="lCode" value="${lecSyl.lCode }"readonly></td>
                   </tr>
                   
                     <tr>
                      <td>교재</td>
-                     <td><input type="text" class="form-control" name="findplace" value="JAVA의 정석" readonly></td>
+                     <td><input type="text" class="form-control" name="lsBook" value="${lecSyl.lsBook }" readonly></td>
                   </tr>
 
                   <tr>
                      <td>강의 목표</td>
                      <td>
-                         <textarea cols="100" rows="10"></textarea>
+                         <textarea cols="100" rows="10" name="lsGoal">${lecSyl.lsGoal }</textarea>
                      </td>
                   </tr>
                   
                     <tr>
                      <td>강의 내용</td>
                      <td>
-                         <textarea cols="100" rows="10"></textarea>
+                         <textarea cols="100" rows="10" name="lsContent">${lecSyl.lsContent }</textarea>
                      </td>
                   </tr>
                   <tr>
@@ -105,7 +103,6 @@
                   </tr>
 
                </table>
-            </form>
          </div>
       </div>
 

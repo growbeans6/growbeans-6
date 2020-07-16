@@ -23,8 +23,8 @@ public class GradeServiceImpl implements GradeService{
 	}
 
 	@Override
-	public int insertGrade() {
-		return 0;
+	public int insertGrade(Grade grade) {
+		return gStore.insertGrade(grade);
 	}
 
 

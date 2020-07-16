@@ -49,6 +49,12 @@
 	 l_endtime1 in (#{lStartTime1}, #{lEndTime1}) ) or l_day2 ='${lDay2}' and (l_starttime2 in (#{lStartTime2},#{lEndTime2}) or l_endtime2 in(#{lStartTime2},#{lEndTime2})))
 	</select>
 	
+	<select id="proLectureList" resultMap="LectureResultSet">
+	select *
+	from lecture join professor
+	using (p_no)
+	where p_no = #{pNo}
+	</select>
 	
 	
 </mapper>

@@ -22,8 +22,8 @@ public class GradeStoreLogic implements GradeStore {
 	}
 
 	@Override
-	public int insertGrade() {
-		return 0;
+	public int insertGrade(Grade grade) {
+		return sqlSession.update("gradeMapper.insertGrade", grade);
 	}
 
 

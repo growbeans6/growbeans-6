@@ -66,16 +66,21 @@
                     </tr>
                   </thead>
                   <tbody style="text-align=center">
+                  
+                  <c:forEach items="${proLectureList }" var="list" varStatus="status">
                     <tr>
-                      <td><input type="checkbox" aria-label="Checkbox for following text input">
-                      </td>
-                      <td>Java</td>
-                      <td>공학관 102</td>
-                      <td>월(1,2)</td>
-                      <td>15</td>
-                      <c:url value="/lStudentList" var="studentList1"/>
+                      <td><input type="checkbox" aria-label="Checkbox for following text input"></td>
+                      <td>${list.lName }</td>
+                      <td>${list.lroom }</td>
+                      <td>${list.lDay1 }(${list.lStartTime1},${list.lEndTime1}),${list.lDay2 }(${list.lStartTime2},${list.lEndTime2})</td>
+                      <td>${list.lNumberStudent }</td>
+                      <c:url value="/lStudentList" var="studentList1" >
+                      <c:param name="lCode" value="${list.lcode }"/>
+                      </c:url>
                       <td><a class="btn btn-secondary btn-sm" href="${studentList1 }">목록보기</a></td>
                     </tr>
+                   </c:forEach> 
+                   
                   </tbody>
                 </table>
                 <div>
