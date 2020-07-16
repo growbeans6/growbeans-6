@@ -37,6 +37,14 @@ public interface AlarmService {
 	 * @return list
 	 */
 	public ArrayList<Alarm> selectAlarmList(int sNo);
+	
+	/**
+	 * 3.1 알람 갯수 가져오기
+	 * @param sNo
+	 * @return
+	 */
+	public int countAlarm(int sNo);
+	
 	/**
 	 * 4. 알람 한 개 선택
 	 * @param aNo

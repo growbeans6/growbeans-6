@@ -19,14 +19,15 @@ public class AlarmController {
 
 	@Autowired
 	public AlarmService alarmService;
-	
+
 	// 알람 목록 불러오기
 	  @RequestMapping("alarmList")
 	   public ModelAndView noticeList(ModelAndView mv, int sNo) {
 	      ArrayList<Alarm> alarm = alarmService.selectAlarmList(sNo);
-	      
+	      int alarmCount = alarmService.countAlarm(sNo);
 	      if (!alarm.isEmpty()) {
 	         mv.addObject("alarm", alarm);
+	         mv.addObject("alarmCount", alarmCount);
 	         mv.setViewName("community/alarm");
 	      } else {
 	         mv.addObject("msg", "알람이 없습니다.");

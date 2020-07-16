@@ -221,6 +221,23 @@ public class PostController {
 		System.out.println(postComment.toString());
 		int result = postService.insertPostComment(postComment);
 		
+		int resultAlarm = 0;
+		// 알람을 가게 하기 위해 게시글 정보 받아오기
+		Post post = new Post();
+		post = postService.selectPost(postComment.getPostNo());
+		
+		   SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
+		   Date date = new Date();
+		   
+		   String sysdate = format.format(date);
+		   
+		   Alarm alarm = new Alarm();
+		   alarm.setaContent(post.getPostSubject() + "게시글에 댓글이 달렸습니다.");
+		   alarm.setsNo(post.getPostWriterSNo());
+		   alarm.setaTime(sysdate);
+		   
+		   resultAlarm = alarmService.insertAlarmPost(alarm);
+		
 		if(result > 0) {
 			return "success";
 		} else {

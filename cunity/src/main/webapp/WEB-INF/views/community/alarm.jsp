@@ -47,7 +47,7 @@
 				<!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
 				<div class="container-fluid">
 					<header style="padding:30px">
-					<h3>알람 목록 4</h3>
+					<h3>알람 목록 <span style="color: red;">${alarmCount }</span></h3>
 					</header>
 					<section class="page-section bg-light" id="portfolio"> <article
 						style="margin:30px";>
@@ -58,7 +58,7 @@
 								<div style="float: left">${alarm.aContent }</div>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>일시: ${alarm.aTime }</span>
 								<span style="float: right">
-									<button class="btn btn-danger" onclick="location.href='deleteAlarm?aNo=${alarm.aNo}&sNo=${alarm.sNo}">삭제</button>
+									<button class="btn btn-danger" onclick="location.href='deleteAlarm?aNo=${alarm.aNo}&sNo=${alarm.sNo}'">삭제</button>
 								</span>
 							</div>
 						</c:forEach>

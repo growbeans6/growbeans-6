@@ -47,12 +47,12 @@
 		<mapper resource="mappers/departmentNotice-mapper.xml"/>
 		<mapper resource="mappers/departmentNoticeFile-mapper.xml"/>
 		<mapper resource="mappers/foreignActivities-mapper.xml"/>
-		<mapper resource="mappers/friends-mapper.xml"/>
 		<mapper resource="mappers/grade-mapper.xml"/>
 		<mapper resource="mappers/lectureEnrollment-mapper.xml"/>
 		<mapper resource="mappers/lectureEvaluation-mapper.xml"/>
 		<mapper resource="mappers/lectureSyllabus-mapper.xml"/>
 		<mapper resource="mappers/professor-mapper.xml"/>-->
+		<mapper resource="mappers/friends-mapper.xml"/>
 		<mapper resource="mappers/alarm-mapper.xml"/>
 		<mapper resource="mappers/studyFile-mapper.xml"/>
 		<mapper resource="mappers/studyFolder-mapper.xml"/> 

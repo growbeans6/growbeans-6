@@ -24,7 +24,6 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -67,14 +66,22 @@
 								</div>
 							</div>
 						</div>
-
+						
+								<input id="sName" type="search" placeholder="친구의 이름 입력"/>
+									<button onclick="findFriends();">
+										<i class="fa fa-search"></i>
+									</button>
+									<br>
+															
+						
 						<div class="col-xl-12 col-md-12 mb-4">
 							<div class="card border-left-primary shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div
-												class="text-lg font-weight-bold text-primary text-uppercase mb-1">Friends</div>
+											<div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
+												<div id="findFriendsList" ></div>
+											</div>
 										</div>
 										<div class="col-auto">
 											<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -83,8 +90,28 @@
 								</div>
 							</div>
 						</div>
+						
+						<c:forEach var="friendsList" items="${friendsList }">
+						<!-- 친구 목록 불러와서 보여주는 -->
+							<div class="col-xl-12 col-md-12 mb-4">
+								<div class="card border-left-primary shadow h-100 py-2">
+									<div class="card-body">
+										<div class="row no-gutters align-items-center">
+											<div class="col mr-2">
+												<div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
+													<div id="friendsList" > 학번: ${friendsList.sNo } 이름: ${friendsList.sName }</div>
+												</div>
+											</div>
+											<div class="col-auto">
+												<i class="fas fa-calendar fa-2x text-gray-300"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
 					</div>
-
+					
 					<div class="row" style="width: 50%; float: left;">
 						<div class="col-xl-12 col-md-12 mb-4">
 							<div class="card border-left-success shadow h-100 py-2">
@@ -164,6 +191,33 @@
 	<!-- Page level custom scripts -->
 	<script src="/resources/js/demo/chart-area-demo.js"></script>
 	<script src="/resources/js/demo/chart-pie-demo.js"></script>
+	
+	<script type="text/javascript">
+		function findFriends(){
+			$("#findFriendsList").html("");
+			var sName = $("#sName").val();
+			$.ajax({
+				url: "findFriends",
+				data: {
+					sName : sName
+				},
+				dataType:"json",
+				success: function(data){
+					if(data != null){
+						for(var i in data){
+							$("#findFriendsList").append("<div> 학번: "+ data[i].sNo + " 이름: " + data[i].sName+"</div> <button href='insertFriends?sNo="+data[i].sNo+"&sessionSNo="+${loginStudent.sNo}+"'>친구 신청</button> <br>");
+						}
+					} else {
+						$("#findFriendsList").html("검색 결과가 없습니다.");
+					}
+				}
+			})
+		}
+		
+	</script>
 </body>
 
 </html>
+
+
+

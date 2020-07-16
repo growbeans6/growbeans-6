@@ -38,8 +38,12 @@ public class AlarmServiceImpl implements AlarmService{
 
 	@Override
 	public Alarm selectAlarm(int aNo) {
-		
 		return null;
+	}
+
+	@Override
+	public int countAlarm(int sNo) {
+		return alarmStore.countAlarm(sNo);
 	}
 
 }

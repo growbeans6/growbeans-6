@@ -3,6 +3,7 @@ package com.growbeans.cunity.friends.service;
 import java.util.ArrayList;
 
 import com.growbeans.cunity.friends.domain.Friends;
+import com.growbeans.cunity.student.domain.Student;
 
 public interface FriendsService {
 
@@ -11,7 +12,7 @@ public interface FriendsService {
 	 * @param fMessage
 	 * @return result
 	 */
-	public int sendFriends(String fMessage);
+	public int insertFriends(Friends friends);
 	
 	/**
 	 * 2. 친구 요청 메시지 받기
@@ -25,7 +26,7 @@ public interface FriendsService {
 	 * @param sNo
 	 * @return
 	 */
-	public ArrayList<Friends> selectFriendsList(String sNo);
+	public ArrayList<Student> selectFriendsList(int sNo);
 	
 	/**
 	 * 4. 친구 삭제
@@ -33,4 +34,11 @@ public interface FriendsService {
 	 * @return
 	 */
 	public int deleteFriends(int lNo);
+	
+	/**
+	 * 5. 친구 찾기
+	 * @param sName
+	 * @return
+	 */
+	public ArrayList<Student> findFriends(String sName);
 }

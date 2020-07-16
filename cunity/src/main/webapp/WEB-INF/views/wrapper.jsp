@@ -134,7 +134,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="friends?sNo=${loginStudent.sNo }">
           <i class="fas fa-child"></i>
           <span>친구 목록</span></a>
       </li>

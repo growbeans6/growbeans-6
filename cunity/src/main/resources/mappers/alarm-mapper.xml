@@ -20,4 +20,8 @@
 	<insert id="insertAlarmPost">
 		INSERT INTO ALARM VALUES(A_NO_SEQ.NEXTVAL, #{aContent}, #{aTime}, #{sNo})
 	</insert>
+	
+	<select id="countAlarm" resultType="_int">
+		SELECT COUNT(*) FROM ALARM WHERE S_NO = #{sNo}
+	</select>
 </mapper>

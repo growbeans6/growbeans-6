@@ -4,11 +4,11 @@ public class Friends {
 
 	private int fNo;
 	private int sNo;
-	private String sessionSNo;
+	private int sessionSNo;
 	
 	public Friends() {}
 
-	public Friends(int fNo, int sNo, String sessionSNo) {
+	public Friends(int fNo, int sNo, int sessionSNo) {
 		super();
 		this.fNo = fNo;
 		this.sNo = sNo;
@@ -31,11 +31,11 @@ public class Friends {
 		this.sNo = sNo;
 	}
 
-	public String getSessionSNo() {
+	public int getSessionSNo() {
 		return sessionSNo;
 	}
 
-	public void setSessionSNo(String sessionSNo) {
+	public void setSessionSNo(int sessionSNo) {
 		this.sessionSNo = sessionSNo;
 	}
 
@@ -43,5 +43,6 @@ public class Friends {
 	public String toString() {
 		return "Friends [fNo=" + fNo + ", sNo=" + sNo + ", sessionSNo=" + sessionSNo + "]";
 	}
+
 	
 }

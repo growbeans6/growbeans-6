@@ -13,4 +13,5 @@ public interface AlarmStore {
 	public int deleteAlarm(int aNo);
 	public ArrayList<Alarm> selectAlarmList(int sNo);
 	public Alarm selectAlarm(int aNo);
+	public int countAlarm(int sNo);
 }

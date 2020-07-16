@@ -41,4 +41,9 @@ public class AlarmStoreLogic implements AlarmStore{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int countAlarm(int sNo) {
+		return sqlSession.selectOne("alarmMapper.countAlarm", sNo);
+	}
 }
