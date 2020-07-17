@@ -21,24 +21,36 @@ public class LectureStoreLogic implements LectureStore {
 	public List<Lecture> allLectureList() {
 		return sqlSession.selectList("lectureMapper.allLecture");
 	}
+	
+	
+	@Override
+	public List<Lecture> proLectureList(int pNo) {
+		return sqlSession.selectList("lectureMapper.proLectureList", pNo);
+	}
 
 	@Override
+	public List<Student> lecStudentList(int lCode) {
+		return sqlSession.selectList("studentMapper.lecStudentList", lCode);
+	}
+	
+	@Override
 	public int insertLecture(Lecture lec) {
-		return 0;
+		return sqlSession.insert("lectureMapper.insertLecture", lec);
 	}
 
 	@Override
 	public int deleteLecture(int lCode) {
-		return 0;
+		return sqlSession.delete("lectureMapper.deleteLecture", lCode);
 	}
 	
-	@Override
-	public ArrayList<Student> StudentList() {
-		return null;
-	}
 
 	@Override
 	public ArrayList<Lecture> lectureTime() {
 		return null;
 	}
+
+
+	
+
+	
 }

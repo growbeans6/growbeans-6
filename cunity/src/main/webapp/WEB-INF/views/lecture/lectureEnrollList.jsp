@@ -59,7 +59,7 @@ overflow : hidden;
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">오주현님 수강신청리스트</h6>
+              <h6 class="m-0 font-weight-bold text-primary">${sName }님 수강신청리스트</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -84,7 +84,7 @@ overflow : hidden;
                       <td>${list.lpName }</td>
                       <td>${list.lPoint }</td>
                       <td>${list.lcode }</td>
-                      <td>${list.lTime}</td>
+                      <td>${list.lDay1 }(${list.lStartTime1},${list.lEndTime1}),${list.lDay2 }(${list.lStartTime2},${list.lEndTime2})</td>
                       
                       <c:url var="consultDetail" value="/consultDetail">
                       <c:param name="lcode" value="${list.lcode }"/>

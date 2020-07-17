@@ -7,7 +7,7 @@ public class LectureEnrollment {
 
 	private int lCode;
 	private int sNo;
-	
+	private String sRate;
 	public LectureEnrollment() {
 		super();
 	}
@@ -18,6 +18,16 @@ public class LectureEnrollment {
 		this.lCode = lCode;
 		this.sNo = sNo;
 	}
+
+	public String getsRate() {
+		return sRate;
+	}
+
+
+	public void setsRate(String sRate) {
+		this.sRate = sRate;
+	}
+
 
 	public int getlCode() {
 		return lCode;

@@ -18,7 +18,7 @@ public class LectureEvaluationServiceImpl implements LectureEvaluationService {
 
 	@Override
 	public int insertEval(LectureEvaluation lecEval) {
-		return 0;
+		return lecEvaStore.insertEval(lecEval);
 	}
 
 	

@@ -40,7 +40,29 @@
 	
 	</select>
 	
+	<select id="alreadyLecture" resultMap="LectureResultSet">
 	
+	select l_day1, l_starttime1, l_endtime1,l_day2, l_starttime2, l_endtime2
+	from lectureenroll join lecture
+	using (l_code)
+	where s_no = #{sNo} and (l_day1 = '${lDay1}' and ( l_starttime1 in ( #{lStartTime1},#{lEndTime1} ) or
+	 l_endtime1 in (#{lStartTime1}, #{lEndTime1}) ) or l_day2 ='${lDay2}' and (l_starttime2 in (#{lStartTime2},#{lEndTime2}) or l_endtime2 in(#{lStartTime2},#{lEndTime2})))
+	</select>
+	
+	<select id="proLectureList" resultMap="LectureResultSet">
+	select *
+	from lecture join professor
+	using (p_no)
+	where p_no = #{pNo}
+	</select>
+	
+	<insert id="insertLecture">
+	INSERT INTO LECTURE VALUES(#{lcode}, #{pNo}, #{lDay1},#{lStartTime1},#{lEndTime1},#{lDay2},#{lStartTime2},#{lEndTime2},#{lName},#{lpName},#{lNumberStudent},#{lroom},#{lClassify},#{lPoint},NULL)
+	</insert>
+	
+	<delete id="deleteLecture">
+	DELETE FROM LECTURE WHERE L_CODE = #{lcode}
+	</delete>
 	
 	
 </mapper>

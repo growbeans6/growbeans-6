@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lectureEvaluationMapper">
+
+	<resultMap type="LectureEvaluation" id="LectureEvaluationResultSet">
+		<id property="sNo" column="s_No"/>
+		<result property="lCode" column="l_Code"/>
+		<result property="eRate" column="e_Rate" />
+		<result property="eContent" column="e_Content" />
+		<result property="eDate" column="e_Date" />
+	</resultMap>
+		
+	<insert id="insertEval">
+	INSERT INTO EVALUATION VALUES(#{sNo}, #{lCode}, #{eRate}, #{eContent}, sysdate)
+	
+	</insert>
+	
+	
+</mapper>
+
+	
+
+
+

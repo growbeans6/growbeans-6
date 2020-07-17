@@ -29,7 +29,7 @@ public class StudentController {
 			int studentnum = 1;
 			mv.addObject("loginStudent", loginStudent);
 			mv.addObject("judge" , studentnum);
-			mv.setViewName("home");
+			mv.setViewName("redirect:/home");
 		}
 		else {
 			mv.addObject("msg", "로그인 실패!");
@@ -42,7 +42,7 @@ public class StudentController {
     @RequestMapping("/studentLogout")
 	public String studentLogout(SessionStatus status) {
     	status.setComplete();
-		return "common/loginPage";
+		return "redirect:/";
 	}
     
     //학생정보 조회

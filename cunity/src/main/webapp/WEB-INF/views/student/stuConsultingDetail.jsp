@@ -88,7 +88,7 @@
                   <tr>
                      <td>답변내용</td>
                      <td>
-                         <textarea cols="30" rows="10" name="cAnswer" readonly></textarea>
+                         <textarea cols="30" rows="10" name="cAnswer" readonly>${consultDetail.cAnswer }</textarea>
                      </td>
                   </tr>
 

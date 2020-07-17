@@ -50,73 +50,121 @@
 
    <div class="container">
       <div class="row">
-         <div class="col-md-4"></div>
-         <div class="col-md-5">
+         <div class="col-md-12"></div>
+         <div class="col-md-12">
             <h2 class="text-center">강의 추가</h2>
-            <form action="/#" method="post"
+            <input type="hidden" name="pNo" value=${professor.pNo }/>
+            <form action="/lectureInsert" method="POST"
                name="productWrite" enctype="multipart/form-data">
                <table class="table table-striped">
+                  
                   <tr>
-                     <td>강의명</td>
-                     <td><input type="text" class="form-control" name="lName"
-                        placeholder="강의명 입력" required></td>
-                        </tr>
-                        
-                        <tr>
                      <td>교수명</td>
-                     <td><input type="text" class="form-control" name="findplace" value="민봉식"></td>
+                     <td><input type="text" class="form-control" name="lpName" value=${professor.pName }></td>
                   </tr>
                   
+                  <tr>
+                     <td>강의명</td>
+                     <td><input type="text" class="form-control" name="lName" placeholder="강의명 입력" required></td>
+                   </tr>
+                   
+                   <tr>
+                     <td>이수구분</td>
+                     <td><input type="text" class="form-control" name="lClassify"></td>
+                  </tr>
+                   
+                   <tr>
+                     <td>과목코드</td>
+                     <td><input type="text" class="form-control" name="lcode"></td>
+                  </tr>
                     <tr>
                      <td>학점</td>
-                     <td><input type="text" class="form-control" name="color" value="3"></td>
+                     <td><input type="text" class="form-control" name="lPoint" ></td>
                   </tr>
-
+                  
                   <tr>
-                     <td>과목코드</td>
-                     <td><input type="text" class="form-control" name="findplace" value="102131"></td>
+                     <td>학생수</td>
+                     <td><input type="text" class="form-control" name="lNumberStudent"></td>
                   </tr>
 
                   <tr>
                      <td>강의시간</td>
                      <td>
                          <div class="dropdown">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                요일
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">월</a>
-                                <a class="dropdown-item">화</a>
-                                <a class="dropdown-item">수</a>
-                                <a class="dropdown-item">목</a>
-                                <a class="dropdown-item">금</a>
-                              </div>
-                          </div>
-                          <div class="dropdown">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                시간
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">1,2</a>
-                                <a class="dropdown-item">2,3</a>
-                              </div>
-                          </div>
+                              <select name="lDay1" class="Grade">
+                    				<option >요일1</option>
+                    				<option value="월" >월</option>
+                   					<option value="화" >화</option>
+                    				<option value="수" >수</option>
+                    				<option value="목" >목</option>
+                    				<option value="금" >금</option>
+							  </select>
+							  <select name="lStartTime1" class="Grade">
+                    				<option >시작시간1</option>
+                    				<option value="1" >1</option>
+                   					<option value="2" >2</option>
+                    				<option value="3" >3</option>
+                    				<option value="4" >4</option>
+                    				<option value="5" >5</option>
+                    				<option value="6" >6</option>
+                    				<option value="7" >7</option>
+							  </select>
+							   <select name="lEndTime1" class="Grade">
+                    				<option >종료시간1</option>
+                    				<option value="1" >1</option>
+                   					<option value="2" >2</option>
+                    				<option value="3" >3</option>
+                    				<option value="4" >4</option>
+                    				<option value="5" >5</option>
+                    				<option value="6" >6</option>
+                    				<option value="7" >7</option>
+							  </select>
+							  
+							  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  
+                              <select name="lDay2" class="Grade">
+                    				<option >요일2</option>
+                    				<option value="월" >월</option>
+                   					<option value="화" >화</option>
+                    				<option value="수" >수</option>
+                    				<option value="목" >목</option>
+                    				<option value="금" >금</option>
+							  </select>
+							  <select name="lStartTime2" class="Grade">
+                    				<option >시작시간2</option>
+                    				<option value="1" >1</option>
+                   					<option value="2" >2</option>
+                    				<option value="3" >3</option>
+                    				<option value="4" >4</option>
+                    				<option value="5" >5</option>
+                    				<option value="6" >6</option>
+                    				<option value="7" >7</option>
+							  </select>
+							   <select name="lEndTime2" class="Grade">
+                    				<option >종료시간2</option>
+                    				<option value="1" >1</option>
+                   					<option value="2" >2</option>
+                    				<option value="3" >3</option>
+                    				<option value="4" >4</option>
+                    				<option value="5" >5</option>
+                    				<option value="6" >6</option>
+                    				<option value="7" >7</option>
+							  </select>
+					   </div>
+
                      </td>
                   </tr>
 
                   <tr>
                      <td>강의실</td>
                      <td>
-                         <input type="text" class="form-control" name="findplace" value="공학관 102">
+                         <input type="text" class="form-control" name="lroom" value="공학관 102">
                      </td>
                   </tr>
-                      <td>
-                     <a class="btn btn-secondary btn-sm" href="#">강의등록</a>
-                      <a class="btn btn-secondary btn-sm" href="#">취소</a>
-                      <c:url value="/lectureList" var="lectureList"></c:url>
-                        <a class="btn btn-secondary btn-sm" href="${lectureList }">강의리스트 목록보기</a>
-                     </td>
                </table>
+               <input type="submit" class="form-control"  value="강의등록"/>
+               <input type="submit" class="form-control"  value="취소"/>
+
             </form>
          </div>
       </div>

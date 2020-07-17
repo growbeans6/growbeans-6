@@ -23,15 +23,27 @@ public class LectureServiceImpl implements LectureService {
 	public List<Lecture> allLectureList() {
 		return lecStore.allLectureList();
 	}
+	
+	//교수별 강의하는 목록보기
+	@Override
+	public List<Lecture> proLectureList(int pNo) {
+		return lecStore.proLectureList(pNo);
+	}
+	
+	//과목코드별 수강생 조회
+	@Override
+	public List<Student> lecStudentList(int lCode) {
+		return lecStore.lecStudentList(lCode);
+	}
 
 	@Override
 	public int insertLecture(Lecture lec) {
-		return 0;
+		return lecStore.insertLecture(lec);
 	}
 
 	@Override
 	public int deleteLecture(int lCode) {
-		return 0;
+		return lecStore.deleteLecture(lCode);
 	}
 	
 	@Override
@@ -43,6 +55,10 @@ public class LectureServiceImpl implements LectureService {
 	public ArrayList<Lecture> lectureTime() {
 		return null;
 	}
+
+	
+
+	
 
 
 

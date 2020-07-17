@@ -54,6 +54,21 @@ public class LectureEnrollmentServiceImpl implements LectureEnrollmentService {
 	public LectureEnrollment find(LectureEnrollment lecture) {
 		return lecEnStore.find(lecture);
 	}
+
+	@Override
+	public Lecture alreadyLecture(Lecture lecture) {
+		return lecEnStore.alreadyLecture(lecture);
+	}
+
+	@Override
+	public int insertGrade(LectureEnrollment lectureEn) {
+		return lecEnStore.insertGrade(lectureEn);
+	}
+
+	@Override
+	public List<LectureEnrollment> gradeList(int sNo) {
+		return lecEnStore.gradeList(sNo);
+	}
 	
 	
 	

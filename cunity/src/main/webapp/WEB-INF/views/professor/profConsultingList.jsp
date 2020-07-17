@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -59,20 +60,49 @@
                     <tr>
                       <th>글 번호</th>
                       <th>제목</th>
-                      <th>학생</th>
+                      <th>학생이름</th>
+                      <th>학번</th>
                       <th>작성일</th>
-                        <th></th>
+                      <th>상세조회 및 답변</th>
+                      <th>상태</th>
                     </tr>
                   </thead>
                   <tbody style="text-align=center">
-                    <tr>
-                      <td>1</td>
-                      <td>진로가 걱정됩니다.</td>
-                      <td>일용자</td>
-                      <td>2020-07-01</td>
-                        <td><c:url value="/consultList" var="consultList"></c:url>
-                    <a class="btn btn-secondary btn-sm" href="${consultList }">글쓰기</a></td>
-                    </tr>
+                    <c:choose>
+                  	<c:when test="${empty proconsultList}">
+						<tr>
+							<td colspan="8" align="center">등록된 상담이 없습니다.</td>
+						</tr>				
+					</c:when>
+					<c:otherwise>
+					<c:forEach items="${proconsultList }" var="list" varStatus="status">
+					<tr>
+                      <td>${list.cNo }</td>
+                      <td>${list.cTitle }</td>
+                      <td>${list.sName }</td>
+                      <td>${list.sGrade }</td>
+                      <td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.cDate }"/></td>
+                      
+                 
+                      <c:url var="proconsultDetail" value="/proconsultDetail">
+						<c:param name="cNo" value="${list.cNo }" />
+						<c:param name="sName" value="${list.sName }" />
+						<c:param name="sNo" value="${list.sNo }"/>
+						</c:url>
+							
+                      <td><a href="${proconsultDetail }">조회</a></td>
+                      
+                      <c:if test="${list.flag eq 0 }">
+                      <td><button  class="btn btn-secondary" disabled>답변 대기</button></td>
+                      </c:if>
+                        
+                      <c:if test="${list.flag eq 1 }">
+                      <td><button  class="btn btn-primary" disabled>답변 완료</button></td>
+                      </c:if>
+                    </tr>	
+					</c:forEach>
+						</c:otherwise>
+					</c:choose>
                   </tbody>
                 </table>
                 <div>

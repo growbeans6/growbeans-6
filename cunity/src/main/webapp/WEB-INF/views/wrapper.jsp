@@ -73,7 +73,6 @@
             <a class="collapse-item" href="/lectureList">수강 신청</a>
             <a class="collapse-item" href="/lectureEnrollList">수강 신청 내역</a>
             <a class="collapse-item" href="/schedule">수업 시간표</a>
-            <a class="collapse-item" href="/lectureInfo">수업 정보</a>
           </div>
         </div>
       </li>
@@ -87,7 +86,6 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
             <a class="collapse-item" href="/stuGrade">성적 조회</a>
-            <a class="collapse-item" href="/lectureEvaluation">강의 평가</a>
           </div>
         </div>
       </li>

@@ -31,13 +31,13 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-	<jsp:include page="../wrapper.jsp"></jsp:include>
+	<jsp:include page="../professorwrapper.jsp"></jsp:include>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
       <!-- Main Content -->
       <div id="content">
 
-       <jsp:include page="../content-wrapper.jsp"></jsp:include>
+       <jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
 
         <!-- Begin Page Content -->
         <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
@@ -54,48 +54,50 @@
          <div class="col-md-4"></div>
          <div class="col-md-5">
             <h2 class="text-center">상담</h2>
-            <form action="/insertConsulting" method="post"
+            <form action="/insertAnswer" method="post"
                name="productWrite">
+               <input type="hidden" class="form-control" name="cNo" value="${cNo }">
                <table class="table table-striped">
                   <tr>
                      <td>상담 제목</td>
                      <td><input type="text" class="form-control" name="cTitle"
-                        placeholder="제목을 입력해주세요" required></td>
+                        value="${consultDetail.cTitle }" readonly></td>
                    </tr>
                         
+                  <!--  <tr>
                      <td>지도 교수</td>
-                     <td><input type="text" class="form-control" name="pName" value="${pName }"readonly></td>
+                     <td><input type="text" class="form-control" name="findplace" value="민봉식교수"readonly></td>
+                  </tr> -->
                   
                     <tr>
                      <td>학생 이름</td>
-                     <td><input type="text" class="form-control" name="sName" value="${loginStudent.sName }"readonly></td>
+                     <td><input type="text" class="form-control" name="sName" value="${sName }"readonly></td>
                   </tr>
 
                   <tr>
                      <td>학생 학번</td>
-                     <td><input type="text" class="form-control" name="sNo" value="${loginStudent.sNo }"readonly></td>
+                     
+                     <td><input type="text" class="form-control" name="sNo" value="${sNo }"readonly></td>
                   </tr>
 
                   <tr>
                      <td>상담내용</td>
                      <td>
-                         <textarea cols="30" rows="10" name="cContent"></textarea>
+                         <textarea cols="30" rows="10" name="cContent" readonly>${consultDetail.cContent } </textarea>
                      </td>
                   </tr>
 
                   <tr>
                      <td>답변내용</td>
                      <td>
-                         <textarea cols="30" rows="10" name="cAnswer" readonly>교수작성공간</textarea>
+                         <textarea cols="30" rows="10" name="cAnswer" >${consultDetail.cAnswer }</textarea>
                      </td>
                   </tr>
 
                   <tr>
-                     <td colspan="2" class="text-center">
-                     <input type="submit" value="상담등록" class="btn btn-primary"> <input
-                        type="reset" value="취소" class="btn btn-primary">
-                        <button type="button" class="btn btn-primary" onclick="back()">전체 상담보기</button>
-                     </td>
+                  		
+                     	<td><input type="submit" class="form-control" value="제출"></td>
+                        <!-- <button type="button" class="btn btn-primary" >답변완료</button> -->
                   </tr>
 
                </table>

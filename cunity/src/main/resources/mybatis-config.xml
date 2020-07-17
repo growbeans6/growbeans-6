@@ -42,7 +42,6 @@
 
 	<mappers>
 		<!-- 
-		<mapper resource="mappers/consulting-mapper.xml"/>
 		<mapper resource="mappers/chatRoom-mapper.xml"/>
 		<mapper resource="mappers/departmentNotice-mapper.xml"/>
 		<mapper resource="mappers/departmentNoticeFile-mapper.xml"/>
@@ -67,5 +66,8 @@
 		<mapper resource="mappers/lecture-mapper.xml"/>
 		<mapper resource="mappers/lectureEnrollment-mapper.xml"/>
 		<mapper resource="mappers/timetable-mapper.xml"/>
+		<mapper resource="mappers/lectureSyllabus-mapper.xml"/>
+		<mapper resource="mappers/grade-mapper.xml"/>
+		<mapper resource="mappers/lectureEvaluation-mapper.xml"/>
 	</mappers>
 </configuration>

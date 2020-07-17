@@ -14,6 +14,8 @@ public interface LectureService {
 	public int deleteLecture(int lCode);
 	public ArrayList<Student> allStudentList();
 	public ArrayList<Lecture> lectureTime();
+	public List<Lecture> proLectureList(int pNo);
+	public List<Student> lecStudentList(int lCode);
 
 
 

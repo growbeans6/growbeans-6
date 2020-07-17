@@ -5,10 +5,11 @@
 	<resultMap type="LectureEnrollment" id="LectureEnrollmentResultSet">
 		<id property="lCode" column="l_code"/>
 		<result property="sNo" column="s_No"/>
+		<result property="sRate" column="s_Rate" />
 	</resultMap>
 		
 	<insert id="insertLectureEnroll">
-		INSERT INTO LECTUREENROLL values( #{lCode},#{sNo} )
+		INSERT INTO LECTUREENROLL values( #{lCode},#{sNo},NULL)
 	</insert>
 	
  	<delete id="deleteLectureEnroll" >
@@ -22,6 +23,15 @@
 	WHERE l_code = #{lCode} and s_No = #{sNo}
 	</select>
 	
+	<update id="insertGrade" >
+	UPDATE LECTUREENROLL SET S_RATE = #{sRate} WHERE S_NO = #{sNo} AND L_CODE = #{lCode}
+	</update>
+	
+	<select id="gradeList" resultMap="LectureEnrollmentResultSet">
+	SELECT S_RATE
+	FROM LECTUREENROLL
+	WHERE S_NO = #{sNo}
+	</select>
 </mapper>
 
 	

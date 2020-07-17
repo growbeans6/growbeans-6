@@ -11,6 +11,8 @@
 		<result property="cAnswer" column="c_Answer"/>
 		<result property="cDate" column="c_Date"/>
 		<result property="flag" column="FLAG"/>
+		<result property="sName" column="s_Name"/>
+		<result property="sGrade" column="s_Grade"/>
 	</resultMap>
 		
 	<select id="consultingList" resultMap="ConsultingResultSet">
@@ -20,7 +22,7 @@
 	</select>
 	
 	<insert id="insertConsult">
-		insert into consulting values(C_NO_SEQ.NEXTVAL, #{pNo}, #{sNo}, #{cTitle}, #{cContent}, null, SYSDATE, default)
+		insert into consulting values(C_NO_SEQ.NEXTVAL, #{pNo}, #{sNo},#{sName},#{sGrade}, #{cTitle}, #{cContent}, null, SYSDATE, default)
 	</insert>
 	
 	<select id="consultingDetail" resultMap="ConsultingResultSet">
@@ -28,6 +30,17 @@
 	FROM CONSULTING
 	WHERE c_No=#{cNo}
 	</select>
+	
+	<select id="proconsultingList" resultMap="ConsultingResultSet">
+		SELECT *
+		FROM CONSULTING
+		WHERE p_No=#{pNo}		
+	</select>
+	
+	<update id="insertAnswer">
+	UPDATE CONSULTING SET c_Answer = #{cAnswer} , flag = 1 WHERE C_NO = #{cNo}
+	</update>
+	
 	
 </mapper>
 

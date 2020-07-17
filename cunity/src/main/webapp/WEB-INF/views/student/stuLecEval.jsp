@@ -51,24 +51,30 @@
       <div class="row">
          <div class="col-md-4"></div>
          <div class="col-md-5">
-            <h2 class="text-center">JAVA 강의평가</h2>
-            <form action="/#" method="post"
+            <h2 class="text-center">${lName } 강의평가</h2>
+            <form action="/insertEval" method="POST"
                name="productWrite" enctype="multipart/form-data">
                <table class="table table-striped">
+               
                     <tr>
                      <td>과목명</td>
-                     <td><input type="text" class="form-control" name="findplace" value="JAVA" readonly></td>
+                     <td><input type="text" class="form-control" name="lName" value=${lName } readonly></td>
+                  </tr>
+                  
+                  <tr>
+                     <td>과목코드</td>
+                     <td><input type="text" class="form-control" name="lCode" value=${lCode } readonly></td>
                   </tr>
                   
                    <tr>
                      <td>교수명</td>
-                     <td><input type="text" class="form-control" name="findplace" value="민봉식교수"readonly></td>
+                     <td><input type="text" class="form-control" name="lpName" value=${lpName } readonly></td>
                   </tr>
                  
                   <tr>
                      <td>평점 : </td>
                      <td>
-                       <select name="evaluation">
+                       <select name="eRate">
                         <option value="">평점</option>
                         <option value="5">5</option>
                         <option value="4">4</option>
@@ -82,7 +88,7 @@
                     <tr>
                      <td>이유</td>
                      <td>
-                         <textarea cols="30" rows="10" readonly>그냥 재미없고 별로에요</textarea>
+                         <textarea cols="30" rows="10" name="eContent" ></textarea>
                      </td>
                   </tr>
 

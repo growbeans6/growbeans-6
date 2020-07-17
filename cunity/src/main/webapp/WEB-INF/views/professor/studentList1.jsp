@@ -64,84 +64,29 @@
                     </tr>
                   </thead>
                   <tbody style="text-align=center">
+                  <c:forEach items="${lecStudentList }" var="list" varStatus="status">
                     <tr>
-                      <td>컴퓨터 공학과</td>
-                      <td>1</td>
-                      <td>2034120</td>
-                      <td>일용자</td>
+                      <td>${list.sDept }</td>
+                      <td>${list.sGrade }</td>
+                      <td>${list.sNo }</td>
+                      <td>${list.sName }</td>
                       <td>
-                          <div class="dropdown">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                성적
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">A+</a>
-                                <a class="dropdown-item">A</a>
-                                <a class="dropdown-item">A-</a>
-                                <a class="dropdown-item">B+</a>
-                                <a class="dropdown-item">B</a>
-                                <a class="dropdown-item">B-</a>
-                                <a class="dropdown-item">C+</a>
-                                <a class="dropdown-item">C</a>
-                                <a class="dropdown-item">C-</a>
-                                <a class="dropdown-item">D</a>
-                                <a class="dropdown-item">F</a>
-                              </div>
-                          </div>
+                      	<select sno="${list.sNo }" lcode="${lCode }" name="Grade" class="Grade">
+                    		<option >성적처리</option>
+                    		<option value="A+" >A+</option>
+                   			<option value="A" >A</option>
+                    		<option value="B+" >B+</option>
+                    		<option value="B" >B</option>
+                    		<option value="C+" >C+</option>
+                    		<option value="C" >C</option>
+                    		<option value="D+" >D+</option>
+                    		<option value="D" >D</option>
+                    		<option value="F" >F</option>
+						</select>
                       </td>
                     </tr>
-                    <tr>
-                      <td>컴퓨터 공학과</td>
-                      <td>2</td>
-                      <td>1935172</td>
-                      <td>이용자</td>
-                      <td>
-                          <div class="dropdown">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                성적
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">A+</a>
-                                <a class="dropdown-item">A</a>
-                                <a class="dropdown-item">A-</a>
-                                <a class="dropdown-item">B+</a>
-                                <a class="dropdown-item">B</a>
-                                <a class="dropdown-item">B-</a>
-                                <a class="dropdown-item">C+</a>
-                                <a class="dropdown-item">C</a>
-                                <a class="dropdown-item">C-</a>
-                                <a class="dropdown-item">D</a>
-                                <a class="dropdown-item">F</a>
-                              </div>
-                          </div>
-                        </td>
-                    </tr>
-                    <tr>
-                      <td>컴퓨터 공학과</td>
-                      <td>3</td>
-                      <td>1815276</td>
-                      <td>삼용자</td>
-                      <td>
-                          <div class="dropdown">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                성적
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">A+</a>
-                                <a class="dropdown-item">A</a>
-                                <a class="dropdown-item">A-</a>
-                                <a class="dropdown-item">B+</a>
-                                <a class="dropdown-item">B</a>
-                                <a class="dropdown-item">B-</a>
-                                <a class="dropdown-item">C+</a>
-                                <a class="dropdown-item">C</a>
-                                <a class="dropdown-item">C-</a>
-                                <a class="dropdown-item">D</a>
-                                <a class="dropdown-item">F</a>
-                              </div>
-                          </div>
-                        </td>
-                    </tr>
+
+                    </c:forEach>
                   </tbody>
                 </table>
                 <div>
@@ -175,6 +120,27 @@
   <!-- Page level custom scripts -->
   <script src="/resources/js/demo/chart-area-demo.js"></script>
   <script src="/resources/js/demo/chart-pie-demo.js"></script>
+  
+  <script>
+  $(function(){
+	$(".Grade").change( function(e){
+		var sRate = $(this).val();
+		var sNo = $(this).attr("sno");
+		var lCode = $(this).attr("lCode");
+		$.ajax({
+			url: "/insertGrade",
+			data: {sRate:sRate, sNo:sNo, lCode:lCode},
+			type: "post",
+			complete: function(){ 
+				alert('성적처리완료');
+				}
+		})
+	});
+  });
+  
+  </script>
+  
+  
 </body>
 
 </html>

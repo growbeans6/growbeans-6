@@ -23,14 +23,36 @@ import com.growbeans.cunity.student.domain.Student;
 public class LectureEnrollmentController {
 	
 	private Timetable table;
+	
 	public LectureEnrollmentController() {
 		table = new Timetable();
+		
+		
 	}
 	
 	@Autowired
 	private LectureEnrollmentService lecEnService;
 	
-	
+
+			@RequestMapping("/profGrade")
+			public ModelAndView selectGrade(ModelAndView mv){
+				mv.setViewName("professor/Grade");
+				return mv;
+			}
+			
+			//학생 성적 조회
+			@RequestMapping("/stuGrade")
+			public ModelAndView showGrade(ModelAndView mv, HttpSession session) {
+				Student student = (Student)session.getAttribute("loginStudent");
+				int sNo = student.getsNo();
+				List<Lecture> lectureEnList = lecEnService.lectureEnList(sNo);
+				List<LectureEnrollment> gradeList = lecEnService.gradeList(sNo);
+				mv.addObject("lectureEnList",lectureEnList);
+				mv.addObject("gradeList", gradeList);
+				mv.addObject("sName", student.getsName());
+				mv.setViewName("student/stuGrade");
+				return mv;
+			}
 
 	//수강신청 리스트에 추가
 	//세션에서 학번이랑, 강의정보에서 강의 코드 받아와서 데이터에 삽입
@@ -51,6 +73,27 @@ public class LectureEnrollmentController {
 			model.addAttribute("url", "/lectureList");
 			return "common/msg";
 		}
+		
+		Lecture compareLec = new Lecture();
+		compareLec =lecEnService.lectureOne(lcode);
+		Lecture a = new Lecture();
+		a.setsNo(student.getsNo());
+		a.setlDay1(compareLec.getlDay1());
+		a.setlDay2(compareLec.getlDay2());
+		a.setlStartTime1(compareLec.getlStartTime1());
+		a.setlStartTime2(compareLec.getlStartTime2());
+		a.setlEndTime1(compareLec.getlEndTime1());
+		a.setlEndTime2(compareLec.getlEndTime2());
+		Lecture b = new Lecture(); 
+				b = lecEnService.alreadyLecture(a);
+		System.out.println(b);
+		
+		if( b != null) {
+			model.addAttribute("msg", " 다른과목이 있습니다.");
+			model.addAttribute("url", "/lectureList");
+			return "common/msg";
+		}
+		
 		
 		// 스케쥴에 넣을과목
 		if(table.getsNo() != student.getsNo() ) {
@@ -713,6 +756,7 @@ public class LectureEnrollmentController {
 		int sNo = student.getsNo();
 		List<Lecture> lectureEnList = lecEnService.lectureEnList(sNo);
 		mv.addObject("lectureEnList",lectureEnList);
+		mv.addObject("sName", student.getsName());
 		mv.setViewName("lecture/lectureEnrollList");
 		return mv;
 	}
@@ -1343,6 +1387,21 @@ public class LectureEnrollmentController {
 		mv.setViewName("lecture/lectureSchedule");
 		return mv;
 	}	
+	
+	@RequestMapping("/insertGrade")
+	public String insertGrade(String sRate,HttpServletRequest request,int sNo,int lCode) {
+		LectureEnrollment lectureenroll = new LectureEnrollment();
+		lectureenroll.setlCode(lCode);
+		lectureenroll.setsRate(sRate);
+		lectureenroll.setsNo(sNo);
+		int result = lecEnService.insertGrade(lectureenroll);
+		if(result > 0) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
+	
 	
 	
 

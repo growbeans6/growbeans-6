@@ -2,6 +2,7 @@ package com.growbeans.cunity.consulting.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.consulting.domain.Consulting;
 import com.growbeans.cunity.consulting.service.ConsultingService;
+import com.growbeans.cunity.professor.domain.Professor;
 import com.growbeans.cunity.student.domain.Student;
 
 @Controller
@@ -23,7 +25,11 @@ public class ConsultingController {
 	
 	// 상담 내역 조회 교수,교수번호 같이보내서 조회
 		@RequestMapping("/consultList")
-	   public ModelAndView consultingList(ModelAndView mv) {
+	   public ModelAndView consultingList(ModelAndView mv,HttpSession session) {
+		   Professor professor = (Professor)session.getAttribute("loginprof");
+		   int pNo = professor.getpNo();
+		   List<Consulting> proconsultList = consultService.proconsultingList(pNo);
+		   mv.addObject("proconsultList", proconsultList);
 		   mv.setViewName("professor/profConsultingList");
 	      return mv;
 	   }
@@ -37,6 +43,17 @@ public class ConsultingController {
 		   mv.setViewName("student/stuConsultingDetail");
 		   return mv;
 	   }
+		
+	   // 교수가 상담글 상세 보기
+			@RequestMapping("/proconsultDetail")
+		   public ModelAndView proconsultingDetail(ModelAndView mv,HttpSession session, int cNo, int sNo, String sName) {
+			   mv.addObject("consultDetail",consultService.consultingDetail(cNo));
+			   mv.addObject("sName", sName);
+			   mv.addObject("sNo", sNo);
+			   mv.addObject("cNo", cNo);
+			   mv.setViewName("professor/proConsultingDetail");
+			   return mv;
+		   }
 	   
 	   // 상담글 작성
 	   @RequestMapping(value="/insertConsulting", method=RequestMethod.POST)
@@ -44,6 +61,9 @@ public class ConsultingController {
 		   Student student = (Student)session.getAttribute("loginStudent");
 		   cons.setpNo(student.getpNo());
 		   cons.setsNo(student.getsNo());
+		   cons.setpName(student.getpName());
+		   cons.setsGrade(student.getsGrade());
+		   
 		  int result = consultService.insertConsulting(cons);
 		  if (result>0) {return "redirect:/stuConsultingList";}
 		  else {return "home";}
@@ -58,9 +78,18 @@ public class ConsultingController {
 	   public String deleteConsulting(int cNo) {
 	      return null;
 	   }
-	   // 답변글 작성
+	   // 답변글 작성(업데이트 형식)
+	   @RequestMapping(value="/insertAnswer", method=RequestMethod.POST)
 	   public String createAnswer(Consulting cons) {
-	      return null;
+		   
+		   int result = consultService.insertAnswer(cons);
+		   if(result>0)
+		   {
+			   return "redirect:/consultList";
+		   }
+		   else {
+	      return "redirect:/consultList";
+		   }
 	   }
 	   
 	   // 답변글 수정 //eq로 작성자만
@@ -83,9 +112,14 @@ public class ConsultingController {
 		@RequestMapping("stuWriteConsulting")
 		public ModelAndView writeConsulting(ModelAndView mv, HttpSession session) {
 			Student student = (Student)session.getAttribute("loginStudent");
+			Professor findPname = consultService.findPName(student.getsNo());
+			String pName = findPname.getpName();
+			mv.addObject("pName", pName);
 			 mv.addObject("loginStudent", student);
 			 mv.setViewName("student/stuWriteConsulting");
 			return mv;
 		}
+		
+		
 
 }

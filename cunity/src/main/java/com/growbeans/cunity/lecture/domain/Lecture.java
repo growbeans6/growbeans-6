@@ -21,6 +21,7 @@ public class Lecture {
 	private int lPoint;
 	private String lTime;
 	private String lSemester;
+	private int sNo;
 	
 	
 	public Lecture() {}
@@ -47,6 +48,18 @@ public class Lecture {
 		this.lTime = lTime;
 		this.lSemester = lSemester;
 	}
+	
+	
+
+	public int getsNo() {
+		return sNo;
+	}
+
+
+	public void setsNo(int sNo) {
+		this.sNo = sNo;
+	}
+
 
 	public int getLcode() {
 		return lcode;
@@ -205,6 +218,16 @@ public class Lecture {
 
 	public void setlSemester(String lSemester) {
 		this.lSemester = lSemester;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Lecture [lcode=" + lcode + ", pNo=" + pNo + ", lName=" + lName + ", lDay1=" + lDay1 + ", lStartTime1="
+				+ lStartTime1 + ", lEndTime1=" + lEndTime1 + ", lDay2=" + lDay2 + ", lStartTime2=" + lStartTime2
+				+ ", lEndTime2=" + lEndTime2 + ", lpName=" + lpName + ", lNumberStudent=" + lNumberStudent + ", lroom="
+				+ lroom + ", lClassify=" + lClassify + ", lPoint=" + lPoint + ", lTime=" + lTime + ", lSemester="
+				+ lSemester + ", sNo=" + sNo + "]";
 	}
 
 	
