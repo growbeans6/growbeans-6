@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.student.domain.Student;
+import com.growbeans.cunity.studyFile.domain.StudyFile;
 import com.growbeans.cunity.studyFolder.domain.StudyFolder;
 import com.growbeans.cunity.studyFolder.service.StudyFolderService;
 
@@ -22,31 +23,49 @@ public class StudyFolderController {
 	@Autowired
 	private StudyFolderService studyFolderService;
 
-	// 스터디 파일공유페이지
+	// 스터디 파일공유 작성폼
 	@RequestMapping("/studyfileShare")
-	public ModelAndView studyfileShareMain(ModelAndView mv, HttpSession session) {
-		Student student = (Student)session.getAttribute("loginStudent");
+	public ModelAndView studyfileShareForm(ModelAndView mv, HttpSession session) {
+		Student student = (Student) session.getAttribute("loginStudent");
 		int studyNo = student.getStudyNo();
-		// parentfolder 
-		StudyFolder folder = studyFolderService.selectOneFolder(studyNo); 
-		// parentfolder의 자식들을 배열로 만들어서 가져옴
-		ArrayList<StudyFolder> list = studyFolderService.selectlistOneStudyFolder(studyNo, folder.getFolderNo());
-		
+		int studentNo = student.getsNo();
+		String studentName = student.getsName();
+		StudyFolder folder = studyFolderService.selectOneFolder(studyNo);
+		ArrayList<StudyFolder> list = studyFolderService.selectlistFolder(studyNo, folder.getFolderNo());
 		mv.addObject("folder", folder);
-		mv.addObject("childerenFolderList", list);
+		mv.addObject("FolderList", list);
 		mv.setViewName("study/studyfileShare");
+		
 		return mv;
 	}
 
-	@RequestMapping("/studyRoomMain")
-	public String studyRoomMain() {
-		return "study/studyRoom";
+	// 스터디 파일공유페이지 상세보기
+	@RequestMapping("/studyfileShareDetail")
+	public ModelAndView studyfileShareMain(ModelAndView mv, HttpSession session) {
+		Student student = (Student) session.getAttribute("loginStudent");
+		int studyNo = student.getStudyNo();
+		// parentfolder
+		System.out.println(studyNo);
+		StudyFolder folder = studyFolderService.selectOneFolder(studyNo);
+		// parentfolder의 자식들을 배열로 만들어서 가져옴
+		ArrayList<StudyFolder> list = studyFolderService.selectlistOneStudyFolder(studyNo, folder.getFolderNo());
+		ArrayList<Student> slist = studyFolderService.selectstudentName(student.getsNo());
+		System.out.println("student.getsNo : " + student.getsNo());
+		String sfwriter = student.getsName();
+		System.out.println("student.getsName : " + student.getsName());
+		mv.addObject("fileWriter", sfwriter);
+		mv.addObject("folder", folder);
+		mv.addObject("childerenFolderList", list);
+		mv.setViewName("study/studyfileShareDetail");
+		return mv;
 	}
-
+	
 	@RequestMapping("insertfolder.cunity")
 	public String insertStudyFolder(String folderName, Model model) {
-		/*Student student = (Student)session.getAttribute("loginStudent");
-		student.getStudyNo()*/
+		/*
+		 * Student student = (Student)session.getAttribute("loginStudent");
+		 * student.getStudyNo()
+		 */
 		int result = 0;
 		result = studyFolderService.insertStudyFolder(folderName);
 		if (result > 0) {
@@ -58,17 +77,4 @@ public class StudyFolderController {
 
 	}
 
-	@RequestMapping("sfdetail.cunity")
-	public ModelAndView selectlistFolder(ModelAndView mv, int studyNo) {
-		ArrayList<StudyFolder> list = studyFolderService.selectlistFolder(studyNo);
-
-		if (!list.isEmpty()) {
-			mv.addObject("list", list);
-			mv.setViewName("study/studyfileShare");
-		} else {
-			mv.addObject("msg", "폴더 조회 실패");
-
-		}
-		return mv;
-	}
 }

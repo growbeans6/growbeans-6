@@ -18,8 +18,7 @@ public class StudyFileServiceImpl implements StudyFileService {
 
 	@Override
 	public int uploadStudyFile(StudyFile studyFile) {
-		int result = studyFileStore.uploadStudyFile(studyFile);
-		return result;
+		return studyFileStore.uploadStudyFile(studyFile);
 	}
 
 	@Override

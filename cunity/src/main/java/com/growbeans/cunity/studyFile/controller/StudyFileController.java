@@ -27,7 +27,7 @@ public class StudyFileController {
 	// 파일 등록
 	@RequestMapping(value = "sfinsert.cunity", method = RequestMethod.POST)
 	public String uploadStudyFile(StudyFile studyFile, Model model,
-			@RequestParam(name = "uploadFile", required = true) MultipartFile uploadFile, HttpServletRequest request) {
+			@RequestParam(name = "fileName", required = true) MultipartFile fileName, HttpServletRequest request) {
 		// 해당 파라미터 반드시 필수
 		// required=true, NULL이면 입력시 400에러 발생
 
@@ -35,10 +35,12 @@ public class StudyFileController {
 		// 해당 데이터를 스프링 MVC에서 사용할 수 있도록 변환시켜줌
 
 		// 1. 파일을 서버에 저장 (넘어온 파일 저장)
-		if (!uploadFile.getOriginalFilename().equals("")) {
-			String filePath = saveFile(uploadFile, request);
-			if (filePath != null) {
-				studyFile.setFilePath(uploadFile.getOriginalFilename());
+		if (!fileName.getOriginalFilename().equals("")) {
+			StudyFile saveFile = saveFile(fileName, request);
+			studyFile.setUploadFile(saveFile.getUploadFile());
+			studyFile.setFileRegistrant(saveFile.getFileRegistrant());
+			if (studyFile != null) {
+				studyFile.setFilePath(fileName.getOriginalFilename());
 			}
 		}
 
@@ -49,7 +51,7 @@ public class StudyFileController {
 		result = studyFileService.uploadStudyFile(studyFile);
 
 		if (result > 0) {
-			path = "study/studyfileShare";
+			path = "study/studyfileShareDetail";
 		} else {
 			model.addAttribute("msg", "파일 업로드 실패");
 			path = "study/studyfileShare";
@@ -59,7 +61,7 @@ public class StudyFileController {
 	}
 
 	// 파일 저장
-	public String saveFile(MultipartFile file, HttpServletRequest request) {
+	public StudyFile saveFile(MultipartFile file, HttpServletRequest request) {
 		// 파일 저장 경로 설정 -> 루트의 경로를 추적하기 위해서 getServletContext() 사용
 		String root = request.getSession().getServletContext().getRealPath("resources");
 		String savePath = root + "//nuploadFiles";
@@ -71,6 +73,9 @@ public class StudyFileController {
 			folder.mkdir();
 		}
 		// 경로 리턴
+		StudyFile studyFile = new StudyFile();
+		
+		String fileName = file.getOriginalFilename();
 		String filePath = folder + "\\" + file.getOriginalFilename();
 
 		// 실제로 저장
@@ -83,7 +88,9 @@ public class StudyFileController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return filePath;
+		studyFile.setUploadFile(fileName);
+		studyFile.setFilePath(filePath);
+		return studyFile;
 	}
 
 	/* public String downloadStudyFile(StudyFile studyFile, Model model, ) */

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.growbeans.cunity.student.domain.Student;
+import com.growbeans.cunity.studyFile.domain.StudyFile;
 import com.growbeans.cunity.studyFolder.domain.StudyFolder;
 import com.growbeans.cunity.studyFolder.service.StudyFolderService;
 import com.growbeans.cunity.studyFolder.store.StudyFolderStoreLogic;
@@ -17,11 +19,10 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 	@Autowired
 	private StudyFolderStoreLogic studyFolderStore;
 
-	
 	// studyFolder list 조회
 	@Override
-	public ArrayList<StudyFolder> selectlistFolder(int studyNo) {
-		return studyFolderStore.selectlist(studyNo);
+	public ArrayList<StudyFolder> selectlistFolder(int studyNo, int folderNo) {
+		return studyFolderStore.selectlist(studyNo, folderNo);
 	}
 
 	// studyFolder 생성
@@ -37,18 +38,31 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 		int result = studyFolderStore.deleteStudyFolder(folderNo);
 		return result;
 	}
+
 	// studyFolder 하나 조회
 	@Override
 	public StudyFolder selectOneFolder(int studyNo) {
 		return studyFolderStore.selectOneFolder(studyNo);
 	}
-    // studyFolder 하나의 내용 조회
+
+	// studyFolder 하나의 내용 조회
 	@Override
 	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo, int folderNo) {
 		// TODO Auto-generated method stub
 		return studyFolderStore.selectlistOneStudyFolder(studyNo, folderNo);
 	}
 
-	
+	// studyfile 작성자 정보 불러오기
+	@Override
+	public ArrayList<Student> selectstudentName(int sNo) {
+		// TODO Auto-generated method stub
+		return studyFolderStore.selectstudentName(sNo);
+	}
+	// studyfile 작성자 이름 입력
+	@Override
+	public StudyFile selectOneRegistrant(String fileRegistrant) {
+		// TODO Auto-generated method stub
+		return studyFolderStore.selectOneRegistrant(fileRegistrant);
+	}
 
 }

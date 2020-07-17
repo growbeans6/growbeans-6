@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.growbeans.cunity.student.domain.Student;
+import com.growbeans.cunity.studyFile.domain.StudyFile;
 import com.growbeans.cunity.studyFile.mapper.StudyFileMapper;
 import com.growbeans.cunity.studyFolder.domain.StudyFolder;
 import com.growbeans.cunity.studyFolder.mapper.StudyFolderMapper;
@@ -17,10 +19,20 @@ public class StudyFolderStoreLogic {
 	
 	@Autowired
 	private SqlSession sqlsession;
+	// studyfile 작성자 이름 입력
+	public StudyFile selectOneRegistrant(String fileRegistrant) {
+		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
+		return studyfolderMapper.selectOneRegistrant(fileRegistrant);
+	}
+	// 작성자 조회
+	public ArrayList<Student> selectstudentName(int sNo) {
+		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
+		return studyfolderMapper.selectstudentName(sNo);
+	}
 	// studyFolder 하나 선택
 	public StudyFolder selectOneFolder(int studyNo) {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
-		return studyfolderMapper.selectOneStudyFolder(studyNo);
+		return studyfolderMapper.selectOneStudyFolder(studyNo);  
 	}
 	// studyFolder 하나 선택하여 내용 조회
 	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo, int folderNo) {
@@ -42,9 +54,9 @@ public class StudyFolderStoreLogic {
 	}
 	
 	// studyFolder 리스트 조회
-	public ArrayList<StudyFolder> selectlist(int studyNo) {
+	public ArrayList<StudyFolder> selectlist(int studyNo, int folderNo) {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
-		ArrayList<StudyFolder> list = studyfolderMapper.selectlistStudyFolder(studyNo);
+		ArrayList<StudyFolder> list = studyfolderMapper.selectlistStudyFolder(studyNo, folderNo);
 		return list;
 	}
 }

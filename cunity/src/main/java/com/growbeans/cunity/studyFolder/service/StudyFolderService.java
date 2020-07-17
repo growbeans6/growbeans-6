@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.studyFolder.domain.StudyFolder;
 
 public interface StudyFolderService {
@@ -28,7 +31,7 @@ public interface StudyFolderService {
 	 * @param studyNo
 	 * @return list
 	 */
-	public ArrayList<StudyFolder> selectlistFolder(int studyNo);
+	public ArrayList<StudyFolder> selectlistFolder(int studyNo, int folderNo);
 	/**
 	 * studyFolder 하나를 조회하는 메소드
 	 * @param studyNo
@@ -49,6 +52,20 @@ public interface StudyFolderService {
 	 * @param folderNo
 	 * @return
 	 */
+	/**
+	 * 
+	 * studyfile 작성자 정보
+	 * @param sNo
+	 * @return
+	 */
+	public ArrayList<Student> selectstudentName(int sNo);
+	
+	/**
+	 * 파일 작성자 이름을 가져오는 메소드
+	 * @param fileRegistrant
+	 * @return
+	 */
+	public int selectOneRegistrant(String fileRegistrant);
 	
 		
 	

@@ -9,22 +9,24 @@
 		<result property="parentFolderNo" column="PARENT_FOLDER_NO" />
 
 	</resultMap>
-	<select id="selectlistStudyFolder" parameterType="_int"
+
+	
+	<select id="selectlistStudyFolder" parameterType="StudyFolder"
 		resultMap="studyFolderResultSet">
-		select * from study_Folder where STUDY_NO = #{studyNo}
+		select * from study_Folder where study_No = #{studyNo} and parent_Folder_No is null
 	</select>
 	<select id="selectOneStudyFolder"
-		resultMap="studyFolderResultSet" parameterType="StudyFolder"> 
-		select * from study_Folder where study_No = #{studyNo} and
-		parent_Folder_No = null
+		resultMap="studyFolderResultSet" parameterType="_int">
+		select * from study_Folder where study_No = #{studyNo} and parent_Folder_No is null
 	</select>
-	<select id="selectlistOneStudyFolder" resultMap="studyFolderResultSet">
-		select * from study_Folder where study_No = #{studyNo} and 
-		parent_Folder_No = null
+	<select id="selectlistOneStudyFolder"
+		resultMap="studyFolderResultSet" parameterType="_int">
+		select * from study_Folder where study_No = #{studyNo} and parent_Folder_No is null
 	</select>
 
 	<insert id="insertStudyFolder" parameterType="StudyFolder">
-		insert into study_Folder values (FOLDER_NO_SEQ.NEXTVAL, #{studyNo},
+		insert into
+		study_Folder values (FOLDER_NO_SEQ.NEXTVAL, #{studyNo},
 		#{folderName},
 		#{parentFolderNo})
 	</insert>
