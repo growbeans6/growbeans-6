@@ -11,6 +11,7 @@ import com.growbeans.cunity.professor.domain.Professor;
 import com.growbeans.cunity.professor.store.ProfessorStore;
 import com.growbeans.cunity.student.domain.Student;
 
+
 @Repository("pStore")
 public class ProfessorStoreLogic implements ProfessorStore{
 	

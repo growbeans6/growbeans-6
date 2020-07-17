@@ -63,6 +63,7 @@ function question() {
 			<c:otherwise>
 	  			<jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
 	  		</c:otherwise>
+	  		
  		</c:choose>
 
         <!-- Begin Page Content -->

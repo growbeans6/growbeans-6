@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.growbeans.cunity.foreignActivities.domain.ForeignActivities;
 import com.growbeans.cunity.foreignActivities.service.ForeignActivitiesService;
 
+
 @Controller
 public class ForeignActivitiesController {
 	

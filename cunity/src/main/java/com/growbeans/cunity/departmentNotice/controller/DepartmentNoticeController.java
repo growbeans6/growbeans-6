@@ -42,6 +42,7 @@ public class DepartmentNoticeController {
          return mv;
       }
       
+   
       // 학과공지 상세조회
       @RequestMapping("/dNoticeDetail")
       public String noticeDetail(Model model, int dnNo) {

@@ -16,6 +16,7 @@
 <title>SB Admin 2 - Dashboard</title>
 
 
+
 <!-- Custom fonts for this template-->
 <link href="/resources/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">

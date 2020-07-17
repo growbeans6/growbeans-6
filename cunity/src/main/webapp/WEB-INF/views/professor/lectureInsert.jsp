@@ -68,8 +68,8 @@
                   </tr>
                   
                     <tr>
-                     <td>학점</td>
-                     <td><input type="text" class="form-control" name="color" value="3"></td>
+                     <td>인원</td>
+                     <td><input type="text" class="form-control" name="color" value="16명"></td>
                   </tr>
 
                   <tr>
@@ -94,7 +94,49 @@
                           </div>
                           <div class="dropdown">
                               <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                시간
+                                시작시간
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item">1,2</a>
+                                <a class="dropdown-item">2,3</a>
+                              </div>
+                          </div>
+                          <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                끝시간
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item">1,2</a>
+                                <a class="dropdown-item">2,3</a>
+                              </div>
+                          </div>
+                          &nbsp;
+                          &nbsp;
+                          &nbsp;
+                          <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                요일
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item">월</a>
+                                <a class="dropdown-item">화</a>
+                                <a class="dropdown-item">수</a>
+                                <a class="dropdown-item">목</a>
+                                <a class="dropdown-item">금</a>
+                              </div>
+                          </div>
+                          <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                시작시간
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item">1,2</a>
+                                <a class="dropdown-item">2,3</a>
+                              </div>
+                          </div>
+                          <div class="dropdown">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                끝시간
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item">1,2</a>
@@ -109,6 +151,11 @@
                      <td>
                          <input type="text" class="form-control" name="findplace" value="공학관 102">
                      </td>
+                  </tr>
+                  
+                  <tr>
+                     <td>이수구분</td>
+                     <td><input type="text" class="form-control" name="findplace" value="전공필수"></td>
                   </tr>
                       <td>
                      <a class="btn btn-secondary btn-sm" href="#">강의등록</a>

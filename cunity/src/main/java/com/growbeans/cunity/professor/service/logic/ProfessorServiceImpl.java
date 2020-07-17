@@ -13,6 +13,7 @@ import com.growbeans.cunity.professor.store.logic.ProfessorStoreLogic;
 import com.growbeans.cunity.student.domain.Student;
 
 
+
 @Service("pService")
 public class ProfessorServiceImpl implements ProfessorService{
 	

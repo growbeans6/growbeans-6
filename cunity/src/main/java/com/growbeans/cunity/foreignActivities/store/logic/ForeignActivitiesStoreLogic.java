@@ -12,6 +12,7 @@ import com.growbeans.cunity.foreignActivities.store.ForeignActivitiesStore;
 @Repository("ForeignActivitiesStore")
 public class ForeignActivitiesStoreLogic implements ForeignActivitiesStore{
 
+	
 	@Autowired
 	private SqlSession session;
 

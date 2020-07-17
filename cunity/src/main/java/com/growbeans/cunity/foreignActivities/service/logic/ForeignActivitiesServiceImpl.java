@@ -15,6 +15,7 @@ import com.growbeans.cunity.foreignActivities.store.ForeignActivitiesStore;
 @Service("fActService")
 public class ForeignActivitiesServiceImpl implements ForeignActivitiesService{
 	
+	
 	@Autowired
 	private ForeignActivitiesStore fActStore;
 

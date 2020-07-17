@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ForeignActivities {
 
+	
 	private int actNo;
 	private String sNo;
 	private String sName;

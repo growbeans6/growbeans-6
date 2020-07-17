@@ -34,6 +34,7 @@
 	</update>
 	
 	
+	
 	<!-- 학과공지 삭제 쿼리 -->
 	<delete id="deletedNotice" parameterType="_int">
 		DELETE FROM DNOTICE WHERE DN_NO = #{dnNo}

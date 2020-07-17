@@ -9,6 +9,7 @@ import com.growbeans.cunity.foreignActivities.domain.ForeignActivities;
 
 public interface ForeignActivitiesService {
 	
+	
 	/**
 	 * 학생마다 대외활동 정보 조회
 	 * 

@@ -13,6 +13,7 @@ import com.growbeans.cunity.departmentNotice.service.DepartmentNoticeService;
 import com.growbeans.cunity.departmentNotice.store.DepartmentNoticeStore;
 
 
+
 @Service("dService")
 public class DepartmentNoticeImpl implements DepartmentNoticeService{
    

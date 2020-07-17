@@ -13,6 +13,7 @@ import com.growbeans.cunity.departmentNotice.domain.DepartmentNotice;
 public interface DepartmentNoticeService {
 	
 	   
+	
 	public ArrayList<DepartmentNotice> noticeList();
 	   public DepartmentNotice noticeDetail(int dnNo);
 	   public int noticeInsert(DepartmentNotice notice);

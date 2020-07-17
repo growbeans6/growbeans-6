@@ -10,6 +10,7 @@
           <i class="fas fa-laugh-wink"></i>
         </div>
         <div class="sidebar-brand-text mx-3">cUnity</div>
+        
       </a>
 
       <!-- Divider -->

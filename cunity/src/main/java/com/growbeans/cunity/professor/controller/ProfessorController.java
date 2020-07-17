@@ -18,6 +18,7 @@ import com.growbeans.cunity.professor.domain.Professor;
 import com.growbeans.cunity.professor.service.ProfessorService;
 import com.growbeans.cunity.student.domain.Student;
 
+
 @SessionAttributes({"loginprof"})
 @Controller
 public class ProfessorController {

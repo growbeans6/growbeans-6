@@ -65,6 +65,7 @@
                   <div>
                     <div class="small text-gray-500">December 12, 2019</div>
                     <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                    
                   </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">

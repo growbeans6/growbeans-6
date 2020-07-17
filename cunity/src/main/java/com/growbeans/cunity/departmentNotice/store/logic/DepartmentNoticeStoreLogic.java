@@ -13,6 +13,7 @@ import com.growbeans.cunity.departmentNotice.store.DepartmentNoticeStore;
 @Repository("dStore")
 public class DepartmentNoticeStoreLogic implements DepartmentNoticeStore {
    
+	
    @Autowired
    private SqlSessionTemplate sqlsession;
 

@@ -7,5 +7,6 @@ import com.growbeans.cunity.foreignActivities.domain.ForeignActivities;
 public interface ForeignActivitiesStore {
 
 
+	
 	public ArrayList<ForeignActivities> foreignInfo(int sNo);
 }
