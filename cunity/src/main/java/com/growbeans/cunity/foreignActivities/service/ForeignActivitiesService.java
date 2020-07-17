@@ -1,6 +1,8 @@
 package com.growbeans.cunity.foreignActivities.service;
 
 
+import java.util.ArrayList;
+
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.foreignActivities.domain.ForeignActivities;
@@ -14,7 +16,7 @@ public interface ForeignActivitiesService {
 	 * @return
 	 */
 	
-	public ForeignActivities foreignInfo(int sNo);
+	public ArrayList<ForeignActivities> foreignInfo(int sNo);
 	
 	/**
 	 * 대외 활동 정보 삭제

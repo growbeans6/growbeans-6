@@ -25,20 +25,45 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+<script>
+function question() {
+	var result = window.confirm("정말로 삭제 하시겠습니까?");
 
+	if (result) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+</script>
 </head>
 
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-	<jsp:include page="../professorwrapper.jsp"></jsp:include>
+	<c:choose>
+	  	<c:when test="${sessionScope.loginStudent.sNo != null}">
+	  		<jsp:include page="../wrapper.jsp"></jsp:include>
+	  	</c:when>
+	  	<c:otherwise>
+	  		<jsp:include page="../professorwrapper.jsp"></jsp:include>
+	  	</c:otherwise>
+    </c:choose>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
       <!-- Main Content -->
       <div id="content">
 
-       <jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
+       <c:choose>
+			<c:when test="${sessionScope.loginStudent.sNo != null}">
+	       		<jsp:include page="../content-wrapper.jsp"></jsp:include>
+	       	</c:when>
+			<c:otherwise>
+	  			<jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
+	  		</c:otherwise>
+ 		</c:choose>
 
         <!-- Begin Page Content -->
         <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
@@ -58,23 +83,35 @@
                     <span class="input-group-text" id="basic-addon1">제목</span>
                 </div>
                 <div>
-                	
-                	<span class="input-group-text" id="basic-addon1">${dnDetail.dnTitle}</span>
+                	<span class="input-group-text" id="basic-addon1" style="width:100%;">${dnDetail.dnTitle}</span>
                 </div>
-                
-                
               </div>
               <div class="input-group" style="width:65%">
                   <div class="input-group-prepend">
                     <span class="input-group-text">내용</span>
                   </div>
-                <div class="form-control" aria-label="With textarea" readonly>${dnDetail.dnContent }</div>
+                <div class="form-control" aria-label="With textarea" readonly style="height:100%;">${dnDetail.dnContent }</div>
               </div>
                 <div>
                 <c:url var="dnList" value="/dNoticeList"></c:url>
                     <a class="btn btn-secondary btn-sm" href="${dnList }">목록으로</a>
-                    <c:url var="dnUpdate" value="/dNoticeUpdateView"></c:url>
+                    <c:url var="dnUpdate" value="/dNoticeUpdateView">
+                    	<c:param name="dnNo" value="${dnDetail.dnNo }"/>
+                    </c:url>
+                    <c:choose>
+                    	<c:when test="${sessionScope.loginStudent.sNo == null }">
+                    		<c:url var="dnDelete" value="/dNoticeDelete">
+                    	<c:param name="dnNo" value="${dnDetail.dnNo }"/>
+                    		</c:url>
+                    <a onclick="return question();" class="btn btn-secondary btn-sm" href="${dnDelete}">글삭제</a>
                     <a class="btn btn-secondary btn-sm" href="${dnUpdate}">글수정</a>
+                    	</c:when>
+                    	<c:otherwise>
+                    	
+                    	</c:otherwise>
+                    </c:choose>
+                    
+                    
                 </div>
               </div>
             </div>

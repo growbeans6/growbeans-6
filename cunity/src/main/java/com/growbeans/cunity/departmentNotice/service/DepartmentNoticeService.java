@@ -18,6 +18,4 @@ public interface DepartmentNoticeService {
 	   public int noticeInsert(DepartmentNotice notice);
 	   public int noticeUpdate(DepartmentNotice notice);
 	   public int noticeDelete(int dnNo);
-
-
 }

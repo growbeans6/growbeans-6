@@ -1,6 +1,8 @@
 package com.growbeans.cunity.professor.controller;
 
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +28,7 @@ public class ProfessorController {
    // 교수 정보 //세션에서 교번을 가져온다.
    @RequestMapping("/profInfo")
    public ModelAndView professorInfo(ModelAndView mv) {
-	   mv.setViewName("common/loginPage");
+	   mv.setViewName("professor/profInfo");
       return mv;
    }
    
@@ -37,7 +39,7 @@ public class ProfessorController {
 	   if(result > 0 ) {
 		   model.addAttribute("loginprof", prof);
 		   rd.addFlashAttribute("msg", "정보수정 성공");
-		   return "home";
+		   return "redirect:/profInfo";
 	   } else {
 		   model.addAttribute("msg", "정보 수정 실패");
 		   return "home";
@@ -47,7 +49,14 @@ public class ProfessorController {
    // 지도학생 리스트조회
    @RequestMapping("/studentList")
    public ModelAndView guidanceList(ModelAndView mv) {
-	   mv.setViewName("tbl_LeadStudent");
+	   ArrayList<Student> gdList = pService.guidanceList();
+	   
+	   if (!gdList.isEmpty()) {
+		   mv.addObject("gdList", gdList);
+		   mv.setViewName("tbl_LeadStudent");
+	   } else {
+		   mv.setViewName("home");
+	   }
       return mv;
    }
    

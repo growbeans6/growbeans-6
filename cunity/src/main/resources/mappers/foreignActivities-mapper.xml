@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="actMapper">
+
+	<resultMap type="ForeignActivities" id="actResultSet">
+		<id property="actNo" column="ACT_NO"/>
+		<result property="sNo" column="S_NO" />
+		<result property="sName" column="S_NAME"/>
+		<result property="actDate" column="ACT_DATE"/>
+		<result property="actTitle" column="ACT_TITLE"/>
+		<result property="actContent" column="ACT_CONTENT"/>
+		<result property="actPhoto" column="ACT_PHOTO"/>
+	</resultMap>
+	
+	<!-- 대외활동 조회 -->
+	<select id="selectActList"  parameterType="_int" resultMap="actResultSet">
+		SELECT * FROM ACTIVITY WHERE S_NO = #{sNo}
+	</select>
+</mapper>

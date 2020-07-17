@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<% pageContext.setAttribute("newLineChar", "\n"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -30,78 +32,80 @@
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
-	<jsp:include page="../professorwrapper.jsp"></jsp:include>
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-      <!-- Main Content -->
-      <div id="content">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+		<jsp:include page="../professorwrapper.jsp"></jsp:include>
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+			<!-- Main Content -->
+			<div id="content">
 
-       <jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
+				<jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
 
-        <!-- Begin Page Content -->
-        <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
-       <div class="container-fluid">
+				<!-- Begin Page Content -->
+				<!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
+				<div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">학과공지 수정페이지</h1>
-          
+					<!-- Page Heading -->
+					<form action="/dNoticeUpdate" method="post"	enctype="Multipart/form-data">
+						<h1 class="h3 mb-2 text-gray-800">학과공지</h1>
+						
+						<!-- DataTales Example -->
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold text-primary">학과공지 게시판</h6>
+							</div>
+							<div class="input-group mb-3" style="width: 65%">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">제목</span>
+								</div>
+								<input type="text" class="form-control" name="dnTitle" aria-label="Title" aria-describedby="basic-addon1" value="${dNotice.dnTitle }"> 
+								<input type="hidden" name="dnNo" value="${dNotice.dnNo }">
+							</div>
+							<div class="input-group" style="width: 65%">
+								<div class="input-group-prepend">
+									<span class="input-group-text">내용</span>
+								</div>
 
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">학과공지 게시판</h6>
-            </div>
-              <div class="input-group mb-3" style="width:65%">
-                <div class="input-group-prepend">
-                <form action="/dNoticeUpdateView" method="post" enctype="Multipart/form-data">
-                    <span class="input-group-text" id="basic-addon1">제목</span>
-                </div>
-                <span class="input-group-text" id="basic-addon1">${dnDetail.dnTitle}</span>
-                
-              </div>
-              <div class="input-group" style="width:65%">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">내용</span>
-                  </div>
-                <textarea class="form-control" aria-label="With textarea">5월 학과공지 내용</textarea>
-              </div>
-                <div>
-                    <a class="btn btn-secondary btn-sm" href="#">글수정</a>
-                    <a class="btn btn-secondary btn-sm" href="학과공지(교수).html">취소</a>
-                </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.container-fluid -->
+								<textarea class="form-control" aria-label="With textarea"
+									name="dnContent" style="resize: none; height: 100%;">${fn:replace(dNotice.dnContent, '<br>','') }</textarea>
+							</div>
+							<div>
 
-      </div>
+								<button type="submit" class="btn btn-secondary btn-sm">글수정</button>
+								<c:url var="dNoticeList" value="/dNoticeList"></c:url>
+								<a class="btn btn-secondary btn-sm" href="${dNoticeList }">취소</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
 
-      <!-- End of Main Content -->
-      <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
-    </div>
-    <!-- End of Content Wrapper -->
-  </div>
-  <!-- End of Page Wrapper -->
-  
-  <script src="/resources/vendor/jquery/jquery.min.js"></script>
-  <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		</div>
+		<!-- /.container-fluid -->
 
-  <!-- Core plugin JavaScript-->
-  <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+	</div>
+	<!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
+	</div>
+	<!-- End of Content Wrapper -->
+	</div>
+	<!-- End of Page Wrapper -->
 
-  <!-- Custom scripts for all pages-->
-  <script src="/resources/js/sb-admin-2.min.js"></script>
+	<script src="/resources/vendor/jquery/jquery.min.js"></script>
+	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="/resources/vendor/chart.js/Chart.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="/resources/js/demo/chart-area-demo.js"></script>
-  <script src="/resources/js/demo/chart-pie-demo.js"></script>
+	<!-- Custom scripts for all pages-->
+	<script src="/resources/js/sb-admin-2.min.js"></script>
+
+	<!-- Page level plugins -->
+	<script src="/resources/vendor/chart.js/Chart.min.js"></script>
+
+	<!-- Page level custom scripts -->
+	<script src="/resources/js/demo/chart-area-demo.js"></script>
+	<script src="/resources/js/demo/chart-pie-demo.js"></script>
 </body>
 
 </html>

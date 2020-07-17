@@ -1,6 +1,8 @@
 package com.growbeans.cunity.foreignActivities.service.logic;
 
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,8 +19,8 @@ public class ForeignActivitiesServiceImpl implements ForeignActivitiesService{
 	private ForeignActivitiesStore fActStore;
 
 	@Override
-	public ForeignActivities foreignInfo(int sNo) {
-		return null;
+	public ArrayList<ForeignActivities> foreignInfo(int sNo) {
+		return fActStore.foreignInfo(sNo);
 	}
 
 	@Override

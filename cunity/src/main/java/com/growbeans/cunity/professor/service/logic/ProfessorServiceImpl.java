@@ -21,8 +21,7 @@ public class ProfessorServiceImpl implements ProfessorService{
 
 	@Override
 	public Professor professorInfo(int pNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return pStore.professorInfo(pNo);
 	}
 
 	@Override
@@ -32,8 +31,7 @@ public class ProfessorServiceImpl implements ProfessorService{
 
 	@Override
 	public ArrayList<Student> guidanceList() {
-		// TODO Auto-generated method stub
-		return null;
+		return pStore.guidanceList();
 	}
 
 	@Override

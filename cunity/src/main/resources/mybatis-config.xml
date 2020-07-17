@@ -67,5 +67,7 @@
 		<mapper resource="mappers/lecture-mapper.xml"/>
 		<mapper resource="mappers/lectureEnrollment-mapper.xml"/>
 		<mapper resource="mappers/timetable-mapper.xml"/>
+		<mapper resource="mappers/departmentNotice-mapper.xml"/>
+		<mapper resource="mappers/foreignActivities-mapper.xml"/>
 	</mappers>
 </configuration>
