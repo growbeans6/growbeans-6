@@ -29,6 +29,7 @@
 		<result property="studyNo" column="STUDY_NO"/>
 		<result property="postWriterSName" column="POST_WRITER_S_NAME"/>
 		<result property="filePath" column="FILEPATH"/>
+		
 	</resultMap>
 	
 	<resultMap type="PostComment" id="PostCommentResultSet">
@@ -47,6 +48,20 @@
 		<result property="imgUploadTime" column="post_img_upload_time"/>
 		<result property="postNo" column="post_no"/>
 	</resultMap>
+	<insert id="createStudy">
+		insert into study values (study_no_seq.nextval, #{studyName},#{studyManager})
+	</insert>
+	<update id="joinStudy">
+		<choose>
+			<when test="studyNo>0">
+				update student set study_no = #{studyNo} where s_no=#{sNo}
+			</when>
+			<otherwise>
+				update student set study_no = (select max(study_no) from study) where s_no=#{sNo}
+			</otherwise>
+		</choose>
+		</update>
+	<delete id="deleteApply">delete from post_comment where post_no = #{postNo} and ment_depth=#{mentWriter}</delete>
  	<select id="selectStudyStudentList" resultMap="studentResultSet" parameterType="_int">
  		select * from student 
  		where study_no = #{studyNo}
@@ -106,4 +121,14 @@
 		delete from POST_COMMENT
 		where ment_no = ${mentNo}
 	</delete>
+	<select id="getMemberList" resultMap="studentResultSet" parameterType="_int">
+		select *
+		from student s left join post p on (s.s_no = p.post_writer_s_no)
+		where s.study_no = #{studyNo}
+		and to_char(post_regdate,'YY/MM/DD')=to_char(sysdate,'YY/MM/DD') and post_kinds = '타임라인'
+	</select>
+	<select id="selectPostCommentOne" resultMap="PostCommentResultSet">
+		SELECT * FROM POST_COMMENT 
+		WHERE MENT_NO = (select max(MENT_NO) from post_comment)
+	</select>
 </mapper>

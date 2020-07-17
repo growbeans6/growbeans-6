@@ -22,6 +22,7 @@
 		<result property="mentContent" column="MENT_CONTENT"/>
 		<result property="mentRegDate" column="MENT_REGDATE"/>
 		<result property="mentDepth" column="MENT_DEPTH"/>
+		<result property="mentFilePath" column="MENT_FILE_PATH"/>
 	</resultMap>
 	
 	<select id="selectList" resultMap="PostResultSet">
@@ -43,12 +44,12 @@
 	
 	<!-- 게시글 등록 쿼리 -->
 	<insert id="insertPost" parameterType="Post">
-		INSERT INTO POST VALUES(POST_NO_SEQ.NEXTVAL, #{postKinds}, #{postCategory}, #{postWriterSNo}, #{postSubject}, #{postContent}, SYSDATE, null, #{postWriterSName}, #{filePath})
+		INSERT INTO POST VALUES(POST_NO_SEQ.NEXTVAL, #{postKinds}, #{postCategory}, #{postWriterSNo}, #{postSubject}, #{postContent}, SYSDATE, #{studyNo}, #{postWriterSName}, #{filePath})
 	</insert>
 	
 	<!-- 댓글 등록 쿼리 -->
 	<insert id="insertPostComment" parameterType="PostComment">
-		INSERT INTO POST_COMMENT VALUES(MENT_NO_SEQ.NEXTVAL, #{postNo}, MENT_DEPTH_SEQ.NEXTVAL, '송범진', #{mentContent}, SYSDATE)
+		INSERT INTO POST_COMMENT VALUES(MENT_NO_SEQ.NEXTVAL, #{postNo},#{mentWriter}, #{mentContent}, SYSDATE,#{mentDepth},null)
 	</insert>
 	
 	<select id="selectPostCommentList" resultMap="PostCommentResultSet">

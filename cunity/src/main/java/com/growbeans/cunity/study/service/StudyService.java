@@ -2,6 +2,8 @@ package com.growbeans.cunity.study.service;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.growbeans.cunity.post.domain.Post;
 import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.domain.PostImage;
@@ -44,6 +46,13 @@ public interface StudyService {
 	 * @return result
 	 */
 	public int joinStudy(Student student);
+	/**
+	 * 5-2. 가입신청 댓글 삭제
+	 * @param postNo
+	 * @param studentNo
+	 * @return result
+	 */
+	public int deleteApply(int postNo, int studentNo);
 	
 	/**
 	 * 6. 스터디 탈퇴
@@ -131,4 +140,16 @@ public interface StudyService {
 	public int insertMent(PostComment postComment);
 	public int updateMent(String mentContent, int mentNo);
 	public int deleteMent(int mentNo);
+	
+	/**
+	 * 오늘 작성한 타임라인이 있는 유저의 리스트
+	 * @param studyNo
+	 * @return slist
+	 */
+	public ArrayList<Student> getMemberList(@Param("studyNo") int studyNo);
+	/**
+	 * 작성한 댓글 정보 가져오기
+	 * @return ment
+	 */
+	public PostComment selectPostCommentOne();
 }

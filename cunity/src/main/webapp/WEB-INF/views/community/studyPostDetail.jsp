@@ -21,24 +21,6 @@
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<style type="text/css">
-        #content_sub {
-            width: 50%;
-        }
-        #content_writer {
-            width: 10%;
-        }
-		#content_regDate {
-            width: 15%;
-        }
-        #content_contoller {
-            width: 15%;
-        }
-        .content_contoller {
-            width: 15%;
-            display:none;
-        }
-</style>
 </head>
 
 <body id="page-top">
@@ -114,18 +96,10 @@
 							</div>  -->
 							<br>
 							<hr>
-							<b id="mentCount"></b>
 							<table id="commenttb" class="table">
 								<thead>
 									<tr>
-										<th id="content_writer">작성자</th>
-										<th id="content_sub">댓글내용</th>
-										<th id="content_regDate">작성날짜</th>
-										<c:if test="${loginStudent.sNo eq post.postWriterSNo && post.postKinds eq'스터디'}">
-											<th id="content_controller">가입수락</th>
-										</c:if>
-										<th id="content_controller">수정</th>
-										<th id="content_controller">삭제</th>
+										<td colspan="2"><b id="mentCount"></b></td>
 									</tr>
 								</thead>
 								<tbody></tbody>
@@ -155,36 +129,8 @@
 			/* $("#mentSubmit").on("click", function() {
 				
 			}); */
-			$("tbody").find(".content_controller").each(function(item,index) {
-				var mentNo = $(this).parents("tr").eq(0).attr("mentNo");
-				var loginSNo=${loginStudent.sNo};
-				if(mentNo==loginSNo){
-					$(this).css("display","block");
-				}
-			});
-			
 		});
-		function joinStudy(obj){
-			var studyNo=${loginStudent.studyNo};
-			var sNo = $(obj).parents("tr").eq(0).attr("mentSNo");
-			var postNum = ${post.postNo};
-			$.ajax({
-				url : "/acceptance",
-				data : { 
-					sNo : sNo,
-					studyNo : studyNo,
-					postNo : postNum
-				},
-				type : "post",
-				success : function(data) {
-					if (data == "success") { //data를 String으로 받아와서 성공, 실패만 가림
-						getPostCommentList();
-						alert("가입을 수락하셨습니다.\n 스터디 멤버와 스터디룸에서 소통하세요!");
-					}
-				}
-			});
-			
-		}
+
 		function addMent() {
 			var mentContent = $("#mentContent").val(); // 댓글의 내용
 			var postNum = ${post.postNo}
@@ -192,7 +138,7 @@
 
 			$.ajax({
 				url : "addPostComment",
-				data : { 
+				data : {
 					mentContent : mentContent,
 					postNo : postNum,
 				},
@@ -256,8 +202,8 @@
 							if (data.length > 0) {
 								for ( var i in data) {
 									$tr = $("<tr>");
-								    $rWriter = $("<td>").text(
-											data[i].mentWriter);
+									/* $rWriter = $("<td width='100'>").text(
+											data[i].mentWriter); */
 									$rContent = $("<td>")
 											.text(
 													decodeURIComponent(data[i].mentContent
@@ -267,23 +213,10 @@
 									/*  $rReply = $("<button style='float:right;' onclick='addReply()'; mentDepth='"
 											+ data[i].mentDepth
 											+ "');'>대댓글</button>"); */
-									// 가입수락 버튼 만들기
-									$rApply = $("<td>");
-									$rApply.attr("id","content_controller");
-									$rApplyButton = $("<button>");
-									$rApplyButton.attr("class","btn btn-primary"); 
-									$rApplyButton.attr("onclick","joinStudy(this);"); 
-									$rApplyButton.text("가입수락");
-									var loginUser = ${loginStudent.sNo};
-									var postWriter = ${post.postWriterSNo};
-									if(loginUser==postWriter){
-										$rApply.append($rApplyButton);
-									}
-									$tr.attr("mentSNo",data[i].mentDepth);
-								    $tr.append($rWriter);
+
+									/* $tr.append($rWriter); */
 									$tr.append($rContent);
-								    $tr.append($rCreateDate);
-								    $tr.append($rApply);
+									/* $tr.append($rCreateDate); */
 									/* $tr.append($rReply); */
 									$tableBody.append($tr);
 								}

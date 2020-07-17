@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Dashboard</title>
+<title>스터디 수정</title>
 
 <!-- Custom fonts for this template-->
 <link href="/resources/vendor/fontawesome-free/css/all.min.css"
@@ -196,7 +196,8 @@
 					<div class="row"></div>
 
 					<div class="container">
-						<form id = "writeForm" method="post" enctype="multipart/form-data">
+						<form id ="writeForm" action="/study-timeline/board/update" method="post" enctype="multipart/form-data">
+							
 							<div class="col-lg-12">
 
 
@@ -352,7 +353,7 @@
 			}
 		});
 		function submitForm(){
-			$("#writeForm").attr("action","/ModifyTimeLine");
+		
 			$("#writeForm").submit();
 			
 		}
@@ -428,6 +429,10 @@
 			$('#img-box3 img').attr("src", '/resources//img/chipmunk.jpg');
 			count--;
 			image = 2;
+			var status = $("#image2").attr("disabled");
+			if (status) {
+				image = 1;
+			}
 			var status = $("#image1").attr("disabled");
 			if (status) {
 				image = 0;
