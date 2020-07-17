@@ -44,7 +44,6 @@ public class FriendsController {
 		
 		ArrayList<Student> friendsList = friendsService.findFriends(sName);
 	
-
 		Gson gson = new Gson();
 		gson.toJson(friendsList, response.getWriter());
 	}
