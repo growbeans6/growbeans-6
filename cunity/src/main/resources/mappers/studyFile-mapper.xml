@@ -5,21 +5,23 @@
 	<resultMap type="studyFile" id="studyFileResultSet">
 		<id property="fileNo" column="FILE_NO" />
 		<result property="studyNo" column="STUDY_NO" />
-		<result property="fileName" column="FILE_NAME" />
+		<result property="uploadFile" column="FILE_NAME" />
 		<result property="filePath" column="FILE_PATH" />
 		<result property="fileUploadTime" column="FILE_UPLOAD_TIME" />
 		<result property="folderNo" column="FOLDER_NO" />
+		<result property="fileRegistrant" column="FILE_REGISTRANT" />
 	</resultMap>
+	<insert id="uploadStudyFile" parameterType="studyFile">
+		insert into study_File values(FILE_NO_SEQ.nextval, #{studyNo}, #{uploadFile}, #{filePath}, SYSDATE, #{folderNo}, #{fileRegistrant} )
+	</insert>
 
-	<select id="selectOneStudyFile" resultMap="studyFileResultSet"
-		parameterType="StudyFile"> select * from studyFile where fileNo = #{fileNo} and
-		studyNo = #{studyNo} and folderNo = #{folderNo} </select>
 
-	<insert id="insertStudyFile" parameterType="StudyFile"> insert into
-		studyFile values (FILE_NO_SEQ, #{studyNo}, #{fileName}, #{filePath},
-		SYSDATE, #{folderNo}) </insert>
+	<!-- <insert id="insertStudyFile" parameterType="StudyFile"> insert into 
+		study_File values (FILE_NO_SEQ, #{studyNo}, #{fileName}, #{filePath}, SYSDATE, 
+		#{folderNo}) </insert> -->
 
 	<delete id="deleteStudyFile" parameterType="String"> delete studyFile
-		where fileNo = #{fileNo} </delete>
+		where fileNo = #{fileNo}
+	</delete>
 
 </mapper>

@@ -147,9 +147,12 @@
 						<div class="row"></div>
 
 						<div id="content-layer1" class="col-lg-8">
-							<h1 class="h3 mb-1 text-gray-800">${folder.folderNo}</h1>
+							<h1 class="h3 mb-1 text-gray-800">폴더명1-1</h1>
 							<br>
 							<div class="row">
+								<%-- <c:url var="#" values="#"/>
+							<a href="${ }"></a>
+								<c:forEach var="n" items="${ }"> --%>
 								<div class="col-lg-11">
 									<div class="card w-75">
 										<div class="card-body">
@@ -158,77 +161,51 @@
 												<div class="form-group">
 													<input type="hidden" name="studyNo"
 														value="${loginStudent.studyNo }">
-													<input type="hidden" name="studentNo" value="${loginStudent.sNo }">
-													<input type="hidden" name="fileRegistrant" value="${fileRegistrant }">
 												</div>
-												<!-- 나중에 forEach로 바꿔줘야 함 -->
 												<div class="form-group">
 													<label for="exampleFormControlSelect1">폴더 선택</label> <select
 														name="folderNo" class="form-control"
 														id="exampleFormControlSelect1">
-														<option value="${FolderList[0].folderNo }">${FolderList[0].folderName }</option>
+														<option value="${childerenFolderList[1].folderNo }">${childerenFolderList[1].folderName }</option>
 													</select>
 												</div>
 												<div class="form-group">
 													<label for="exampleFormControlSelect1">파일 찾기</label>
 													<div class="input-group">
 														<div class="custom-file">
-															<input type="file" class="file-input" name="fileName">
+															<input type="file" class="file-input" name="uploadFile">
 														</div>
 													</div>
 												</div>
 												<input type="submit" value="등록하기" class="btn btn-primary">
+
 											</form>
 										</div>
 									</div>
 								</div>
+								<%-- </c:forEach> --%>
+								<br> <br>
+								<c:forEach var="folder" items="${childerenFolderList }">
+									<c:if test="${childerenFolderList.folderNo }" />
+									
+									<div class="col-lg-8">
 
+										<div id="filebox" class="card w-80">
+											<h5 class="card-header">${folder.uploadFile }</h5>
+											<div class="card-body">
+												<h5 class="card-title">${folder.uploadFile }</h5>
+												<p class="card-text">
+													<a href="#" class="card-link">${folder.uploadFile }</a><br>
+												<p class="text-right">작성자 : ${fileWriter.sName }, 올린 시간
+													: ${folder.fileUploadTime }</p>
+												<c:if test="${loginUser. }"
+												<input type="reset" class="btn btn-primary" value="파일 삭제">
+											</div>
+										</div>
+									</div>
+								</c:forEach>
 								<br> <br>
 
-								<div class="col-lg-8">
-
-									<div id="filebox" class="card w-80" style="display: none">
-										<h5 class="card-header">글 제목</h5>
-										<div class="card-body">
-											<h5 class="card-title">제목1</h5>
-											<p class="card-text">
-												<a href="#" class="card-link">업로드 된 파일.jpg</a><br>
-											<p class="text-right">작성자 : 작성자, 올린 시간 : 20xx.xx.xx</p>
-											</p>
-											<a href="#" class="btn btn-primary">파일 삭제</a>
-										</div>
-									</div>
-								</div>
-								<br>
-
-								<div class="col-lg-8">
-
-									<div class="card w-80">
-										<h5 class="card-header">글 제목</h5>
-										<div class="card-body">
-											<h5 class="card-title">제목2</h5>
-											<p class="card-text">
-												<a href="#" class="card-link">업로드 된 파일.jpg</a><br>
-											<p class="text-right">작성자 : 홍길동, 올린 시간 : 20xx.xx.xx</p>
-											</p>
-											<a href="#" class="btn btn-primary">파일 다운로드</a>
-										</div>
-									</div>
-								</div>
-								<br>
-								<div class="col-lg-8">
-
-									<div class="card w-80">
-										<h5 class="card-header">글 제목</h5>
-										<div class="card-body">
-											<h5 class="card-title">제목3</h5>
-											<p class="card-text">
-												<a href="#" class="card-link">업로드 된 파일.jpg</a><br>
-											<p class="text-right">작성자 : 유관순, 올린 시간 : 20xx.xx.xx</p>
-											<a href="#" class="btn btn-primary">파일 다운로드</a>
-										</div>
-									</div>
-								</div>
 
 							</div>
 
@@ -316,11 +293,11 @@
 
 		var count = 0;
 		/* 파일을 업로드 할 때 동작하는 메소드 */
-		/* 		function addFile() {
-		 $("#fileForm").submit();
-		 $("#filebox").css("display","block");
-		
-		 } */
+		function addFile() {
+			$("#fileForm").submit();
+			$("#filebox").css("display", "block");
+
+		}
 		/* 파일을 삭제할 때 동작하는 메소드 */
 		function deleteFile() {
 

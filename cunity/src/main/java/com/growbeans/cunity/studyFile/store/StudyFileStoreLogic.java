@@ -13,6 +13,8 @@ public class StudyFileStoreLogic {
 	@Autowired
 	private SqlSession sqlSession;
 
+	
+	
 	/**
 	 * study 파일 업로드를 위한 메소드
 	 * 
@@ -21,8 +23,7 @@ public class StudyFileStoreLogic {
 	 */
 	public int uploadStudyFile(StudyFile studyFile) {
 		StudyFileMapper studyfileMapper = sqlSession.getMapper(StudyFileMapper.class);
-		int result = studyfileMapper.uploadStudyFile(studyFile);
-		return result;
+		return studyfileMapper.uploadStudyFile(studyFile);
 	}
 
 	/**
