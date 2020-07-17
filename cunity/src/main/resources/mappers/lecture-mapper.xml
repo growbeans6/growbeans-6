@@ -56,6 +56,14 @@
 	where p_no = #{pNo}
 	</select>
 	
+	<insert id="insertLecture">
+	INSERT INTO LECTURE VALUES(#{lcode}, #{pNo}, #{lDay1},#{lStartTime1},#{lEndTime1},#{lDay2},#{lStartTime2},#{lEndTime2},#{lName},#{lpName},#{lNumberStudent},#{lroom},#{lClassify},#{lPoint},NULL)
+	</insert>
+	
+	<delete id="deleteLecture">
+	DELETE FROM LECTURE WHERE L_CODE = #{lcode}
+	</delete>
+	
 	
 </mapper>
 

@@ -35,12 +35,12 @@ public class LectureStoreLogic implements LectureStore {
 	
 	@Override
 	public int insertLecture(Lecture lec) {
-		return 0;
+		return sqlSession.insert("lectureMapper.insertLecture", lec);
 	}
 
 	@Override
 	public int deleteLecture(int lCode) {
-		return 0;
+		return sqlSession.delete("lectureMapper.deleteLecture", lCode);
 	}
 	
 

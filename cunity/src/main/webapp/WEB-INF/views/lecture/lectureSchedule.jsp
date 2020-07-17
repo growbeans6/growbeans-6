@@ -64,6 +64,7 @@ overflow : hidden;
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
+
                     <tr>
                       <th></th>
                       <th>월</th>
@@ -137,6 +138,8 @@ overflow : hidden;
                       <td>${timetable.tur7 }</td>
                       <td>${timetable.fri7 }</td>
                     </tr>                 
+                    <tr>
+                    </tr>
 
                   </tbody>
                 </table>

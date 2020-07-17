@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class LectureEvaluation {
 
-	private String sNo;
+	private int sNo;
 	private int lCode;
 	private int eRate;
 	private String eContent;
@@ -12,10 +12,8 @@ public class LectureEvaluation {
 	
 	
 	public LectureEvaluation() {}
-	
-	
-	
-	public LectureEvaluation(String sNo, int lCode, int eRate, String eContent, Date eDate) {
+
+	public LectureEvaluation(int sNo, int lCode, int eRate, String eContent, Date eDate) {
 		super();
 		this.sNo = sNo;
 		this.lCode = lCode;
@@ -25,12 +23,12 @@ public class LectureEvaluation {
 	}
 
 
-	public String getsNo() {
+	public int getsNo() {
 		return sNo;
 	}
 
 
-	public void setsNo(String sNo) {
+	public void setsNo(int sNo) {
 		this.sNo = sNo;
 	}
 
@@ -73,11 +71,8 @@ public class LectureEvaluation {
 	public void seteDate(Date eDate) {
 		this.eDate = eDate;
 	}
-
-
-	@Override
-	public String toString() {
-		return "LectureEvaluation [sNo=" + sNo + ", lCode=" + lCode + ", eRate=" + eRate + ", eContent=" + eContent
-				+ ", eDate=" + eDate + "]";
-	}
+	
+	
+	
+	
 }

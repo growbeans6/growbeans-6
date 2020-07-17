@@ -56,37 +56,42 @@
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
-                    <tr>
-                      <th>구분</th>
+                    <tr style="text-align:center">
                       <th>강의명</th>
                       <th>강의실</th>
                       <th>강의요일</th>
                       <th>인원</th>
                       <th>수강생 목록</th>
+                      <th>삭제</th>
                     </tr>
                   </thead>
                   <tbody style="text-align=center">
                   
                   <c:forEach items="${proLectureList }" var="list" varStatus="status">
-                    <tr>
-                      <td><input type="checkbox" aria-label="Checkbox for following text input"></td>
+                    <tr style="text-align:center">
                       <td>${list.lName }</td>
                       <td>${list.lroom }</td>
                       <td>${list.lDay1 }(${list.lStartTime1},${list.lEndTime1}),${list.lDay2 }(${list.lStartTime2},${list.lEndTime2})</td>
                       <td>${list.lNumberStudent }</td>
+
                       <c:url value="/lStudentList" var="studentList1" >
                       <c:param name="lCode" value="${list.lcode }"/>
                       </c:url>
                       <td><a class="btn btn-secondary btn-sm" href="${studentList1 }">목록보기</a></td>
+                      
+                      <c:url value="/deleteLecture" var="deleteLecture" >
+                      <c:param name="lCode" value="${list.lcode }"/>
+                      </c:url>
+                      <td><a class="btn btn-secondary btn-sm" href="${deleteLecture }">삭제</a></td>
                     </tr>
                    </c:forEach> 
                    
                   </tbody>
                 </table>
                 <div>
-                	<c:url value="/lectureInsert" var="lectureInsert"></c:url>
-                    <a class="btn btn-secondary btn-sm" href="${lectureInsert }">추가</a>
-                    <a class="btn btn-secondary btn-sm" href="#">삭제</a>
+                	<c:url value="/lectureInsertPage" var="lectureInsertPage"></c:url>
+                    <a class="btn btn-secondary btn-sm" href="${lectureInsertPage }">추가</a>
+                    
                     <c:url value="/lectureTime" var="lectureTime"/>
                     <a class="btn btn-secondary btn-sm" href="${lectureTime }">강의 시간표</a>
                 </div>

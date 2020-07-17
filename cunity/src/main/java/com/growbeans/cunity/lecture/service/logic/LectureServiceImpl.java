@@ -38,12 +38,12 @@ public class LectureServiceImpl implements LectureService {
 
 	@Override
 	public int insertLecture(Lecture lec) {
-		return 0;
+		return lecStore.insertLecture(lec);
 	}
 
 	@Override
 	public int deleteLecture(int lCode) {
-		return 0;
+		return lecStore.deleteLecture(lCode);
 	}
 	
 	@Override

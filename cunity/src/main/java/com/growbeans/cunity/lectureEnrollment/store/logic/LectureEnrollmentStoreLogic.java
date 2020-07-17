@@ -59,6 +59,16 @@ public class LectureEnrollmentStoreLogic implements LectureEnrollmentStore{
 	public Lecture alreadyLecture(Lecture lecture) {
 		return sqlSession.selectOne("lectureMapper.alreadyLecture", lecture);
 	}
+
+	@Override
+	public int insertGrade(LectureEnrollment lectureEn) {
+		return sqlSession.update("LectureEnrollmentMapper.insertGrade",lectureEn);
+	}
+
+	@Override
+	public List<LectureEnrollment> gradeList(int sNo) {
+		return sqlSession.selectList("LectureEnrollmentMapper.gradeList", sNo);
+	}
 	
 
 }

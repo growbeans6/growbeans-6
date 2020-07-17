@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.growbeans.cunity.grade.domain.Grade;
 import com.growbeans.cunity.grade.service.GradeService;
 import com.growbeans.cunity.grade.store.GradeStore;
+import com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment;
 
 @Service("gradeService")
 public class GradeServiceImpl implements GradeService{
@@ -22,9 +23,10 @@ public class GradeServiceImpl implements GradeService{
 		return null;
 	}
 
+
 	@Override
-	public int insertGrade(Grade grade) {
-		return gStore.insertGrade(grade);
+	public int insertGrade(LectureEnrollment lectureEn) {
+		return gStore.insertGrade(lectureEn);
 	}
 
 

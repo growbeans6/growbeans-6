@@ -14,9 +14,6 @@
 		
 	</resultMap>
 	
-	<update id="insertGrade" >
-	UPDATE GRADE SET S_RATE = #{sRate} WHERE S_NO = #{sNo} AND L_CODE = #{lCode}
-	</update>
 </mapper>
 
 	

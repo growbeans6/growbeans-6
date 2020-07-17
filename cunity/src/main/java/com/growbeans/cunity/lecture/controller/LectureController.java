@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.lecture.domain.Lecture;
@@ -31,18 +32,32 @@ public class LectureController {
 		return mv;
 	}
 	
-
-	
-	//강의 등록
-	@RequestMapping("/lectureInsert")
-	public ModelAndView insertLecture(ModelAndView mv) {
+	@RequestMapping("/lectureInsertPage")
+	public ModelAndView insertLecturePage(ModelAndView mv,HttpSession session) {
+		Professor professor = (Professor)session.getAttribute("loginprof");
+		mv.addObject("professor", professor);
 		mv.setViewName("professor/lectureInsert");
 		return mv;
 	}
+
+	
+	//강의 등록
+	@RequestMapping(value="/lectureInsert", method=RequestMethod.POST)
+	public String insertLecture(HttpSession session, Lecture lecture) {
+		Professor professor = (Professor)session.getAttribute("loginprof");
+		lecture.setpNo(professor.getpNo());
+		System.out.println(lecture.getpNo());
+		
+		lecService.insertLecture(lecture);
+
+		return "redirect:/prolectureList";
+	}
 	
 	//강의 삭제
+	@RequestMapping("/deleteLecture")
 	public String deleteLecture(int lCode) {
-		return null;
+		lecService.deleteLecture(lCode);
+		return "redirect:/prolectureList";
 	}
 	
 

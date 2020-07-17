@@ -1,4 +1,4 @@
-package com.growbeans.cunity.grade.controller;
+/*package com.growbeans.cunity.grade.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.grade.domain.Grade;
 import com.growbeans.cunity.grade.service.GradeService;
+import com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment;
 
 @Controller
 public class GradeController {
@@ -28,21 +29,21 @@ public class GradeController {
 		//성적 삽입
 		@RequestMapping("/insertGrade")
 		public String insertGrade(String sRate,HttpServletRequest request,int sNo,int lCode) {
-			Grade grade = new Grade();
-			grade.setlCode(lCode);
-			grade.setsRate(sRate);
-			grade.setsNo(sNo);
-			int result = gService.insertGrade(grade);
+			LectureEnrollment lectureenroll = new LectureEnrollment();
+			lectureenroll.setlCode(lCode);
+			lectureenroll.setsRate(sRate);
+			lectureenroll.setsNo(sNo);
+			int result = gService.insertGrade(lectureenroll);
 			if(result > 0) {
 				return "success";
 			} else {
 				return "fail";
 			}
 		}
-
 		@RequestMapping("/stuGrade")
 		public String showGrade() {
 			return "student/stuGrade";
 		}
 		
 }
+*/

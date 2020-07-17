@@ -33,7 +33,26 @@ public class LectureEnrollmentController {
 	@Autowired
 	private LectureEnrollmentService lecEnService;
 	
-	
+
+			@RequestMapping("/profGrade")
+			public ModelAndView selectGrade(ModelAndView mv){
+				mv.setViewName("professor/Grade");
+				return mv;
+			}
+			
+			//학생 성적 조회
+			@RequestMapping("/stuGrade")
+			public ModelAndView showGrade(ModelAndView mv, HttpSession session) {
+				Student student = (Student)session.getAttribute("loginStudent");
+				int sNo = student.getsNo();
+				List<Lecture> lectureEnList = lecEnService.lectureEnList(sNo);
+				List<LectureEnrollment> gradeList = lecEnService.gradeList(sNo);
+				mv.addObject("lectureEnList",lectureEnList);
+				mv.addObject("gradeList", gradeList);
+				mv.addObject("sName", student.getsName());
+				mv.setViewName("student/stuGrade");
+				return mv;
+			}
 
 	//수강신청 리스트에 추가
 	//세션에서 학번이랑, 강의정보에서 강의 코드 받아와서 데이터에 삽입
@@ -737,6 +756,7 @@ public class LectureEnrollmentController {
 		int sNo = student.getsNo();
 		List<Lecture> lectureEnList = lecEnService.lectureEnList(sNo);
 		mv.addObject("lectureEnList",lectureEnList);
+		mv.addObject("sName", student.getsName());
 		mv.setViewName("lecture/lectureEnrollList");
 		return mv;
 	}
@@ -1367,6 +1387,21 @@ public class LectureEnrollmentController {
 		mv.setViewName("lecture/lectureSchedule");
 		return mv;
 	}	
+	
+	@RequestMapping("/insertGrade")
+	public String insertGrade(String sRate,HttpServletRequest request,int sNo,int lCode) {
+		LectureEnrollment lectureenroll = new LectureEnrollment();
+		lectureenroll.setlCode(lCode);
+		lectureenroll.setsRate(sRate);
+		lectureenroll.setsNo(sNo);
+		int result = lecEnService.insertGrade(lectureenroll);
+		if(result > 0) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
+	
 	
 	
 

@@ -60,7 +60,7 @@ text-align:center;
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">오주현님 성적</h6>
+              <h6 class="m-0 font-weight-bold text-primary">${sName }님 성적</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -78,67 +78,38 @@ text-align:center;
                     </tr>
                   </thead>
                   <tbody>
+                  
+                    <c:forEach items="${lectureEnList }" var="list" varStatus="status">
                     <tr>
-                      <td>전공필수</td>
-                      <td>Java</td>
-                      <td>민봉식</td>
-                      <td>3</td>
-                      <td>123515</td>
-                      <td>A+</td>
-                      <td>4.5</td>
-                      <td><button class="btn btn-secondary">평가하기</button></td>
+                      <td>${list.lClassify }</td>
+                      <td>${list.lName }</td>
+                      <td>${list.lpName }</td>
+                      <td>${list.lPoint }</td>
+                      <td>${list.lcode }</td>
+                      <td>${gradeList[status.index].sRate }</td>
+
+                      <td>
+                      <c:if test="${gradeList[status.index].sRate eq 'A+'}">4.5 </c:if>
+                      <c:if test="${gradeList[status.index].sRate eq 'A'}">4.0 </c:if>
+                      <c:if test="${gradeList[status.index].sRate eq 'B+'}">3.5 </c:if>
+                      <c:if test="${gradeList[status.index].sRate eq 'B'}">3 </c:if>
+                      <c:if test="${gradeList[status.index].sRate eq 'C+'}">2.5 </c:if>
+                      <c:if test="${gradeList[status.index].sRate eq 'C'}">2 </c:if>
+                      <c:if test="${gradeList[status.index].sRate eq 'D+'}">1.5 </c:if>
+                      <c:if test="${gradeList[status.index].sRate eq 'D'}">1 </c:if>
+                      <c:if test="${gradeList[status.index].sRate eq 'F'}">0 </c:if>
+                      </td>
+                      
+                      <td>
+                      <c:url var="lecEval" value="/lectureEvaluation">
+                      <c:param name="lCode" value="${list.lcode }"/>
+                      <c:param name="lpName" value="${list.lpName }" />
+                      <c:param name="lName" value="${list.lName } " />
+                      </c:url> 
+                       <a href=${lecEval }>강의평가</a>
+                      </td>
                     </tr>
-                     <tr>
-                      <td>전공필수</td>
-                      <td>Java</td>
-                      <td>민봉식</td>
-                      <td>3</td>
-                      <td>123515</td>
-                      <td>A+</td>
-                      <td>4.5</td>
-                      <td><button class="btn btn-secondary">평가하기</button></td>
-                    </tr>
-                     <tr>
-                      <td>전공필수</td>
-                      <td>Java</td>
-                      <td>민봉식</td>
-                      <td>3</td>
-                      <td>123515</td>
-                      <td>A+</td>
-                      <td>4.5</td>
-                      <td><button class="btn btn-secondary">평가하기</button></td>
-                    </tr>
-                     <tr>
-                      <td>전공필수</td>
-                      <td>Java</td>
-                      <td>민봉식</td>
-                      <td>3</td>
-                      <td>123515</td>
-                      <td>A+</td>
-                      <td>4.5</td>
-                      <td><button class="btn btn-secondary">평가하기</button></td>
-                    </tr>
-                     <tr>
-                      <td>전공필수</td>
-                      <td>Java</td>
-                      <td>민봉식</td>
-                      <td>3</td>
-                      <td>123515</td>
-                      <td>A+</td>
-                      <td>4.5</td>
-                      <td><button class="btn btn-secondary">평가하기</button></td>
-                    </tr>
-                     <tr>
-                      <td>전공필수</td>
-                      <td>Java</td>
-                      <td>민봉식</td>
-                      <td>3</td>
-                      <td>123515</td>
-                      <td>A+</td>
-                      <td>4.5</td>
-                      <td><button class="btn btn-secondary">평가하기</button></td>
-                    </tr>
-                    
+                   </c:forEach>
                     <tr>
                         <th colspan="8">신청학점 : 15 이수학점 : 15 총 평점 : 4.5</th>
                     </tr>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.growbeans.cunity.grade.domain.Grade;
 import com.growbeans.cunity.grade.store.GradeStore;
+import com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment;
 
 @Repository("gradeStore")
 public class GradeStoreLogic implements GradeStore {
@@ -21,9 +22,13 @@ public class GradeStoreLogic implements GradeStore {
 		return null;
 	}
 
-	@Override
 	public int insertGrade(Grade grade) {
 		return sqlSession.update("gradeMapper.insertGrade", grade);
+	}
+
+	@Override
+	public int insertGrade(LectureEnrollment lectureEn) {
+		return sqlSession.update("gradeMapper.insertGrade", lectureEn);
 	}
 
 

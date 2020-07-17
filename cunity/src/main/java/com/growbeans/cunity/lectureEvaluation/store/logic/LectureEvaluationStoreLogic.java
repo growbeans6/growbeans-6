@@ -14,13 +14,12 @@ import com.growbeans.cunity.lectureEvaluation.store.LectureEvaluationStore;
 @Repository("lecEvaStore")
 public class LectureEvaluationStoreLogic implements LectureEvaluationStore {
 	
+	@Autowired
 	private SqlSessionTemplate sqlSession;
 
 	@Override
 	public int insertEval(LectureEvaluation lecEval) {
-		return 0;
+		return sqlSession.insert("lectureEvaluationMapper.insertEval",lecEval);
 	}
-
-
 
 }
