@@ -10,12 +10,12 @@
 		<result property = "pName" column="P_NAME"/>
 	</resultMap>
 	<!-- 학과공지 리스트 조회 -->
-	<select id="selectList" parameterType="DepartmentNotice" resultMap="dNoticeResultSet">
+	<select id="selectdnList" parameterType="DepartmentNotice" resultMap="dNoticeResultSet">
 		SELECT * FROM DNOTICE ORDER BY DN_DATE DESC
 	</select>
 	
 	<!-- 학과공지 상세조회 쿼리 -->
-	<select id="selectOne" parameterType="_int" resultMap="dNoticeResultSet">
+	<select id="selectdnOne" parameterType="_int" resultMap="dNoticeResultSet">
 		SELECT * FROM DNOTICE WHERE DN_NO = #{dnNo}
 	</select>
 
@@ -27,9 +27,16 @@
 	</insert>
 	
 	<!-- 학과공지 수정 쿼리 -->
-	<update id="updatedNotice" parameterType="_int">
+	<update id="updatedNotice" parameterType="DepartmentNotice">
 		UPDATE DNOTICE 
-		SET DN_TITLE = #{dnTitle}, DN_CONTENT = #{dnContent}, DN_DATE = #{dnDate}
+		SET DN_TITLE = #{dnTitle}, DN_CONTENT = #{dnContent}, DN_DATE = SYSDATE
 		WHERE DN_NO = #{dnNo}
 	</update>
+	
+	
+	
+	<!-- 학과공지 삭제 쿼리 -->
+	<delete id="deletedNotice" parameterType="_int">
+		DELETE FROM DNOTICE WHERE DN_NO = #{dnNo}
+	</delete>
 </mapper>

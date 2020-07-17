@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DepartmentNotice {
 
+	
 	private int dnNo;
 	private int pNo;
 	private String dnTitle;

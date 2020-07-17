@@ -13,6 +13,7 @@ import com.growbeans.cunity.professor.store.logic.ProfessorStoreLogic;
 import com.growbeans.cunity.student.domain.Student;
 
 
+
 @Service("pService")
 public class ProfessorServiceImpl implements ProfessorService{
 	
@@ -21,8 +22,7 @@ public class ProfessorServiceImpl implements ProfessorService{
 
 	@Override
 	public Professor professorInfo(int pNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return pStore.professorInfo(pNo);
 	}
 
 	@Override
@@ -32,8 +32,7 @@ public class ProfessorServiceImpl implements ProfessorService{
 
 	@Override
 	public ArrayList<Student> guidanceList() {
-		// TODO Auto-generated method stub
-		return null;
+		return pStore.guidanceList();
 	}
 
 	@Override

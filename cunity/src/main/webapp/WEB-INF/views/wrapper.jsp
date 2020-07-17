@@ -9,6 +9,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
+        
           <i class="fas fa-laugh-wink"></i>
         </div>
         <div class="sidebar-brand-text mx-3">cUnity</div>
@@ -42,7 +43,10 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Components:</h6>
             <a class="collapse-item" href="/studentInfo">학생 정보</a>
-            <a class="collapse-item" href="">대외 활동</a>
+            <c:url value="/selectActInfoView" var="list">
+            	<c:param name="sNo" value="${loginStudent.sNo }"></c:param>
+            </c:url>
+            <a class="collapse-item" href="${list }">대외 활동</a>
           </div>
         </div>
       </li>
@@ -89,11 +93,27 @@
           </div>
         </div>
       </li>
+      
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseThree">
+          <i class="fas fa-fw fa-clipboard"></i>
+          <span>학과 공지</span>
+        </a>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Components:</h6>
+            <c:url value="/dNoticeList" var="dNoticeList"/>
+            <a class="collapse-item" href="${dNoticeList }">학과공지 게시판</a>
+          </div>
+        </div>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       <!-- Heading -->
+      <c:if test="${loginStudent.sNo != null }">
       <div class="sidebar-heading">
           <h6>커뮤니티</h6>
       </div>
@@ -110,7 +130,7 @@
             <a class="collapse-item" href="postList?postKinds=자유">자유 게시판</a>
             <a class="collapse-item" href="#">스터디 게시판</a>
             <a class="collapse-item" href="postList?postKinds=장터">장터 게시판</a>
-            <a class="collapse-item" href="#">강의 평가</a>
+            <a class="collapse-item" href=" ">강의 평가</a>
           </div>
         </div>
       </li>
@@ -144,6 +164,7 @@
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
+      </c:if>
 
     </ul>
     <!-- End of Sidebar -->

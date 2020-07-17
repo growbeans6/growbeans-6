@@ -31,18 +31,32 @@
 <body id="page-top">
 
   <!-- Page Wrapper -->
-  <div id="wrapper">
-	<jsp:include page="../professorwrapper.jsp"></jsp:include>
+   <div id="wrapper">
+  <c:choose>
+  	<c:when test="${sessionScope.loginStudent.sNo != null}">
+  		<jsp:include page="../wrapper.jsp"></jsp:include>
+  	</c:when>
+  	<c:otherwise>
+  		<jsp:include page="../professorwrapper.jsp"></jsp:include>
+  	</c:otherwise>
+  </c:choose>
+	
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
       <!-- Main Content -->
       <div id="content">
-
-       <jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
+      	<c:choose>
+			<c:when test="${sessionScope.loginStudent.sNo != null}">
+	       		<jsp:include page="../content-wrapper.jsp"></jsp:include>
+	       	</c:when>
+			<c:otherwise>
+	  			<jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
+	  		</c:otherwise>
+ 		</c:choose>
 
         <!-- Begin Page Content -->
         <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
-       <div class="container-fluid">
+        <div class="container-fluid">
 
           <!-- Page Heading -->
           <form action="/dNoticeList" method="post" enctype="multipart/form-data">
@@ -81,7 +95,9 @@
                 </table>
                 <div>
                 <c:url value="/dNoticeInsertView" var="dNoticeInsert"></c:url>
-                    <a class="btn btn-secondary btn-sm" href="${dNoticeInsert }">글쓰기</a>
+                <c:if test="${sessionScope.loginStudent.sNo == null }">
+                	<a class="btn btn-secondary btn-sm" href="${dNoticeInsert }">글쓰기</a>
+                </c:if>
                 </div>
               </div>
             </div>
@@ -99,22 +115,22 @@
     <!-- End of Content Wrapper -->
   </div>
   <!-- End of Page Wrapper -->
-  
-  <script src="/resources/vendor/jquery/jquery.min.js"></script>
-  <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     <script src="/resources/vendor/jquery/jquery.min.js"></script>
+    <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="/resources/js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/resources/js/sb-admin-2.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="/resources/vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="/resources/js/demo/chart-area-demo.js"></script>
-  <script src="/resources/js/demo/chart-pie-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="/resources/js/demo/datatables-demo.js"></script>
+    
 </body>
 
 </html>

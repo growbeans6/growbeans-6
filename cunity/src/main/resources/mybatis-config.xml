@@ -15,13 +15,11 @@
 	<typeAliases>
 		<typeAlias type="com.growbeans.cunity.Alarm.domain.Alarm" alias="Alarm"/>
 		<typeAlias type="com.growbeans.cunity.chatRoom.domain.ChatRoom" alias="ChatRoom"/>
-		
 		<typeAlias type="com.growbeans.cunity.departmentNotice.domain.DepartmentNotice" alias="DepartmentNotice"/>
 		<typeAlias type="com.growbeans.cunity.departmentNoticeFile.domain.DepartmentNoticeFile" alias="DepartmentNoticeFile"/>
 		<typeAlias type="com.growbeans.cunity.foreignActivities.domain.ForeignActivities" alias="ForeignActivities"/>
 		<typeAlias type="com.growbeans.cunity.friends.domain.Friends" alias="Friends"/>
 		<typeAlias type="com.growbeans.cunity.grade.domain.Grade" alias="Grade"/>
-
 		<typeAlias type="com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment" alias="LectureEnrollment"/>
 		<typeAlias type="com.growbeans.cunity.lectureEnrollment.domain.Timetable" alias="Timetable"/>
 		<typeAlias type="com.growbeans.cunity.lectureEvaluation.domain.LectureEvaluation" alias="LectureEvaluation"/>
@@ -39,6 +37,7 @@
 		<typeAlias type="com.growbeans.cunity.lecture.domain.Lecture" alias="Lecture"/>
 		
 	</typeAliases>
+
 
 	<mappers>
 		<!-- 
@@ -69,5 +68,7 @@
 		<mapper resource="mappers/lectureSyllabus-mapper.xml"/>
 		<mapper resource="mappers/grade-mapper.xml"/>
 		<mapper resource="mappers/lectureEvaluation-mapper.xml"/>
+		<mapper resource="mappers/departmentNotice-mapper.xml"/>
+		<mapper resource="mappers/foreignActivities-mapper.xml"/>
 	</mappers>
 </configuration>

@@ -2,6 +2,7 @@ package com.growbeans.cunity.professor.domain;
 
 public class Professor {
 
+	
 	private int pNo;
 	private String pPwd;
 	private String pDept;

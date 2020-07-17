@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -43,6 +44,7 @@
         <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
         <div class="container-fluid">
 			<!-- Page Heading -->
+			
                     <h1 class="h3 mb-2 text-gray-800">대외활동 관리</h1>
 
                     <!-- DataTales Example -->
@@ -52,6 +54,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -60,34 +63,20 @@
                                             <th>활동명</th>
                                             <th>활동종류</th>
                                             <th>활동기간</th>
-
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>학번</th>
-                                            <th>성명</th>
-                                            <th>활동명</th>
-                                            <th>활동종류</th>
-                                            <th>활동기간</th>
-                                        </tr>
-                                    </tfoot>
+                                    <c:forEach items="${actinfo}" var="list" varStatus="status">
                                     <tbody>
-                                        <tr>
-                                            <td>201300000</td>
-                                            <td>이승원</td>
-                                            <td>it idea 공모전</td>
-                                            <td>대회 및 공모전</td>
-                                            <td>2000-00-00 ~ 2000-10-10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>201300000</td>
-                                            <td>이승원</td>
-                                            <td>어린이집 봉사</td>
-                                            <td>봉사활동</td>
-                                            <td>2000-00-00 ~ 2000-10-10</td>
-                                        </tr>
+                                    		<tr>
+	                                            <td>${list.sNo }</td>
+	                                            <td>${list.sName }</td>
+	                                            <td>${list.actTitle }</td>
+	                                            <td>${list.actContent }</td>
+	                                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.actDate }"/></td>
+	                                        </tr>
                                     </tbody>
+                                    </c:forEach>
+                                    
                                 </table>
                             </div>
                         </div>

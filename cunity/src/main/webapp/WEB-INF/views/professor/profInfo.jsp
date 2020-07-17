@@ -65,6 +65,7 @@
                      <td>교번</td>
                      <td><input type="text" class="form-control" name="pNo"
                         value="${loginprof.pNo }" required readonly></td>
+                        <input type="hidden" name="pFile" value="${loginprof.pFile }">
                         </tr>
                         
                         <tr>
@@ -100,10 +101,10 @@
                   </tr>
                    
                    <tr>
-                      <td>
-                      <input type="submit" value="정보수정" class="btn btn-secondary btn-sm">
+                      <td colspan="2" class="text-center">
+                      <input type="submit" value="정보수정" class="btn btn-primary">
                      <%-- <a class="btn btn-secondary btn-sm" href="${profInfoUpdate }">수정하기</a> --%>
-                      <a class="btn btn-secondary btn-sm" href="#">취소</a>
+                      <a class="btn btn-primary" href="home">홈으로</a>
                      </td>
                    </tr>
                </table>

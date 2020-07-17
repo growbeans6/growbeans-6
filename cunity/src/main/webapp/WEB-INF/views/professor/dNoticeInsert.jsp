@@ -15,6 +15,8 @@
 
 <title>SB Admin 2 - Dashboard</title>
 
+
+
 <!-- Custom fonts for this template-->
 <link href="/resources/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
@@ -24,7 +26,21 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+<style>
+	#textarea {
+		width : 90%;
+		height : 70%;
+		border : 1px;
+	}
+</style>
+<script>
+	
+function aa(){
+    alert('등록되었습니다.');
+};
 
+
+</script>
 </head>
 
 <body id="page-top">
@@ -57,18 +73,24 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">제목</span>
                 </div>
-                <input class="input-group-text" id="basic-addon1" name="dnTitle">
+                <input class="input-group-text" id="basic-addon1" name="dnTitle" style="width:90%;">
               </div>
               <div class="input-group" style="width:65%">
                   <div class="input-group-prepend">
                     <span class="input-group-text">내용</span>
                   </div>
-                <textarea class="form-control" aria-label="With textarea" name="dnContent"></textarea>
+                  <div id="textarea">
+                  	<textarea class="form-control" style="resize:none;" aria-label="With textarea" name="dnContent" ></textarea>
+                  </div>
               </div>
                 <div>
                 
-                    <button type="submit">등록하기</button>
-                    <button class="btn btn-secondary btn-sm" href="학과공지(교수).html">취소</button>
+                    <%-- <button type="submit">등록하기</button>
+                    <c:url var="dNoticeList" value="/dNoticeList"></c:url>
+                    <button class="btn btn-secondary btn-sm" onclick="fnCancel()" >취소</button> --%>
+                    <input type="submit" onclick="aa();" class="btn btn-secondary btn-sm"  value="등록하기"/>
+					<c:url var="dNoticeList" value="/dNoticeList"></c:url>
+					<a class="btn btn-secondary btn-sm" href="${dNoticeList }">취소</a>
                 </div>
             </form>
               </div>
