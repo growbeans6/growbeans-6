@@ -7,38 +7,43 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
+import com.growbeans.cunity.chatRoom.domain.ChatRoom;
 import com.growbeans.cunity.post.domain.Post;
 import com.growbeans.cunity.post.domain.PostComment;
 import com.growbeans.cunity.post.domain.PostImage;
 import com.growbeans.cunity.student.domain.Student;
+import com.growbeans.cunity.study.domain.TimeLineImg;
 import com.growbeans.cunity.study.service.StudyService;
 
 @Controller
+@RequestMapping("/study-timeline")
 public class StudyController {
 
 	@Autowired
 	private StudyService studyService;
 
-	// 스터디 메인페이지
-	public ModelAndView studyMain() {
-		return null;
-	}
 
 	// 스터디 타임라인 리스트
-	@RequestMapping("/boardList")
+	@RequestMapping(value="/board", method=RequestMethod.GET)
 	public String studyBoardList(Model mo, HttpSession session, RedirectAttributes ra) {
 		Student student = (Student) session.getAttribute("loginStudent");
 		if(student.getStudyNo()==0) {
@@ -48,6 +53,13 @@ public class StudyController {
 		ArrayList<Student> sList = studyService.selectStudyStudentList(student.getStudyNo());
 		ArrayList<Post> pList = studyService.selectTimeLineList(student.getStudyNo(), "타임라인");
 		// 스터디 학생 리스트
+		if(pList.size()>30) {
+			for(int i=0;i<pList.size();i++) {
+				if(i>=30) {
+					pList.remove(i);
+				}
+			}
+		}
 		mo.addAttribute("sList", sList);
 		mo.addAttribute("pList", pList);
 		// 글목록
@@ -56,7 +68,7 @@ public class StudyController {
 	}
 
 	// 스터디 타임라인 작성폼
-	@RequestMapping("/boardWriteForm")
+	@RequestMapping(value="/board/write", method=RequestMethod.GET)
 	public String studyBoardWriteForm(Model mo, HttpSession session, RedirectAttributes ra) {
 		Student student = (Student) session.getAttribute("loginStudent");
 		if(student.getStudyNo()==0) {
@@ -67,8 +79,8 @@ public class StudyController {
 	}
 
 	// 스터디 타임라인 상세페이지
-	@RequestMapping("/boardDetail")
-	public String studyBoardDetail(Model mo, int postNo, HttpSession session, RedirectAttributes ra) {
+	@RequestMapping(value="/board/{postNo}", method=RequestMethod.GET)
+	public String studyBoardDetail(Model mo, @PathVariable("postNo") int postNo, HttpSession session, RedirectAttributes ra) {
 		
 		Post post = studyService.selectTimeLineDetail(postNo);
 		Student student = (Student) session.getAttribute("loginStudent");
@@ -87,8 +99,8 @@ public class StudyController {
 	}
 
 	// 스터디 타임라인 수정폼
-	@RequestMapping("/boardModifyForm")
-	public String studyBoardModifyForm(Model mo, int postNo, HttpSession session, RedirectAttributes ra) {
+	@RequestMapping(value="/board/modify/{postNo}", method=RequestMethod.GET)
+	public String studyBoardModifyForm(Model mo,@PathVariable("postNo") int postNo, HttpSession session, RedirectAttributes ra) {
 		Post post = studyService.selectTimeLineDetail(postNo);
 		Student student = (Student) session.getAttribute("loginStudent");
 		if(student.getStudyNo()!=post.getStudyNo()) {
@@ -107,10 +119,14 @@ public class StudyController {
 	}
 
 	// 스터디 타임라인 수정
-	@RequestMapping("/ModifyTimeLine")
+	@RequestMapping(value="/board/update")
 	public String studyBoardModify(Model mo, Post post,
 			@RequestParam(name = "fileImage", required = false) MultipartFile[] file, HttpServletRequest request,
-			String upload_name1, String upload_name2, String upload_name3, HttpSession session, RedirectAttributes ra) {
+			TimeLineImg img, HttpSession session, RedirectAttributes ra) {
+		String upload_name1 = img.getUpload_name1();
+		String upload_name2 = img.getUpload_name2();
+		String upload_name3 = img.getUpload_name3();
+		System.out.println(img.toString());
 		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(post.getPostNo());
 		int size = postImages.size();
 		if (postImages != null) {
@@ -134,11 +150,11 @@ public class StudyController {
 			}
 		}
 		studyService.updateTimeLine(post);
-		return "redirect:/boardList";
+		return "redirect:/study-timeline/board/"+post.getPostNo();
 	}
 
 	// 스터디 타임라인 작성
-	@RequestMapping("/writeTimeline")
+	@RequestMapping(value="/board", method=RequestMethod.POST)
 	public String studyBoardWrite(Model mo, Post post,
 			@RequestParam(name = "fileImage", required = false) MultipartFile[] file, HttpServletRequest request
 			, HttpSession session, RedirectAttributes ra) {
@@ -156,10 +172,10 @@ public class StudyController {
 		}
 
 	
-		return "redirect:/boardList";
+		return "redirect:/study-timeline/board";
 	}
-
-	@RequestMapping("/deleteTimeLine")
+	// 게시글 삭제
+	@RequestMapping(value="/board/delete", method=RequestMethod.POST)
 	public String studyBoardDelete(Model mo, int postNo, HttpServletRequest request, HttpSession session, RedirectAttributes ra) {
 		ArrayList<PostImage> postImages = studyService.selectTimeLineImage(postNo);
 		if (postImages != null) {
@@ -170,20 +186,24 @@ public class StudyController {
 		studyService.deleteTimeLineImgAll(postNo);
 		studyService.deleteTimeLine(postNo);
 
-		return "redirect:/boardList";
+		return "redirect:/study-timeline/board";
 	}
 
 	// 댓글 작성
-	@RequestMapping("/mentWrite")
-	public String studyBoardMentInsert(Model mo, PostComment postComment, HttpSession session, RedirectAttributes ra) {
+	@RequestMapping(value="/board/ment", method=RequestMethod.POST)
+	public void studyBoardMentInsert(PostComment postComment,HttpServletResponse response) throws JsonIOException, IOException  {
 		studyService.insertMent(postComment);
-		return "redirect:/boardDetail?postNo=" + postComment.getPostNo();
+		PostComment ment = studyService.selectPostCommentOne();
+		ment.setMentRegDateString(ment.getMentRegDate().toString());
+		Gson gson = new GsonBuilder().create();
+		gson.toJson(ment, response.getWriter());
 	}
 
 	// 댓글 수정
-	@RequestMapping("/mentUpdate")
+	@RequestMapping(value="/board/ment/update", method=RequestMethod.POST)
 	@ResponseBody
-	public String studyBoardMentUpdate(Model mo, String mentContent, int mentNo, HttpSession session, RedirectAttributes ra) {
+	public String studyBoardMentUpdate(Model mo, int mentNo, String mentContent, HttpSession session, RedirectAttributes ra) {
+		
 		int result = studyService.updateMent(mentContent,mentNo);
 		if(result > 0) {
 			return "success";
@@ -193,9 +213,9 @@ public class StudyController {
 	}
 
 	// 댓글 삭제
-	@RequestMapping("/mentDelete")
+	@RequestMapping(value="/board/ment/{mentNo}", method=RequestMethod.DELETE)
 	@ResponseBody
-	public String studyBoardMentDelete(Model mo,@RequestParam("mentNo") int mentNo, HttpSession session, RedirectAttributes ra) {
+	public String studyBoardMentDelete(Model mo,@PathVariable("mentNo") int mentNo, HttpSession session, RedirectAttributes ra) {
 		int result = studyService.deleteMent(mentNo);
 		if(result > 0) {
 			return "success";
@@ -203,7 +223,13 @@ public class StudyController {
 			return "fail";
 		}
 	}
-
+	// 최신글이 있는 유저 출력
+	@RequestMapping(value="/board/study-member/{studyNo}",method=RequestMethod.GET)
+	public void getMemberList(HttpServletResponse response,@PathVariable("studyNo") int studyNo) throws JsonIOException, IOException {
+		ArrayList<Student> slist = studyService.getMemberList(studyNo); 
+		Gson gson = new GsonBuilder().create();
+		gson.toJson(slist, response.getWriter());
+	}
 	// 스터디 생성
 	public String studyCreate() {
 		return null;

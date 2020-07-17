@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Dashboard</title>
+<title>타임라인</title>
 
 <!-- Custom fonts for this template-->
 <link href="/resources/vendor/fontawesome-free/css/all.min.css"
@@ -111,7 +111,7 @@ textarea {
 
 
 							<!-- Default Card Example -->
-							<div class="card mb-4">
+							<div class="card shadow mb-4">
 								<div class="card-header">
 									<div class="header">
 										<img class="profile"
@@ -139,18 +139,18 @@ textarea {
 								</div>
 								<div class="card-footer">
 									<a href="#" data-toggle="modal" data-target="#rWriteModal"><i
-										class="fas fa-comment-dots"></i> 댓글달기</a> <a href="javascript:void(0);" onclick="copy('127.0.0.1:8084/boardDetail?postNo=${timeLine.postNo}');"><i
-										class="fas fa-share"></i> 공유하기</a>
+										class="fas fa-comment-dots"></i> 댓글달기</a> 
+										<%-- <a href="javascript:void(0);" onclick="copy('127.0.0.1:8084/boardDetail?postNo=${timeLine.postNo}');"> --%>
+										<a href="javascript:;" id="kakao-link-btn">
+										<i class="fas fa-share"></i> 공유하기</a>
 										<c:if test="${timeLine.postWriterSNo eq loginStudent.sNo}">
-									<c:url value="/boardModifyForm" var="boardModifyForm">
-										<c:param name="postNo" value="${timeLine.postNo}" />
+									<c:url value="/study-timeline/board/modify/${timeLine.postNo}" var="boardModifyForm">
+									
 									</c:url>
 									<a href="${boardModifyForm }"><i class="fas fa-pencil-alt"></i>
 										수정하기</a>
-									<c:url value="/deleteTimeLine" var="deleteTimeLine">
-										<c:param name="postNo" value="${timeLine.postNo}" />
-									</c:url>
-									<a href="${deleteTimeLine}"><i class="fas fa-trash-alt"></i>
+									
+									<a href="javascript:void(0);" onclick="deleteBoard();"><i class="fas fa-trash-alt"></i>
 										삭제하기</a>
 										</c:if>
 								</div>
@@ -164,21 +164,21 @@ textarea {
 											</div>
 											<div id="mentWrite">
 												<div class="modal-body">
-													<form id="mentWriteForm" action="mentWrite" method="post">
+													<!-- <form id="mentWriteForm" action="mentWrite" method="post"> -->
 														<div class="form-group">
 															<label for="message-text" class="control-label">작성
 																내용:</label>
-															<textarea name="mentContent" id="mentContent" rows="5"
+															<textarea name="mentContent" id="mentContentWrite" rows="5"
 																class="form-control" id="message-text"></textarea>
 															<input type="hidden" name="postNo" id="postNo"> <input
 																type="hidden" name="mentWriter" id="mentWriter">
 															<input type="hidden" name="mentDepth" id="mentDepth">
 															<input type="hidden" name="mentFilePath" id="mentFilePath">
 														</div>
-													</form>
+													<!-- </form> -->
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-default"
+													<button id="closeButton" type="button" class="btn btn-default"
 														data-dismiss="modal">Close</button>
 													<button type="button" class="btn btn-primary"
 														onclick="writeMent();">작성하기</button>
@@ -191,7 +191,7 @@ textarea {
 							<hr>
 							<div id="mentList">
 								<c:forEach var="ment" items="${mentList }" varStatus="index">
-									<div id="ment" class="card mb-4">
+									<div id="ment" class="card shadow mb-4">
 										<div class="card-header">
 											<div class="header">
 												<img class="profile" mentNo="${ment.mentNo }"
@@ -232,7 +232,7 @@ textarea {
 									</div>
 								</c:forEach>
 							</div>
-
+							<div id="focus"></div>
 
 						</div>
 
@@ -244,6 +244,9 @@ textarea {
 		</div>
 		<!-- End of Content Wrapper -->
 	</div>
+	<form action="/study-timeline/board/delete" method="post" id="deleteBoard">
+		<input type="hidden" name="postNo" value="${timeLine.postNo }">
+	</form>
 	<!-- End of Page Wrapper -->
 	<!-- Bootstrap core JavaScript-->
 	<script src="/resources/vendor/jquery/jquery.min.js"></script>
@@ -254,7 +257,12 @@ textarea {
 
 	<!-- Custom scripts for all pages-->
 	<script src="/resources/js/sb-admin-2.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script>
+		function deleteBoard() {
+			$("#deleteBoard").submit();
+		}
 		function copy(val) {
 		  var dummy = document.createElement("textarea");
 		  document.body.appendChild(dummy);
@@ -262,25 +270,78 @@ textarea {
 		  dummy.select();
 		  document.execCommand("copy");
 		  document.body.removeChild(dummy);
+		  alert("클립보드에 복사되었습니다.");
 		}
 		function writeMent() {
+			var mentContent=$("#mentContentWrite").val();
 			var postNo = ${timeLine.postNo};
 			var mentWriter = "${loginStudent.sName}";
 			var mentDepth = ${loginStudent.sNo};
 			var mentFilePath = '${loginStudent.sFile}';
-			$("#mentWriteForm").find("#postNo").val(postNo);
-			$("#mentWriteForm").find("#mentWriter").val(mentWriter);
-			$("#mentWriteForm").find("#mentDepth").val(mentDepth);
-			$("#mentWriteForm").find("#mentFilePath").val(mentFilePath);
-			$("#mentWriteForm").submit();
+			$.ajax({
+				url:"/study-timeline/board/ment",
+				data:{mentContent:mentContent,
+					postNo:postNo,
+					mentWriter:mentWriter,
+					mentDepth:mentDepth,
+					mentFilePath:mentFilePath},
+				dataType:"json",
+				type:"post",
+				cache:false,
+				success:function(data){
+					var result = "";
+				    var mentNo = data.mentNo;
+				    var mentDepth = data.mentDepth;
+				    var mentFilepath = data.mentFilePath;
+				    var mentWriter = data.mentWriter;
+				    var mentRegDate = data.mentRegDateString;
+				    var mentContent = data.mentContent.replace(/\n/gi,"<br>");
+					
+				    result+='<div id="ment" class="card shadow mb-4">';
+				       result+='<div class="card-header">';
+				            result+='<div class="header">';
+				                result+='<img class="profile" mentNo="'+mentNo+'" mentDepth="'+mentDepth+'" src="/resources/img/'+mentFilePath+'">';
+				                result+='<div class="writer">';
+				                    result+='<h5>'+mentWriter+'</h5>';
+				                    result+='<span>';
+				                        result+='<i class="far fa-calendar-alt"></i> ';
+				                        result+=mentRegDate;
+				                    result+='</span>';
+				                result+='</div></div></div>';
+				        result+='<div id="showComment">';
+				            result+='<div class="card-body">'+mentContent+'</div>';
+				            result+='<div class="card-footer">';
+				                    result+='<a id="rmodify" href="javascript:void(0);" onclick="rmodify(this);"><i class="fas fa-pencil-alt"></i><span>수정하기</span></a> ';
+				                   result+='<a id="rdelete" href="javascript:void(0);" onclick="rdelete(this);"><i class="fas fa-trash-alt"></i> <span>삭제하기</span></a>';
+				            result+='</div>';
+				        result+='</div>';
+				        result+='<div id="modifyComment" style="display: none;">';
+				            result+='<div class="card-body">';
+				            mentContent = mentContent.replace(/<br>/gi,"\n");
+				                result+='<textarea>'+mentContent+'</textarea>';
+				            result+='</div>';
+				            result+='<div class="card-footer">';
+				               result+='<a id="rmodify" href="javascript:void(0);" onclick="rupdate(this);"><i class="fas fa-pencil-alt"></i><span>수정완료</span></a> ';
+				                result+='<a id="rcancle" href="javascript:void(0);" onclick="rcancle(this);"><i class="far fa-arrow-alt-circle-left"></i> <span>취소</span></a>';
+				            result+='</div></div></div>';
+				            $("#mentList").append(result);
+				            $("#closeButton").trigger("click");
+				           	alert("댓글이 작성되었습니다.");
+				            $("#mentContentWrite").val("");
+				            var offset = $("#focus").offset(); 
+				            $('html, body').animate({scrollTop : offset.top}, 200); 
+				}
+			});
 		} 
 		function rmodify(obj) {
 			$(obj).parents("div").eq(1).css("display", "none");
 			$(obj).parents("div").eq(1).next().css("display", "block");
 		}
 		function rcancle(obj) {
+			var mentContent = $(obj).parents("div").eq(1).prev().find(".card-body").text();
 			$(obj).parents("div").eq(1).css("display", "none");
 			$(obj).parents("div").eq(1).prev().css("display", "block");
+			$(obj).parents("div").eq(1).find("textarea").val(mentContent);
 		}
 		
 		function rupdate(obj) {
@@ -288,9 +349,10 @@ textarea {
 			$showComment = $(obj).parents("div").eq(1).prev();
 			var mentContent = $modifyComment.find("textarea").val();
 			var mentNo = $showComment.prev("div").find("img").attr("mentNo");
+			
 			$.ajax({
-				url:"/mentUpdate",
-				data:{mentContent:mentContent,mentNo:mentNo},
+				url:"/study-timeline/board/ment/update",
+				data:{mentNo:mentNo, mentContent:mentContent },
 				type:"post",
 				success: function(data){
 					if(data=="success"){
@@ -306,9 +368,9 @@ textarea {
 			var $ment = $(obj).parents("#ment").eq(0);
 			var mentNo = $ment.find("img").attr("mentNo");
 			$.ajax({
-				url:"/mentDelete",
-				data:{mentNo:mentNo},
-				type:"get",
+				url:"/study-timeline/board/ment/"+mentNo,
+				data:{},
+				type:"delete",
 				success: function(data){
 					if(data=="success"){
 						alert("댓글이 삭제 되었습니다.");
@@ -318,6 +380,38 @@ textarea {
 			});
 		}
 	</script>
+
+	<script type="text/javascript">
+		 //<![CDATA[
+	    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+
+	    var Tcontent = "스터디 이용자만 열람가능";
+	   	var image = "https://23fb88ad5ca22a1b4d32-e1951aed44f4258f5fd1721b94cf0277.ssl.cf5.rackcdn.com/cdn_FJV6xXSK5SbvNfVr9NLnNAqpp57r5STy.JPG";
+	    Kakao.init('0c7afd61576a4e75b898672fba3b3871');
+	    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+	    Kakao.Link.createDefaultButton({
+	      container: '#kakao-link-btn',
+	      objectType: 'feed',
+	      content: {
+	        title: document.title,
+	        description: Tcontent,
+	        imageUrl: image,
+	        link: {
+	          webUrl: document.location.href,
+	          mobileWebUrl: document.location.href
+	        }
+	      },
+	      buttons: [
+	        {
+	          title: 'Open!',
+	          link: {
+	            mobileWebUrl: document.location.href,
+	            webUrl: document.location.href
+	          }
+	        }  
+	      ]
+	    });
+    </script>
 </body>
 
 </html>

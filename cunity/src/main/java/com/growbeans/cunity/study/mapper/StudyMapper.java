@@ -59,7 +59,7 @@ public interface StudyMapper {
 	 * @param studentNo
 	 * @return result
 	 */
-	public int deleteApply(int postNo, int studentNo);
+	public int deleteApply(@Param("postNo") int postNo,@Param("mentWriter") int studentNo);
 	
 	/**
 	 * 6. 스터디 탈퇴
@@ -149,4 +149,16 @@ public interface StudyMapper {
 	public int insertMent(PostComment postComment);
 	public int updateMent(@Param("mentContent") String mentContent,@Param("mentNo") int mentNo);
 	public int deleteMent(@Param("mentNo") int mentNo);
+	
+	/**
+	 * 오늘 작성한 타임라인이 있는 유저의 리스트
+	 * @param studyNo
+	 * @return slist
+	 */
+	public ArrayList<Student> getMemberList(@Param("studyNo") int studyNo);
+	/**
+	 * 작성한 댓글 정보 가져오기
+	 * @return ment
+	 */
+	public PostComment selectPostCommentOne();
 }

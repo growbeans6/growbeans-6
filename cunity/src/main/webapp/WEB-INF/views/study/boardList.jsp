@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Dashboard</title>
+<title>타임라인 리스트</title>
 
 <!-- Custom fonts for this template-->
 <link href="/resources/vendor/fontawesome-free/css/all.min.css"
@@ -78,8 +78,20 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">스터디 보드</h1>
-						<c:url value="/boardWriteForm" var="boardWriteForm"></c:url>
-						<h4 style="position:fixed;top:150px;"><a href="${boardWriteForm }"><i class="fas fa-pencil-alt"></i>작성하러가기</a></h4>
+						<h3>타임라인은 30개까지만 저장됩니다.</h3>
+						<c:url value="/study-timeline/board/write" var="boardWriteForm"></c:url>
+						<div style="position:fixed;top:150px;left:250px;z-index:10;"><a href="javascript:void(0);" onclick="toggleMenu();"><h3><i class="fas fa-bars"></i>&nbsp <b>MENU</b></h3></a>
+							<div id="toggleArea" class="card  shadow h-100 p-2" style="display:none;">
+							<br>
+							<h4 ><a href="${boardWriteForm }"><i class="fas fa-pencil-alt"></i>&nbsp작성하러가기</a></h4><br>
+							<h4 ><a href="#" data-toggle="modal" data-target="#rWriteModal${loginStudent.sNo }"><i class="fab fa-readme"></i>&nbsp내가 쓴 글 보기</a></h4><br>
+							<h4 ><a href="/chatRoom"><i class="fas fa-comments"></i>&nbsp채팅방으로 가기</a></h4><br>
+							<h4 ><a href="studyfileShare"><i class="fas fa-file"></i>&nbsp파일공유 하러가기</a></h4><br>
+							<h4 ><a href="javascript:void(0);"><i class="fas fa-user-times"></i>&nbsp스터디 탈퇴하기</a></h4><br>
+							
+							</div>
+						</div>
+						
 					</div>
 
 					<div class="row"></div>
@@ -98,24 +110,63 @@
 												class="row h5 font-weight-bold text-gray-800 text-center">
 												<c:forEach var="studyMember" items="${sList }" varStatus="index">
 													<div id="profile-area">
-														<figure> <img class="profile  mb-2"
-															src="/resources/img/${studyMember.sFile }"> <figcaption>${studyMember.sName }</figcaption>
+														<figure> <a href="#" data-toggle="modal" data-target="#rWriteModal${studyMember.sNo }"><img id="member_profile" class="profile mb-2"
+															src="/resources/img/${studyMember.sFile }" studentNo="${studyMember.sNo }"></a> <figcaption>${studyMember.sName }</figcaption>
 														</figure>
 													</div>
+													
+														<!-- 다이얼로그 -->
+									<div class="modal fade" id="rWriteModal${studyMember.sNo }" tabindex="-1"
+									role="dialog" aria-labelledby="exampleModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="modal-title" id="exampleModalLabel">${studyMember.sNo }${studyMember.sName }님의 타임라인</h4>
+											</div>
+											<div id="mentWrite">
+												<div class="modal-body">
+													<!-- <form id="mentWriteForm" action="mentWrite" method="post"> -->
+														<div class="form-group">
+												<c:forEach var="timeLine" items="${pList }" varStatus="index">
+					
+														<c:if test="${studyMember.sNo eq timeLine.postWriterSNo}">		
+								<div class="card shadow mb-4">
+									<div class="card-header">
+										<div class="header">
+											<img class="profile" src="/resources/img/${timeLine.filePath }">
+											<div class="writer"><h5>${timeLine.postWriterSNo }${timeLine.postWriterSName }</h5>
+												<span><i class="far fa-calendar-alt"></i> ${timeLine.postRegDate }</span>
+											</div>
+										</div>
+									</div>
+									<div class="card-body" id="card-body">${timeLine.postContent }</div>
+									<div class="card-footer">
+										<c:url value="/study-timeline/board/${timeLine.postNo }" var="boardDetail">
+											
+										</c:url>
+										<a href="${boardDetail }"><i class="fab fa-readme"></i> 상세보기</a> <a href="javascript:void(0);" onclick="copy('http://127.0.0.1:8084${boardDetail }');"><i
+											class="fas fa-share"></i> 공유하기</a>
+									</div>
+								</div>
+								</c:if>
+													</c:forEach>
+						
+														</div>
+													<!-- </form> -->
+												</div>
+												<div class="modal-footer">
+													<button id="closeButton" type="button" class="btn btn-default"
+														data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 다이얼로그 -->
+														
 												</c:forEach>
-												<div id="profile-area">
-													<figure> <img class="profile  mb-2"
-														src="/resources/img/chipmunk.jpg"> <figcaption>이승원</figcaption>
-													</figure>
-												</div>
-												<div id="profile-area">
-													<img class="profile_update mb-2" src="/resources/img/chipmunk.jpg">
-													<figcaption>이승원</figcaption>
-												</div>
-												<div id="profile-area">
-													<img class="profile  mb-2" src="/resources/img/chipmunk.jpg">
-													<figcaption>이승원</figcaption>
-												</div>
+									
 											</div>
 
 										</div>
@@ -126,127 +177,26 @@
 						<div class="col-lg-12">
 
 							<c:forEach var="timeLine" items="${pList }" varStatus="index">
-								<div class="card mb-4">
+								<div class="card shadow mb-4">
 									<div class="card-header">
 										<div class="header">
 											<img class="profile" src="/resources/img/${timeLine.filePath }">
 											<div class="writer">
-												<h5>${timeLine.postWriterSNo }${timeLine.postWriterSName }</h5>
-												<span><i class="far fa-calendar-alt"></i> ${timeLine.postRegDate }</span>
+												<h5><b>${timeLine.postWriterSNo }${timeLine.postWriterSName }<b></h5>
+												<span><b><i class="far fa-calendar-alt"></i> ${timeLine.postRegDate }<b></span>
 											</div>
 										</div>
 									</div>
 									<div class="card-body" id="card-body">${timeLine.postContent }</div>
 									<div class="card-footer">
-										<c:url value="/boardDetail" var="boardDetail">
-											<c:param name="postNo" value="${timeLine.postNo }"/>
+										<c:url value="/study-timeline/board/${timeLine.postNo }" var="boardDetail">
+											
 										</c:url>
-										<a href="${boardDetail }"><i class="fab fa-readme"></i> 상세보기</a> <a href="javascript:void(0);" onclick="copy('127.0.0.1:8084/boardDetail?postNo=${timeLine.postNo}');"><i
+										<a href="${boardDetail }"><i class="fab fa-readme"></i> 상세보기</a> <a href="javascript:void(0);" onclick="copy('http://127.0.0.1:8084${boardDetail }');"><i
 											class="fas fa-share"></i> 공유하기</a>
 									</div>
 								</div>
 							</c:forEach>
-							<!-- Default Card Example -->
-							<div class="card mb-4">
-								<div class="card-header">
-									<div class="header">
-										<img class="profile" src="/resources/img/chipmunk.jpg">
-										<div class="writer">
-											<h5>이승원</h5>
-											<span><i class="far fa-calendar-alt"></i> 2020-07-03</span>
-										</div>
-									</div>
-								</div>
-								<div class="card-body" id="card-body">This card uses
-									Bootstrap's default styling with no utility classes added.
-									Global styles are the only things modifying the look and feel
-									of this default card example. This card uses Bootstrap's
-									default styling with no utility classes added. Global styles
-									are the only things modifying the look and feel of this default
-									card example.</div>
-								<div class="card-footer">
-								
-									<a href="${boardWriteForm }"><i class="fab fa-readme"></i> 상세보기</a> <a href="#"><i
-										class="fas fa-share"></i> 공유하기</a>
-								</div>
-							</div>
-							<!-- Default Card Example -->
-							<div class="card shadow mb-4 ">
-								<div class="card-header">
-									<div class="header">
-										<img class="profile" src="/resources/img/chipmunk.jpg">
-										<div class="writer">
-											<h5>이승원</h5>
-											<span><i class="far fa-calendar-alt"></i> 2020-07-03</span>
-										</div>
-									</div>
-								</div>
-								<div class="card-body">This card uses Bootstrap's default
-									styling with no utility classes added. Global styles are the
-									only things modifying the look and feel of this default card
-									example. This card uses Bootstrap's default styling with no
-									utility classes added. Global styles are the only things
-									modifying the look and feel of this default card example.</div>
-								<div class="card-footer">
-									<a href="#"><i class="fab fa-readme"></i> 상세보기</a> <a href="#"><i
-										class="fas fa-share"></i> 공유하기</a>
-								</div>
-							</div>
-							<!-- Default Card Example -->
-							<div class="card mb-4">
-								<div class="card-header">
-									<div class="header">
-										<img class="profile" src="/resources/img/chipmunk.jpg">
-										<div class="writer">
-											<h5>이승원</h5>
-											<span><i class="far fa-calendar-alt"></i> 2020-07-03</span>
-										</div>
-									</div>
-								</div>
-								<div class="card-body">This card uses Bootstrap's default
-									styling with no utility classes added. Global styles are the
-									only things modifying the look and feel of this default card
-									example. This card uses Bootstrap's default styling with no
-									utility classes added. Global styles are the only things
-									modifying the look and feel of this default card example.</div>
-								<div class="card-footer">
-									<a href="#"><i class="fab fa-readme"></i> 상세보기</a> <a href="#"><i
-										class="fas fa-share"></i> 공유하기</a>
-								</div>
-							</div>
-							<!-- Default Card Example -->
-							<div class="card mb-4">
-								<div class="card-header">
-									<div class="header">
-										<img class="profile" src="/resources/img/chipmunk.jpg">
-										<div class="writer">
-											<h5>이승원</h5>
-											<span><i class="far fa-calendar-alt"></i> 2020-07-03</span>
-										</div>
-									</div>
-								</div>
-								<div class="card-body">This card uses Bootstrap's default
-									styling with no utility classes added. Global styles are the
-									only things modifying the look and feel of this default card
-									example. This card uses Bootstrap's default styling with no
-									utility classes added. Global styles are the only things
-									modifying the look and feel of this default card example.</div>
-								<div class="card-footer">
-									<a href="#"><i class="fab fa-readme"></i> 상세보기</a> <a href="#"><i
-										class="fas fa-share"></i> 공유하기</a>
-								</div>
-							</div>
-							<!-- Basic Card Example -->
-							<div class="card shadow mb-4">
-								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">Basic Card
-										Example</h6>
-								</div>
-								<div class="card-body">The styling for this basic card
-									example is created by using default Bootstrap utility classes.
-									By using utility classes, the style of the card component can
-									be easily modified with no need for any custom CSS!</div>
-							</div>
 
 						</div>
 
@@ -268,7 +218,14 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
+
 	<script type="text/javascript">
+	$(document).ready(function(){
+		getMemberList();
+	});
+	function toggleMenu() {
+		$("#toggleArea").toggle();
+	}
 	function copy(val) {
 		  var dummy = document.createElement("textarea");
 		  document.body.appendChild(dummy);
@@ -276,7 +233,37 @@
 		  dummy.select();
 		  document.execCommand("copy");
 		  document.body.removeChild(dummy);
+		  alert("클립보드에 복사되었습니다.");
 		}
+	function getMemberList() {
+		var studyNo=${loginStudent.studyNo};
+		$.ajax({
+			url:"/study-timeline/board/study-member/"+studyNo,
+			data:{},
+			dataType : "json",
+			type:"get",
+			cache:false,
+			success: function(data){
+				$("#profile-area img").each(function(index, item) {
+					var studentNo = $(this).attr("studentNo");
+					var status = false;
+					console.log(index+"번째 프로필");
+					
+					if(data.length > 0){
+						for(var i=0;i<data.length;i++){
+						
+							if(studentNo == data[i].sNo){
+								status = true;
+							}
+						}
+					}
+					if(status){
+						$(this).attr("class","profile_update mb-2");
+					}
+				});
+			}
+		});
+	}
 	</script>
 </body>
 

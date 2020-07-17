@@ -4,10 +4,11 @@ public class Study {
  
 	private int studyNo; // 스터디 번호
 	private String studyName; // 스터디 이름
-	private String studyManager;
+	private int studyManager;
+
 	public Study() {}
 
-	public Study(int studyNo, String studyName, String studyManager) {
+	public Study(int studyNo, String studyName, int studyManager) {
 		super();
 		this.studyNo = studyNo;
 		this.studyName = studyName;
@@ -29,13 +30,12 @@ public class Study {
 	public void setStudyName(String studyName) {
 		this.studyName = studyName;
 	}
-	
-	
-	public String getStudyManager() {
+
+	public int getStudyManager() {
 		return studyManager;
 	}
 
-	public void setStudyManager(String studyManager) {
+	public void setStudyManager(int studyManager) {
 		this.studyManager = studyManager;
 	}
 
@@ -43,7 +43,11 @@ public class Study {
 	public String toString() {
 		return "Study [studyNo=" + studyNo + ", studyName=" + studyName + ", studyManager=" + studyManager + "]";
 	}
+	
+	
 
+	
+	
 	
 	
 }

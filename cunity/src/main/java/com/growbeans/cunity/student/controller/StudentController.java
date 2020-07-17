@@ -69,10 +69,10 @@ public class StudentController {
     	if(result>0) {
     		model.addAttribute("loginStudent", student);
     		rd.addFlashAttribute("msg", "정보 수정 성공");
-    		return "home";
+    		return "redirect:home";
     	}else {
     		model.addAttribute("msg", "정보 수정 실패");
-    		return "home";
+    		return "redirect:home";
     	}
     }
     

@@ -22,7 +22,7 @@ public class StudyServiceImpl implements StudyService{
 	@Override
 	public int createStudy(Study study) {
 		// TODO Auto-generated method stub
-		return 0;
+		return studyStore.createStudy(study);
 	}
 
 	@Override
@@ -46,7 +46,12 @@ public class StudyServiceImpl implements StudyService{
 	@Override
 	public int joinStudy(Student student) {
 		// TODO Auto-generated method stub
-		return 0;
+		return studyStore.joinStudy(student);
+	}
+	@Override
+	public int deleteApply(int postNo, int studentNo) {
+		// TODO Auto-generated method stub
+		return studyStore.deleteApply(postNo, studentNo);
 	}
 
 	@Override
@@ -158,5 +163,18 @@ public class StudyServiceImpl implements StudyService{
 		// TODO Auto-generated method stub
 		return studyStore.deleteMent(mentNo);
 	}
+
+	@Override
+	public ArrayList<Student> getMemberList(int studyNo) {
+		// TODO Auto-generated method stub
+		return studyStore.getMemberList(studyNo);
+	}
+
+	@Override
+	public PostComment selectPostCommentOne() {
+		// TODO Auto-generated method stub
+		return studyStore.selectPostCommentOne();
+	}
+
 	
 }

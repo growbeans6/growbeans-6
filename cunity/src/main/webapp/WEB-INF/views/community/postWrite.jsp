@@ -71,6 +71,7 @@
 										id="postKinds" name="postKinds">
 										<option value="자유">자유</option>
 										<option value="장터">장터</option>
+										<option value="스터디">스터디</option>
 									</select>
 								</fieldset>
 								
@@ -82,6 +83,12 @@
 										<option value="학교정보">학교정보</option>
 										<option value="맛집">맛집</option>
 									</select>
+									
+								</fieldset>
+								<fieldset id="StudyInput" style="display:none;">
+									<label for="studyName">스터디 이름</label> 
+									<input type="text" id="studyName" name="studyName" size="30px;"
+									placeholder="스터디 이름을 입력해주세요">
 									
 								</fieldset>
 								<div class="row">
@@ -122,6 +129,11 @@
 								jQuery('#postCategory').show();
 							} else {
 								jQuery('#postCategory').hide();
+							} 
+							if(check == '스터디'){
+								$("#StudyInput").css("display","block");
+							} else{
+								$("#StudyInput").css("display","none");
 							}
 						});
 					

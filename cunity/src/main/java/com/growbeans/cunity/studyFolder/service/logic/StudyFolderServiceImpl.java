@@ -59,10 +59,16 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 		return studyFolderStore.selectstudentName(sNo);
 	}
 	// studyfile 작성자 이름 입력
-	@Override
+	/*@Override
 	public StudyFile selectOneRegistrant(String fileRegistrant) {
 		// TODO Auto-generated method stub
 		return studyFolderStore.selectOneRegistrant(fileRegistrant);
+	}*/
+
+	@Override
+	public int selectOneRegistrant(String fileRegistrant) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

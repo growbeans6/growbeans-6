@@ -25,8 +25,8 @@ public class StudyStoreLogic implements StudyStore{
 
 	@Override
 	public int createStudy(Study study) {
-		// TODO Auto-generated method stub
-		return 0;
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.createStudy(study);
 	}
 
 	@Override
@@ -55,14 +55,14 @@ public class StudyStoreLogic implements StudyStore{
 
 	@Override
 	public int joinStudy(Student student) {
-		// TODO Auto-generated method stub
-		return 0;
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.joinStudy(student);
 	}
 
 	@Override
 	public int deleteApply(int postNo, int studentNo) {
-		// TODO Auto-generated method stub
-		return 0;
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.deleteApply(postNo, studentNo);
 	}
 
 	@Override
@@ -176,6 +176,18 @@ public class StudyStoreLogic implements StudyStore{
 	public int deleteMent(int mentNo) {
 		StudyMapper mapper = session.getMapper(StudyMapper.class);
 		return mapper.deleteMent(mentNo);
+	}
+
+	@Override
+	public ArrayList<Student> getMemberList(int studyNo) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.getMemberList(studyNo);
+	}
+
+	@Override
+	public PostComment selectPostCommentOne() {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.selectPostCommentOne();
 	}
 
 }
