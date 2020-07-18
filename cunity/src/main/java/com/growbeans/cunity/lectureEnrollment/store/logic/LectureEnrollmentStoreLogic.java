@@ -44,10 +44,20 @@ public class LectureEnrollmentStoreLogic implements LectureEnrollmentStore{
 	public int updateSchedule(Timetable table) {
 		return sqlSession.update("timetableMapper.updateTime", table);
 	}
+	
+	@Override
+	public int updateProSchedule(Timetable table) {
+		return sqlSession.update("timetableMapper.updateProTime", table);
+	}
 
 	@Override
 	public Timetable showList(int sNo) {
 		return sqlSession.selectOne("timetableMapper.showTime", sNo);
+	}
+	
+	@Override
+	public Timetable showProList(int pNo) {
+		return sqlSession.selectOne("timetableMapper.showProTime", pNo);
 	}
 
 	@Override
@@ -59,6 +69,11 @@ public class LectureEnrollmentStoreLogic implements LectureEnrollmentStore{
 	public Lecture alreadyLecture(Lecture lecture) {
 		return sqlSession.selectOne("lectureMapper.alreadyLecture", lecture);
 	}
+	
+	@Override
+	public List<Lecture> alreadyProLecture(Lecture compareLec) {
+		return sqlSession.selectList("lectureMapper.alreadyProLecture", compareLec);
+	}
 
 	@Override
 	public int insertGrade(LectureEnrollment lectureEn) {
@@ -69,6 +84,12 @@ public class LectureEnrollmentStoreLogic implements LectureEnrollmentStore{
 	public List<LectureEnrollment> gradeList(int sNo) {
 		return sqlSession.selectList("LectureEnrollmentMapper.gradeList", sNo);
 	}
+
+
+
+
+
+
 	
 
 }

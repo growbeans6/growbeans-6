@@ -6,6 +6,16 @@
 
 <head>
 
+<style>
+
+tr{
+text-align:center;
+}
+div{
+overflow : hidden;
+}
+</style>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -39,9 +49,8 @@
 
        <jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
 
-        <!-- Begin Page Content -->
-        <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
-        <div class="container-fluid">
+ <!-- Begin Page Content -->
+         <div class="container-fluid">
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">강의시간표 조회</h1>
@@ -49,84 +58,88 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">민봉식님 시간표</h6>
+              <h6 class="m-0 font-weight-bold text-primary">오주현님 시간표</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
+
                     <tr>
                       <th></th>
-                      <th style="width:20%">월</th>
-                      <th style="width:20%">화</th>
-                      <th style="width:20%">수</th>
-                      <th style="width:20%">목</th>
-                      <th style="width:20%">금</th>
+                      <th>월</th>
+                      <th>화</th>
+                      <th>수</th>
+                      <th>목</th>
+                      <th>금</th>
                     </tr>
                   </thead>
                   <tbody>
+                  
                     <tr>
                       <td>1</td>
-                      <td style="background-color : blue">Java</td>
-                      <td style="background-color : green">
-                          <pre>웹 프로그래밍
-(민봉식)</pre>         </td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon1 }</td> 
+                      <td>${timetable.tue1 }</td>
+                      <td>${timetable.wed1 }</td>
+                      <td>${timetable.tur1 }</td>
+                      <td>${timetable.fri1 }</td>
                     </tr>
+                    
                     <tr>
                       <td>2</td>
-                      <td style="background-color : blue">Java</td>
-                      <td style="background-color : green">
-                           <pre>웹 프로그래밍
-(민봉식)</pre>    
-                      </td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon2 }</td>
+                      <td>${timetable.tue2 }</td>
+                      <td>${timetable.wed2 }</td>
+                      <td>${timetable.tur2 }</td>
+                      <td>${timetable.fri2 }</td>
                     </tr>
+                    
                     <tr>
                       <td>3</td>
-                      <td></td>
-                      <td></td>
-                      <td style="background-color : yellow">프로그래밍 기초</td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon3 }</td> <!-- 월1 -->
+                      <td>${timetable.tue3 }</td> <!-- 화1 -->
+                      <td>${timetable.wed3 }</td>
+                      <td>${timetable.tur3 }</td>
+                      <td>${timetable.fri3 }</td>
                     </tr>
+                    
                     <tr>
                       <td>4</td>
-                      <td></td>
-                      <td></td>
-                      <td style="background-color : yellow">
-                          프로그래밍 기초</td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon4 }</td> <!-- 월1 -->
+                      <td>${timetable.tue4 }</td> <!-- 화1 -->
+                      <td>${timetable.wed4 }</td>
+                      <td>${timetable.tur4 }</td>
+                      <td>${timetable.fri4 }</td>
                     </tr>
+                    
                      <tr>
                       <td>5</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon5 }</td> <!-- 월1 -->
+                      <td>${timetable.tue5 }</td> <!-- 화1 -->
+                      <td>${timetable.wed5 }</td>
+                      <td>${timetable.tur5 }</td>
+                      <td>${timetable.fri5 }</td>
                     </tr>
+                    
                     <tr>
                       <td>6</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>${timetable.mon6 }</td> <!-- 월1 -->
+                      <td>${timetable.tue6 }</td> <!-- 화1 -->
+                      <td>${timetable.wed6 }</td>
+                      <td>${timetable.tur6 }</td>
+                      <td>${timetable.fri6 }</td>
                     </tr>
+                    
                     <tr>
                       <td>7</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>                    
+                      <td>${timetable.mon7 }</td> <!-- 월1 -->
+                      <td>${timetable.tue7 }</td> <!-- 화1 -->
+                      <td>${timetable.wed7 }</td>
+                      <td>${timetable.tur7 }</td>
+                      <td>${timetable.fri7 }</td>
+                    </tr>                 
+                    <tr>
+                    </tr>
 
                   </tbody>
                 </table>
@@ -136,6 +149,10 @@
         </div>
         <!-- /.container-fluid -->
 
+
+      </div>
+      <!-- End of Main Content -->
+        <!-- /.container-fluid -->
       </div>
       <!-- End of Main Content -->
       <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
@@ -143,21 +160,21 @@
     <!-- End of Content Wrapper -->
   </div>
   <!-- End of Page Wrapper -->
-  <script src="/resources/vendor/jquery/jquery.min.js"></script>
-  <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     <script src="/resources/vendor/jquery/jquery.min.js"></script>
+    <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="/resources/js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/resources/js/sb-admin-2.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="/resources/vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="/resources/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="/resources/js/demo/chart-area-demo.js"></script>
-  <script src="/resources/js/demo/chart-pie-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="/resources/js/demo/datatables-demo.js"></script>
 </body>
 
 </html>

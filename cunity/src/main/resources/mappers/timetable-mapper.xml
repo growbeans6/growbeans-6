@@ -59,10 +59,25 @@
 	WHERE S_NO = #{sNo}
 	</update>
 	
+	<update id="updateProTime">
+	UPDATE TIMETABLE SET mon1 = #{mon1}, mon2= #{mon2}, mon3= #{mon3} , mon4 = #{mon4} , mon5 = #{mon5}, mon6 = #{mon6}, mon7 = #{mon7} ,
+	tue1 = #{tue1}, tue2= #{tue2}, tue3= #{tue3} , tue4 = #{tue4} , tue5 = #{tue5}, tue6 = #{tue6}, tue7 = #{tue7}, 
+	wed1 = #{wed1}, wed2= #{wed2}, wed3= #{wed3} , wed4 = #{wed4} , wed5 = #{wed5}, wed6 = #{wed6}, wed7 = #{wed7},
+	tur1 = #{tur1}, tur2= #{tur2}, tur3= #{tur3} , tur4 = #{tur4} , tur5 = #{tur5}, tur6 = #{tur6}, tur7 = #{tur7},
+	fri1 = #{fri1}, fri2= #{fri2}, fri3= #{fri3} , fri4 = #{fri4} , fri5 = #{fri5}, fri6 = #{fri6}, fri7 = #{fri7}
+	WHERE P_NO = #{pNo}
+	</update>
+	
 	<select id="showTime" resultMap="TimetableResultSet">
 	SELECT *
 	FROM TIMETABLE
 	WHERE S_NO = #{sNo}
+	</select>
+	
+	<select id="showProTime" resultMap="TimetableResultSet">
+	SELECT *
+	FROM TIMETABLE
+	WHERE P_NO = #{pNo}
 	</select>
 	
 	

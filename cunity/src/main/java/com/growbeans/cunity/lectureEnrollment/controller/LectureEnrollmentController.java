@@ -17,6 +17,7 @@ import com.growbeans.cunity.lecture.domain.Lecture;
 import com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment;
 import com.growbeans.cunity.lectureEnrollment.domain.Timetable;
 import com.growbeans.cunity.lectureEnrollment.service.LectureEnrollmentService;
+import com.growbeans.cunity.professor.domain.Professor;
 import com.growbeans.cunity.student.domain.Student;
 
 @Controller
@@ -68,12 +69,15 @@ public class LectureEnrollmentController {
 		lecture1.setlCode(lcode);
 		lecture1.setsNo(sNo);
 		
+		
+		//중복된 과목있을경우 alert창 띄움
 		if (lecEnService.find(lecture1) != null) {
 			model.addAttribute("msg", "중복 신청 불가");
 			model.addAttribute("url", "/lectureList");
 			return "common/msg";
 		}
 		
+		//같은 과목있을경우 alert창 띄움
 		Lecture compareLec = new Lecture();
 		compareLec =lecEnService.lectureOne(lcode);
 		Lecture a = new Lecture();
@@ -86,7 +90,6 @@ public class LectureEnrollmentController {
 		a.setlEndTime2(compareLec.getlEndTime2());
 		Lecture b = new Lecture(); 
 				b = lecEnService.alreadyLecture(a);
-		System.out.println(b);
 		
 		if( b != null) {
 			model.addAttribute("msg", " 다른과목이 있습니다.");
@@ -95,7 +98,7 @@ public class LectureEnrollmentController {
 		}
 		
 		
-		// 스케쥴에 넣을과목
+		// 스케쥴에 넣을과목 (새로운 학생으로 로그인했을경우 기존에 있던 시간표 불러옴)
 		if(table.getsNo() != student.getsNo() ) {
 			table = new Timetable();
 			Timetable table1 = lecEnService.showList(sNo);
@@ -1401,6 +1404,17 @@ public class LectureEnrollmentController {
 			return "fail";
 		}
 	}
+	
+	//강의 시간표
+	@RequestMapping("/lectureTime")
+	public ModelAndView showProSchedule(ModelAndView mv , HttpSession session) {
+		Professor professor = (Professor)session.getAttribute("loginprof");
+		int pNo = professor.getpNo();
+		Timetable table = lecEnService.showProList(pNo);
+		mv.addObject("timetable", table);
+		mv.setViewName("professor/lectureTime");
+		return mv;
+	}	
 	
 	
 	
