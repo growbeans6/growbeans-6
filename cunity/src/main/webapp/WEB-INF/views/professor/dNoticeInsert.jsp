@@ -26,13 +26,13 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-<style>
+<!-- <style>
 	#textarea {
 		width : 90%;
 		height : 70%;
 		border : 1px;
 	}
-</style>
+</style> -->
 <script>
 	
 function aa(){

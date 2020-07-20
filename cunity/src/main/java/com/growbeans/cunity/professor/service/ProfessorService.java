@@ -12,7 +12,7 @@ public interface ProfessorService {
 	
 	   public Professor professorInfo(int pNo);
 	   public int updateProfessorInfo(Professor prof);
-	   public ArrayList<Student> guidanceList();
+	   public ArrayList<Student> guidanceList(int pNo);
 	   public Professor professorLogin(Professor prof);
 
 

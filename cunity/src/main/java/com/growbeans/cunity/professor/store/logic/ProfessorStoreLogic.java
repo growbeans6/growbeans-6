@@ -31,9 +31,8 @@ public class ProfessorStoreLogic implements ProfessorStore{
 	}
 
 	@Override
-	public ArrayList<Student> guidanceList() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Student> guidanceList(int pNo) {
+		return (ArrayList)sqlSession.selectList("professorMapper.guidanceList", pNo);
 	}
 
 	

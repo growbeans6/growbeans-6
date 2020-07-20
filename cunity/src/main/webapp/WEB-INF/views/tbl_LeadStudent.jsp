@@ -51,287 +51,55 @@
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">지도학생 목록</h6>
 						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%"
-									cellspacing="0">
-									<thead>
-										<tr>
-											<th>학번</th>
-											<th>성명</th>
-											<th>전공</th>
-											<th>학년</th>
-											<th>입학일</th>
-											<th>졸업예정일</th>
-											<th></th>
-										</tr>
-									</thead>
-									<tfoot>
-										<tr>
-											<th>학번</th>
-											<th>성명</th>
-											<th>전공</th>
-											<th>학년</th>
-											<th>입학일</th>
-											<th>졸업예정일</th>
-											<th></th>
-										</tr>
-									</tfoot>
-									<tbody>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-										<tr>
-											<td>201300000</td>
-											<td>이승원</td>
-											<td>소프트웨어전공</td>
-											<td>4학년</td>
-											<td>2000-00-00</td>
-											<td>2000-00-00</td>
-											<td id="detail-btn"><a class="btn"
-												style="border: 1px solid lightgray;">상세정보 조회</a></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
+							<form action="/studentList" method="post">
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-bordered" id="dataTable" width="100%"
+											cellspacing="0">
+											<thead>
+												<tr>
+													<th>학번</th>
+													<th>성명</th>
+													<th>전공</th>
+													<th>학년</th>
+													<th>입학일</th>
+													<th>졸업예정일</th>
+													<th>상세정보</th>
+												</tr>
+											</thead>
+											<tbody>
+											<c:forEach items="${gdList }" var="list" varStatus="status">
+							                    <tr>
+							                      <td>${list.sNo }</td>
+							                      <td>${list.sName }</td>
+							                      <td>${list.sDept }</td>
+							                      <td>${list.sGrade }</td>
+							                      <td></td>
+							                      <td></td>
+								                      <c:url var="studentDtlInfo" value="/studentDtlInfo">
+								                      <c:param name="sNo" value="${list.sNo }"/>
+								                      </c:url>
+							                      <td><a href="${studentDtlInfo }">학생정보 보기</a></td>
+							                    </tr>
+							                </c:forEach>
+												<!-- <tr>
+													<td>201300000</td>
+													<td>이승원원</td>
+													<td>소프트웨어전공</td>
+													<td>4학년</td>
+													<td>2000-00-00</td>
+													<td>2000-00-00</td>
+													<td id="detail-btn"><a class="btn"
+														style="border: 1px solid lightgray;">상세정보 조회</a></td>
+												</tr> -->
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</form>
+							
+						
 					</div>
 
 				</div>

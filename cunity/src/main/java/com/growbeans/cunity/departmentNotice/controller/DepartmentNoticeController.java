@@ -36,8 +36,7 @@ public class DepartmentNoticeController {
             mv.addObject("dnlist", dnlist);
             mv.setViewName("professor/dNoticeList");
          } else {
-            mv.addObject("msg", "공지사항 목록 조회 실패");
-            mv.setViewName("home");
+            mv.setViewName("professor/dNoticeList");
          }
          return mv;
       }

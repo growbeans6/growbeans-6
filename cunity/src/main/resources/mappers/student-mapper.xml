@@ -22,6 +22,12 @@
 		WHERE s_No=#{sNo} and s_password = #{sPassword}		
 	</select>
 	
+	<select id="studentInfo" resultMap="StudentResultSet">
+		SELECT *
+		FROM STUDENT
+		WHERE s_No=#{sNo}
+	</select>
+	
 	<update id="modifyStudent">
 	    UPDATE STUDENT SET S_PHONE = #{sPhone}, S_ADDRESS = #{sAddress}, 
 	S_EMAIL = #{sEmail} 

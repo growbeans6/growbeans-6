@@ -31,8 +31,8 @@ public class ProfessorServiceImpl implements ProfessorService{
 	}
 
 	@Override
-	public ArrayList<Student> guidanceList() {
-		return pStore.guidanceList();
+	public ArrayList<Student> guidanceList(int pNo) {
+		return pStore.guidanceList(pNo);
 	}
 
 	@Override

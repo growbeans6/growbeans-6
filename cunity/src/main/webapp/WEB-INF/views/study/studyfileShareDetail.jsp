@@ -198,7 +198,7 @@
 													<a href="#" class="card-link">${folder.uploadFile }</a><br>
 												<p class="text-right">작성자 : ${fileWriter.sName }, 올린 시간
 													: ${folder.fileUploadTime }</p>
-												<c:if test="${loginUser. }"
+												<c:if test="${loginUser. }"></c:if>
 												<input type="reset" class="btn btn-primary" value="파일 삭제">
 											</div>
 										</div>

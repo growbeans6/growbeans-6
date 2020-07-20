@@ -31,13 +31,27 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-	<jsp:include page="../wrapper.jsp"></jsp:include>
+	  <c:choose>
+	  	<c:when test="${sessionScope.loginStudent.sNo != null}">
+	  		<jsp:include page="../wrapper.jsp"></jsp:include>
+	  	</c:when>
+	  	<c:otherwise>
+	  		<jsp:include page="../professorwrapper.jsp"></jsp:include>
+	  	</c:otherwise>
+	  </c:choose>
+	  
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
       <!-- Main Content -->
       <div id="content">
-
-       <jsp:include page="../content-wrapper.jsp"></jsp:include>
+      	<c:choose>
+			<c:when test="${sessionScope.loginStudent.sNo != null}">
+	       		<jsp:include page="../content-wrapper.jsp"></jsp:include>
+	       	</c:when>
+			<c:otherwise>
+	  			<jsp:include page="../professorcontent-wrapper.jsp"></jsp:include>
+	  		</c:otherwise>
+ 		</c:choose>
 
         <!-- Begin Page Content -->
         <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
@@ -103,7 +117,9 @@
 
                   <tr>
                      <td colspan="2" class="text-center">
-                     	<input type="submit" value="정보수정" class="btn btn-primary"> 
+                     	<c:if test="${sessionScope.loginStudent.sNo != null }">
+                     		<input type="submit" value="정보수정" class="btn btn-primary"> 
+                     	</c:if>
                         <button type="button" class="btn btn-primary" onclick="back()">홈으로</button>
                      </td>
                   </tr>

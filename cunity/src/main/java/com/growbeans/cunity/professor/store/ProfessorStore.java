@@ -11,7 +11,7 @@ public interface ProfessorStore {
 	
 	public Professor professorInfo(int pNo);
 	   public int updateProfessorInfo(Professor prof);
-	   public ArrayList<Student> guidanceList();
+	   public ArrayList<Student> guidanceList(int pNo);
 	   public Professor selectProfessor(Professor prof); 
 
 

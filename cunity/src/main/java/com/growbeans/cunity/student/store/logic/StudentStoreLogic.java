@@ -18,7 +18,16 @@ public class StudentStoreLogic implements StudentStore {
 
 	@Override
 	public Student loginStudent(Student student) {
-		Student loginStudent = sqlSession.selectOne("studentMapper.loginStudent", student);
+		Student loginStudent = new Student();
+		
+		if ("".equals(student.getsPassword()) || null == student.getsPassword()) {
+			// 패스워드가 없는 경우는 지도학생관리-상세조회에서 사용한다.
+			loginStudent = sqlSession.selectOne("studentMapper.studentInfo", student);
+		} else {
+			// 패스워드가 있는 경우는 로그인한 학생의 정보에서 사용한다.
+			loginStudent = sqlSession.selectOne("studentMapper.loginStudent", student);
+		}
+		
 		return loginStudent;
 	}
 

@@ -13,6 +13,20 @@
 		<result property="pFile" column="P_FILE"/>			
 	</resultMap>
 	
+	<resultMap type="Student" id="StudentResultSet">
+		<id property="sNo" column="s_no"/>
+		<result property="sDept" column="s_Dept"/>
+		<result property="sName" column="s_Name"/>
+		<result property="sPhone" column="s_Phone"/>
+		<result property="sAddress" column="s_Address"/>
+		<result property="sEmail" column="s_Email"/>
+		<result property="sGrade" column="s_Grade"/>
+		<result property="sFile" column="S_File"/>
+		<result property="studyNo" column="study_No"/>
+		<result property="pNo" column="p_No"/>
+		<result property="sPassword" column="s_Password"/>
+	</resultMap>
+	
 	<!-- 교수 로그인 쿼리 -->
 	<select id="selectOne" parameterType="Professor" resultMap="professorResultSet">
 		SELECT * FROM PROFESSOR WHERE P_NO = #{pNo} AND P_PASSWORD = #{pPwd}
@@ -30,6 +44,11 @@
 	FROM STUDENT JOIN PROFESSOR
 	USING (P_NO)
 	WHERE S_NO = #{sNo}
+	</select>
+	
+	<!-- 지도학생 리스트 조회 -->
+	<select id="guidanceList" resultMap="StudentResultSet">
+	SELECT * FROM STUDENT where P_NO = #{pNo}
 	</select>
 	
 </mapper>
