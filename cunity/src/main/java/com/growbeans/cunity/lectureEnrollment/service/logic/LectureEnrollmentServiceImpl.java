@@ -44,10 +44,20 @@ public class LectureEnrollmentServiceImpl implements LectureEnrollmentService {
 	public int updateSchedule(Timetable table) {
 		return lecEnStore.updateSchedule(table);
 	}
+	
+	@Override
+	public int updateProSchedule(Timetable table) {
+		return lecEnStore.updateProSchedule(table);
+	}
 
 	@Override
 	public Timetable showList(int sNo) {
 		return lecEnStore.showList(sNo);
+	}
+	
+	@Override
+	public Timetable showProList(int pNo) {
+		return lecEnStore.showProList(pNo);
 	}
 
 	@Override
@@ -59,6 +69,11 @@ public class LectureEnrollmentServiceImpl implements LectureEnrollmentService {
 	public Lecture alreadyLecture(Lecture lecture) {
 		return lecEnStore.alreadyLecture(lecture);
 	}
+	
+	@Override
+	public List<Lecture> alreadyProLecture(Lecture compareLec) {
+		return lecEnStore.alreadyProLecture(compareLec);
+	}
 
 	@Override
 	public int insertGrade(LectureEnrollment lectureEn) {
@@ -69,6 +84,12 @@ public class LectureEnrollmentServiceImpl implements LectureEnrollmentService {
 	public List<LectureEnrollment> gradeList(int sNo) {
 		return lecEnStore.gradeList(sNo);
 	}
+
+	
+
+
+
+
 	
 	
 	

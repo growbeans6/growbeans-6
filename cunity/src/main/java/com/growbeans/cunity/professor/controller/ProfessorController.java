@@ -109,6 +109,8 @@ public class ProfessorController {
 	   status.setComplete();
 	   return "common/loginPage";
    }
+   
+   
 }
 
 

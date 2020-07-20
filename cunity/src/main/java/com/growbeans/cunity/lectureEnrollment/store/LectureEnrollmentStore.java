@@ -15,10 +15,13 @@ public interface LectureEnrollmentStore {
 	public int deleteEnList(int lCode);
 	public Lecture lectureOne (int lCode);
 	public int updateSchedule(Timetable table);
+	public int updateProSchedule(Timetable table);
 	public Timetable showList(int sNo);
+	public Timetable showProList(int pNo);
 	public LectureEnrollment find(LectureEnrollment lecture);
 	public Lecture alreadyLecture(Lecture lecture);
 	public int insertGrade(LectureEnrollment lectureEn);
 	public List<LectureEnrollment> gradeList(int sNo);
+	public List<Lecture> alreadyProLecture(Lecture compareLec);
 
 }

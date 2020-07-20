@@ -64,6 +64,13 @@
 	DELETE FROM LECTURE WHERE L_CODE = #{lcode}
 	</delete>
 	
+	<select id="alreadyProLecture" resultMap="LectureResultSet">
+	
+	select l_day1, l_starttime1, l_endtime1, l_day2, l_starttime2, l_endtime2
+	from lecture
+	where p_no =#{pNo} and (l_day1 = '${lDay1}' and ( l_starttime1 in ( #{lStartTime1},#{lEndTime1} ) or
+	 l_endtime1 in (#{lStartTime1}, #{lEndTime1}) )or l_day2 ='${lDay2}' and (l_starttime2 in (#{lStartTime2},#{lEndTime2}) or l_endtime2 in(#{lStartTime2},#{lEndTime2})))
+	</select>
 	
 </mapper>
 
