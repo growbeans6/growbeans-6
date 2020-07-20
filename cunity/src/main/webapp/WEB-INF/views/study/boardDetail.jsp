@@ -217,9 +217,8 @@ textarea {
 										</div>
 										<div id="modifyComment" style="display: none;">
 											<div class="card-body">
-												<c:set var="mentContent"
-													value="${fn:replace(ment.mentContent,'<br>','') }" />
-												<textarea>${mentContent}</textarea>
+												
+												<textarea>${ment.mentContent}</textarea>
 											</div>
 											<div class="card-footer">
 												<a id="rmodify" href="javascript:void(0);"
@@ -260,6 +259,14 @@ textarea {
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 	    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script>
+		$(document).ready(function(){
+			var textarea = $("#mentList").find("textarea");
+			$(textarea).each(function(item,index){
+				var text = $(this).text();
+				text = text.replace(/<br>/gi,"\n");
+				$(this).text(text);
+			});
+		});
 		function deleteBoard() {
 			$("#deleteBoard").submit();
 		}
@@ -338,9 +345,10 @@ textarea {
 			$(obj).parents("div").eq(1).next().css("display", "block");
 		}
 		function rcancle(obj) {
-			var mentContent = $(obj).parents("div").eq(1).prev().find(".card-body").text();
+			var mentContent = $(obj).parents("div").eq(1).prev().find(".card-body").html();
 			$(obj).parents("div").eq(1).css("display", "none");
 			$(obj).parents("div").eq(1).prev().css("display", "block");
+			mentContent=mentContent.replace(/<br>/gi,"\n");
 			$(obj).parents("div").eq(1).find("textarea").val(mentContent);
 		}
 		
