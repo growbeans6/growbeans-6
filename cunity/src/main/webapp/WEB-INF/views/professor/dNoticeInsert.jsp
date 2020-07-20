@@ -80,9 +80,12 @@ function aa(){
                     <span class="input-group-text">내용</span>
                   </div>
                   <div id="textarea">
-                  	<textarea class="form-control" style="resize:none;" aria-label="With textarea" name="dnContent" ></textarea>
+                  	<textarea class="form-control" style="resize:none;" aria-label="With textarea" name="dnContent" >
+                  	</textarea>
+                  	<input type="file" name="uploadFile">
                   </div>
               </div>
+              
                 <div>
                 
                     <%-- <button type="submit">등록하기</button>

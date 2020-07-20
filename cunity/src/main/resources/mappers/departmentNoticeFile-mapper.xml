@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.growbeans.cunity.departmentNoticeFile.mapper.DepartmentNoticeFileMapper">
+	<resultMap type="dNoticeFile" id="dNoticeFileResultSet">
+		<id property="dfileNo" column="DFILE_NO"/>
+		<result property ="dnNo" column="DN_NO"/>
+		<result property ="dnfName" column="DNF_NAME"/>
+		<result property ="dnfRoot" column="DNF_ROOT"/>
+		<result property ="dnfCdate" column="DNF_CDATE"/>
+	</resultMap>
+	
+	<insert id="uploaddNoticeFile" parameterType="dNoticeFile">
+		INSERT INTO DNOTICEFILE VALUES (DFILE_NO_SEQ.NEXTVAL, #{dnNo}, #{dnfName}, #{dnfRoot}, SYSDATE)
+	</insert>
+</mapper>
