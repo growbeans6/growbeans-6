@@ -10,29 +10,40 @@
 
 	</resultMap>
 
+	<resultMap type="studyFile" id="studyFileResultSet">
+		<id property="fileNo" column="FILE_NO" />
+		<result property="studyNo" column="STUDY_NO" />
+		<result property="uploadFile" column="FILE_NAME" />
+		<result property="filePath" column="FILE_PATH" />
+		<result property="fileUploadTime" column="FILE_UPLOAD_TIME" />
+		<result property="folderNo" column="FOLDER_NO" />
+		<result property="fileRegistrant" column="FILE_REGISTRANT" />
+	</resultMap>
 	
 	<select id="selectlistStudyFolder" parameterType="StudyFolder"
 		resultMap="studyFolderResultSet">
 		select * from study_Folder where study_No = #{studyNo} and parent_Folder_No is null
 	</select>
+	
 	<select id="selectOneStudyFolder"
 		resultMap="studyFolderResultSet" parameterType="_int">
 		select * from study_Folder where study_No = #{studyNo} and parent_Folder_No is null
 	</select>
+	
 	<select id="selectlistOneStudyFolder"
 		resultMap="studyFolderResultSet" parameterType="_int">
 		select * from study_Folder where study_No = #{studyNo} and parent_Folder_No is null
 	</select>
 
 	<insert id="insertStudyFolder" parameterType="StudyFolder">
-		insert into
-		study_Folder values (FOLDER_NO_SEQ.NEXTVAL, #{studyNo},
-		#{folderName},
-		#{parentFolderNo})
+		insert into study_Folder values (FOLDER_NO_SEQ.NEXTVAL, #{studyNo}, #{folderName}, #{parentFolderNo})
 	</insert>
 
-	<delete id="deleteStudyFolder" parameterType="StudyFolder"> delete
-		study_Folder
-		where folderNo = #{folderNo}
+	<delete id="deleteStudyFolder" parameterType="StudyFolder"> 
+		delete study_Folder where folderNo = #{folderNo}
 	</delete>
+	
+	<select id="selectlistStudyFile" parameterType="StudyFile" resultMap="studyFileResultSet">
+		select A.folder_no, B.file_no, B.study_no, B.file_name, B.file_path, B.file_upload_time, B.file_registrant from study_Folder A right outer join study_File B ON A.folder_no = B.folder_no and A.study_no = B.study_no
+	</select>
 </mapper>

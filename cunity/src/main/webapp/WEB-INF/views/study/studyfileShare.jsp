@@ -159,7 +159,7 @@
 													<input type="hidden" name="studyNo"
 														value="${loginStudent.studyNo }">
 													<input type="hidden" name="studentNo" value="${loginStudent.sNo }">
-													<input type="hidden" name="fileRegistrant" value="${fileRegistrant }">
+													<input type="hidden" name="fileRegistrant" value="${writer }">
 												</div>
 												<!-- 나중에 forEach로 바꿔줘야 함 -->
 												<div class="form-group">
@@ -185,50 +185,6 @@
 
 								<br> <br>
 
-								<div class="col-lg-8">
-
-									<div id="filebox" class="card w-80" style="display: none">
-										<h5 class="card-header">글 제목</h5>
-										<div class="card-body">
-											<h5 class="card-title">제목1</h5>
-											<p class="card-text">
-												<a href="#" class="card-link">업로드 된 파일.jpg</a><br>
-											<p class="text-right">작성자 : 작성자, 올린 시간 : 20xx.xx.xx</p>
-											</p>
-											<a href="#" class="btn btn-primary">파일 삭제</a>
-										</div>
-									</div>
-								</div>
-								<br>
-
-								<div class="col-lg-8">
-
-									<div class="card w-80">
-										<h5 class="card-header">글 제목</h5>
-										<div class="card-body">
-											<h5 class="card-title">제목2</h5>
-											<p class="card-text">
-												<a href="#" class="card-link">업로드 된 파일.jpg</a><br>
-											<p class="text-right">작성자 : 홍길동, 올린 시간 : 20xx.xx.xx</p>
-											</p>
-											<a href="#" class="btn btn-primary">파일 다운로드</a>
-										</div>
-									</div>
-								</div>
-								<br>
-								<div class="col-lg-8">
-
-									<div class="card w-80">
-										<h5 class="card-header">글 제목</h5>
-										<div class="card-body">
-											<h5 class="card-title">제목3</h5>
-											<p class="card-text">
-												<a href="#" class="card-link">업로드 된 파일.jpg</a><br>
-											<p class="text-right">작성자 : 유관순, 올린 시간 : 20xx.xx.xx</p>
-											<a href="#" class="btn btn-primary">파일 다운로드</a>
-										</div>
-									</div>
-								</div>
 
 							</div>
 

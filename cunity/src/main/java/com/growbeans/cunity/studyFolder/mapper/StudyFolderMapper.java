@@ -11,12 +11,6 @@ import com.growbeans.cunity.studyFolder.domain.StudyFolder;
 
 public interface StudyFolderMapper {
 
-	// 파일 작성자 이름 입력
-	public StudyFile selectOneRegistrant(String fileRegistrant);
-	
-	// 파일 작성자 정보 불러오기
-	public ArrayList<Student> selectstudentName(int sNo);
-
 	// 스터디 폴더 하나 선택
 	public StudyFolder selectOneStudyFolder(@Param("studyNo") int studyNo);
 
@@ -31,4 +25,7 @@ public interface StudyFolderMapper {
 
 	// 스터디 폴더 하나 삭제
 	public int deleteStudyFolder(int folderNo);
+	
+	// 특정 스터디 폴더의 파일 리스트들 불러오기
+	public ArrayList<StudyFile> selectlistStudyFile(@Param("studyNo") int studyNo, @Param("folderNo") int folderNo);
 }

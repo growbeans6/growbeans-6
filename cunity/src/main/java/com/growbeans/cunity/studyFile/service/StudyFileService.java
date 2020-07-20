@@ -1,6 +1,8 @@
 
 package com.growbeans.cunity.studyFile.service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -18,18 +20,19 @@ public interface StudyFileService {
 	public int uploadStudyFile(StudyFile studyFile);
 
 	/**
-	 * study 파일 다운로드를 위한 메소드
-	 * 
-	 * @param studyFile
-	 * @return result
-	 */
-	public int downloadStudyFile(int fileNo);
-
-	/**
 	 * study 파일 삭제를 위한 메소드
 	 * 
 	 * @param fileNo
 	 * @return result
 	 */
 	public int deleteStudyFile(int fileNo);
+	
+	/**
+	 * 특정 studyFolder에 하나의 studyfile을 불러오는 메소드
+	 * 
+	 * @param fileNo
+	 * @return
+	 */
+
+	public StudyFile selectOneStudyFile(int fileNo);
 }
