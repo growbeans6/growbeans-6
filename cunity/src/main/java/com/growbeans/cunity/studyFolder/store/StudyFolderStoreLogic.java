@@ -19,16 +19,7 @@ public class StudyFolderStoreLogic {
 	
 	@Autowired
 	private SqlSession sqlsession;
-	// studyfile 작성자 이름 입력
-	public StudyFile selectOneRegistrant(String fileRegistrant) {
-		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
-		return studyfolderMapper.selectOneRegistrant(fileRegistrant);
-	}
-	// 작성자 조회
-	public ArrayList<Student> selectstudentName(int sNo) {
-		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
-		return studyfolderMapper.selectstudentName(sNo);
-	}
+	
 	// studyFolder 하나 선택
 	public StudyFolder selectOneFolder(int studyNo) {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
@@ -57,6 +48,13 @@ public class StudyFolderStoreLogic {
 	public ArrayList<StudyFolder> selectlist(int studyNo, int folderNo) {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
 		ArrayList<StudyFolder> list = studyfolderMapper.selectlistStudyFolder(studyNo, folderNo);
+		return list;
+	}
+	
+	// 특정 studyFolder의 studyFile 리스트 불러오기
+	public ArrayList<StudyFile> selectlistStudyFile(int studyNo, int folderNo) {
+		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
+		ArrayList<StudyFile> list = studyfolderMapper.selectlistStudyFile(studyNo, folderNo);
 		return list;
 	}
 }

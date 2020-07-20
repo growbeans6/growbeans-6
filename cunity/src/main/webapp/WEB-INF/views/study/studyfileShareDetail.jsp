@@ -160,55 +160,70 @@
 												enctype="Multipart/form-data">
 												<div class="form-group">
 													<input type="hidden" name="studyNo"
-														value="${loginStudent.studyNo }">
+														value="${loginStudent.studyNo }"> <input
+														type="hidden" name="studentNo"
+														value="${loginStudent.sNo }"> <input type="hidden"
+														name="fileRegistrant" value="${writer }">
 												</div>
+												<!-- 나중에 forEach로 바꿔줘야 함 -->
 												<div class="form-group">
 													<label for="exampleFormControlSelect1">폴더 선택</label> <select
 														name="folderNo" class="form-control"
 														id="exampleFormControlSelect1">
-														<option value="${childerenFolderList[1].folderNo }">${childerenFolderList[1].folderName }</option>
+														<option value="${FolderList[0].folderNo }">${FolderList[0].folderName }</option>
 													</select>
 												</div>
 												<div class="form-group">
 													<label for="exampleFormControlSelect1">파일 찾기</label>
 													<div class="input-group">
 														<div class="custom-file">
-															<input type="file" class="file-input" name="uploadFile">
+															<input type="file" class="file-input" name="fileName">
 														</div>
 													</div>
 												</div>
 												<input type="submit" value="등록하기" class="btn btn-primary">
-
 											</form>
 										</div>
 									</div>
 								</div>
-								<%-- </c:forEach> --%>
 								<br> <br>
-								<c:forEach var="folder" items="${childerenFolderList }">
-									<c:if test="${childerenFolderList.folderNo }" />
-									
+								<c:forEach var="FileDetail" items="${filelist }" varStatus="index">
 									<div class="col-lg-8">
-
 										<div id="filebox" class="card w-80">
-											<h5 class="card-header">${folder.uploadFile }</h5>
+											<h5 class="card-header">${FileDetail.uploadFile }</h5>
 											<div class="card-body">
-												<h5 class="card-title">${folder.uploadFile }</h5>
+												<h5 class="card-title">
+													<input type="hidden" name="uploadFile"
+														value="${uploadFile }"> ${FileDetail.uploadFile }
+												</h5>
 												<p class="card-text">
 													<a href="#" class="card-link">${folder.uploadFile }</a><br>
 												<p class="text-right">작성자 : ${fileWriter.sName }, 올린 시간
 													: ${folder.fileUploadTime }</p>
 												<c:if test="${loginUser. }"></c:if>
 												<input type="reset" class="btn btn-primary" value="파일 삭제">
+													<a href="#" class="card-link">${FileDetail.uploadFile }</a>
+												</p>
+												<br>
+												<p class="text-right">작성자 : ${FileDetail.fileRegistrant},
+													올린 시간 : ${FileDetail.fileUploadTime }</p>
+												<c:if test="${loginStudent.sName eq FileDetail.fileRegistrant }">
+												<!-- 쿼리스트링 넣어주기 -> 넣어주어야 컨트롤러 메소드의 매개변수가 받아서 처리 가능 -->
+												<!-- get방식으로 넘겨주는 거라서 c:param으로 파라미터값을 넘겨주어야 함 -->
+												<c:url var="sfdelete" value="sfdelete.cunity">
+													<c:param name="fileNo" value="${FileDetail.fileNo }"/>
+												</c:url>
+												<a href="${sfdelete }" class="btn btn-primary">파일 삭제</a></c:if>
+												<c:if test="${loginStudent.sName ne FileDetail.fileRegistrant }">
+												<a href="<c:url value='/resources/nuploadFiles/${FileDetail.uploadFile }'/>" class="btn btn-primary" download>파일 다운로드</a>
+												</c:if>
 											</div>
 										</div>
 									</div>
 								</c:forEach>
+
 								<br> <br>
-
-
 							</div>
-
 							<br>
 						</div>
 						<div id="content-layer2" class="col-lg-2">
@@ -253,7 +268,24 @@
 											aria-labelledby="dropdownMenuReference" style="width: 280px">
 
 											<!-- 폴더 리스트 출력 -->
+											<div class="study_folder_list">
+                                                <ul class="folder_list">
 
+                                                    <li class="parent_folder">
+                                                        <a class="dropdown-item" href="#">폴더명1&nbsp;&nbsp;&nbsp;
+                                                        <i href="#" class="fas fa-times"></i></a></li>
+
+                                                    <ul class="child_folder"><a class="dropdown-item" href="#">폴더명1-1</a>
+
+                                                    </ul>
+
+                                                    <li class="parent-folder">
+                                                        <a class="dropdown-item" href="#">폴더명2&nbsp;&nbsp;&nbsp;<i href="#" class="fas fa-times"></i></a>
+                                                    </li>
+
+                                                </ul>
+
+                                            </div>
 										</div>
 									</div>
 								</div>
@@ -292,38 +324,8 @@
 		// 새 폴더 생성 
 
 		var count = 0;
-		/* 파일을 업로드 할 때 동작하는 메소드 */
-		function addFile() {
-			$("#fileForm").submit();
-			$("#filebox").css("display", "block");
-
-		}
-		/* 파일을 삭제할 때 동작하는 메소드 */
-		function deleteFile() {
-
-		}
-		/* 파일을 다운로드 할 때 동작하는 메소드 */
-		function downloadFile() {
-
-		}
-		/* 업로드한 파일을 선택할 때 동작하는 메소드 */
-		function download() {
-
-		}
-		/* function input_folder(obj) { // 1. 부모 폴더의 번호및 값을 가져와서 넣어준다. 
-			var folderName =
-												$(obj).parent().siblings(1).val(); 
-												// 2. 자식 폴더 id 값에 변수 입력
-												$("#parentfolderName").val(folderName); /* var action =
-												$("#insertform").attr("action"); console.log(action); */
-
-		/* $("#parentfolderName").submit(); }; // 폴더를 DB에 저장
-		$("#childFolder").on("click", function() { var folderName =
-		$("#folderName").val(); // 폴더명 전송 // 전송할 타이틀이 있는 요소 $.ajax({
-		url : "insertfolder.cunity", // 서버에 전달할 파일명 data : {
-		folderName : folderName }, // 전송할 파라미터 값 type : "post",
-		success : function(data) { if (data == "success") {
-		$("#folderName").val(""); } } }) }); */
+		
+		
 	</script>
 </body>
 </html>

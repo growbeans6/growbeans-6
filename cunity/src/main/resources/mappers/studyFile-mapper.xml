@@ -11,6 +11,15 @@
 		<result property="folderNo" column="FOLDER_NO" />
 		<result property="fileRegistrant" column="FILE_REGISTRANT" />
 	</resultMap>
+	
+	<resultMap type="StudyFolder" id="studyFolderResultSet">
+		<id property="folderNo" column="FOLDER_NO" />
+		<result property="studyNo" column="STUDY_NO" />
+		<result property="folderName" column="FOLDER_NAME" />
+		<result property="parentFolderNo" column="PARENT_FOLDER_NO" />
+
+	</resultMap>
+	
 	<insert id="uploadStudyFile" parameterType="studyFile">
 		insert into study_File values(FILE_NO_SEQ.nextval, #{studyNo}, #{uploadFile}, #{filePath}, SYSDATE, #{folderNo}, #{fileRegistrant} )
 	</insert>
@@ -20,8 +29,11 @@
 		study_File values (FILE_NO_SEQ, #{studyNo}, #{fileName}, #{filePath}, SYSDATE, 
 		#{folderNo}) </insert> -->
 
-	<delete id="deleteStudyFile" parameterType="String"> delete studyFile
-		where fileNo = #{fileNo}
+	<delete id="deleteStudyFile"> 
+		delete study_File where file_No = #{fileNo}
 	</delete>
 
+	<select id="selectOneStudyFile" parameterType="_int" resultMap="studyFileResultSet">
+		select * from study_file where file_No = #{fileNo}
+	</select>
 </mapper>
