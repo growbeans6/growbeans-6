@@ -7,6 +7,16 @@
 
 <head>
 
+<style>
+
+tr{
+text-align:center;
+}
+div{
+overflow : hidden;
+}
+</style>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"

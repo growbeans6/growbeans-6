@@ -111,7 +111,6 @@ text-align:center;
                     </tr>
                    </c:forEach>
                     <tr>
-                        <th colspan="8">신청학점 : 15 이수학점 : 15 총 평점 : 4.5</th>
                     </tr>
                   </tbody>
                 </table>

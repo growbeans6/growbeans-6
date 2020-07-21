@@ -78,7 +78,7 @@ overflow : hidden;
                   
                     <tr>
                       <td>1</td>
-                      <td>${timetable.mon1 }</td> 
+                      <td>${timetable.mon1 }</td>
                       <td>${timetable.tue1 }</td>
                       <td>${timetable.wed1 }</td>
                       <td>${timetable.tur1 }</td>
@@ -175,6 +175,9 @@ overflow : hidden;
 
     <!-- Page level custom scripts -->
     <script src="/resources/js/demo/datatables-demo.js"></script>
+    
+    
+    
 </body>
 
 </html>

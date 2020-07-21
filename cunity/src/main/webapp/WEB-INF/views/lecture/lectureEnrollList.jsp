@@ -100,7 +100,6 @@ overflow : hidden;
                     </tr>
                    </c:forEach>
                    <tr>
-                    	<td colspan="8">총 신청학점 : </td>
                    </tr>
 
                   </tbody>
