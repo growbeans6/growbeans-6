@@ -10,7 +10,7 @@
 
 	</resultMap>
 
-	<resultMap type="studyFile" id="studyFileResultSet">
+	 <resultMap type="studyFile" id="studyFileResultSet">
 		<id property="fileNo" column="FILE_NO" />
 		<result property="studyNo" column="STUDY_NO" />
 		<result property="uploadFile" column="FILE_NAME" />

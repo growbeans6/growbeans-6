@@ -30,7 +30,7 @@ import com.growbeans.cunity.studyFolder.service.StudyFolderService;
 public class StudyFolderController {
 
 	@Autowired
-	private StudyFolderService studyFolderService;
+	 private StudyFolderService studyFolderService;
 
 	// 스터디 파일공유 페이지
 	@RequestMapping("/studyfileShare")

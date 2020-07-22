@@ -115,8 +115,8 @@
 </head>
 
 <body id="page-top">
-
-	<!-- Page Wrapper -->
+	
+	 <!-- Page Wrapper -->
 	<div id="wrapper">
 		<jsp:include page="../wrapper.jsp"></jsp:include>
 		<!-- Content Wrapper -->

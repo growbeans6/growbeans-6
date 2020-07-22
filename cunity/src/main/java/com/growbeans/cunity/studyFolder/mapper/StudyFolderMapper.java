@@ -19,7 +19,7 @@ public interface StudyFolderMapper {
 	// @Param으로 prarameterType을 대체(여기에 쓰는 이름을 변수에 지정해줌)
 	// 스터디 최상위폴더(바탕화면, 부모폴더NO가 NULL인거)
 	// 스터디 넘버는 세션에서 가져오고 여기에서만 사용
-	public StudyFolder topStudyFolder(@Param("studyNo") int studyNo);
+	 public StudyFolder topStudyFolder(@Param("studyNo") int studyNo);
 
 	/**
 	 * 폴더 하나 선택

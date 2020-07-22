@@ -19,7 +19,7 @@ public interface StudyFolderService {
 	 * @return
 	 */
 
-	public StudyFolder topStudyFolder(int studyNo);
+	 public StudyFolder topStudyFolder(int studyNo);
 
 	/**
 	 * studyFolder를 생성하기 위한 메소드

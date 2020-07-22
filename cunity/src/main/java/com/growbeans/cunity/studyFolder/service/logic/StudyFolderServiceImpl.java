@@ -17,7 +17,7 @@ import com.growbeans.cunity.studyFolder.store.StudyFolderStoreLogic;
 public class StudyFolderServiceImpl implements StudyFolderService {
 
 	@Autowired
-	private StudyFolderStoreLogic studyFolderStore;
+	 private StudyFolderStoreLogic studyFolderStore;
 
 	// 스터디 최상위폴더
 	@Override

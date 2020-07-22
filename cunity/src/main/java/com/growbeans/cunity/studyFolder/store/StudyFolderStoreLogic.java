@@ -19,7 +19,7 @@ import com.growbeans.cunity.studyFolder.mapper.StudyFolderMapper;
 public class StudyFolderStoreLogic {
 
 	@Autowired
-	private SqlSession sqlsession;
+	 private SqlSession sqlsession;
 
 	// 스터디 최상위폴더(바탕화면, 부모폴더NO가 NULL인거)
 	public StudyFolder topStudyFolder(int studyNo) {
