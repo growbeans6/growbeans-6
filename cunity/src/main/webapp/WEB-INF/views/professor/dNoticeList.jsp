@@ -7,6 +7,15 @@
 
 <head>
 
+<style>
+div{
+overflow : hidden;
+}
+tr{
+text-align:center;
+}
+</style>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -79,6 +88,8 @@
                       <th>작성일</th>
                     </tr>
                   </thead>
+                  
+                  
                   <c:forEach var="dnlist" items="${dnlist }">
                   <tbody style="text-align=center">
                     <tr>

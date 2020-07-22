@@ -59,9 +59,6 @@ public class StudentController {
     	return "student/studentInfo";
     }
     
-    
-    
-    
     // 학생정보 업데이트 
     @RequestMapping(value ="/updateStudentInfo",method=RequestMethod.POST)
     public String updateStudent(Student student, Model model,RedirectAttributes rd) {
