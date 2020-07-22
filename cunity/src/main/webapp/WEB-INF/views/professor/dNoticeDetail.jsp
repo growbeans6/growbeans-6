@@ -100,7 +100,7 @@ function question() {
                 <div>
                 <br>
                 <c:url var="dnList" value="/dNoticeList"></c:url>
-                    <a class="btn btn-secondary btn-sm" href="${dnList }">목록으로</a>
+                    <a class="btn btn-primary btn-md" href="${dnList }">목록으로</a>
                     <c:url var="dnUpdate" value="/dNoticeUpdateView">
                     	<c:param name="dnNo" value="${dnDetail.dnNo }"/>
                     </c:url>
@@ -109,8 +109,8 @@ function question() {
                     		<c:url var="dnDelete" value="/dNoticeDelete">
                     	<c:param name="dnNo" value="${dnDetail.dnNo }"/>
                     		</c:url>
-                    <a onclick="return question();" class="btn btn-secondary btn-sm" href="${dnDelete}">글삭제</a>
-                    <a class="btn btn-secondary btn-sm" href="${dnUpdate}">글수정</a>
+                    <a class="btn btn-primary btn-md" href="${dnUpdate}">글수정</a>
+                    <a onclick="return question();" class="btn btn-secondary btn-md" href="${dnDelete}">글삭제</a>
                     	</c:when>
                     	<c:otherwise>
                     	

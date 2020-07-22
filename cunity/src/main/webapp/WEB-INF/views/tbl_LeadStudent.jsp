@@ -62,8 +62,6 @@
 													<th>성명</th>
 													<th>전공</th>
 													<th>학년</th>
-													<th>입학일</th>
-													<th>졸업예정일</th>
 													<th>상세정보</th>
 												</tr>
 											</thead>
@@ -74,8 +72,6 @@
 							                      <td>${list.sName }</td>
 							                      <td>${list.sDept }</td>
 							                      <td>${list.sGrade }</td>
-							                      <td></td>
-							                      <td></td>
 								                      <c:url var="studentDtlInfo" value="/studentDtlInfo">
 								                      <c:param name="sNo" value="${list.sNo }"/>
 								                      </c:url>
@@ -98,10 +94,7 @@
 									</div>
 								</div>
 							</form>
-							
-						
 					</div>
-
 				</div>
 			</div>
 			<!-- End of Main Content -->

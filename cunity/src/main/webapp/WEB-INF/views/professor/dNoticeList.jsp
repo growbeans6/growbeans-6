@@ -59,15 +59,15 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <form action="/dNoticeList" method="post" enctype="multipart/form-data">
-          <h1 class="h3 mb-2 text-gray-800">학과공지</h1>
           
+          <h1 class="h3 mb-2 text-gray-800">학과공지</h1>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">학과공지 게시판</h6>
             </div>
+            <form action="/dNoticeList" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -79,8 +79,8 @@
                       <th>작성일</th>
                     </tr>
                   </thead>
-                  <c:forEach var="dnlist" items="${dnlist }">
                   <tbody style="text-align=center">
+                  <c:forEach var="dnlist" items="${dnlist }">
                     <tr>
                       <td>${dnlist.dnNo }</td>
                       <c:url var="dnDetail" value="/dNoticeDetail">
@@ -90,18 +90,17 @@
                       <td>${dnlist.pName }</td>
                       <td><fmt:formatDate pattern="yyyy-MM-dd" value="${dnlist.dnDate }"/></td>
                     </tr>
+                    </c:forEach>
                   </tbody>
-                  </c:forEach>
                 </table>
-                <div>
                 <c:url value="/dNoticeInsertView" var="dNoticeInsert"></c:url>
                 <c:if test="${sessionScope.loginStudent.sNo == null }">
-                	<a class="btn btn-secondary btn-sm" href="${dNoticeInsert }">글쓰기</a>
+                	<a class="btn btn-primary btn-md" href="${dNoticeInsert }">글쓰기</a>
                 </c:if>
-                </div>
               </div>
             </div>
             </form>
+            </div>
           </div>
 
         </div>
@@ -113,7 +112,6 @@
       <!-- 페이지에 들어갈 부분을 container-fluid에 넣어주시면 됩니다. -->
     </div>
     <!-- End of Content Wrapper -->
-  </div>
   <!-- End of Page Wrapper -->
      <script src="/resources/vendor/jquery/jquery.min.js"></script>
     <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
