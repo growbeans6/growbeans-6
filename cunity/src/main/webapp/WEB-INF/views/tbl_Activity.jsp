@@ -69,7 +69,7 @@
                                     <tbody>
                                     		<tr>
 	                                            <td>${list.sNo }</td>
-	                                            <td>${list.sName }</td>
+	                                            <td>${student.sName }</td>
 	                                            <td>${list.actTitle }</td>
 	                                            <td>${list.actContent }</td>
 	                                            <td><fmt:formatDate pattern="yyyy-MM-dd" value="${list.actDate }"/></td>

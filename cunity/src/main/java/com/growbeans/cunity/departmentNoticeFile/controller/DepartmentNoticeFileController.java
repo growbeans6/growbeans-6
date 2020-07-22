@@ -22,7 +22,7 @@ public class DepartmentNoticeFileController {
 	
 	//파일등록
 	public String uploaddNoticeFile(DepartmentNoticeFile dNoticeFile, Model model,
-			@RequestParam(name = "dnfName", required = true) MultipartFile fileName,
+			@RequestParam(name = "uploadFile", required = true) MultipartFile fileName,
 			HttpServletRequest request) {
 		
 		if (!fileName.getOriginalFilename().equals("")) {

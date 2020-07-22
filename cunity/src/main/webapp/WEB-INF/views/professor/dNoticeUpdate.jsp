@@ -60,19 +60,22 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="basic-addon1">제목</span>
 								</div>
-								<input type="text" class="form-control" name="dnTitle" aria-label="Title" aria-describedby="basic-addon1" value="${dNotice.dnTitle }"> 
+								 <textarea class="form-control" id="basic-addon1" name="dnTitle" style="height:40px;resize:none;width:200px;font-weight: bold;color:black;" oninvalid="this.setCustomValidity('제목을 작성하세요.')"
+                					oninput = "setCustomValidity('')"  required>${dNotice.dnTitle }</textarea>
 								<input type="hidden" name="dnNo" value="${dNotice.dnNo }">
 							</div>
 							<div class="input-group" style="width: 65%">
 								<div class="input-group-prepend">
 									<span class="input-group-text">내용</span>
 								</div>
-
-								<textarea class="form-control" aria-label="With textarea"
-									name="dnContent" style="resize: none; height: 100%;">${fn:replace(dNotice.dnContent, '<br>','') }</textarea>
+								<textarea id="content" class="form-control" style="resize:none;height:700px;width:800px;color:black;" aria-label="With textarea" name="dnContent" oninvalid="this.setCustomValidity('내용을 작성하세요.')" 
+                  				oninput = "setCustomValidity('')" required>${fn:replace(dNotice.dnContent, '<br>','') }</textarea>
 							</div>
+							<br>
+							<input type="file" name="reloadFile" value="${dNotice.dnFilePath }">
+								
 							<div>
-
+							<br>
 								<button type="submit" class="btn btn-secondary btn-sm">글수정</button>
 								<c:url var="dNoticeList" value="/dNoticeList"></c:url>
 								<a class="btn btn-secondary btn-sm" href="${dNoticeList }">취소</a>
