@@ -11,11 +11,14 @@ public class DepartmentNotice {
 	private String dnContent;
 	private Date dnDate;
 	private String pName;
+	private String dnFilePath;
 	
 	
 	public DepartmentNotice() {}
 
-	public DepartmentNotice(int dnNo, int pNo, String dnTitle, String dnContent, Date dnDate, String pName) {
+
+	public DepartmentNotice(int dnNo, int pNo, String dnTitle, String dnContent, Date dnDate, String pName,
+			String dnFilePath) {
 		super();
 		this.dnNo = dnNo;
 		this.pNo = pNo;
@@ -23,10 +26,8 @@ public class DepartmentNotice {
 		this.dnContent = dnContent;
 		this.dnDate = dnDate;
 		this.pName = pName;
+		this.dnFilePath = dnFilePath;
 	}
-
-
-
 
 
 	public int getDnNo() {
@@ -88,10 +89,20 @@ public class DepartmentNotice {
 		this.pName = pName;
 	}
 
+
+	public String getDnFilePath() {
+		return dnFilePath;
+	}
+
+
+	public void setDnFilePath(String dnFilePath) {
+		this.dnFilePath = dnFilePath;
+	}
+
+
 	@Override
 	public String toString() {
 		return "DepartmentNotice [dnNo=" + dnNo + ", pNo=" + pNo + ", dnTitle=" + dnTitle + ", dnContent=" + dnContent
-				+ ", dnDate=" + dnDate + ", pName=" + pName + "]";
+				+ ", dnDate=" + dnDate + ", pName=" + pName + ", dnFilePath=" + dnFilePath + "]";
 	}
-
 }

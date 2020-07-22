@@ -25,6 +25,11 @@
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
+<script>
+	function update() {
+		alert("정보가 변경되었습니다.");
+	}
+</script>
 </head>
 
 <body id="page-top">
@@ -55,54 +60,51 @@
             <h2 class="text-center">교수정보</h2>
             <form action="/profInfoUpdate" method="post"
                name="productWrite" enctype="multipart/form-data">
+               
+               <div style="text-align:center">
+               	<img src="/resources/img/${loginprof.pFile }" width="300" height="300" >
+               </div>
+               
                <table class="table table-striped">
-                   <tr>
-                    <td class="img" >
-                       <img src="/resources/img/${loginprof.pFile }" width="140" height="140" >
-                       </td>
-                   </tr>
                   <tr>
-                     <td>교번</td>
+                     <td><b>교번</b></td>
                      <td><input type="text" class="form-control" name="pNo"
                         value="${loginprof.pNo }" required readonly></td>
                         <input type="hidden" name="pFile" value="${loginprof.pFile }">
                         </tr>
                         
                         <tr>
-                     <td>학과</td>
+                     <td><b>학과</b></td>
                      <td><input type="text" class="form-control" name="pDept" value="${loginprof.pDept }" readonly></td>
                   </tr>
                   
                     <tr>
-                     <td>교수명</td>
+                     <td><b>교수명</b></td>
                      <td><input type="text" class="form-control" name="pName" value="${loginprof.pName }" readonly></td>
                   </tr>
 
                   <tr>
-                     <td>전화번호</td>
+                     <td><b></b>전화번호</td>
                      <td><input type="text" class="form-control" name="pPhone" value="${loginprof.pPhone }"></td>
                   </tr>
 
                   <tr>
-                     <td>주소</td>
+                     <td><b>주소</b></td>
                      <td>
                          <div class="input-group mb-3" >
                             <input type="text" class="form-control" name="pAddress" value="${loginprof.pAddress }" aria-label="Username" aria-describedby="basic-addon1">
-                             <a class="btn btn-secondary btn-sm" href="#">주소찾기</a>
                          </div>
                      </td>
                   </tr>
-
                   <tr>
-                     <td>이메일</td>
+                     <td><b>이메일</b></td>
                      <td>
                          <input type="text" class="form-control" name="pEmail" value="${loginprof.pEmail }">
                      </td>
                   </tr>
-                   
                    <tr>
                       <td colspan="2" class="text-center">
-                      <input type="submit" value="정보수정" class="btn btn-primary">
+                      <input type="submit" value="정보수정" class="btn btn-primary" onclick="return update();">
                      <%-- <a class="btn btn-secondary btn-sm" href="${profInfoUpdate }">수정하기</a> --%>
                       <a class="btn btn-primary" href="home">홈으로</a>
                      </td>

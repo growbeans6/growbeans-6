@@ -6,6 +6,8 @@
 
 <head>
 
+
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
@@ -26,20 +28,20 @@
 
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-<!-- <style>
-	#textarea {
+<style>
+/* 	.dnContent {
 		width : 90%;
 		height : 70%;
 		border : 1px;
-	}
-</style> -->
+		!important
+	} */
+</style>
 <script>
 	
-function aa(){
-    alert('등록되었습니다.');
-};
-
-
+/* 
+	function aa() {
+		alert("등록되었습니다.");
+	} */
 </script>
 </head>
 
@@ -68,27 +70,34 @@ function aa(){
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">학과공지 게시판</h6>
             </div>
-            <form action="/dNoticeInsert" method="post" enctype="multipart/form-data">
-              <div class="input-group mb-3" style="width:65%">
+            <form action="/dNoticeInsert" method="post" enctype="multipart/form-data" name="form1">
+              <div class="input-group mb-3" style="width:52.5%">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">제목</span>
                 </div>
-                <input class="input-group-text" id="basic-addon1" name="dnTitle" style="width:90%;">
+                <textarea class="form-control" id="basic-addon1" name="dnTitle" style="height:40px;resize:none;width:200px;font-weight: bold;color:black;" oninvalid="this.setCustomValidity('제목을 작성하세요.')"
+                	oninput = "setCustomValidity('')"  required></textarea>
               </div>
               <div class="input-group" style="width:65%">
                   <div class="input-group-prepend">
                     <span class="input-group-text">내용</span>
                   </div>
                   <div id="textarea">
-                  	<textarea class="form-control" style="resize:none;" aria-label="With textarea" name="dnContent" ></textarea>
+                  	<textarea id="content" class="form-control" style="resize:none;height:700px;width:800px;color:black;" aria-label="With textarea" name="dnContent" oninvalid="this.setCustomValidity('내용을 작성하세요.')" 
+                  	oninput = "setCustomValidity('')" required></textarea>
                   </div>
               </div>
+              <br>
+              <input type="file" name="uploadFile"/>
+              
                 <div>
-                
                     <%-- <button type="submit">등록하기</button>
                     <c:url var="dNoticeList" value="/dNoticeList"></c:url>
                     <button class="btn btn-secondary btn-sm" onclick="fnCancel()" >취소</button> --%>
-                    <input type="submit" onclick="aa();" class="btn btn-secondary btn-sm"  value="등록하기"/>
+                    <br>
+                    <input id="check" type="submit" onclick="aa();" class="btn btn-secondary btn-sm"  value="등록하기"/>
+                    <!-- <input id="btncheck" class="btn btn-secondary btn-sm" type=submit value="등록하기" onClick="check()"> -->
+                   <!--  <button type="button" id="btncheck">등록하기</button> -->
 					<c:url var="dNoticeList" value="/dNoticeList"></c:url>
 					<a class="btn btn-secondary btn-sm" href="${dNoticeList }">취소</a>
                 </div>
@@ -96,7 +105,6 @@ function aa(){
               </div>
             </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
 

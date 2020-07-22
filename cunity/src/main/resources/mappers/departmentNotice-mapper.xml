@@ -8,6 +8,7 @@
 		<result property = "dnDate" column="DN_DATE"/>
 		<result property = "dnContent" column="DN_CONTENT"/>
 		<result property = "pName" column="P_NAME"/>
+		<result property = "dnFilePath" column="DN_FILEPATH"/>
 	</resultMap>
 	<!-- 학과공지 리스트 조회 -->
 	<select id="selectdnList" parameterType="DepartmentNotice" resultMap="dNoticeResultSet">
@@ -22,14 +23,14 @@
 	<!-- 학과공지 작성 쿼리 -->
 	<insert id="insertdNotice" parameterType="DepartmentNotice">
 		INSERT INTO DNOTICE
-		VALUES(DN_NO_SEQ.NEXTVAL, #{pNo},#{pName}, #{dnTitle}, SYSDATE, #{dnContent})
+		VALUES(DN_NO_SEQ.NEXTVAL, #{pNo},#{pName}, #{dnTitle}, SYSDATE, #{dnContent} <if test = "dnFilePath!=null">, #{dnFilePath} </if> <if test = "dnFilePath==null">, NULL</if>)
 		
 	</insert>
 	
 	<!-- 학과공지 수정 쿼리 -->
 	<update id="updatedNotice" parameterType="DepartmentNotice">
 		UPDATE DNOTICE 
-		SET DN_TITLE = #{dnTitle}, DN_CONTENT = #{dnContent}, DN_DATE = SYSDATE
+		SET DN_TITLE = #{dnTitle}, DN_CONTENT = #{dnContent}, DN_DATE = SYSDATE, DN_FILEPATH = #{dnFilePath}
 		WHERE DN_NO = #{dnNo}
 	</update>
 	

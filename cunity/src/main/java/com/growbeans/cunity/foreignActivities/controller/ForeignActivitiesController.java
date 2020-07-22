@@ -3,6 +3,8 @@ package com.growbeans.cunity.foreignActivities.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.growbeans.cunity.foreignActivities.domain.ForeignActivities;
 import com.growbeans.cunity.foreignActivities.service.ForeignActivitiesService;
+import com.growbeans.cunity.student.domain.Student;
 
 
 @Controller
@@ -31,13 +34,13 @@ public class ForeignActivitiesController {
 	
 	//대외활동 조회
 	@RequestMapping(value="/selectActInfoView", method=RequestMethod.GET)
-	public ModelAndView foreignInfo(ModelAndView mv, int sNo) {
+	public ModelAndView foreignInfo(ModelAndView mv, int sNo, HttpSession session) {
 		ArrayList<ForeignActivities> actinfo = ForeignService.foreignInfo(sNo);
-		System.out.println(sNo);
-		System.out.println(actinfo);
+		Student student = (Student)session.getAttribute("loginStudent");
 		if (actinfo != null) {
 			mv.addObject("actinfo",actinfo);
 			mv.setViewName("tbl_Activity");
+			mv.addObject("student", student);
 		} else {
 			mv.addObject("msg", "대외활동 조회 실패");
 			mv.setViewName("home");

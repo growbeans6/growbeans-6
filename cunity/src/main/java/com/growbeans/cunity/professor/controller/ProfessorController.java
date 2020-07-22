@@ -92,10 +92,8 @@ public class ProfessorController {
 	   if(loginprof != null) {
 		   int professornum = 0;
 		   mv.addObject("judge", professornum);
-		   System.out.println(professornum);
 		   
 		   mv.addObject("loginprof", loginprof);
-		   System.out.println(loginprof);
 		   mv.setViewName("home");
 	   } else {
 		   mv.setViewName("common/loginPage");

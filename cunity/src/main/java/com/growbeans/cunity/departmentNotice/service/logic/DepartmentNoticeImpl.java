@@ -31,7 +31,7 @@ public class DepartmentNoticeImpl implements DepartmentNoticeService{
    }
 
    @Override
-   public int noticeInsert(DepartmentNotice notice) {
+   public int noticeInsert(DepartmentNotice notice, MultipartFile file, HttpServletRequest request) {
       notice.setDnContent(notice.getDnContent().replace("\n", "<br>"));
       return dStore.noticeInsert(notice);
    }

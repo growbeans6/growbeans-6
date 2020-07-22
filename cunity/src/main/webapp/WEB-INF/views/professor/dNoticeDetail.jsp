@@ -77,23 +77,28 @@ function question() {
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">학과공지 상세보기</h6>
+              <h6 class="m-0 font-weight-bold text-primary">학과공지 게시판</h6>
             </div>
               <div class="input-group mb-3" style="width:65%">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">제목</span>
                 </div>
                 <div>
-                	<span class="input-group-text" id="basic-addon1" style="width:100%;">${dnDetail.dnTitle}</span>
+                	<span class="input-group-text" id="basic-addon1" style="width:100%;color:black;"><b>${dnDetail.dnTitle}</b></span>
                 </div>
               </div>
               <div class="input-group" style="width:65%">
                   <div class="input-group-prepend">
                     <span class="input-group-text">내용</span>
                   </div>
-                <div class="form-control" aria-label="With textarea" readonly style="height:100%;">${dnDetail.dnContent }</div>
+                <div class="form-control" aria-label="With textarea" readonly style="height:100%;color:black;">${dnDetail.dnContent }</div>
               </div>
+              <br>
+              <c:if test="${ !empty dnDetail.dnFilePath }">
+              	<p>첨부파일 : <a href="${contextPath}/resources/dnuploadFiles/${dnDetail.dnFilePath}" download>${dnDetail.dnFilePath }</a></p>
+              </c:if>
                 <div>
+                <br>
                 <c:url var="dnList" value="/dNoticeList"></c:url>
                     <a class="btn btn-secondary btn-sm" href="${dnList }">목록으로</a>
                     <c:url var="dnUpdate" value="/dNoticeUpdateView">
