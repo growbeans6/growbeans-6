@@ -11,4 +11,5 @@ public interface FriendsStore {
 	public ArrayList<Student> selectFriendsList(int sNo);
 	public int deleteFriends(int lNo);
 	public ArrayList<Student> findFriends(String sName);
+	public ArrayList<Friends> selectFriendsRequest(int sessionSNo);
 }

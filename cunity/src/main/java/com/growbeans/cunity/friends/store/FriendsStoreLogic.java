@@ -40,4 +40,9 @@ public class FriendsStoreLogic implements FriendsStore{
 	public ArrayList<Student> findFriends(String sName) {
 		return (ArrayList)sqlSession.selectList("friendsMapper.findFriends", sName);
 	}
+
+	@Override
+	public ArrayList<Friends> selectFriendsRequest(int sessionSNo) {
+		return (ArrayList)sqlSession.selectList("friendsMapper.selectFriendsRequest", sessionSNo);
+	}
 }

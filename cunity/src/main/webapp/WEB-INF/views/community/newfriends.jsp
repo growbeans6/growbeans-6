@@ -66,7 +66,7 @@
 								</div>
 							</div>
 						</div>
-						
+								<!-- 친구 검색 검색바 -->
 								<input id="sName" type="search" placeholder="친구의 이름 입력"/>
 									<button onclick="findFriends();">
 										<i class="fa fa-search"></i>

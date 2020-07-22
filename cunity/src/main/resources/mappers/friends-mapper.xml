@@ -31,6 +31,10 @@
 	</insert>
 	
 	<select id="selectFriendsList" resultMap="StudentResultSet">
-		SELECT * FROM STUDENT JOIN FRIENDS USING (S_NO) WHERE F_MESSAGE = 'request'
+		SELECT * FROM STUDENT JOIN FRIENDS USING (S_NO) WHERE F_MESSAGE = 'response'
+	</select>
+	
+	<select id="selectFriendsRequest" resultMap="Friends">
+		SELECT * FROM FRIENDS WHERE F_MESSAGE = 'request'
 	</select>
 </mapper>

@@ -1,5 +1,6 @@
 package com.growbeans.cunity.friends.service;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import com.growbeans.cunity.friends.domain.Friends;
@@ -22,7 +23,7 @@ public interface FriendsService {
 	public int receiveFriends(String fMessage);
 	
 	/**
-	 * 3. 친구 목록 보여주기
+	 * 3. 친구 목록 보여주기(response, request 완료)
 	 * @param sNo
 	 * @return
 	 */
@@ -41,4 +42,9 @@ public interface FriendsService {
 	 * @return
 	 */
 	public ArrayList<Student> findFriends(String sName);
+	
+	/**
+	 * 받은 친구 신청 확인하기 위해 불러오기
+	 */
+	public ArrayList<Friends> selectFriendsRequest(int sessionSNo);
 }
