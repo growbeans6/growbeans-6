@@ -40,4 +40,9 @@ public class FriendsServiceImpl implements FriendsService{
 	public ArrayList<Student> findFriends(String sName) {
 		return friendsStore.findFriends(sName);
 	}
+
+	@Override
+	public ArrayList<Friends> selectFriendsRequest(int sessionSNo) {
+		return friendsStore.selectFriendsRequest(sessionSNo);
+	}
 }

@@ -60,4 +60,27 @@ public class FriendsController {
 		
 		return "redirect: friends";
 	}
+	
+	@RequestMapping("requestFriends")
+	public String requestFriends(int sessionSNo) {
+		
+		ArrayList<Friends> friends = friendsService.selectFriendsRequest(sessionSNo);
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
