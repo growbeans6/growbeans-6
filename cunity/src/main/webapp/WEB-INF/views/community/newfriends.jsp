@@ -205,9 +205,10 @@
 				success: function(data){
 					if(data != null){
 						for(var i in data){
-							$("#findFriendsList").append("<div> 학번: "+ data[i].sNo + " 이름: " + data[i].sName+"</div> <button href='insertFriends?sNo="+data[i].sNo+"&sessionSNo="+${loginStudent.sNo}+"'>친구 신청</button> <br>");
+							$("#findFriendsList").append("<div> 학번: "+ data[i].sNo + " 이름: " + data[i].sName+"</div> <button location.href='insertFriends?sNo="+data[i].sNo+"&sessionSNo="+${loginStudent.sNo}+"'>친구 신청</button> <br>");
 						}
-					} else {
+					} 
+				} else {
 						$("#findFriendsList").html("검색 결과가 없습니다.");
 					}
 				}

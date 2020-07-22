@@ -6,6 +6,8 @@
 		<id property="fNo" column="F_NO"/>
 		<result property="sNo" column="S_NO"/>
 		<result property="sessionSNo" column="L_NO"/>
+		<result property="sessionSNo" column="L_NO"/>
+		<result property="fMessage" column="F_MESSAGE"/>
 	</resultMap>
 	
 	<resultMap type="Student" id="StudentResultSet">
@@ -34,7 +36,7 @@
 		SELECT * FROM STUDENT JOIN FRIENDS USING (S_NO) WHERE F_MESSAGE = 'response'
 	</select>
 	
-	<select id="selectFriendsRequest" resultMap="Friends">
+	<select id="selectFriendsRequest" resultMap="FriendsResultSet">
 		SELECT * FROM FRIENDS WHERE F_MESSAGE = 'request'
 	</select>
 </mapper>

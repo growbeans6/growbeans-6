@@ -47,12 +47,10 @@ public class PostController {
 
 	@Autowired
 	private PostService postService;
-
 	@Autowired
 	private AlarmService alarmService;
 	@Autowired
 	private StudyService studyService;
-
 	@Autowired
 	private StudentService studentService;
 

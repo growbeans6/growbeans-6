@@ -48,6 +48,7 @@ public class FriendsController {
 		gson.toJson(friendsList, response.getWriter());
 	}
 	
+	//친구 신청 버튼을 눌렀을 때 friends 테이블에 'request' 요청으로 넣어주는
 	@RequestMapping("insertFriends")
 	public String addFriends(int sNo, int sessionSNo) {
 		
@@ -61,6 +62,7 @@ public class FriendsController {
 		return "redirect: friends";
 	}
 	
+	//요청 받은 ㅇ
 	@RequestMapping("requestFriends")
 	public String requestFriends(int sessionSNo) {
 		
@@ -68,19 +70,4 @@ public class FriendsController {
 		
 		return null;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
