@@ -19,17 +19,18 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 	@Autowired
 	private StudyFolderStoreLogic studyFolderStore;
 
-	// studyFolder list 조회
+	// 스터디 최상위폴더
 	@Override
-	public ArrayList<StudyFolder> selectlistFolder(int studyNo, int folderNo) {
-		return studyFolderStore.selectlist(studyNo, folderNo);
+	public StudyFolder topStudyFolder(int studyNo) {
+		// TODO Auto-generated method stub
+		return studyFolderStore.topStudyFolder(studyNo);
 	}
 
 	// studyFolder 생성
 	@Override
-	public int insertStudyFolder(String folderName) {
+	public int insertStudyFolder(StudyFolder studyFolder) {
 
-		return studyFolderStore.insertStudyFolder(folderName);
+		return studyFolderStore.insertStudyFolder(studyFolder);
 	}
 
 	// studyFolder 삭제
@@ -39,19 +40,20 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 		return result;
 	}
 
-	// studyFolder 하나 조회
+	// 스터디 폴더 리스트 조회
 	@Override
-	public StudyFolder selectOneFolder(int studyNo) {
-		return studyFolderStore.selectOneFolder(studyNo);
+	public ArrayList<StudyFolder> selectlistStudyFolder(int folderNo) {
+		// TODO Auto-generated method stub
+		return studyFolderStore.selectlistStudyFolder(folderNo);
 	}
 
-	// studyFolder 하나의 내용 조회
+	// 폴더 넘버 조회해서 하나 가져오기
 	@Override
-	public ArrayList<StudyFolder> selectlistOneStudyFolder(int studyNo, int folderNo) {
+	public StudyFolder selectOneStudyFolder(int folderNo) {
 		// TODO Auto-generated method stub
-		return studyFolderStore.selectlistOneStudyFolder(studyNo, folderNo);
+		return studyFolderStore.selectOneStudyFolder(folderNo);
 	}
-	
+
 	// 특정 studyFolder의 studyFile 리스트 불러오기
 	@Override
 	public ArrayList<StudyFile> selectlistStudyFile(int studyNo, int folderNo) {
@@ -59,6 +61,11 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 		return studyFolderStore.selectlistStudyFile(studyNo, folderNo);
 	}
 
-	
+	// 최근 생성한 폴더 정보 불러오기
+	@Override
+	public StudyFolder newSelectOneStudyFolder() {
+		// TODO Auto-generated method stub
+		return studyFolderStore.newSelectOneStudyFolder();
+	}
 
 }

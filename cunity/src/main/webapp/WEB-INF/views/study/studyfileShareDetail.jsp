@@ -170,7 +170,7 @@
 													<label for="exampleFormControlSelect1">폴더 선택</label> <select
 														name="folderNo" class="form-control"
 														id="exampleFormControlSelect1">
-														<option value="${FolderList[0].folderNo }">${FolderList[0].folderName }</option>
+														<option value="${folderlist[0].folderNo }">${folderlist[0].folderName }</option>
 													</select>
 												</div>
 												<div class="form-group">
@@ -187,7 +187,8 @@
 									</div>
 								</div>
 								<br> <br>
-								<c:forEach var="FileDetail" items="${filelist }" varStatus="index">
+								<c:forEach var="FileDetail" items="${filelist }"
+									varStatus="index">
 									<div class="col-lg-8">
 										<div id="filebox" class="card w-80">
 											<h5 class="card-header">${FileDetail.uploadFile }</h5>
@@ -197,25 +198,26 @@
 														value="${uploadFile }"> ${FileDetail.uploadFile }
 												</h5>
 												<p class="card-text">
-													<a href="#" class="card-link">${folder.uploadFile }</a><br>
-												<p class="text-right">작성자 : ${fileWriter.sName }, 올린 시간
-													: ${folder.fileUploadTime }</p>
-												<c:if test="${loginUser. }"></c:if>
-												<input type="reset" class="btn btn-primary" value="파일 삭제">
 													<a href="#" class="card-link">${FileDetail.uploadFile }</a>
 												</p>
 												<br>
-												<p class="text-right">작성자 : ${FileDetail.fileRegistrant},
-													올린 시간 : ${FileDetail.fileUploadTime }</p>
-												<c:if test="${loginStudent.sName eq FileDetail.fileRegistrant }">
-												<!-- 쿼리스트링 넣어주기 -> 넣어주어야 컨트롤러 메소드의 매개변수가 받아서 처리 가능 -->
-												<!-- get방식으로 넘겨주는 거라서 c:param으로 파라미터값을 넘겨주어야 함 -->
-												<c:url var="sfdelete" value="sfdelete.cunity">
-													<c:param name="fileNo" value="${FileDetail.fileNo }"/>
-												</c:url>
-												<a href="${sfdelete }" class="btn btn-primary">파일 삭제</a></c:if>
-												<c:if test="${loginStudent.sName ne FileDetail.fileRegistrant }">
-												<a href="<c:url value='/resources/nuploadFiles/${FileDetail.uploadFile }'/>" class="btn btn-primary" download>파일 다운로드</a>
+												<p class="text-right">작성자 :
+													${FileDetail.fileRegistrant}, 올린 시간 :
+													${FileDetail.fileUploadTime }</p>
+												<c:if
+													test="${loginStudent.sName eq FileDetail.fileRegistrant }">
+													<!-- 쿼리스트링 넣어주기 -> 넣어주어야 컨트롤러 메소드의 매개변수가 받아서 처리 가능 -->
+													<!-- get방식으로 넘겨주는 거라서 c:param으로 파라미터값을 넘겨주어야 함 -->
+													<c:url var="sfdelete" value="sfdelete.cunity">
+														<c:param name="fileNo" value="${FileDetail.fileNo }" />
+													</c:url>
+													<a href="${sfdelete }" class="btn btn-primary">파일 삭제</a>
+												</c:if>
+												<c:if
+													test="${loginStudent.sName ne FileDetail.fileRegistrant }">
+													<a
+														href="<c:url value='/resources/nuploadFiles/${FileDetail.uploadFile }'/>"
+														class="btn btn-primary" download>파일 다운로드</a>
 												</c:if>
 											</div>
 										</div>
@@ -231,22 +233,21 @@
 								<div class="folder-insert" style="height: 100px">
 									<div class="input-group mb-3">
 										<!-- 전송하기 위한 폼 input -->
-										<form action="studyFolderInsert" method="post"
+										<form action="insertfolder.cunity" method="post"
 											id="insertFolder">
 											<input type="hidden" name="studyNo"
 												value="${loginStudent.studyNo }">
-											<%-- input
-											type="hidden" name="parentFolderNo"
-											value="${childerenFolderList. }"> --%>
+											<input type="hidden" name="folderNo"
+												value="${folder.folderNo }">
+											
 											<input type="text" class="form-control"
 												placeholder="추가할 폴더 이름" name="folderName" id="folderName"
 												aria-label="Recipient's
 											username"
 												aria-describedby="button-addon2">
 											<button class="btn btn-outline-secondary" type="button"
-												id="button-addon2" style="width: 75px">
-												<a id="childFolder" href="javascript:void(0)"
-													onclick="input_folder(this)">추가</a>
+												id="action_add" style="width: 75px">
+												추가
 											</button>
 										</form>
 									</div>
@@ -259,7 +260,7 @@
 										<button type="button"
 											class="btn btn-secondary
 											dropdown-toggle dropdown-toggle-split"
-											id="dropdownMenuReference" style="width: 15px;"
+											id="dropdownMenuList" style="width: 15px;"
 											data-toggle="dropdown" aria-haspopup="true"
 											aria-expanded="false" data-reference="parent">
 											<span class="sr-only">Toggle Dropdown</span>
@@ -269,23 +270,26 @@
 
 											<!-- 폴더 리스트 출력 -->
 											<div class="study_folder_list">
-                                                <ul class="folder_list">
+												<c:forEach var="flist" items="${folderlist}">
+												<ul class="folder_list" id="ul_list">
+													<li class="parent_folder"><a class="dropdown-item"
+														href="#">${flist.folderName }1&nbsp;&nbsp;&nbsp; </a></li>
+														<!-- <i href="#"
+															class="fas fa-times"></i></a></li>
 
-                                                    <li class="parent_folder">
-                                                        <a class="dropdown-item" href="#">폴더명1&nbsp;&nbsp;&nbsp;
-                                                        <i href="#" class="fas fa-times"></i></a></li>
+													<ul class="child_folder">
+														<a class="dropdown-item" href="#">폴더명1-1</a>
 
-                                                    <ul class="child_folder"><a class="dropdown-item" href="#">폴더명1-1</a>
+													</ul>
 
-                                                    </ul>
+													<li class="parent-folder"><a class="dropdown-item"
+														href="#">폴더명2&nbsp;&nbsp;&nbsp;<i href="#"
+															class="fas fa-times"></i></a></li> -->
 
-                                                    <li class="parent-folder">
-                                                        <a class="dropdown-item" href="#">폴더명2&nbsp;&nbsp;&nbsp;<i href="#" class="fas fa-times"></i></a>
-                                                    </li>
+												</ul>
+												</c:forEach>
 
-                                                </ul>
-
-                                            </div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -321,11 +325,53 @@
 	<script src="/resources/js/demo/chart-area-demo.js"></script>
 	<script src="/resources/js/demo/chart-pie-demo.js"></script>
 	<script>
+		// ajax를 사용하여 DB에 데이터 넣기(부모 폴더 아래 자식 폴더 생성)
+		$("#action_add").on("click", function(){
+			// 넘겨줄 변수 설정
+			// folderName => 사용자가 입력한 값
+			// parentFolderNo => 현재 페이지의 폴더 넘버
+			// studyNo => session에서 갖고 온 값
+			var folderName = $(this).prev("input").val();
+			var parentFolderNo = ${folder.folderNo};
+			var studyNo = ${loginStudent.studyNo};
+			$.ajax({
+				url : "insertfolder.cunity",
+				data : {folderName:folderName, parentFolderNo:parentFolderNo, studyNo:studyNo}, // key : value
+				type : 'post',
+				dataType : "json", // controller에 model로 들어감
+				success : function(data) {
+					var $ul_list;
+					var folderName = data.folderName;
+					var $li;
+					var $a;
+					var $i;
+					var $close;
+					var deltag;
+					$ul_list = $("#ul_list")
+					// 태그 생성
+					$li = $("<li class='parent_folder'>");
+					$a = $("<a class='dropdown-item' href='#'>").text(folderName);
+					/* $li = $("<li class='parent_folder'>");
+					$a = $("<a class='dropdown-item' href='#'>").text(folderName);
+					$i = $("<i href='#' class='fas fa-times'>");
+					$close = $("</i></a></li>"); */
+					/* $close = $("</i></a></li>"); */
+					$ul_list.append($li).append($a);
+			
+				}
+			})
+			
+		})  
 		// 새 폴더 생성 
+		// 동적으로 ul 안쪽의 li 태그의 폴더명 넣어주기
+		/* function action_add() {
+			var text_add = $("#text_add").val(); // 입력할 글씨
+			var ul_list = $("#ul_list"); // ul_list선언
+			ul_list.append("<li>" + text_add + "</li>"); // ul_list 안쪽에 li 추가
+		} */
+		
 
 		var count = 0;
-		
-		
 	</script>
 </body>
 </html>
