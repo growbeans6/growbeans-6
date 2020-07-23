@@ -1349,9 +1349,10 @@ public class LectureController {
 
 	// 강의 내 수강생 목록 조회
 	@RequestMapping("/lStudentList")
-	public ModelAndView lecStudentList(ModelAndView mv, int lCode) {
+	public ModelAndView lecStudentList(ModelAndView mv, int lCode,String lName) {
 		List<Student> lecStudentList = lecService.lecStudentList(lCode);
 		mv.addObject("lCode",lCode);
+		mv.addObject("lName", lName);
 		mv.addObject("lecStudentList", lecStudentList);
 		mv.setViewName("professor/studentList1");
 		return mv;
@@ -1364,6 +1365,7 @@ public class LectureController {
 		int pNo = professor.getpNo();
 		List<Lecture> proLectureList = lecService.proLectureList(pNo);
 		mv.addObject("proLectureList", proLectureList);
+		mv.addObject("pName", professor.getpName());
 		mv.setViewName("professor/lectureList");
 		return mv;
 	}

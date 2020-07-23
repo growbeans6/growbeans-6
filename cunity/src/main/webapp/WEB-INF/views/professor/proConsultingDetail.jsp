@@ -25,6 +25,9 @@
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
+
+
+
 </head>
 
 <body id="page-top">
@@ -93,11 +96,11 @@
                          <textarea cols="30" rows="10" name="cAnswer" >${consultDetail.cAnswer }</textarea>
                      </td>
                   </tr>
-
-                  <tr>
-                  		
-                     	<td><input type="submit" class="form-control" value="제출"></td>
-                        <!-- <button type="button" class="btn btn-primary" >답변완료</button> -->
+                  
+                   <tr>
+                     <td colspan="2" class="text-center">
+                    <input type="submit" class="form-control" value="제출">
+                     </td>
                   </tr>
 
                </table>

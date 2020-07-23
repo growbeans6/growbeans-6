@@ -94,7 +94,9 @@
 
                   <tr>
                      <td colspan="2" class="text-center">
-                        <button type="button" class="btn btn-primary" onclick="back()">목록으로</button>
+                     
+                     <c:url var="stuConList" value="/stuConsultingList"></c:url>
+                    <a class="btn btn-primary btn-sm" href="${stuConList }">목록으로</a>
                      </td>
                   </tr>
 
@@ -127,6 +129,11 @@
 
     <!-- Page level custom scripts -->
     <script src="/resources/js/demo/datatables-demo.js"></script>
+    <script>
+		function stuConList() {
+		location.href = "/student/stuConsultingList"
+		}
+</script>
 </body>
 
 </html>

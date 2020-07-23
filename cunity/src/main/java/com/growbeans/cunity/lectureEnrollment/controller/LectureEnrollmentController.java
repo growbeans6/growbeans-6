@@ -1387,6 +1387,7 @@ public class LectureEnrollmentController {
 		int sNo = student.getsNo();
 		Timetable table = lecEnService.showList(sNo);
 		mv.addObject("timetable", table);
+		mv.addObject("sName", student.getsName());
 		mv.setViewName("lecture/lectureSchedule");
 		return mv;
 	}	

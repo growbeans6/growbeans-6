@@ -40,7 +40,7 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6 d-none d-lg-block" ><img src="https://23fb88ad5ca22a1b4d32-e1951aed44f4258f5fd1721b94cf0277.ssl.cf5.rackcdn.com/cdn_FJV6xXSK5SbvNfVr9NLnNAqpp57r5STy.JPG" style="width: 450px; height: 450px;"></div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
@@ -73,7 +73,6 @@
                 <input type="submit" class="btn btn-primary" value="Login" style="width:350px">
                     <hr>
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">학번/비밀번호 찾기</a>
                   </div>
                   </form> 
                   
@@ -94,7 +93,6 @@
                     <hr>
                  <div class="text-center">
                  	
-                    <a class="small" href="forgot-password.html">교번/비밀번호 찾기</a>
                   </div>
                   
                   </form>
