@@ -77,9 +77,9 @@
 								
 							<div>
 							<br>
-								<button type="submit" class="btn btn-secondary btn-sm">글수정</button>
+								<button type="submit" class="btn btn-primary btn-md">글수정</button>
 								<c:url var="dNoticeList" value="/dNoticeList"></c:url>
-								<a class="btn btn-secondary btn-sm" href="${dNoticeList }">취소</a>
+								<a class="btn btn-secondary btn-md" href="${dNoticeList }">취소</a>
 							</div>
 						</div>
 					</form>

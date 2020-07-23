@@ -80,7 +80,7 @@ text-align:center;
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>글 번호</th>
@@ -89,29 +89,28 @@ text-align:center;
                       <th>작성일</th>
                     </tr>
                   </thead>
-                  
-                  
-                  <c:forEach var="dnlist" items="${dnlist }">
                   <tbody style="text-align=center">
-                    <tr>
-                      <td>${dnlist.dnNo }</td>
+                  <c:forEach var="dnlist" items="${dnlist }">
                       <c:url var="dnDetail" value="/dNoticeDetail">
                       	<c:param name="dnNo" value="${dnlist.dnNo}"></c:param>
                       </c:url>
-                      <td><a href="${dnDetail }">${dnlist.dnTitle }</a></td>
+                    <tr onclick="location.href='${dnDetail }'">
+                      <td>${dnlist.dnNo }</td>
+                      <td><a href="${dnDetail}">${dnlist.dnTitle }</a></td>
                       <td>${dnlist.pName }</td>
                       <td><fmt:formatDate pattern="yyyy-MM-dd" value="${dnlist.dnDate }"/></td>
                     </tr>
+                    </c:forEach>
                   </tbody>
-                  </c:forEach>
                 </table>
                 <div>
                 <c:url value="/dNoticeInsertView" var="dNoticeInsert"></c:url>
                 <c:if test="${sessionScope.loginStudent.sNo == null }">
-                	<a class="btn btn-secondary btn-sm" href="${dNoticeInsert }">글쓰기</a>
+                	<a class="btn btn-primary btn-md" href="${dNoticeInsert }">글쓰기</a>
                 </c:if>
                 </div>
               </div>
+            </div>
             </div>
             </form>
           </div>
@@ -142,7 +141,13 @@ text-align:center;
 
     <!-- Page level custom scripts -->
     <script src="/resources/js/demo/datatables-demo.js"></script>
-    
+    <script type="text/javascript">
+    $('#dataTable').DataTable({
+		  order: [[0, 'desc']], // asc 또는 desc
+		  ordering: true,
+		  serverSide: false
+		});
+    </script>
 </body>
 
 </html>

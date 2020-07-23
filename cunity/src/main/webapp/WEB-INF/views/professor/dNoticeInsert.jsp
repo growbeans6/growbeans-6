@@ -96,11 +96,11 @@
                     <c:url var="dNoticeList" value="/dNoticeList"></c:url>
                     <button class="btn btn-secondary btn-sm" onclick="fnCancel()" >취소</button> --%>
                     <br>
-                    <input id="check" type="submit" onclick="aa();" class="btn btn-secondary btn-sm"  value="등록하기"/>
+                    <input id="check" type="submit" onclick="aa();" class="btn btn-primary btn-md"  value="등록하기"/>
                     <!-- <input id="btncheck" class="btn btn-secondary btn-sm" type=submit value="등록하기" onClick="check()"> -->
                    <!--  <button type="button" id="btncheck">등록하기</button> -->
 					<c:url var="dNoticeList" value="/dNoticeList"></c:url>
-					<a class="btn btn-secondary btn-sm" href="${dNoticeList }">취소</a>
+					<a class="btn btn-secondary btn-md" href="${dNoticeList }">취소</a>
                 </div>
             </form>
               </div>
