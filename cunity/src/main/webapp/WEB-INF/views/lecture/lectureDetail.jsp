@@ -95,10 +95,9 @@
                      </td>
                   </tr>
                   <tr>
-                     <td colspan="2" class="text-center"><input type="submit"
-                        value="상담등록" class="btn btn-primary"> <input
-                        type="reset" value="취소" class="btn btn-primary">
-                        <button type="button" class="btn btn-primary" onclick="back()">전체 상담보기</button>
+                     <td colspan="2" class="text-center">
+                      <c:url var="lectureList" value="/lectureList"></c:url>
+                    	<a class="btn btn-primary " href="${lectureList }">수강신청 목록으로</a>
                      </td>
                   </tr>
 

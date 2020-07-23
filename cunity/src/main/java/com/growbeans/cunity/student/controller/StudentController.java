@@ -1,5 +1,8 @@
 package com.growbeans.cunity.student.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +13,12 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.growbeans.cunity.departmentNotice.domain.DepartmentNotice;
+import com.growbeans.cunity.departmentNotice.service.DepartmentNoticeService;
+import com.growbeans.cunity.lecture.domain.Lecture;
+import com.growbeans.cunity.lectureEnrollment.domain.LectureEnrollment;
+import com.growbeans.cunity.lectureEnrollment.domain.Timetable;
+import com.growbeans.cunity.lectureEnrollment.service.LectureEnrollmentService;
 import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.student.service.StudentService;
 
@@ -20,16 +29,31 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
+	@Autowired
+	private LectureEnrollmentService lecEnService;
+	@Autowired
+    private DepartmentNoticeService dService;
+	
+	
 	
 	// 학생로그인
 	@RequestMapping(value="/studentLogin",method=RequestMethod.POST)
 	public ModelAndView studentLogin(Student student, ModelAndView mv) {
 		Student loginStudent = studentService.loginStudent(student);
+		ArrayList<DepartmentNotice> dnlist = dService.noticeList();
 		if(loginStudent != null) {
 			int studentnum = 1;
+			int sNo = student.getsNo();
+			Timetable table = lecEnService.showList(sNo);
+			List<Lecture> lectureEnList = lecEnService.lectureEnList(sNo);
+			List<LectureEnrollment> gradeList = lecEnService.gradeList(sNo);
+			mv.addObject("lectureEnList",lectureEnList);
+			mv.addObject("gradeList", gradeList);
+			mv.addObject("timetable", table);
 			mv.addObject("loginStudent", loginStudent);
 			mv.addObject("judge" , studentnum);
-			mv.setViewName("redirect:/home");
+			mv.addObject("dnlist", dnlist);
+			mv.setViewName("home");
 		}
 		else {
 			mv.addObject("msg", "로그인 실패!");

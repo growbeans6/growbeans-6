@@ -50,7 +50,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">강의</h6>
+              <h6 class="m-0 font-weight-bold text-primary">${pName }교수님 강의목록</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -76,6 +76,7 @@
 
                       <c:url value="/lStudentList" var="studentList1" >
                       <c:param name="lCode" value="${list.lcode }"/>
+                      <c:param name="lName" value="${list.lName }"/>
                       </c:url>
                       <td><a class="btn btn-secondary btn-sm" href="${studentList1 }">목록보기</a></td>
                       

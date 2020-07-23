@@ -95,7 +95,8 @@
                   <tr>
                      <td colspan="2" class="text-center">
                        <input type="submit" value="평점등록" class="btn btn-primary"> 
-                        <button type="button" class="btn btn-primary" onclick="back()">뒤로가기</button>
+                        <c:url var="stuGrade" value="/stuGrade"></c:url>
+                    	<a class="btn btn-primary " href="${stuGrade }">성적조회</a>
                      </td>
                   </tr>
 
