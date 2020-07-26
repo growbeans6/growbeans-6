@@ -97,9 +97,7 @@
 							</div>
 							<hr>
 							<div class="comment" style="margin-top: 10px;">
-							<textarea rows="3" id="mentContent"
-									style="float: left; width: 80%; margin-left: 80px;">
-							</textarea>
+							<textarea rows="3" id="mentContent" style="float: left; width: 80%; margin-left: 80px;"></textarea>
 								<button id="mentSubmit" class="btn-lg" onclick="addMent()"
 									style="margin: 5px;">등록하기</button>
 							</div>
@@ -141,6 +139,15 @@
 		<!-- End of Content Wrapper -->
 	</div>
 	<!-- End of Page Wrapper -->
+		<script src="/resources/vendor/jquery/jquery.min.js"></script>
+	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="/resources/js/sb-admin-2.min.js"></script>
+	
 	<script>
 		$(function() {
 			// 초기 페이지 로딩 시 댓글 불러오기
@@ -187,8 +194,8 @@
 		}
 		function addMent() {
 			var mentContent = $("#mentContent").val(); // 댓글의 내용
-			var postNum = ${post.postNo}
-			; // 어느 게시글의 댓글인지 알려줌
+			var postNum = ${post.postNo};
+			// 어느 게시글의 댓글인지 알려줌
 
 			$.ajax({
 				url : "addPostComment",
@@ -201,11 +208,70 @@
 					if (data == "success") { //data를 String으로 받아와서 성공, 실패만 가림
 						getPostCommentList();
 						$("#mentContent").val("");
+						alert("댓글이 등록되었습니다.");
 					}
 				}
 			});
 		}
-		
+		function modifyMentShow(obj){
+			$ment_tr = $(obj).parents("tr").eq(0);
+			$modify_tr = $ment_tr.next("tr");
+			$ment_tr.hide()
+			$modify_tr.show();
+		}
+		function cancle(obj){
+			$modify_tr = $(obj).parents("tr").eq(0);
+			$ment_tr = $modify_tr.prev("tr");
+			$ment_tr.show();
+			$modify_tr.hide();
+			
+		}
+		function modifyMent(obj) {
+			var mentContent = $(obj).parents("tr").find("textarea").eq(0).val(); // 댓글의 내용
+			var mentNo = $(obj).parents("tr").eq(0).attr("mentNo");
+			var result = window.confirm("정말로 댓글을 수정하시겠습니까?");
+			if(result){
+				$.ajax({
+					url : "modifyComment",
+					data : { 
+						mentContent : mentContent,
+						mentNo : mentNo
+					},
+					type : "post",
+					success : function(data) {
+						if (data == "success") { //data를 String으로 받아와서 성공, 실패만 가림
+							alert("댓글이 수정되었습니다.");
+							getPostCommentList();
+						}
+					}
+				});
+			} else{
+				alert("댓글수정을 취소하셨습니다.");
+			}
+			
+		}
+		function deleteMent(obj) {
+			var mentNo = $(obj).parents("tr").eq(0).attr("mentNo");
+			var result = window.confirm("정말로 댓글삭제를 하시겠습니까?");
+			if(result){
+				$.ajax({
+					url : "deleteComment",
+					data : { 
+						mentNo : mentNo
+					},
+					type : "post",
+					success : function(data) {
+						if (data == "success") { //data를 String으로 받아와서 성공, 실패만 가림
+							alert("댓글이 삭제되었습니다.");
+							getPostCommentList();
+						}
+					}
+				});	
+			} else{
+				alert("댓글삭제를 취소하셨습니다.");
+			}
+			
+		}
 		/* function addReplySubmit() {
 			var mentContent = $("#mentContent").val(); // 댓글의 내용
 			var postNum = ${post.postNo}
@@ -256,14 +322,18 @@
 							if (data.length > 0) {
 								for ( var i in data) {
 									$tr = $("<tr>");
+									
 								    $rWriter = $("<td>").text(
 											data[i].mentWriter);
-									$rContent = $("<td>")
-											.text(
-													decodeURIComponent(data[i].mentContent
-															.replace(/\+/g, " ")));
+								    $mWriter = $("<td>").text(
+											data[i].mentWriter);
+									$rContent = $("<td class='rContent'>").text(decodeURIComponent(data[i].mentContent.replace(/\+/g, " ")));
+									
+									
 									 $rCreateDate = $("<td>").text(
 											data[i].mentRegDate);
+									 $mCreateDate = $("<td>").text(
+												data[i].mentRegDate);
 									/*  $rReply = $("<button style='float:right;' onclick='addReply()'; mentDepth='"
 											+ data[i].mentDepth
 											+ "');'>대댓글</button>"); */
@@ -276,16 +346,53 @@
 									$rApplyButton.text("가입수락");
 									var loginUser = ${loginStudent.sNo};
 									var postWriter = ${post.postWriterSNo};
-									if(loginUser==postWriter){
+									var postKinds = '${post.postKinds}';
+									if(loginUser==postWriter && postKinds=='스터디'){
 										$rApply.append($rApplyButton);
 									}
 									$tr.attr("mentSNo",data[i].mentDepth);
-								    $tr.append($rWriter);
+									$tr.attr("mentNo",data[i].mentNo);
+									
+									$hide_tr = $("<tr style='display:none;'>");
+									$modifyMent = $("<td id='content_sub'>");
+									$textArea=$("<textarea style='float:left; width:80%; margin-left: 80px;' id='modifyMent'>");
+									$textArea.val(decodeURIComponent(data[i].mentContent.replace(/\+/g, " ")));
+								    $modifyMent.append($textArea);
+									$controller1 = $("<td id='content_controller'>");
+									$controller2 = $("<td id='content_controller'>");
+									$modify_button=$("<button class='btn btn-primary' onclick='modifyMent(this);'>").text("수정완료");
+									$cancle_button=$("<button class='btn btn-primary' onclick='cancle(this);'>").text("취소");
+									$controller1.append($modify_button);
+									$controller2.append($cancle_button);
+									$hide_tr.append($mWriter);
+									$hide_tr.append($modifyMent);
+									$hide_tr.append($mCreateDate);
+									$hide_tr.append($controller1);
+									$hide_tr.append($controller2);
+									$hide_tr.attr("mentNo",data[i].mentNo);
+									
+									$rModify=$("<td id='content_controller' class='modifyShowMent'>");
+									$show_button=$("<button class='btn btn-primary' onclick='modifyMentShow(this);'>").text("수정");
+									$rDelete=$("<td id='content_controller' class='deleteMent'>");
+									$delete_button=$("<button class='btn btn-primary' onclick='deleteMent(this);'>").text("삭제");
+									$rModify.append($show_button);
+									$rDelete.append($delete_button);
+									
+									$tr.append($rWriter);
 									$tr.append($rContent);
 								    $tr.append($rCreateDate);
-								    $tr.append($rApply);
+								    if(loginUser == data[i].mentDepth){
+								    	$tr.append($rModify);
+									    $tr.append($rDelete);
+								    }
+								    
+								    
+								    if(loginUser==postWriter && postKinds=='스터디'){
+								   		$tr.append($rApply);
+								    }
 									/* $tr.append($rReply); */
 									$tableBody.append($tr);
+									$tableBody.append($hide_tr);
 								}
 							} else {
 								$tr = $("<tr>");

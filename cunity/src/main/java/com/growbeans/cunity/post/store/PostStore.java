@@ -24,4 +24,7 @@ public interface PostStore {
 	public ArrayList<PostComment> selectPostCommentList(int postNo);
 	public int insertPostComment(PostComment postComment);
 	public ArrayList<Post> searchList(Search search);
+	
+	public int updateMent(PostComment comment);
+	public int deleteMent(int mentNo);
 }

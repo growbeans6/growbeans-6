@@ -63,6 +63,13 @@
 	<update id="updatePost">
 		UPDATE POST SET POST_CATEGORY = #{postCategory}, POST_SUBJECT = #{postSubject}, FILEPATH = #{filePath} WHERE POST_NO = #{postNo}
 	</update>
+	<delete id="deleteMent" parameterType="_int">
+		DELETE FROM POST_COMMENT WHERE MENT_NO = #{mentNo}
+	</delete>
+	
+	<update id="updateMent" parameterType="PostComment">
+		UPDATE POST_COMMENT SET ment_content=#{mentContent}, ment_regdate = sysdate WHERE MENT_NO = #{mentNo}
+	</update>
 </mapper>
 
 	

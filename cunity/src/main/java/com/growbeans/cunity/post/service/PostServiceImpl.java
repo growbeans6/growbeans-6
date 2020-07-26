@@ -79,4 +79,16 @@ public class PostServiceImpl implements PostService{
 		return null;
 	}
 
+	@Override
+	public int updateMent(PostComment comment) {
+		// TODO Auto-generated method stub
+		return postStore.updateMent(comment);
+	}
+
+	@Override
+	public int deleteMent(int mentNo) {
+		// TODO Auto-generated method stub
+		return postStore.deleteMent(mentNo);
+	}
+
 }

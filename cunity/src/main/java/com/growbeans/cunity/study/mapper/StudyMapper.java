@@ -73,7 +73,7 @@ public interface StudyMapper {
 	 * @param studentNo
 	 * @return study
 	 */
-	public Study selectStudy(int studentNo);
+	public Study selectStudy(int studyNo);
 	
 	/**
 	 * 8. 스터디 가입자 명단 불러오기
@@ -161,4 +161,22 @@ public interface StudyMapper {
 	 * @return ment
 	 */
 	public PostComment selectPostCommentOne();
+	/**
+	 * 탈퇴할때 작성한 글 삭제
+	 * @param studentNo
+	 * @return
+	 */
+	public int deleteMyTimeline(int studentNo);
+	/**
+	 * 탈퇴할때 작성한 댓글 삭제
+	 * @param studentNo
+	 * @return
+	 */
+	public int deleteMyMent(Student student);
+	/**
+	 * 해체할때 작성한 글 삭제
+	 * @param studentNo
+	 * @return
+	 */
+	public int deleteStudyPosts(int studyNo);
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.growbeans.cunity.post.domain.Post;
 import com.growbeans.cunity.post.domain.PostComment;
@@ -26,9 +27,11 @@ public class StudyServiceImpl implements StudyService{
 	}
 
 	@Override
+	@Transactional
 	public int deleteStudy(int studyNo) {
-		// TODO Auto-generated method stub
-		return 0;
+		studyStore.deleteStudyPosts(studyNo);
+		studyStore.allWithdrawStudy(studyNo);
+		return studyStore.deleteStudy(studyNo);
 	}
 
 	@Override
@@ -55,15 +58,18 @@ public class StudyServiceImpl implements StudyService{
 	}
 
 	@Override
-	public int withdrawStudy(int studentNo) {
+	@Transactional
+	public int withdrawStudy(Student student) {
 		// TODO Auto-generated method stub
-		return 0;
+		studyStore.deleteMyMent(student);
+		studyStore.deleteMyTimeline(student.getsNo());
+		return studyStore.withdrawStudy(student.getsNo());
 	}
 
 	@Override
-	public Study selectStudy(int studentNo) {
+	public Study selectStudy(int studyNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return studyStore.selectStudy(studyNo);
 	}
 
 	@Override
@@ -175,6 +181,8 @@ public class StudyServiceImpl implements StudyService{
 		// TODO Auto-generated method stub
 		return studyStore.selectPostCommentOne();
 	}
+
+
 
 	
 }

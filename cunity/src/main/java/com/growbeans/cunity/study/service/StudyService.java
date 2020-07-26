@@ -56,17 +56,17 @@ public interface StudyService {
 	
 	/**
 	 * 6. 스터디 탈퇴
-	 * @param StudentNo
+	 * @param studentNo
 	 * @return result
 	 */
-	public int withdrawStudy(int studentNo); 
+	public int withdrawStudy(Student student); 
 	
 	/**
 	 * 7. 스터디 정보 불러오기
-	 * @param StudentNo
+	 * @param StudyNo
 	 * @return study
 	 */
-	public Study selectStudy(int studentNo);
+	public Study selectStudy(int studyNo);
 	
 	/**
 	 * 8. 스터디 가입자 명단 불러오기
@@ -152,4 +152,5 @@ public interface StudyService {
 	 * @return ment
 	 */
 	public PostComment selectPostCommentOne();
+	
 }

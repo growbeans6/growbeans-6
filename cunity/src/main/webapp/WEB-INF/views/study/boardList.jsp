@@ -77,7 +77,7 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">스터디 보드</h1>
+						<h1 class="h3 mb-0 text-gray-800">${study.studyName }의 스터디 보드</h1>
 						<h3>타임라인은 30개까지만 저장됩니다.</h3>
 						<c:url value="/study-timeline/board/write" var="boardWriteForm"></c:url>
 						<div style="position:fixed;top:150px;left:250px;z-index:10;"><a href="javascript:void(0);" onclick="toggleMenu();"><h3><i class="fas fa-bars"></i>&nbsp <b>MENU</b></h3></a>
@@ -87,7 +87,15 @@
 							<h4 ><a href="#" data-toggle="modal" data-target="#rWriteModal${loginStudent.sNo }"><i class="fab fa-readme"></i>&nbsp내가 쓴 글 보기</a></h4><br>
 							<h4 ><a href="/chatRoom"><i class="fas fa-comments"></i>&nbsp채팅방으로 가기</a></h4><br>
 							<h4 ><a href="studyfileShare"><i class="fas fa-file"></i>&nbsp파일공유 하러가기</a></h4><br>
-							<h4 ><a href="javascript:void(0);"><i class="fas fa-user-times"></i>&nbsp스터디 탈퇴하기</a></h4><br>
+							<c:choose>
+								<c:when test="${loginStudent.sNo eq study.studyManager }">
+									<h4 ><a href="/study-timeline/study/disband"><i class="fas fa-user-times"></i>&nbsp스터디 해체하기</a></h4><br>
+								</c:when>
+								<c:otherwise>
+									<h4 ><a href="/study-timeline/study/withdraw"><i class="fas fa-user-times"></i>&nbsp스터디 탈퇴하기</a></h4><br>
+								</c:otherwise>
+							</c:choose>
+							
 							
 							</div>
 						</div>
