@@ -31,14 +31,14 @@ public class StudyStoreLogic implements StudyStore{
 
 	@Override
 	public int deleteStudy(int studyNo) {
-		// TODO Auto-generated method stub
-		return 0;
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.deleteStudy(studyNo);
 	}
 
 	@Override
 	public int allWithdrawStudy(int studyNo) {
-		// TODO Auto-generated method stub
-		return 0;
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.allWithdrawStudy(studyNo);
 	}
 
 	@Override
@@ -67,14 +67,14 @@ public class StudyStoreLogic implements StudyStore{
 
 	@Override
 	public int withdrawStudy(int studentNo) {
-		// TODO Auto-generated method stub
-		return 0;
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.withdrawStudy(studentNo);
 	}
 
 	@Override
-	public Study selectStudy(int studentNo) {
-		// TODO Auto-generated method stub
-		return null;
+	public Study selectStudy(int studyNo) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.selectStudy(studyNo);
 	}
 
 	@Override
@@ -188,6 +188,24 @@ public class StudyStoreLogic implements StudyStore{
 	public PostComment selectPostCommentOne() {
 		StudyMapper mapper = session.getMapper(StudyMapper.class);
 		return mapper.selectPostCommentOne();
+	}
+
+	@Override
+	public int deleteMyTimeline(int studentNo) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.deleteMyTimeline(studentNo);
+	}
+
+	@Override
+	public int deleteMyMent(Student student) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.deleteMyMent(student);
+	}
+
+	@Override
+	public int deleteStudyPosts(int studyNo) {
+		StudyMapper mapper = session.getMapper(StudyMapper.class);
+		return mapper.deleteStudyPosts(studyNo);
 	}
 
 }

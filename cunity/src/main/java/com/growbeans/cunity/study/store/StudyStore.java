@@ -63,17 +63,17 @@ public interface StudyStore {
 	
 	/**
 	 * 6. 스터디 탈퇴
-	 * @param StudentNo
+	 * @param studentNo
 	 * @return result
 	 */
 	public int withdrawStudy(int studentNo); 
 	
 	/**
 	 * 7. 스터디 정보 불러오기
-	 * @param StudentNo
+	 * @param studyNo
 	 * @return study
 	 */
-	public Study selectStudy(int studentNo);
+	public Study selectStudy(int studyNo);
 	
 	/**
 	 * 8. 스터디 가입자 명단 불러오기
@@ -159,4 +159,22 @@ public interface StudyStore {
 	 * @return ment
 	 */
 	public PostComment selectPostCommentOne();
+	/**
+	 * 탈퇴할때 작성한 글 삭제
+	 * @param studentNo
+	 * @return
+	 */
+	public int deleteMyTimeline(int studentNo);
+	/**
+	 * 탈퇴할때 작성한 댓글 삭제
+	 * @param studentNo
+	 * @return
+	 */
+	public int deleteMyMent(Student student);
+	/**
+	 * 해체할때 작성한 글 삭제
+	 * @param studentNo
+	 * @return
+	 */
+	public int deleteStudyPosts(int studyNo);
 }

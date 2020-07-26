@@ -131,4 +131,33 @@
 		SELECT * FROM POST_COMMENT 
 		WHERE MENT_NO = (select max(MENT_NO) from post_comment)
 	</select>
+	<select id="selectStudy" resultMap="studyResultSet">
+		select * from study where study_no=#{studyNo}
+	</select>
+	<update id="withdrawStudy" parameterType="_int">
+		update student set
+		study_no = 0
+		where s_no = #{studentNo}
+	</update>
+	<delete id="deleteMyTimeline" parameterType="_int">
+		delete from post
+		where post_Kinds = '타임라인' and post_writer_s_no = #{studentNo}
+	</delete>
+	<delete id="deleteMyMent" parameterType="_int">
+		delete from post_comment
+		where post_no in (select post_no from post where study_no = #{studyNo}) and ment_depth = #{sNo}
+	</delete>
+	<delete id="deleteStudy" parameterType="_int">
+		delete from study
+		where study_no = #{studyNo}
+	</delete>
+	<update id="allWithdrawStudy" parameterType="_int">
+		update student set
+		study_no = 0
+		where study_no = #{studyNo}
+	</update>
+	<delete id="deleteStudyPosts" parameterType="_int">
+		delete from post
+		where study_no = #{studyNo}
+	</delete>
 </mapper>

@@ -85,5 +85,17 @@ public class PostStoreLogic implements PostStore{
 		return null;
 	}
 
+	@Override
+	public int updateMent(PostComment comment) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("postMapper.updateMent", comment);
+	}
+
+	@Override
+	public int deleteMent(int mentNo) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete("postMapper.deleteMent",mentNo);
+	}
+
 
 }

@@ -98,4 +98,7 @@ public interface PostService {
 	 * @return searchList
 	 */
 	public ArrayList<Post> searchList(Search search);
+	
+	public int updateMent(PostComment comment);
+	public int deleteMent(int mentNo);
 }

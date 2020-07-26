@@ -137,7 +137,7 @@
       </li>
         
         <li class="nav-item">
-        <a class="nav-link collapsed" href="studyRoomMain" data-toggle="collapse" data-target="#studycollapsePages" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#studycollapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>스터디 룸</span>
         </a>
