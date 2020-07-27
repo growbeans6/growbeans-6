@@ -13,17 +13,23 @@ import com.growbeans.cunity.student.domain.Student;
 import com.growbeans.cunity.study.domain.Study;
 import com.growbeans.cunity.study.service.StudyService;
 import com.growbeans.cunity.study.store.StudyStore;
+import com.growbeans.cunity.studyFolder.domain.StudyFolder;
+import com.growbeans.cunity.studyFolder.store.StudyFolderStoreLogic;
 
 @Service("studyService")
 public class StudyServiceImpl implements StudyService{
  
 	@Autowired
 	private StudyStore studyStore;
-	
+	@Autowired
+	private StudyFolderStoreLogic folderStoreLogic;
 	@Override
+	@Transactional
 	public int createStudy(Study study) {
 		// TODO Auto-generated method stub
-		return studyStore.createStudy(study);
+		int result=studyStore.createStudy(study);
+		folderStoreLogic.newInsertStudyFolder(study.getStudyNo());
+		return result;
 	}
 
 	@Override

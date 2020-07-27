@@ -61,8 +61,8 @@ public class StudyFolderController {
 	}
 
 	// 스터디 파일공유페이지 상세보기
-	@RequestMapping(value = "/studyfileShareDetail/{folderNo}", method = RequestMethod.GET)
-	public String studyFolderDetail(Model mo, @RequestParam("folderNo") int folderNo, HttpSession session) {
+	@RequestMapping(value = "/forderDetail", method = RequestMethod.GET)
+	public String studyFolderDetail(Model mo, int folderNo, HttpSession session) {
 		StudyFolder studyFolder = studyFolderService.selectOneStudyFolder(folderNo);
 		Student student = (Student) session.getAttribute("loginStudent");
 		int studyNo = student.getStudyNo();
@@ -94,19 +94,25 @@ public class StudyFolderController {
 	}
 
 	// 특정 폴더 삭제하기
-	/*
-	 * @RequestMapping("deleteFolder.cunity") public String deleteStudyFolder(int
-	 * folderNo, Model model, @RequestParam("fileNo") int fileNo, HttpSession
-	 * session, HttpServletRequest request) { Student student = (Student)
-	 * session.getAttribute("loginStudent"); int studyNo = student.getStudyNo(); //
-	 * folderNo 조회 StudyFolder studyfolder =
-	 * studyFolderService.selectOneStudyFolder(folderNo); // studyfilelist 조회
-	 * ArrayList<StudyFile> studyFile =
-	 * studyFolderService.selectlistStudyFile(studyNo, studyfolder.getFolderNo());
-	 * int result = studyFolderService.deleteStudyFolder(folderNo); // DB에 있는 값을 지움
-	 * if (result > 0 ) { if (studyFile !=null) { for (int i = 0; i <
-	 * studyFile.size(); i++) { deleteFile(studyFile.get(i).getUploadFile(),
-	 * request); } } } }
-	 */
+
+	@RequestMapping("deleteFolder.cunity")
+	public String deleteStudyFolder(int folderNo, Model model,  HttpSession session,
+			HttpServletRequest request) {
+		Student student = (Student) session.getAttribute("loginStudent");
+		/*int studyNo = student.getStudyNo(); // folderNo 조회
+*/		
+		
+//		StudyFolder studyFolder = studyFolderService.selectOneStudyFolder(folderNo); // studyfilelist 조회
+		int result = studyFolderService.deleteStudyFolder(folderNo); // DB에 있는 값을 지움
+		
+		/*ArrayList<StudyFile> studyFile = studyFolderService.selectlistStudyFile(studyNo, studyFolder.getFolderNo());*/
+		
+		if (result > 0) {
+			return "redirect:/studyfileShareMain";
+		} else {
+			return "study/studyfileShareDetail";
+		}
+		
+	}
 
 }

@@ -147,8 +147,7 @@
 						<div class="row"></div>
 
 						<div id="content-layer1" class="col-lg-8">
-						<c:url value="/studyfileShareDetail/${studyFolder.folderNo }" var="folderDetail">
-						</c:url>
+						
 							<h1 class="h3 mb-1 text-gray-800">${folder.folderName }</h1>
 							<div style="position:fixed;top:100px;left:400px;z-index:8;"><a href="javascript:void(0);" onclick="toggleMenu();"><h3><i class="fas fa-bars"></i></h3></a>
 							<div id="toggleArea" class="card  shadow h-100 p-2" style="display:none;">
@@ -164,10 +163,6 @@
 								<div class="col-lg-11">
 									<div class="card w-75">
 										<div class="card-body">
-												<c:url var="studyfolderDetail" value="/studyfileShareDetail">
-													<c:param name="studyNo" value="${loginStudent.studyNo }"/>
-													<c:param name="folderNo" value="${folder.folderNo }" />
-												</c:url>
 											<form action="sfinsert.cunity" method="post" id="fileForm"
 												enctype="Multipart/form-data">
 												<div class="form-group">
@@ -284,6 +279,9 @@
 											<!-- 폴더 리스트 출력 -->
 											<div class="study_folder_list" >
 													<c:forEach var="folderlist" items="${folderlist}">
+													<c:url value="/forderDetail" var="folderDetail">
+														<c:param name="folderNo" value="${folderlist.folderNo }"></c:param>
+													</c:url>
 													<ul class="folder_list" id="ul_list" >
 														<li id="parentfolder" class="parent_folder"><a class="dropdown-item"
 															href="${folderDetail }">${folderlist.folderName}

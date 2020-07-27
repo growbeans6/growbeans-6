@@ -147,15 +147,26 @@
 						<div class="row"></div>
 
 						<div id="content-layer1" class="col-lg-8">
-						<c:url value="/studyfileShareDetail/${studyFolder.folderNo }" var="folderDetail">
-						</c:url>
-							<h1 class="h3 mb-1 text-gray-800">${folderDetail.folderName }</h1>
-							<div style="position:fixed;top:100px;left:400px;z-index:8;"><a href="javascript:void(0);" onclick="toggleMenu();"><h3><i class="fas fa-bars"></i></h3></a>
-							<div id="toggleArea" class="card  shadow h-100 p-2" style="display:none;">
-							<br>
-							<h4 ><a href="${deleteFolder.cunity }"><i class="fas fa-pencil-alt"></i>폴더삭제</a></h4><br>
+							<h1 class="h3 mb-1 text-gray-800">${studyFolder.folderName }</h1>
+							<div
+								style="position: fixed; top: 100px; left: 400px; z-index: 8;">
+								<a href="javascript:void(0);" onclick="toggleMenu();"><h3>
+										<i class="fas fa-bars"></i>
+									</h3></a>
+								<div id="toggleArea" class="card  shadow h-100 p-2"
+									style="display: none;">
+									<br>
+									<h4>
+									<c:url var="deleteFolder" value="/deleteFolder.cunity">
+										<c:param name="folderNo" value="${studyFolder.folderNo }"/>
+									</c:url>
+										<a href="${deleteFolder }"><i
+											class="fas fa-pencil-alt"></i>폴더삭제</a>
+											
+									</h4>
+									<br>
+								</div>
 							</div>
-						</div>
 							<br>
 							<div class="row">
 								<%-- <c:url var="#" values="#"/>
@@ -164,10 +175,7 @@
 								<div class="col-lg-11">
 									<div class="card w-75">
 										<div class="card-body">
-												<c:url var="studyfolderDetail" value="/studyfileShareDetail">
-													<c:param name="studyNo" value="${loginStudent.studyNo }"/>
-													<c:param name="folderNo" value="${folder.folderNo }" />
-												</c:url>
+
 											<form action="sfinsert.cunity" method="post" id="fileForm"
 												enctype="Multipart/form-data">
 												<div class="form-group">
@@ -178,17 +186,18 @@
 														name="fileRegistrant" value="${writer }">
 
 												</div>
-												
+
 												<div class="form-group">
+													<input type="hidden" class="folderNo" name="folderNo">
 													<label for="exampleFormControlSelect1">폴더 선택</label> <select
 														name="folderNo" class="form-control"
-														id="exampleFormControlSelect1" style="height:20px">
-														<c:forEach var="folderlist" items="${folderlist }">
-															<option value="${folderlist.folderNo }">${folderlist.folderName }</option>
-														</c:forEach>
+														id="exampleFormControlSelect1" style="height: 20px">
+														
+														<%-- <option value="${studyFolder.folderNo }">${studyFolder.folderName }</option> --%>
+
 													</select>
 												</div>
-												
+
 												<div class="form-group">
 													<label for="exampleFormControlSelect1">파일 찾기</label>
 													<div class="input-group">
@@ -203,42 +212,48 @@
 									</div>
 								</div>
 								<br> <br>
-								<c:forEach var="FileDetail" items="${filelist }"
-									varStatus="index">
-									<div class="col-lg-8">
-										<div id="filebox" class="card w-80">
-											<h5 class="card-header">${FileDetail.uploadFile }</h5>
-											<div class="card-body">
-												<h5 class="card-title">
-													<input type="hidden" name="uploadFile"
-														value="${uploadFile }"> ${FileDetail.uploadFile }
-												</h5>
-												<p class="card-text">
-													<a href="#" class="card-link">${FileDetail.uploadFile }</a>
-												</p>
-												<br>
-												<p class="text-right">작성자 :
-													${FileDetail.fileRegistrant}, 올린 시간 :
-													${FileDetail.fileUploadTime }</p>
-												<c:if
-													test="${loginStudent.sName eq FileDetail.fileRegistrant }">
-													<!-- 쿼리스트링 넣어주기 -> 넣어주어야 컨트롤러 메소드의 매개변수가 받아서 처리 가능 -->
-													<!-- get방식으로 넘겨주는 거라서 c:param으로 파라미터값을 넘겨주어야 함 -->
-													<c:url var="sfdelete" value="sfdelete.cunity">
-														<c:param name="fileNo" value="${FileDetail.fileNo }" />
-													</c:url>
-													<a href="${sfdelete }" class="btn btn-primary">파일 삭제</a>
-												</c:if>
-												<c:if
-													test="${loginStudent.sName ne FileDetail.fileRegistrant }">
-													<a
-														href="<c:url value='/resources/nuploadFiles/${FileDetail.uploadFile }'/>"
-														class="btn btn-primary" download>파일 다운로드</a>
-												</c:if>
+
+
+									<c:url var="studyfolderDetail" value="/studyfileShareDetail">
+										<c:param name="folderNo" value="${studyFolder.folderNo }" />
+									</c:url>
+									<c:forEach var="FileDetail" items="${filelist }"
+										varStatus="index">
+
+										<div class="col-lg-8">
+											<div id="filebox" class="card w-80">
+												<h5 class="card-header">${FileDetail.uploadFile }</h5>
+												<div class="card-body">
+													<h5 class="card-title">
+														<input type="hidden" name="uploadFile"
+															value="${uploadFile }"> ${FileDetail.uploadFile }
+													</h5>
+													<p class="card-text">
+														<a href="#" class="card-link">${FileDetail.uploadFile }</a>
+													</p>
+													<br>
+													<p class="text-right">작성자 :
+														${FileDetail.fileRegistrant}, 올린 시간 :
+														${FileDetail.fileUploadTime }</p>
+													<c:if
+														test="${loginStudent.sName eq FileDetail.fileRegistrant }">
+														<!-- 쿼리스트링 넣어주기 -> 넣어주어야 컨트롤러 메소드의 매개변수가 받아서 처리 가능 -->
+														<!-- get방식으로 넘겨주는 거라서 c:param으로 파라미터값을 넘겨주어야 함 -->
+														<c:url var="sfdelete" value="sfdelete.cunity">
+															<c:param name="fileNo" value="${FileDetail.fileNo }" />
+														</c:url>
+														<a href="${sfdelete }" class="btn btn-primary">파일 삭제</a>
+													</c:if>
+													<c:if
+														test="${loginStudent.sName ne FileDetail.fileRegistrant }">
+														<a
+															href="<c:url value='/resources/nuploadFiles/${FileDetail.uploadFile }'/>"
+															class="btn btn-primary" download>파일 다운로드</a>
+													</c:if>
+												</div>
 											</div>
 										</div>
-									</div>
-								</c:forEach>
+									</c:forEach>
 
 								<br> <br>
 							</div>
@@ -273,21 +288,24 @@
 										<button type="button"
 											class="btn btn-secondary
 											dropdown-toggle dropdown-toggle-split"
-											id="dropdownMenuList" 
-											data-toggle="dropdown" aria-haspopup="true"
-											aria-expanded="false" data-reference="parent">
+											id="dropdownMenuList" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="false"
+											data-reference="parent">
 											<span class="sr-only">Toggle Dropdown</span>
 										</button>
 										<div class="dropdown-menu" id="left-sidemenu1"
 											aria-labelledby="dropdownMenuReference" style="width: 280px">
 
 											<!-- 폴더 리스트 출력 -->
-											<div class="study_folder_list" >
-													<c:forEach var="folderlist" items="${folderlist}">
-													<ul class="folder_list" id="ul_list" >
-														<li id="parentfolder" class="parent_folder"><a class="dropdown-item"
-															href="#">${folderlist.folderName}
-														</a></li>
+											<div class="study_folder_list">
+												<c:forEach var="folderlist" items="${folderlist}">
+													<c:url var="studyfolderDetail"
+														value="/studyfileShareDetail">
+														<c:param name="folderNo" value="${folderlist.folderNo }" />
+													</c:url>
+													<ul class="folder_list" id="ul_list">
+														<li id="parentfolder" class="parent_folder"><a
+															href="#">${folderlist.folderName} </a></li>
 														<!-- </a></li>
 
 													<ul class="child_folder">
@@ -298,10 +316,10 @@
 													<li class="parent-folder"><a class="dropdown-item"
 														href="#">폴더명2&nbsp;&nbsp;&nbsp;<i href="#"
 															class="fas fa-times"></i></a></li> -->
-													
+
 													</ul>
-													</c:forEach>
-												
+												</c:forEach>
+
 
 											</div>
 										</div>
@@ -348,8 +366,16 @@
 					// parentFolderNo => 현재 페이지의 폴더 넘버
 					// studyNo => session에서 갖고 온 값
 					var folderName = $(this).prev("input").val();
-					var parentFolderNo = ${folder.folderNo};
-					var studyNo = ${loginStudent.studyNo};
+					var parentFolderNo = $
+					{
+						studyFolder.folderNo
+					}
+					;
+					var studyNo = $
+					{
+						loginStudent.studyNo
+					}
+					;
 					$.ajax({
 						url : "insertfolder.cunity",
 						data : {
@@ -366,8 +392,9 @@
 							var $li;
 							$ul_list = $("#ul_list")
 							// 태그 생성
-							$li = $("<li class='parent_folder'>" + "<a class='dropdown-item' href='#'>" +
-									folderName + "</a>" + "</li>");
+							$li = $("<li class='parent_folder'>"
+									+ "<a class='dropdown-item' href='#'>"
+									+ folderName + "</a>" + "</li>");
 							$ul_list.append($li);
 
 						}

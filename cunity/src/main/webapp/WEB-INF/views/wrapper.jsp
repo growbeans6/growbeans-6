@@ -145,7 +145,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
             <a class="collapse-item" href="/study-timeline/board">스터디 보드</a>
-            <a class="collapse-item" href="studyfileShare">파일 공유</a>
+            <a class="collapse-item" href="/studyfileShareMain">파일 공유</a>
             <a class="collapse-item" href="/chatRoom">그룹 채팅</a>
           </div>
         </div>

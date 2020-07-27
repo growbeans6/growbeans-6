@@ -66,4 +66,9 @@ public class StudyFolderStoreLogic {
 		StudyFolderMapper studyFolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
 		return studyFolderMapper.newSelectOneStudyFolder();
 	}
+	// 스터디 생성시 폴더 생성
+	public int newInsertStudyFolder(int studyNo) {
+		StudyFolderMapper studyFolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
+		return studyFolderMapper.newInsertStudyFolder(studyNo);
+	}
 }

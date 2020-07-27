@@ -30,16 +30,18 @@
 	
 	<select id="selectOneStudyFolder"
 		resultMap="studyFolderResultSet">
-		select * from study_Folder where study_No = #{studyNo} and folder_no = #{folderNo}
+		select * from study_Folder where folder_no = #{folderNo}
 	</select>
 	
-
+	<delete id="deleteOneStudyFolder">
+		delete from study_Folder where folder_no = #{folderNo}
+	</delete>
 	<insert id="insertStudyFolder">
 		insert into study_Folder values (FOLDER_NO_SEQ.NEXTVAL, #{studyNo}, #{folderName}, #{parentFolderNo})
 	</insert>
 
 	<delete id="deleteStudyFolder"> 
-		delete study_Folder where folder_No = #{folderNo}
+		delete from study_Folder where folder_No = #{folderNo}
 	</delete>
 	
 	<select id="selectlistStudyFile" resultMap="studyFileResultSet">
@@ -49,4 +51,8 @@
 	<select id="newSelectOneStudyFolder" resultMap="studyFolderResultSet">
 		select * from study_folder where folder_No = (select max(folder_No) from study_folder)
 	</select>
+	
+	<insert id="newInsertStudyFolder">
+		insert into study_Folder values(Folder_no_seq.nextval, (select max(study_no) from study), '스터디폴더', null )
+	</insert>
 </mapper>

@@ -72,4 +72,11 @@ public interface StudyFolderMapper {
 	 */
 	// 가장 최근 생성한 스터디 폴더 정보 불러오기
 	public StudyFolder newSelectOneStudyFolder();
+	
+	/**
+	 * 스터디 생성 시 폴더 생성
+	 * @param studyFolder
+	 * @return
+	 */
+	public int newInsertStudyFolder(int studyNo);
 }
