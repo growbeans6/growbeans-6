@@ -257,15 +257,15 @@
 									<div class="card-body row">
 										<div id="img-box1" class="img-box"
 											style="height: 70%; margin: 30px auto; visibility:hidden ">
-											<img src="/resources/img/chipmunk.jpg" id="input-img" />
+											<img src="/resources/img/example.jpg" id="input-img" />
 										</div>
 										<div id="img-box2" class="img-box"
 											style="height: 70%; margin: 30px auto; visibility:hidden ">
-											<img src="/resources/img/chipmunk.jpg" id="input-img" />
+											<img src="/resources/img/example.jpg" id="input-img" />
 										</div>
 										<div id="img-box3" class="img-box"
 											style="height: 70%; margin: 30px auto; visibility:hidden ">
-											<img src="/resources/img/chipmunk.jpg" id="input-img" />
+											<img src="/resources/img/example.jpg" id="input-img" />
 										</div>
 									</div>
 								</div>
@@ -356,7 +356,7 @@
 			$("#image1").attr("disabled", true);
 			$("#image1").val("");
 			$('#upload-name1').val("파일선택");
-			$('#img-box1 img').attr("src", '/resources//img/chipmunk.jpg');
+			$('#img-box1 img').attr("src", '/resources//img/example.jpg');
 			count--;
 			image = 0;
 		}
@@ -368,7 +368,7 @@
 			$("#image2").attr("disabled", true);
 			$("#image2").val("");
 			$('#upload-name2').val("파일선택");
-			$('#img-box2 img').attr("src", '/resources//img/chipmunk.jpg');
+			$('#img-box2 img').attr("src", '/resources//img/example.jpg');
 			count--;
 			image = 1;
 		}
@@ -380,7 +380,7 @@
 			$("#image3").attr("disabled", true);
 			$("#image3").val("");
 			$('#upload-name3').val("파일선택");
-			$('#img-box3 img').attr("src", '/resources//img/chipmunk.jpg');
+			$('#img-box3 img').attr("src", '/resources//img/example.jpg');
 			count--;
 			image = 2;
 			var status = $("#image2").attr("disabled");
@@ -412,7 +412,7 @@
 			e.preventDefault();
 			$("#image1").val("");
 			$('#upload-name1').val("파일선택");
-			$('#img-box1 img').attr('src', '/resources//img/chipmunk.jpg');
+			$('#img-box1 img').attr('src', '/resources//img/example.jpg');
 		});
 		$('#image2').on('change', function() {
 			var name = $(this).val().split('/').pop().split('\\').pop();
@@ -433,7 +433,7 @@
 			e.preventDefault();
 			$("#image2").val("");
 			$('#upload-name2').val("파일선택");
-			$('#img-box2 img').attr('src', '/resources//img/chipmunk.jpg');
+			$('#img-box2 img').attr('src', '/resources//img/example.jpg');
 		});
 		$('#image3').on('change', function() {
 			var name = $(this).val().split('/').pop().split('\\').pop();
@@ -454,7 +454,7 @@
 			e.preventDefault();
 			$("#image3").val("");
 			$('#upload-name3').val("파일선택");
-			$('#img-box3 img').attr('src', '/img/chipmunk.jpg');
+			$('#img-box3 img').attr('src', '/img/example.jpg');
 		});
 	</script>
 </body>

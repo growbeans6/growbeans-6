@@ -74,10 +74,13 @@ aside ul {
 	padding-left: 0;
 	margin: 0;
 	list-style-type: none;
-	overflow-y: scroll;
+	-ms-overflow-style: none; 
+ 	scrollbar-width: none;
 	height: 690px;
 }
-
+aside ul::-webkit-scrollbar{
+	display: none;
+}
 aside li {
 	padding: 10px 0;
 }
