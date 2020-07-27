@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Dashboard</title>
+<title>파일공유페이지 상세보기</title>
 
 <!-- Custom fonts for this template-->
 <link href="/resources/vendor/fontawesome-free/css/all.min.css"
@@ -115,8 +115,8 @@
 </head>
 
 <body id="page-top">
-	
-	 <!-- Page Wrapper -->
+
+	<!-- Page Wrapper -->
 	<div id="wrapper">
 		<jsp:include page="../wrapper.jsp"></jsp:include>
 		<!-- Content Wrapper -->
@@ -147,7 +147,15 @@
 						<div class="row"></div>
 
 						<div id="content-layer1" class="col-lg-8">
-							<h1 class="h3 mb-1 text-gray-800">폴더명1-1</h1>
+						<c:url value="/studyfileShareDetail/${studyFolder.folderNo }" var="folderDetail">
+						</c:url>
+							<h1 class="h3 mb-1 text-gray-800">${folderDetail.folderName }</h1>
+							<div style="position:fixed;top:100px;left:400px;z-index:8;"><a href="javascript:void(0);" onclick="toggleMenu();"><h3><i class="fas fa-bars"></i></h3></a>
+							<div id="toggleArea" class="card  shadow h-100 p-2" style="display:none;">
+							<br>
+							<h4 ><a href="${deleteFolder.cunity }"><i class="fas fa-pencil-alt"></i>폴더삭제</a></h4><br>
+							</div>
+						</div>
 							<br>
 							<div class="row">
 								<%-- <c:url var="#" values="#"/>
@@ -156,6 +164,10 @@
 								<div class="col-lg-11">
 									<div class="card w-75">
 										<div class="card-body">
+												<c:url var="studyfolderDetail" value="/studyfileShareDetail">
+													<c:param name="studyNo" value="${loginStudent.studyNo }"/>
+													<c:param name="folderNo" value="${folder.folderNo }" />
+												</c:url>
 											<form action="sfinsert.cunity" method="post" id="fileForm"
 												enctype="Multipart/form-data">
 												<div class="form-group">
@@ -164,15 +176,19 @@
 														type="hidden" name="studentNo"
 														value="${loginStudent.sNo }"> <input type="hidden"
 														name="fileRegistrant" value="${writer }">
+
 												</div>
-												<!-- 나중에 forEach로 바꿔줘야 함 -->
+												
 												<div class="form-group">
 													<label for="exampleFormControlSelect1">폴더 선택</label> <select
 														name="folderNo" class="form-control"
-														id="exampleFormControlSelect1">
-														<option value="${folderlist[0].folderNo }">${folderlist[0].folderName }</option>
+														id="exampleFormControlSelect1" style="height:20px">
+														<c:forEach var="folderlist" items="${folderlist }">
+															<option value="${folderlist.folderNo }">${folderlist.folderName }</option>
+														</c:forEach>
 													</select>
 												</div>
+												
 												<div class="form-group">
 													<label for="exampleFormControlSelect1">파일 찾기</label>
 													<div class="input-group">
@@ -236,19 +252,16 @@
 										<form action="insertfolder.cunity" method="post"
 											id="insertFolder">
 											<input type="hidden" name="studyNo"
-												value="${loginStudent.studyNo }">
-											<input type="hidden" name="folderNo"
-												value="${folder.folderNo }">
-											
-											<input type="text" class="form-control"
-												placeholder="추가할 폴더 이름" name="folderName" id="folderName"
+												value="${loginStudent.studyNo }"> <input
+												type="hidden" name="folderNo" id="folderNo"
+												value="${folder.folderNo }"> <input type="text"
+												class="form-control" placeholder="추가할 폴더 이름"
+												name="folderName" id="folderName"
 												aria-label="Recipient's
 											username"
 												aria-describedby="button-addon2">
 											<button class="btn btn-outline-secondary" type="button"
-												id="action_add" style="width: 75px">
-												추가
-											</button>
+												id="action_add" style="width: 75px">추가</button>
 										</form>
 									</div>
 								</div>
@@ -260,7 +273,7 @@
 										<button type="button"
 											class="btn btn-secondary
 											dropdown-toggle dropdown-toggle-split"
-											id="dropdownMenuList" style="width: 15px;"
+											id="dropdownMenuList" 
 											data-toggle="dropdown" aria-haspopup="true"
 											aria-expanded="false" data-reference="parent">
 											<span class="sr-only">Toggle Dropdown</span>
@@ -269,13 +282,13 @@
 											aria-labelledby="dropdownMenuReference" style="width: 280px">
 
 											<!-- 폴더 리스트 출력 -->
-											<div class="study_folder_list">
-												<c:forEach var="flist" items="${folderlist}">
-												<ul class="folder_list" id="ul_list">
-													<li class="parent_folder"><a class="dropdown-item"
-														href="#">${flist.folderName }1&nbsp;&nbsp;&nbsp; </a></li>
-														<!-- <i href="#"
-															class="fas fa-times"></i></a></li>
+											<div class="study_folder_list" >
+													<c:forEach var="folderlist" items="${folderlist}">
+													<ul class="folder_list" id="ul_list" >
+														<li id="parentfolder" class="parent_folder"><a class="dropdown-item"
+															href="#">${folderlist.folderName}
+														</a></li>
+														<!-- </a></li>
 
 													<ul class="child_folder">
 														<a class="dropdown-item" href="#">폴더명1-1</a>
@@ -285,9 +298,10 @@
 													<li class="parent-folder"><a class="dropdown-item"
 														href="#">폴더명2&nbsp;&nbsp;&nbsp;<i href="#"
 															class="fas fa-times"></i></a></li> -->
-
-												</ul>
-												</c:forEach>
+													
+													</ul>
+													</c:forEach>
+												
 
 											</div>
 										</div>
@@ -326,52 +340,44 @@
 	<script src="/resources/js/demo/chart-pie-demo.js"></script>
 	<script>
 		// ajax를 사용하여 DB에 데이터 넣기(부모 폴더 아래 자식 폴더 생성)
-		$("#action_add").on("click", function(){
-			// 넘겨줄 변수 설정
-			// folderName => 사용자가 입력한 값
-			// parentFolderNo => 현재 페이지의 폴더 넘버
-			// studyNo => session에서 갖고 온 값
-			var folderName = $(this).prev("input").val();
-			var parentFolderNo = ${folder.folderNo};
-			var studyNo = ${loginStudent.studyNo};
-			$.ajax({
-				url : "insertfolder.cunity",
-				data : {folderName:folderName, parentFolderNo:parentFolderNo, studyNo:studyNo}, // key : value
-				type : 'post',
-				dataType : "json", // controller에 model로 들어감
-				success : function(data) {
-					var $ul_list;
-					var folderName = data.folderName;
-					var $li;
-					var $a;
-					var $i;
-					var $close;
-					var deltag;
-					$ul_list = $("#ul_list")
-					// 태그 생성
-					$li = $("<li class='parent_folder'>");
-					$a = $("<a class='dropdown-item' href='#'>").text(folderName);
-					/* $li = $("<li class='parent_folder'>");
-					$a = $("<a class='dropdown-item' href='#'>").text(folderName);
-					$i = $("<i href='#' class='fas fa-times'>");
-					$close = $("</i></a></li>"); */
-					/* $close = $("</i></a></li>"); */
-					$ul_list.append($li).append($a);
-			
-				}
-			})
-			
-		})  
-		// 새 폴더 생성 
-		// 동적으로 ul 안쪽의 li 태그의 폴더명 넣어주기
-		/* function action_add() {
-			var text_add = $("#text_add").val(); // 입력할 글씨
-			var ul_list = $("#ul_list"); // ul_list선언
-			ul_list.append("<li>" + text_add + "</li>"); // ul_list 안쪽에 li 추가
-		} */
-		
+		$("#action_add").on(
+				"click",
+				function() {
+					// 넘겨줄 변수 설정
+					// folderName => 사용자가 입력한 값
+					// parentFolderNo => 현재 페이지의 폴더 넘버
+					// studyNo => session에서 갖고 온 값
+					var folderName = $(this).prev("input").val();
+					var parentFolderNo = ${folder.folderNo};
+					var studyNo = ${loginStudent.studyNo};
+					$.ajax({
+						url : "insertfolder.cunity",
+						data : {
+							folderName : folderName,
+							parentFolderNo : parentFolderNo,
+							studyNo : studyNo
+						}, // key : value
+						type : 'post',
+						dataType : "json", // controller에 model로 들어감
+						success : function(data) {
+							console.log("success");
+							var $ul_list;
+							var folderName = data.folderName;
+							var $li;
+							$ul_list = $("#ul_list")
+							// 태그 생성
+							$li = $("<li class='parent_folder'>" + "<a class='dropdown-item' href='#'>" +
+									folderName + "</a>" + "</li>");
+							$ul_list.append($li);
 
-		var count = 0;
+						}
+					})
+
+				})
+		// 토글
+		function toggleMenu() {
+			$("#toggleArea").toggle();
+		}
 	</script>
 </body>
 </html>

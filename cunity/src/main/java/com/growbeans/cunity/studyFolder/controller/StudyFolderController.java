@@ -1,6 +1,8 @@
 package com.growbeans.cunity.studyFolder.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,11 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,40 +34,47 @@ import com.growbeans.cunity.studyFolder.service.StudyFolderService;
 public class StudyFolderController {
 
 	@Autowired
-	 private StudyFolderService studyFolderService;
+	private StudyFolderService studyFolderService;
 
-	// 스터디 파일공유 페이지
-	@RequestMapping("/studyfileShare")
-	public ModelAndView studyfileShareForm(ModelAndView mv, HttpSession session, HttpServletRequest request) {
+	// 스터디 파일공유페이지 메인
+	@RequestMapping(value = "/studyfileShareMain", method = RequestMethod.GET)
+
+	public ModelAndView studyfileShareMain(ModelAndView mv, HttpSession session, HttpServletRequest request) {
 		Student student = (Student) session.getAttribute("loginStudent");
 		int studyNo = student.getStudyNo();
+		// 최상위 폴더 보여주기
+		StudyFolder studyfolder = studyFolderService.topStudyFolder(studyNo);
+		System.out.println(studyfolder);
 
-		/*StudyFolder folder = studyFolderService.selectOneFolder(studyNo);
-		System.out.println(folder);
-		ArrayList<StudyFolder> list = studyFolderService.selectlistFolder(studyNo, folder.getFolderNo());*/
-		/*mv.addObject("folder", folder);
-		mv.addObject("FolderList", list);*/
-		mv.setViewName("study/studyfileShare");
-
+		// 한 폴더의 스터디 파일들 가져옴
+		ArrayList<StudyFile> flist = studyFolderService.selectlistStudyFile(studyNo, studyfolder.getFolderNo());
+		// 최상위 폴더에서 최상위 폴더의 자식 폴더들을 가져옴
+		ArrayList<StudyFolder> folderList = studyFolderService.selectlistStudyFolder(studyNo,
+				studyfolder.getFolderNo());
+		System.out.println(flist);
+		System.out.println(folderList);
+		mv.addObject("folder", studyfolder);
+		mv.addObject("filelist", flist);
+		mv.addObject("folderlist", folderList);
+		mv.setViewName("study/studyfileShareMain");
 		return mv;
 	}
 
 	// 스터디 파일공유페이지 상세보기
-	@RequestMapping("/studyfileShareDetail")
-	public ModelAndView studyfileShareMain(ModelAndView mv, @RequestParam("folderNo") int folderNo, HttpSession session, HttpServletRequest request) {
+	@RequestMapping(value = "/studyfileShareDetail/{folderNo}", method = RequestMethod.GET)
+	public String studyFolderDetail(Model mo, @RequestParam("folderNo") int folderNo, HttpSession session) {
+		StudyFolder studyFolder = studyFolderService.selectOneStudyFolder(folderNo);
 		Student student = (Student) session.getAttribute("loginStudent");
 		int studyNo = student.getStudyNo();
-		System.out.println(studyNo);
 		// 한 폴더의 스터디 파일들 가져옴
-		ArrayList<StudyFile> flist = studyFolderService.selectlistStudyFile(studyNo, folderNo);
+		ArrayList<StudyFile> flist = studyFolderService.selectlistStudyFile(studyNo, studyFolder.getFolderNo());
 		// 최상위 폴더에서 최상위 폴더의 자식 폴더들을 가져옴
-		ArrayList<StudyFolder> folderList = studyFolderService.selectlistStudyFolder(folderNo);
-		System.out.println(flist);
-		System.out.println(folderList);
-		mv.addObject("filelist", flist);
-		mv.addObject("folderlist", folderList);
-		mv.setViewName("study/studyfileShareDetail");
-		return mv;
+		ArrayList<StudyFolder> folderList = studyFolderService.selectlistStudyFolder(studyNo,
+				studyFolder.getFolderNo());
+		mo.addAttribute("studyFolder", studyFolder);
+		mo.addAttribute("filelist", flist);
+		mo.addAttribute("folderlist", folderList);
+		return "study/studyfileShareDetail";
 	}
 
 	@RequestMapping(value = "insertfolder.cunity", method = RequestMethod.POST)
@@ -81,5 +92,21 @@ public class StudyFolderController {
 		gson.toJson(newFolder, response.getWriter());
 
 	}
+
+	// 특정 폴더 삭제하기
+	/*
+	 * @RequestMapping("deleteFolder.cunity") public String deleteStudyFolder(int
+	 * folderNo, Model model, @RequestParam("fileNo") int fileNo, HttpSession
+	 * session, HttpServletRequest request) { Student student = (Student)
+	 * session.getAttribute("loginStudent"); int studyNo = student.getStudyNo(); //
+	 * folderNo 조회 StudyFolder studyfolder =
+	 * studyFolderService.selectOneStudyFolder(folderNo); // studyfilelist 조회
+	 * ArrayList<StudyFile> studyFile =
+	 * studyFolderService.selectlistStudyFile(studyNo, studyfolder.getFolderNo());
+	 * int result = studyFolderService.deleteStudyFolder(folderNo); // DB에 있는 값을 지움
+	 * if (result > 0 ) { if (studyFile !=null) { for (int i = 0; i <
+	 * studyFile.size(); i++) { deleteFile(studyFile.get(i).getUploadFile(),
+	 * request); } } } }
+	 */
 
 }

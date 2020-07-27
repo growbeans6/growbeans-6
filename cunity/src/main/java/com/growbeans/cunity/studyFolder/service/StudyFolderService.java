@@ -43,7 +43,7 @@ public interface StudyFolderService {
 	 * @param folderNo
 	 * @return list
 	 */
-	public ArrayList<StudyFolder> selectlistStudyFolder(int folderNo);
+	public ArrayList<StudyFolder> selectlistStudyFolder(int folderNo, int studyNo);
 
 	/**
 	 * studyFolder 하나를 조회해서 내용을 가져오는 메소드

@@ -42,9 +42,9 @@ public class StudyFolderServiceImpl implements StudyFolderService {
 
 	// 스터디 폴더 리스트 조회
 	@Override
-	public ArrayList<StudyFolder> selectlistStudyFolder(int folderNo) {
+	public ArrayList<StudyFolder> selectlistStudyFolder(int folderNo, int studyNo) {
 		// TODO Auto-generated method stub
-		return studyFolderStore.selectlistStudyFolder(folderNo);
+		return studyFolderStore.selectlistStudyFolder(folderNo, studyNo);
 	}
 
 	// 폴더 넘버 조회해서 하나 가져오기
