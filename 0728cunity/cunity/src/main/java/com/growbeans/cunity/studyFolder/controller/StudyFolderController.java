@@ -49,7 +49,7 @@ public class StudyFolderController {
 		// 한 폴더의 스터디 파일들 가져옴
 	/*	ArrayList<StudyFile> flist = studyFolderService.selectlistStudyFile(studyNo, studyfolder.getFolderNo());*/
 		// 최상위 폴더에서 최상위 폴더의 자식 폴더들을 가져옴
-		ArrayList<StudyFolder> folderList = studyFolderService.selectlistStudyFolder(
+		ArrayList<StudyFolder> folderList = studyFolderService.selectlistStudyFolder(studyNo,
 				studyfolder.getFolderNo());
 		/*System.out.println(flist);*/
 		System.out.println("folderList = " + folderList);
@@ -69,7 +69,7 @@ public class StudyFolderController {
 		// 한 폴더의 스터디 파일들 가져옴
 		ArrayList<StudyFile> flist = studyFolderService.selectlistStudyFile(studyNo, studyFolder.getFolderNo());
 		// 최상위 폴더에서 최상위 폴더의 자식 폴더들을 가져옴
-		ArrayList<StudyFolder> folderList = studyFolderService.selectlistStudyFolder(
+		ArrayList<StudyFolder> folderList = studyFolderService.selectlistStudyFolder(studyNo,
 				studyFolder.getFolderNo());
 		mo.addAttribute("studyFolder", studyFolder);
 		mo.addAttribute("filelist", flist);

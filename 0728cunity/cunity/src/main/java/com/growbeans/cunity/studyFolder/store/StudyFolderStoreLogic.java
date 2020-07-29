@@ -48,9 +48,9 @@ public class StudyFolderStoreLogic {
 	}
 
 	// studyFolder 리스트 조회
-	public ArrayList<StudyFolder> selectlistStudyFolder(int folderNo) {
+	public ArrayList<StudyFolder> selectlistStudyFolder(int folderNo, int studyNo) {
 		StudyFolderMapper studyfolderMapper = sqlsession.getMapper(StudyFolderMapper.class);
-		ArrayList<StudyFolder> list = studyfolderMapper.selectlistStudyFolder(folderNo);
+		ArrayList<StudyFolder> list = studyfolderMapper.selectlistStudyFolder(folderNo, studyNo);
 		return list;
 	}
 

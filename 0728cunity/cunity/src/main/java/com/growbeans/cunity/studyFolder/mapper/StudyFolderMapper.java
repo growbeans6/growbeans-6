@@ -38,7 +38,7 @@ public interface StudyFolderMapper {
 	 */
 	// 스터디 폴더 리스트 조회()
 	// @Param("folderNo")는 부모폴더의 넘버
-	public ArrayList<StudyFolder> selectlistStudyFolder(@Param("folderNo") int folderNo);
+	public ArrayList<StudyFolder> selectlistStudyFolder(@Param("folderNo") int folderNo, @Param("studyNo") int studyNo);
 
 	/**
 	 * 

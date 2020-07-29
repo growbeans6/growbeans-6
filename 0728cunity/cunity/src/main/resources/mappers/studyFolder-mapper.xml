@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="selectlistStudyFolder" resultMap="studyFolderResultSet">
-		select * from study_Folder where parent_Folder_No = #{folderNo}
+		select * from study_Folder where study_No = #{studyNo} and parent_Folder_No = #{folderNo}
 	</select>
 	
 	<select id="selectOneStudyFolder"
